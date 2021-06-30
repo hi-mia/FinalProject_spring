@@ -18,8 +18,16 @@ import member.bean.MemberDTO;
 @RequestMapping(value="/manager")
 public class ManagerController {
 	
-	 @Autowired 
-	 private ManagerService managerService;
+	@Autowired 
+	private ManagerService managerService;
+	
+	@RequestMapping(value="index", method=RequestMethod.GET)
+	public ModelAndView index() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/manager/index");
+		
+		return mav;
+	}
 	
 	@RequestMapping(value="/managerMember", method=RequestMethod.GET)
 	public String loginForm(Model model) {
