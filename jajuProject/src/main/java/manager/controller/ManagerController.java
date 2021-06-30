@@ -122,9 +122,7 @@ public class ManagerController {
 		// mav.addObject("managerPaging", managerPaging);
 		return mav;
 	}
-<<<<<<< HEAD
-=======
-	
+
 //---------------------- 게시판 관리	
 		@RequestMapping(value="/managerFreeboardList", method=RequestMethod.GET)
 		public String managerFreeboardList(Model model) {
@@ -271,6 +269,4 @@ public class ManagerController {
 			
 		}
 
-	
->>>>>>> idleline12
 }

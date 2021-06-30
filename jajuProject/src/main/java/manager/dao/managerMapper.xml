@@ -98,8 +98,6 @@
 	</if> -->
 	
 </select>
-<<<<<<< HEAD
-=======
  
 <!-- 게시판 관리 -->
 <select id="getManagerFreeboardList" resultType="freeboard">
@@ -158,6 +156,5 @@
 		from freeboard) 
 		where board_seq=#{board_seq}
 	</select>	 
- 
->>>>>>> idleline12
+
  </mapper>

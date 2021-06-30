@@ -38,7 +38,6 @@ public class ManagerServiceImpl implements ManagerService {
 		return managerDAO.getManagerMember(map);
 	}
 
-<<<<<<< HEAD
 	//삭제
 	@Override
 	public void deleteMemberId(String[] check) {
@@ -79,7 +78,8 @@ public class ManagerServiceImpl implements ManagerService {
 		map.put("endNum",endNum+"");
 		
 		return managerDAO.getManagerMemberBlack(map);
-=======
+	}
+		
 	@Override
 	public List<FreeboardDTO> getManagerFreeboardList(String pg) {
 		//1페이지당 10개씩
@@ -156,7 +156,7 @@ public class ManagerServiceImpl implements ManagerService {
 	@Override
 	public void managerCommentDelete(FreeboardCommentDTO freeboardCommentDTO) {
 		managerDAO.managerCommentDelete(freeboardCommentDTO);
->>>>>>> idleline12
+
 	}
 
 }
