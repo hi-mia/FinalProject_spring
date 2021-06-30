@@ -18,15 +18,10 @@ public class MemberServiceImpl implements MemberService {
 	private HttpSession session;
 
 	@Override
-	public String login(Map<String, String> map) {
+	public MemberDTO login(Map<String, String> map) {
 		MemberDTO memberDTO = memberDAO.login(map);
 		
-		if(memberDTO == null) {
-			return "fail";
-		}else {
-			session.setAttribute("memId", memberDTO.getMember_id());
-			return "success";
-		}
+		return memberDTO;
 	}
 
 	@Override

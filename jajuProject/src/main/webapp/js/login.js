@@ -68,9 +68,11 @@ $('#loginBtn').click(function(){
 			data: $('#form').serialize(),
 			dataType: 'text',
 			success: function(data){
-				if(data == 'success'){
-					location.href="/jaju/";
-				}else{
+				if(data == 'jajuadmin'){
+					location.href="/jaju/manager/index";
+				}else if(data != ''){
+					location.href="/jaju/"
+				}else {
 					alert('아이디 또는 비밀번호를 확인해주세요')
 				}
 			},

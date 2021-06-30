@@ -31,12 +31,12 @@
 				</c:if>
 
 				<c:if test="${memId != null}">
-					<li class="sign_up_item"><a href="/jaju/">마이페이지</a></li>
-					<li class="sign_in_item"><a href="/jaju/member/logout">로그아웃</a>
+					<li class="sign_up_item"><a href="/jaju/mypage/myKeywordForm">마이페이지</a></li>
+					<li class="sign_in_item"><a href="javascript: logout()">로그아웃</a>
 					</li>
 				</c:if>
 
-				<li class="map_item"><a href="#">지도</a></li>
+				<li class="map_item"><a href="/jaju/mypage/myLocationForm">지도</a></li>
 
 
 				<li class="service_center_item">
@@ -49,9 +49,9 @@
 
 						<li><a href="/jaju/serviceCenter/questionList">자주하는 질문</a></li>
 
-						<li><a href="/jaju/serviceCenter/iquireList">1:1 문의</a></li>
+						<li><a href="/jaju/serviceCenter/inquireList">1:1 문의</a></li>
 						<c:if test="${memId != null}">
-						<li><a href="/jaju/mypage/mypageMain">마이페이지</a></li>
+						<li><a href="/jaju/mypage/myKeywordForm">마이페이지</a></li>
 						</c:if>
 					</ul>
 				</li>
@@ -151,7 +151,12 @@
 
 	<script type="text/javascript"
 		src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script type="text/javascript">
+	   Kakao.init('eb076581cabcf4b94c737d45185362db');
+	   Kakao.isInitialized();
+	</script>
+	<script type="text/javascript" src="/jaju/js/main.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			//전체 카테고리 hover event

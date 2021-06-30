@@ -39,13 +39,15 @@ public class MemberController {
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	@ResponseBody
 	public String login(@RequestParam Map<String, String> map, HttpSession session, Model model) {
-		String result = memberService.login(map);
+		MemberDTO memberDTO = memberService.login(map);
 		
-		if(result.equals("success")) {
+		if(memberDTO != null) {
+			session.setAttribute("memId", memberDTO.getMember_id());
 			model.addAttribute("memId", session.getAttribute("memId"));
 		}
 		
-		return result;
+		
+		return memberDTO.getMember_id();
 	}
 	
 	@RequestMapping(value="/logout", method=RequestMethod.POST)
