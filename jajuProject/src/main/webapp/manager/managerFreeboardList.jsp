@@ -13,23 +13,23 @@
          <h3 class="cont_tit">
             <span class="tit_menu">자유게시판 관리</span>
          </h3>
-         <form name = "managerFreeboardSearchList" id="managerFreeboardSearchList">
-         <div class="box_search">
-            <div class="select_admin">
-               <select id="search-mode" fixedsize="100" title="검색 조건 선택" class="selectbox_styled">
-                  <option value="board_subject">제목</option>
-                  <option value="board_content">내용</option>
-                  <option value="board_id">작성자</option>
-               </select>
-               <a id="search-mode_img" class="img_selectbox" tabindex="0" style="width: 70px;">제목</a>
-            </div>
-            <div class="search_input">
-               <input id="search-text" maxlength="20" size="25" class="tf_search textbox_default" title="검색어">
-               <button type="button" class="btn_admin btn_search button-search">
-                  <span class="ico_admin">검색</span>
-               </button>
-            </div>
-         </div>
+         <form name = "managerFreeboardSearchList" id="managerFreeboardSearchList" method="post">
+		<div class="box_search">
+			<div class="select_admin" style="font-size: 14px;">
+			<select name="searchOption" id="searchOption">
+				<option value=board_subject>&nbsp;&nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				<option value="board_content">&nbsp;&nbsp;&nbsp;&nbsp;내용&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				<option value="board_id">&nbsp;&nbsp;&nbsp;&nbsp;작성자&nbsp;&nbsp;&nbsp;&nbsp;</option>
+			</select>
+			</div>
+			
+			<div class="search_input">
+				<input type="text" id="keyword" name="keyword" maxlength="20" size="25" class="tf_search textbox_default" title="검색어">
+				<button type="button" id="managerBoardSearchBtn" class="btn_admin btn_search button-search">
+					<span class="ico_admin">검색</span>
+				</button>
+			</div>
+		</div>
          <input type="hidden" name="pg" id="pg" value="${param.pg }">
          <input type="hidden" name="searchPg" id="searchPg" value="1">   
          </form>
@@ -49,7 +49,7 @@
             </div>
          </div>
          <div class="bundle_set">
-            <button type="button" class="btn_admin btn_type2 button-delete-article">
+            <button type="button" id="choiceDeleteBtn" class="btn_admin btn_type2 button-delete-article">
                <span class="ico_admin ico_del"></span>
                <span class="txt_btn">삭제</span>
             </button>
@@ -57,6 +57,7 @@
       </div>
 
       <div id="admin_listview">
+<form name="managerFreeboardListDelete" id="managerFreeboardListDelete" method="post">
          <table id="managerFreeboardTable" class="tbl_admin" summary="게시글 목록입니다. 제목, 글쓴이, 작성일, 조회수를 제공합니다.">
             <caption class="ir_caption">게시글 관리 목록</caption>
             <colgroup>
@@ -69,7 +70,7 @@
             </colgroup>
             <thead>
             <tr>
-               <th scope="col" class=""><input type="checkbox"></th>
+               <th scope="col" class=""><input type="checkbox" id="all"></th>
                <th scope="col" class="board_seq">글번호</th>
                <th scope="col" class="board_subject">제목</th>
                <th scope="col" class="board_id">글쓴이</th>
@@ -80,8 +81,8 @@
             <tbody id="article-list">
 </tbody>
          </table>
+</form>      
       </div>
-      
 
 
 <!-- 페이징 -->
@@ -95,6 +96,27 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/manager_js/managerFreeboardList.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$('#managerFreeboard').addClass('on');
+});
 
+
+function freeboardPaging(pg){
+	var boardSearchText = document.getElementById('keyword').value;
+	
+	if(boardSearchText == ''){
+		location.href = '/jaju/freeboard/freeboardList?pg='+pg;
+	} else{
+		$('#searchPg').val(pg);
+		$('#managerBoardSearchBtn').trigger('click');
+		//location.href = 'boardSearch?pg='+pg+'&select='+$('#select option:selected').val() +'&keyword='+$('#keyword').val();
+		//encodeURIComponent('${keyword}');
+		$('#searchPg').val(1);
+	}	 	
+}
+
+</script>
 </body>
 </html>

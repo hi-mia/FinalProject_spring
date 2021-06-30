@@ -3,6 +3,8 @@ package manager.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -162,8 +164,7 @@ public class ManagerController {
 		public String managerFreeboardView(@RequestParam int board_seq,
 											Model model) { //나에게 들어오는 데이터: seq, pg
 			//						HttpSession session,
-					
-					
+										
 			//ID 세션 가져오기
 			//String memId = (String) session.getAttribute("memId");
 			//model.addAttribute("memId", memId);
@@ -244,7 +245,30 @@ public class ManagerController {
 
 		
 		
-	//검색
+		//검색
+		@RequestMapping(value="getManagerFreeboardSearchList", method=RequestMethod.POST)
+		@ResponseBody
+		public ModelAndView getManagerFreeboardSearchList(@RequestParam Map<String, String> map) {
+												//HttpSession session
+					
+			//System.out.println(map.get("searchPg"));
+			//1페이지당 5개씩
+			List<FreeboardDTO> list = managerService.getManagerFreeboardSearchList(map);
+					
+			//세션
+			//String memId = (String) session.getAttribute("memId");
+			
+			//페이징 처리
+			FreeboardPaging freeboardPaging = managerService.freeboardPaging(map);
+					
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("pg", map.get("pg"));
+			mav.addObject("list", list);
+			mav.addObject("freeboardPaging", freeboardPaging);
+			mav.setViewName("jsonView");
+			return mav;
+					
+		}
 		
 	//삭제- 게시물
 		@RequestMapping(value="managerFreeboardDelete", method=RequestMethod.POST)
@@ -254,6 +278,16 @@ public class ManagerController {
 			managerService.managerFreeboardDelete(board_seq);
 			
 			return new ModelAndView("redirect:/manager/managerFreeboardList");
+		}
+		
+	//삭제 - 리스트
+		@RequestMapping(value="managerFreeboardListDelete", method=RequestMethod.POST)
+		public ModelAndView managerFreeboardListDelete(String[] check) {
+	
+			//System.out.println(check);
+			managerService.managerFreeboardListDelete(check);
+			
+			return new ModelAndView("redirect:/manager/managerFreeboardList?pg=1");
 		}
 		
 	
@@ -268,5 +302,7 @@ public class ManagerController {
 			managerService.managerCommentDelete(freeboardCommentDTO);
 			
 		}
+		
+		
 
 }

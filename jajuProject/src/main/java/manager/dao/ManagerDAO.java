@@ -39,4 +39,10 @@ public interface ManagerDAO {
 
 	public void managerCommentDelete(FreeboardCommentDTO freeboardCommentDTO);
 
+	public int getSearchTotal(Map<String, String> map);
+
+	public List<FreeboardDTO> getManagerFreeboardSearchList(Map<String, String> map);
+
+	public void managerFreeboardListDelete(Map<String, String[]> map);
+
 }

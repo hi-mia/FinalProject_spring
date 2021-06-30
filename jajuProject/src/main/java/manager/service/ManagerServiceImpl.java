@@ -159,4 +159,36 @@ public class ManagerServiceImpl implements ManagerService {
 
 	}
 
+	@Override
+	public FreeboardPaging freeboardPaging(Map<String, String> map) {
+		int totalA = managerDAO.getSearchTotal(map); //검색한 총 글수
+		
+		freeboardPaging.setCurrentPage(Integer.parseInt(map.get("pg"))); //현재 페이지
+		freeboardPaging.setPageBlock(5);
+		freeboardPaging.setPageSize(10);
+		freeboardPaging.setTotalA(totalA);
+		freeboardPaging.makePagingHTML();
+		
+		return freeboardPaging;
+	}
+
+	@Override
+	public List<FreeboardDTO> getManagerFreeboardSearchList(Map<String, String> map) {
+		int endNum = Integer.parseInt(map.get("searchPg"))*10; //map에서 pg를 꺼냄
+		int startNum = endNum - 9;
+		
+		map.put("startNum", startNum+"");
+		map.put("endNum", endNum+"");
+		
+		return managerDAO.getManagerFreeboardSearchList(map);
+	}
+
+	@Override
+	public void managerFreeboardListDelete(String[] check) {
+		Map<String, String[]> map = new HashMap<String, String[]>();
+		map.put("array", check);
+		
+		managerDAO.managerFreeboardListDelete(map);
+	}
+
 }

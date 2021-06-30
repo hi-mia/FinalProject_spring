@@ -21,7 +21,6 @@ public interface ManagerService {
 
 	public List<MemberDTO> getManagerMemberBlack(Map<String, String> map);
 
-
 	public List<FreeboardDTO> getManagerFreeboardList(String pg);
 
 	public FreeboardPaging managerfreeboardPaging(String pg);
@@ -39,6 +38,12 @@ public interface ManagerService {
 	public void managerFreeboardDelete(int board_seq);
 
 	public void managerCommentDelete(FreeboardCommentDTO freeboardCommentDTO);
+
+	public FreeboardPaging freeboardPaging(Map<String, String> map);
+
+	public List<FreeboardDTO> getManagerFreeboardSearchList(Map<String, String> map);
+
+	public void managerFreeboardListDelete(String[] check);
 
 
 	

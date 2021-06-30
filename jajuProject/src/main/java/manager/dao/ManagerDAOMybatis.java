@@ -85,16 +85,26 @@ public class ManagerDAOMybatis implements ManagerDAO{
 		return sqlSession.selectOne("managerSQL.getPage", board_seq);
 	}
 
-
 	@Override
 	public void managerFreeboardDelete(int board_seq) {
 		sqlSession.delete("managerSQL.managerFreeboardDelete", board_seq);
 	}
 
-
 	@Override
 	public void managerCommentDelete(FreeboardCommentDTO freeboardCommentDTO) {
 		sqlSession.delete("managerSQL.managerCommentDelete", freeboardCommentDTO);
+	}
+	@Override
+	public int getSearchTotal(Map<String, String> map) {
+		return sqlSession.selectOne("managerSQL.getSearchTotal",map);
+	}
+	@Override
+	public List<FreeboardDTO> getManagerFreeboardSearchList(Map<String, String> map) {
+		return sqlSession.selectList("managerSQL.getManagerFreeboardSearchList", map);
+	}
+	@Override
+	public void managerFreeboardListDelete(Map<String, String[]> map) {
+		sqlSession.delete("managerSQL.managerFreeboardListDelete", map);
 	}
 	
 }

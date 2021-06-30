@@ -89,8 +89,6 @@ $(document).ready(function(){
 <script type="text/javascript">
 //전체 선택 또는 해제
 $('#all').click(function(){
-	//alert($('#all').attr('checked')); // - checked 속성이 없어서 undefind으로 나온다.
-	//alert($('#all').prop('checked')); //true 또는 false
 	
 	if($('#all').prop('checked')){
 		$('input[name=check]').prop('checked', true);

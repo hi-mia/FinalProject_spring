@@ -120,6 +120,14 @@
  	delete freeboard where board_seq=#{board_seq}
 </delete>
 
+<!-- 글 체크박스 삭제 -->
+<delete id="managerFreeboardListDelete" parameterType="java.util.Map">
+    delete freeboard where board_seq in 
+	<foreach collection="array" item="data" open="(" close=")" separator=",">
+	    #{data}        
+	</foreach>
+</delete>
+   
 <!-- 댓글 불러오기 -->
 	<select id="getManagerFreeboardComment" parameterType="java.util.Map" resultType="freeboardComment">
 		select * from (
@@ -156,5 +164,20 @@
 		from freeboard) 
 		where board_seq=#{board_seq}
 	</select>	 
+
+<!-- 검색 -->
+<select id="getManagerFreeboardSearchList" parameterType="java.util.Map" resultType="freeboard">
+	<![CDATA[
+		select * from 
+		(select rownum rn, tt. * from 
+	 	(select * from freeboard where ${searchOption} like '%'||#{keyword}||'%' order by logtime desc)tt) 
+	 	where rn >= ${startNum} and rn <= ${endNum}
+	]]>
+</select>
+
+<!-- 검색한 총글수 -->
+<select id="getSearchTotal" parameterType="java.util.Map" resultType="int">
+	select count(*) as count from freeboard where ${searchOption} like '%'||#{keyword}||'%'
+</select>
 
  </mapper>
