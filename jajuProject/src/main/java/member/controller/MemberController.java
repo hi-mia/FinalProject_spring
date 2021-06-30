@@ -91,8 +91,14 @@ public class MemberController {
 	
 	@RequestMapping(value="/write", method=RequestMethod.POST)
 	@ResponseBody
-	public void write(@ModelAttribute MemberDTO memberDTO) {
-		memberService.write(memberDTO);
+	public String write(@ModelAttribute MemberDTO memberDTO) {
+		String result = memberService.isBlackList(memberDTO.getMember_email());
+		
+		if(result.equals("non_blackList")) {
+			memberService.write(memberDTO);
+		}
+		
+		return result;
 	}
 	
 	@RequestMapping(value="/kakao_login", method=RequestMethod.POST)
