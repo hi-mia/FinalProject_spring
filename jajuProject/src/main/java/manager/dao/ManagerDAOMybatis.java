@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import freeboard.bean.FreeboardDTO;
 import member.bean.MemberDTO;
 
 @Transactional
@@ -25,5 +26,19 @@ public class ManagerDAOMybatis implements ManagerDAO{
 		return sqlSession.selectList("managerSQL.getManagerMember",map);
 
 	}
+
+
+	@Override
+	public List<FreeboardDTO> getManagerFreeboardList(Map<String, String> map) {
+		return sqlSession.selectList("managerSQL.getManagerFreeboardList", map);
+	}
+
+
+	@Override
+	public int getTotalA() {
+		return sqlSession.selectOne("managerSQL.getTotalA");
+	}
+	
+
 
 }

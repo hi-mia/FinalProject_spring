@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import freeboard.bean.FreeboardDTO;
+import freeboard.bean.FreeboardPaging;
 import manager.service.ManagerService;
 import member.bean.MemberDTO;
 
@@ -43,5 +45,40 @@ public class ManagerController {
 		
 	}
 	
+	//---------------------- 게시판 관리	
+		@RequestMapping(value="/managerFreeboardList", method=RequestMethod.GET)
+		public String managerFreeboardList(Model model) {
+			model.addAttribute("display", "/manager/managerFreeboardList.jsp");
+			return "/index";
+		}
+		
+		@RequestMapping(value="/getManagerFreeboardList", method=RequestMethod.POST)
+		@ResponseBody
+		public ModelAndView getManagerFreeboardList(@RequestParam(required=false, defaultValue="1") String pg
+													//HttpSession session,
+													//HttpServletResponse response
+				) {
+			
+			//1페이지당 
+			List<FreeboardDTO> list = managerService.getManagerFreeboardList(pg);
+			
+			//세션
+			//String memId = (String) session.getAttribute("memId");
+			
+			//페이징 처리
+			FreeboardPaging freeboardPaging = managerService.managerfreeboardPaging(pg);
+			
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("pg", pg);
+			mav.addObject("list", list);
+			//mav.addObject("memId", memId);
+			mav.addObject("freeboardPaging", freeboardPaging);
+			
+			mav.setViewName("jsonView");
+			return mav;
+			
+		}
+		
+
 	
 }
