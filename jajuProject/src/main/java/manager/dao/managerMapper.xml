@@ -3,12 +3,99 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="managerSQL">
- 
+
+<!-- selectList - 모든 회원 리스트 가져오기 -->
 <select id="getManagerMember" parameterType="java.util.Map" resultType="member">
-	select * from 
-	(select rownum rn, tt.* from
-	(select * from jajumember order by member_date desc)tt)
-	where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+	
+	<if test='sortinSelect == "member_date_desc" '>
+		select * from 
+		(select rownum rn, tt.* from
+		(select * from jajumember order by member_date desc)tt)
+		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+	</if>
+	
+	<if test='sortinSelect == "member_date_asc" '>
+		select * from 
+		(select rownum rn, tt.* from
+		(select * from jajumember order by member_date asc)tt)
+		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+	</if>
+	
+	<if test='sortinSelect == "member_manner_desc" '>
+		select * from 
+		(select rownum rn, tt.* from
+		(select * from jajumember order by member_manner desc)tt)
+		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+	</if>
+	
+	<!-- <if test='sortinSelect == "sale_count_high" '>
+		select * from 
+		(select rownum rn, tt.* from
+		(select count(*) from sale_board order by member_manner desc)tt)
+		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+	</if>-->
+
 </select>
- 
+
+
+<delete id="managerMemberForm" parameterType="java.util.Map" >
+	delete from jajumember where member_id in 
+	<foreach collection="array" item="data" open="(" close=")" separator=",">
+		#{data}
+	<!-- ${array[i]} -->
+	</foreach>
+</delete>
+
+<!-- 선택한 회원 활동중지, 상태 0->1으로 변경  -->
+<update id="changeMemberState" parameterType="java.util.Map" >
+	update jajumember set member_state='1' where member_id in
+	<foreach collection="array" item="data" open="(" close=")" separator=",">
+		#{data}
+	<!-- ${array[i]} -->
+	</foreach>
+</update>
+
+<!-- 검색 결과 가져오기. 닉네임, 이메일,  -->
+<select id="getSearchMemberInfo" parameterType="java.util.Map" resultType="member">
+	
+	<if test='searchMode == "member_id" '>
+		select * from 
+		(select rownum rn, tt.* from
+		(select * from jajumember where member_id like '%'||#{search-text}||'%' order by member_date desc)tt)
+		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+	</if>
+	
+	<if test='searchMode == "member_email"'>
+		select * from 
+		(select rownum rn, tt.* from
+		(select * from jajumember where member_email like '%'||#{search-text}||'%' order by member_date asc)tt)
+		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+	</if>
+	
+	<if test='searchMode == "member_id_email"'>
+		select * from 
+		(select rownum rn, tt.* from
+		(select * from jajumember where member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%' order by member_date desc)tt)
+		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+	</if>
+</select>
+
+<!-- 블랙리스트(활동중지 회원) 불러오기 -->
+<select id="getManagerMemberBlack" parameterType="java.util.Map" resultType="member">
+	
+	<if test='sortinSelect == "break_member" '>
+		select * from 
+		(select rownum rn, tt.* from
+		(select * from jajumember where member_state='1' order by member_date desc)tt)
+		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+	</if>
+	
+<!-- 	<if test='sortinSelect == "delete_member"'>
+		select * from 
+		(select rownum rn, tt.* from
+		(select * from jajumember where member_state='2' order by member_date desc)tt)
+		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+	</if> -->
+	
+</select>
  </mapper>

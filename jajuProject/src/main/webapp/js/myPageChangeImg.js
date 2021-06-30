@@ -50,7 +50,6 @@ function readURL(input) {
    
 //만약 
 $('#update_btn').click(function(){
-   
    var formData= new FormData($('#myPageChangeImgForm')[0]);
    //forms 객체 생성. [0]번째 form 안에 있는 내용 넘기기
    //alert(formData);

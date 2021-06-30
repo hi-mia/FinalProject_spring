@@ -15,10 +15,10 @@
 			</h3>
 			<div class="box_search">
 				<div class="select_admin" style="font-size: 14px;">
-				<select id="itemcd" name="itemcd">
-					<option value="managerService">&nbsp;&nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;</option>
-					<option value="managerService">&nbsp;&nbsp;&nbsp;&nbsp;작성자&nbsp;&nbsp;&nbsp;&nbsp;</option>
-				</select>
+					<select id="itemcd" name="itemcd">
+						<option value="managerService">&nbsp;&nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;</option>
+						<option value="managerService">&nbsp;&nbsp;&nbsp;&nbsp;작성자&nbsp;&nbsp;&nbsp;&nbsp;</option>
+					</select>
 				</div>
 				<div class="search_input">
 					<input id="search-text" maxlength="20" size="25" class="tf_search textbox_default" title="검색어">

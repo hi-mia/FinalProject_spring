@@ -85,7 +85,7 @@ body#cafeAdmin #wrap {
     background-color: #fff;
 }
 .checkradio_styled, .selectbox_styled {
-    display: none;
+    /*display: none;*/
 }
 .tab_nav .link_tab {
     display: block;
@@ -498,6 +498,20 @@ option {
     font-size: 14px;
     line-height: 28px;
     color: #000;
+}
+.img_selectbox_press {
+    text-indent: 11px;
+}
+.img_selectbox_press {
+    height: 32px;
+    line-height: 30px;
+    text-align: left;
+}
+.img_selectbox {
+    background-position: 100% 13px;
+}
+.img_selectbox {
+    background: url(//t1.daumcdn.net/cafe_image/cf_img3/admin_2018/arr_open_180116-2.gif) no-repeat 100% 14px;
 }
 .set_list .btn_admin, .set_list .img_selectbox, .set_list .img_selectbox_press {
   /*   float: left; */
