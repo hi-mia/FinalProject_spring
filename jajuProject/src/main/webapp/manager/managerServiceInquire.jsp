@@ -10,6 +10,7 @@
 <div class="total" style="display:flex; justify-content: center;">
 <jsp:include page="/manager/managerMenu.jsp"/>
 <div id="content" class="cont_post post_spam">
+<input type = "hidden" name = "pg" id = "pg" value="${pg }">
 	<div class="wrap_tit">
 		<h3 class="cont_tit">
 			<span class="tit_menu">1:1 문의 관리</span>
@@ -94,7 +95,7 @@
 </div>
 </body>
 <script type = "text/javascript" src = "http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/jaju/manager_js/managerServiceNotice.js"></script>
+<script src="/jaju/manager_js/managerServiceInquire.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	

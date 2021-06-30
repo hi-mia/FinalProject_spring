@@ -793,7 +793,7 @@ public class MypageController {
 		// ID 세션 가져오기
 		String memId = (String) session.getAttribute("memId");
 		
-		String filePath = "E:\\Spring\\workspace\\JajuProject\\src\\main\\webapp\\storage";
+		String filePath = "C:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 		String fileName = member_image.getOriginalFilename();
 		File file = new File(filePath, fileName);// tmp라는 임시파일로 올라온 파일을 진짜 생성해준다 //파일 복사 input, output생성 후 예외 처리
 		

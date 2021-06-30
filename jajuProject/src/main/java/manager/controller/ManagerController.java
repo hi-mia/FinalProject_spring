@@ -35,6 +35,12 @@ public class ManagerController {
 		return "/index";
 	}
 	
+	@RequestMapping(value="/managerServiceInquire", method=RequestMethod.GET)
+	public String managerServiceInquire(Model model) {
+		model.addAttribute("display", "/manager/managerServiceInquire.jsp");
+		return "/index";
+	}
+	
 	@RequestMapping(value="/getManagerMember",method=RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView getManagerMember(@RequestParam(required = false, defaultValue = "1") String pg) {

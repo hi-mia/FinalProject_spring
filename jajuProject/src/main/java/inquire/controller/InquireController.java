@@ -55,7 +55,7 @@ public class InquireController {
 		
 		int i = 0;
 		for(MultipartFile img: list) {
-			filePath = "D:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
+			filePath = "C:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 			fileName = img.getOriginalFilename();
 			file = new File(filePath,fileName);
 			
