@@ -159,3 +159,21 @@ $('#saleboardModifyBtn').click(function(){
 	});
 	}
 });
+
+$('#sale_state').change(function(){
+	//if($('#sale_state').val() == '판매완료'){
+		$('.saleboardModifyTr').after($('<tr/>',{
+			
+		}).append($('<td/>',{
+			text: '구매자 선택'
+		})).append($('<td/>',{
+			text : '대충 구매자들'
+		})))
+	//}
+});
+
+
+
+
+
+

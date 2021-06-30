@@ -35,7 +35,7 @@
 
 					<tbody>
 
-						<tr>
+						<tr class="saleboardModifyTr">
 							<th class="saleboardModifyTd">제목</th>
 							<td>
 								<div class="sale_subject" id="sale_subject"></div>
