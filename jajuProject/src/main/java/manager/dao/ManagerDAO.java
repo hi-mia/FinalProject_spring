@@ -25,4 +25,8 @@ public interface ManagerDAO {
 	public int getCommentTotal2(int board_seq);
 
 	public FreeboardDTO getPage(int board_seq);
+
+	public void managerFreeboardDelete(int board_seq);
+
+	public void managerCommentDelete(FreeboardCommentDTO freeboardCommentDTO);
 }

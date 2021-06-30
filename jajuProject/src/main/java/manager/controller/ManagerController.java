@@ -172,9 +172,27 @@ public class ManagerController {
 	//검색
 		
 	//삭제- 게시물
+		@RequestMapping(value="managerFreeboardDelete", method=RequestMethod.POST)
+		@ResponseBody
+		public ModelAndView managerFreeboardDelete(@RequestParam int board_seq) {
 	
-		//삭제-댓글
+			managerService.managerFreeboardDelete(board_seq);
+			
+			return new ModelAndView("redirect:/manager/managerFreeboardList");
+		}
+		
 	
+	//삭제-댓글
+		@RequestMapping(value="managerCommentDelete", method=RequestMethod.POST)
+		@ResponseBody
+		public void managerCommentDelete(@RequestParam String comment_seq) {
+			
+			
+			FreeboardCommentDTO freeboardCommentDTO = managerService.getManagerFreeboardCommentOne(comment_seq);
+			
+			managerService.managerCommentDelete(freeboardCommentDTO);
+			
+		}
 
 	
 }

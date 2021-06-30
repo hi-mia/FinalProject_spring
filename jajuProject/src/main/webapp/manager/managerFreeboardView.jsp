@@ -90,7 +90,7 @@
 		
 		<tr>
 		<td align="right">
-		<span class="bhs_button yb" style="float:none; cursor:pointer; " id="freeboardDeleteBtn">삭제</span>
+		<span class="bhs_button yb" style="float:none; cursor:pointer; " id="managerFreeboardDeleteBtn">삭제</span>
 		</td>
 		</tr>
 		
@@ -122,9 +122,6 @@
          width="1050" id="commentWriteTable">
          <tr >
             <td height="80" width="150" align="center">댓글: &nbsp; <span id="replySpan"></span>
-               <input type="text" placeholder="댓글을 입력하세요." size="100" id="commentText" class="commentInput">
-               &nbsp;&nbsp;
-               <input type="button" value="댓글 입력" class="commentInput" id="commentInputBtn" size="200" >
             </td>
          </tr>
       </table>

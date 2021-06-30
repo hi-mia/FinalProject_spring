@@ -27,6 +27,10 @@ public interface ManagerService {
 
 	public FreeboardDTO getPage(int board_seq);
 
+	public void managerFreeboardDelete(int board_seq);
+
+	public void managerCommentDelete(FreeboardCommentDTO freeboardCommentDTO);
+
 
 	
 }

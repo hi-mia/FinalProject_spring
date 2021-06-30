@@ -98,34 +98,6 @@ $(function(){
 			
 			$('#pagingDiv').html(data.freeboardCommentPaging.pagingHTML);
 			
-			$(document).on('click', '#subjectA', function(){
-					
-					$('#reCommentTr').remove();
-					$('#reCommentModifyTr').remove();
-				
-					$(this).parent().parent().after($('<tr/>',{
-						id: 'reCommentTr'
-					}).append($('<td/>',{
-						style: 'background-color: #f5f5f5;'
-					})).append($('<td/>',{
-						colspan: 3,
-						text: 're: ',
-						style: 'background-color: #f5f5f5; text-align: left;'
-					}).append($('<input/>',{
-						type: 'text',
-						id: 'reCommentText',
-						width: '55%'
-					})).append($('<input/>',{
-						type: 'button',
-						id: 'reCommentBtn',
-						value: '   답글달기'
-					}))
-					));
-					
-			});
-			
-			
-			
 		},error: function(err){
 			alert("댓글 불러오기 에러");
 			console.log(err);
@@ -135,28 +107,28 @@ $(function(){
 });
 
 //댓글 삭제 
-//$(document).on('click', '#commentDeleteBtn', function(){
-//	var comment_seq = $(this).parent().parent().find('td:first').text();
-//	//alert(comment_seq);
-//	
-//	if(confirm('정말 삭제하시겠습니까?')){
-//		$.ajax({
-//			type: 'post',
-//			url: '/jaju/freeboard/commentDelete',
-//			data: {'comment_seq': comment_seq},
-//			success: function(data){
-//				
-//				location.href='/jaju/freeboard/freeboardView?board_seq='+$('#board_seq').val()+'&pg=1';
-//				
-//			},error: function(err){
-//				alert("댓글 삭제 에러");
-//				console.log(err);
-//			}
-//		});
-//	}
-//	
-//	
-//});
+$(document).on('click', '#commentDeleteBtn', function(){
+	var comment_seq = $(this).parent().parent().find('td:first').text();
+	//alert(comment_seq);
+	
+	if(confirm('정말 삭제하시겠습니까?')){
+		$.ajax({
+			type: 'post',
+			url: '/jaju/manager/managerCommentDelete',
+			data: {'comment_seq': comment_seq},
+			success: function(data){
+				
+				location.href='/jaju/manager/managerFreeboardView?board_seq='+$('#board_seq').val()+'&pg=1';
+				
+			},error: function(err){
+				alert("댓글 삭제 에러");
+				console.log(err);
+			}
+		});
+	}
+	
+	
+});
 
 //이전글, 다음글
 $(function(){

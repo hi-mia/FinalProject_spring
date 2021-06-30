@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import freeboard.bean.FreeboardCommentDTO;
-import freeboard.bean.FreeboardCommentPaging;
 import freeboard.bean.FreeboardDTO;
 import member.bean.MemberDTO;
 
@@ -67,6 +66,18 @@ public class ManagerDAOMybatis implements ManagerDAO{
 	@Override
 	public FreeboardDTO getPage(int board_seq) {
 		return sqlSession.selectOne("managerSQL.getPage", board_seq);
+	}
+
+
+	@Override
+	public void managerFreeboardDelete(int board_seq) {
+		sqlSession.delete("managerSQL.managerFreeboardDelete", board_seq);
+	}
+
+
+	@Override
+	public void managerCommentDelete(FreeboardCommentDTO freeboardCommentDTO) {
+		sqlSession.delete("managerSQL.managerCommentDelete", freeboardCommentDTO);
 	}
 	
 }

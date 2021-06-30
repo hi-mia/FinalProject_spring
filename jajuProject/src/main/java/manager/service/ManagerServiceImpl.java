@@ -107,4 +107,14 @@ public class ManagerServiceImpl implements ManagerService {
 		return managerDAO.getPage(board_seq);
 	}
 
+	@Override
+	public void managerFreeboardDelete(int board_seq) {
+		managerDAO.managerFreeboardDelete(board_seq);
+	}
+
+	@Override
+	public void managerCommentDelete(FreeboardCommentDTO freeboardCommentDTO) {
+		managerDAO.managerCommentDelete(freeboardCommentDTO);
+	}
+
 }
