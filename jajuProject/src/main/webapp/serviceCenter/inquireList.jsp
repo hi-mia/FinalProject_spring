@@ -8,6 +8,8 @@
 <div style="width: 1050px; margin: auto;" >
 <jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 <input type = "hidden" name="pg" id = "pg" value = "${param.pg }">
+<input type = "hidden" name="inquiry_id" id = "inquiry_id" value = "${sessionScope.memId }">
+<input type = "hidden" name = "inquiry_seq" id = "inquiry_seq" value = "${inquiry_seq }">
 <div id="total">
 	<div class="page_section section_qna">
 		<div class="head_aticle">

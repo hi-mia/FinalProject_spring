@@ -24,7 +24,7 @@ public class InquireDAOMybatis implements InquireDAO {
 	}
 
 	@Override
-	public List<InquireDTO> getInquireList(Map<String, Integer> map) {
+	public List<InquireDTO> getInquireList(Map<String, String> map) {
 		return sqlSession.selectList("inquireSQL.getInquireList", map);
 	}
 
@@ -47,6 +47,10 @@ public class InquireDAOMybatis implements InquireDAO {
 	@Override
 	public int getTotalA() {
 		return sqlSession.selectOne("inquireSQL.getTotalA");
+	}
+	@Override
+	public int getIdTotalA(String inquiry_id) {
+		return sqlSession.selectOne("memberreportSQL.getIdTotalA", inquiry_id);
 	}
 
 	@Override

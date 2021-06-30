@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -94,17 +95,24 @@ public class InquireController {
 	//1:1문의 목록
 	@RequestMapping(value = "getInquireList", method=RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView getInquireList(@RequestParam(required=false, defaultValue="1") String pg) {
-		
+	public ModelAndView getInquireList(@RequestParam(required=false, defaultValue="1") String pg,
+									   @RequestParam String inquiry_id,
+									   HttpSession session) {
+		//세션
+		String memId = (String) session.getAttribute("memId");
+				
 		//1페이지당 3개
-		List<InquireDTO>list = inquireService.getInquireList(pg);
+		List<InquireDTO>list = inquireService.getInquireList(pg, inquiry_id);
 		
 		//페이징 처리
-		InquirePaging inquirePaging = inquireService.inquirePaging(pg);
+		InquirePaging inquirePaging = inquireService.inquirePaging(pg, inquiry_id);
 		list.size();
+		
+		System.out.println(list);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg",pg);
 		mav.addObject("list", list);
+		mav.addObject("inquiry_id", inquiry_id);
 		mav.addObject("inquirePaging", inquirePaging);
 		mav.setViewName("jsonView");
 		return mav;

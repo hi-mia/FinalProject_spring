@@ -12,7 +12,7 @@ public interface InquireService {
 
 	public void inquireWrite(InquireDTO inquireDTO);
 
-	public List<InquireDTO> getInquireList(String pg);
+	public List<InquireDTO> getInquireList(String pg, String inquiry_id);
 
 	public InquireDTO getInquireView(String seq);
 
@@ -20,7 +20,7 @@ public interface InquireService {
 
 	public void inquireModify(InquireDTO inquireDTO);
 
-	public InquirePaging inquirePaging(String pg);
+	public InquirePaging inquirePaging(String pg, String inquiry_id);
 
 	public void inquireDelete(String seq);
 

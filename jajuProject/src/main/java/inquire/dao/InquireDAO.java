@@ -9,7 +9,7 @@ public interface InquireDAO {
 
 	public void inquireWrite(InquireDTO inquireDTO);
 
-	public List<InquireDTO> getInquireList(Map<String, Integer> map);
+	public List<InquireDTO> getInquireList(Map<String, String> map);
 
 	public InquireDTO getInquireView(String seq);
 
@@ -18,6 +18,8 @@ public interface InquireDAO {
 	public void inquireModify(InquireDTO inquireDTO);
 
 	public int getTotalA();
+	
+	public int getIdTotalA(String inquiry_id);
 
 	public void inquireDelete(String seq);
 
