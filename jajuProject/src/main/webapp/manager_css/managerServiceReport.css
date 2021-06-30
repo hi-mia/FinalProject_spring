@@ -9,13 +9,16 @@
 *{
 	font-family: 'S-CoreDream-4Regular';
 }
-body#cafeAdmin #content.cont_post {
-    width: 840px;
-    margin: 33px 0 0 60px;
-    padding-bottom: 50px;
+.total{
+	width: 1080px;
+	margin: 0 auto;
+	display: inline-block;
 }
-body#cafeAdmin #content {
-    color: #444;
+.total:after{
+	content: '';
+	display: block;
+	float: none;
+	clear: both;
 }
 #content {
     float: left;
@@ -27,6 +30,15 @@ body#cafeAdmin #content {
     margin-left: 50px;
     margin-bottom: 100px;
     border-top: 1px solid #d4d7da;
+    display: inline-block;
+}
+body#cafeAdmin #content.cont_post {
+    width: 840px;
+    margin: 33px 0 0 60px;
+    padding-bottom: 50px;
+}
+body#cafeAdmin #content {
+    color: #444;
 }
 dd, div, dl, dt, li, p, table, td, th, ul {
     line-height: 1.6;
@@ -309,9 +321,9 @@ button {
     line-height: 16px;
 }
 .set_list {
-    width: 800px;
-    height: 46px;
-    padding: 12px 20px 0;
+	width: 840px;
+	height: 59px;
+	padding: 0;
     border-top: 1px solid #e4e4e4;
     background: #fafafa;
     white-space: nowrap;
@@ -592,15 +604,7 @@ td .img_checkbox {
     border-top: 1px solid #efefef;
     border-bottom: 1px solid #e4e4e4;
 }
-element.style {
-    position: absolute;
-    z-index: -1;
-    width: 254px;
-    height: 343px;
-    top: 411px;
-    left: 516.922px;
-    display: none;
-}
+
 .box_search .select_admin .selectbox_div, .bundle_set .select_admin .selectbox_div {
     border-top: none;
     border-bottom: 1px solid #127cfd;
@@ -708,7 +712,6 @@ td{
     font-size: 14px;
     color: #000;
     text-decoration: none;
-    vertical-align: top;
 }
 .page_admin .btn_page .ico_admin {
     width: 7px;
@@ -788,4 +791,12 @@ select{
 #boardMenu{
 	font-size: 14px;
 }
-
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    padding: initial;
+    border: initial;
+}
