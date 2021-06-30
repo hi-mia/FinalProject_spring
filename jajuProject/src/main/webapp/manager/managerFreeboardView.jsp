@@ -171,70 +171,64 @@
 <script src="/jaju/manager_js/managerFreeboardView.js"></script>
 <script src="/jaju/manager_js/managerFreeboardDelete.js"></script>
 <script type="text/javascript">
-//function freeboardCommentPaging(pg){
-//	$.ajax({
-//		type: 'post',
-//		url: '/jaju/freeboard/getFreeboardComment',
-//		data: {'board_seq': $('#board_seq').val(), 'pg': pg},
-//		dataType: 'json',
-//		success: function(data){
-//			//alert(JSON.stringify(data));
-//			
-//			$('#commentTable tr:gt(0)').remove();
-//			
-//			$.each(data.list, function(index,items){
-//				
-//				$('<tr/>').append($('<td/>',{
-//					text : items.comment_seq
-//				})).append($('<td/>',{
-//					style : 'text-align: left;'
-//					
-//					}).append($('<a/>',{
-//						text : items.comment_content,
-//						id: 'subjectA',
-//						class: 'content_'+ items.comment_seq
-//					}))
-//				).append($('<td/>',{
-//					text : items.board_id
-//				})).append($('<td/>',{
-//					class: 'trLast',
-//					text : items.logtime
-//				})).appendTo($('#commentTable'));
-//				
-//				for(var i=1; i<items.comment_lev; i++){
-//					$('.content_'+items.comment_seq).before('&emsp;');
-//				}
-//				if(items.comment_pseq != 0 ){
-//					$('.content_'+items.comment_seq).before($('<img>',{
-//						src: '/jaju/jajuImage/reply.gif'
-//					}));
-//				}
-//				
-//			}); //each
-//			
-//			$('.trLast').append($('<img>',{
-//				src: '/jaju/jajuImage/delete.png',
-//				id: 'commentDeleteBtn',
-//				style: 'cursor: pointer; float: right;',
-//				width: '20px',
-//				height: '20px'
-//			})).append($('<img>',{
-//				src: '/jaju/jajuImage/modify.png',
-//				id: 'commentModifyBtn',
-//				style: 'cursor: pointer; float: right;',
-//				width: '20px',
-//				height: '20px'
-//			}));
-//			
-//			$('#pagingDiv').html(data.freeboardCommentPaging.pagingHTML);
-//			
-//		},error: function(err){
-//			alert("댓글 불러오기 에러");
-//			console.log(err);
-//		}
-//	});
-//	
-//}
+function freeboardCommentPaging(pg){
+	$.ajax({
+		type: 'post',
+		url: '/jaju/freeboard/getFreeboardComment',
+		data: {'board_seq': $('#board_seq').val(), 'pg': pg},
+		dataType: 'json',
+		success: function(data){
+			//alert(JSON.stringify(data));
+			
+			$('#commentTable tr:gt(0)').remove();
+			
+			$.each(data.list, function(index,items){
+				
+				$('<tr/>').append($('<td/>',{
+					text : items.comment_seq
+				})).append($('<td/>',{
+					style : 'text-align: left;'
+					
+					}).append($('<a/>',{
+						text : items.comment_content,
+						id: 'subjectA',
+						class: 'content_'+ items.comment_seq
+					}))
+				).append($('<td/>',{
+					text : items.board_id
+				})).append($('<td/>',{
+					class: 'trLast',
+					text : items.logtime
+				})).appendTo($('#commentTable'));
+				
+				for(var i=1; i<items.comment_lev; i++){
+					$('.content_'+items.comment_seq).before('&emsp;');
+				}
+				if(items.comment_pseq != 0 ){
+					$('.content_'+items.comment_seq).before($('<img>',{
+						src: '/jaju/jajuImage/reply.gif'
+					}));
+				}
+				
+			}); //each
+			
+			$('.trLast').append($('<img>',{
+				src: '/jaju/jajuImage/delete.png',
+				id: 'commentDeleteBtn',
+				style: 'cursor: pointer; float: right;',
+				width: '20px',
+				height: '20px'
+			}));
+			
+			$('#pagingDiv').html(data.freeboardCommentPaging.pagingHTML);
+			
+		},error: function(err){
+			alert("댓글 불러오기 에러");
+			console.log(err);
+		}
+	});
+	
+}
 
 </script>
 

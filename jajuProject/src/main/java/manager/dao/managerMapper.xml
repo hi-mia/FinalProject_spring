@@ -40,7 +40,7 @@
  		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
 	</select>
 	
-	<select id="getManagerCommentTotal2" resultType="int" parameterType="Integer">
+	<select id="getCommentTotal2" resultType="int" parameterType="Integer">
 		select count(*) as count from freeboard_comment where board_seq=${board_seq}
 	</select>
 	

@@ -7,6 +7,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import freeboard.bean.FreeboardCommentDTO;
+import freeboard.bean.FreeboardCommentPaging;
 import freeboard.bean.FreeboardDTO;
 import freeboard.bean.FreeboardPaging;
 import manager.dao.ManagerDAO;
@@ -20,6 +22,9 @@ public class ManagerServiceImpl implements ManagerService {
 	
 	@Autowired
 	private FreeboardPaging freeboardPaging;
+	
+	@Autowired
+	private FreeboardCommentPaging freeboardCommentPaging;
 
 	@Override
 	public List<MemberDTO> getManagerMember(String pg) {
@@ -58,4 +63,48 @@ public class ManagerServiceImpl implements ManagerService {
 		
 		return freeboardPaging;
 	}
+
+	@Override
+	public FreeboardDTO getManagerFreeboardView(int board_seq) {
+		return managerDAO.getManagerFreeboardView(board_seq);
+	}
+
+	@Override
+	public List<FreeboardCommentDTO> getManagerFreeboardComment(Map<String, String> map) {
+		int pg = Integer.parseInt(map.get("pg"));
+		
+		int endNum = pg * 5;
+		int startNum = endNum - 4;
+		
+		
+		map.put("startNum", startNum+"");
+		map.put("endNum", endNum +"");
+		return managerDAO.getManagerFreeboardComment(map);
+	}
+
+	@Override
+	public FreeboardCommentPaging freeboardCommentPaging(Map<String, String> map) {
+		int pg = Integer.parseInt(map.get("pg"));
+		freeboardCommentPaging.setCurrentPage(pg);
+		freeboardCommentPaging.setPageBlock(3);
+		freeboardCommentPaging.setPageSize(5);
+		int board_seq = Integer.parseInt(map.get("board_seq"));
+		int totalA = managerDAO.getCommentTotal2(board_seq);
+		freeboardCommentPaging.setTotalA(totalA);
+		
+		freeboardCommentPaging.makePagingHTML();
+		
+		return freeboardCommentPaging;
+	}
+
+	@Override
+	public FreeboardCommentDTO getManagerFreeboardCommentOne(String comment_seq) {
+		return managerDAO.getManagerFreeboardCommentOne(comment_seq);
+	}
+
+	@Override
+	public FreeboardDTO getPage(int board_seq) {
+		return managerDAO.getPage(board_seq);
+	}
+
 }
