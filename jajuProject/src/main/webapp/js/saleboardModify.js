@@ -164,15 +164,126 @@ $('#sale_state').change(function(){
 	//if($('#sale_state').val() == '판매완료'){
 		$('.saleboardModifyTr').after($('<tr/>',{
 			
-		}).append($('<td/>',{
+		}).append($('<th/>',{
 			text: '구매자 선택'
 		})).append($('<td/>',{
-			text : '대충 구매자들'
-		})))
+			
+		}).append($('<select/>',{
+			id : 'bayer_select',
+			width : '200px',
+			height : '50px'
+		}).append($('<option/>',{
+			value : '구매자선택',
+			text : '구매자선택'
+		}))).append($('<input/>',{
+			type: 'button',
+			value: '구매자 선택',
+			class : 'bhs_button yb',
+			id : 'bayer_selectBtn'
+		}))))
 	//}
+		
+		
+		
+		$.ajax({
+				type : 'post',
+				url : '/jaju/saleboard/salebuyerFindMessage',
+				data : {
+					'sale_seq' : $('#sale_seq').val()
+				},
+				dataType : 'json',
+				async : false,
+				success : function(data) {
+					console.log(JSON.stringify(data));
+					//$('#sale_category').append()
+
+					$.each(data.list, function(index, items) {
+
+						$('#bayer_select').append($('<option/>', {
+							value : items.MESSAGE_WRITER,
+							text : items.MESSAGE_WRITER,
+							id : 'sale_buyer'
+						}));
+
+					});//each
+
+				},
+				error : function() {
+					console.log("salebuyer1 error발생+err")
+				}
+			});//ajax
+		
+		$.ajax({
+			type : 'post',
+			url : '/jaju/saleboard/salebuyerFindComment',
+			data : {
+				'sale_seq' : $('#sale_seq').val()
+			},
+			dataType : 'json',
+			async : false,
+			success : function(data) {
+				console.log(JSON.stringify(data));
+				//$('#sale_category').append()
+
+				$.each(data.list, function(index, items) {
+
+					$('#bayer_select').append($('<option/>', {
+						id : 'sale_buyer',
+						value : items.MEMBER_ID,
+						text : items.MEMBER_ID
+
+					}));
+
+				});//each
+				alert("구매하신 분의 ID를 선택하고 완료버튼을 누르세요.")
+				$('#select_buyer').show();
+				$('#saleBuyerBtn').show(); //구매자 확정버튼 보이기 
+
+			},
+			error : function() {
+				console.log("salebuyer2 error발생+err")
+			}
+		});//ajax
+
+	
 });
 
 
+$(document).on('click','#bayer_selectBtn', function(){
+
+//	alert($("#bayer_select").val());
+//	alert($('#sale_seq').val());
+	
+	if($("#bayer_select option:checked").text()=='구매자선택'){
+		alert("구매자 ID를 선택해주세요.");
+		return false;
+	}else{
+		
+
+	$.ajax({
+		type : 'post',
+		url : '/jaju/saleboard/salebuyerConfirmation',
+		data : {
+			'sale_seq' : $('#sale_seq').val(),
+			'sale_buyer' : $("#bayer_select").val()
+
+		},
+		//dataType: 'json',
+		async : false,
+		success : function() {
+			//console.log(JSON.stringify(data));
+			alert("구매자아이디 등록완료");
+			$('#saleBuyerBtn').hide();
+		},
+		error : function() {
+			console.log("salebuyer3 error발생+err")
+		}
+	});//ajax
+	
+	
+
+	}//else
+});
 
 
 
