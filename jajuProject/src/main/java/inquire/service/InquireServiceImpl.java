@@ -31,14 +31,15 @@ public class InquireServiceImpl implements InquireService {
 
 
 	@Override
-	public List<InquireDTO> getInquireList(String pg) {
+	public List<InquireDTO> getInquireList(String pg, String inquiry_id) {
 		//1페이지당 3개
 		int endNum = Integer.parseInt(pg)*10;
 		int startNum = endNum-9;
 		
-		Map<String, Integer>map = new HashedMap<String, Integer>();
-		map.put("startNum", startNum);
-		map.put("endNum", endNum);
+		Map<String, String>map = new HashedMap<String, String>();
+		map.put("inquiry_id", inquiry_id);
+		map.put("startNum", startNum+"");
+		map.put("endNum", endNum+"");
 		return inquireDAO.getInquireList(map);
 	}
 
@@ -62,8 +63,8 @@ public class InquireServiceImpl implements InquireService {
 
 
 	@Override
-	public InquirePaging inquirePaging(String pg) {
-		int totalA = inquireDAO.getTotalA(); //총글수
+	public InquirePaging inquirePaging(String pg, String inquiry_id) {
+		int totalA = inquireDAO.getIdTotalA(inquiry_id); //총글수
 		
 		inquirePaging.setCurrentPage(Integer.parseInt(pg));//현재 페이지
 		inquirePaging.setPageBlock(5);

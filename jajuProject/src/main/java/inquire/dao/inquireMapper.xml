@@ -24,7 +24,7 @@
 	
 	<select id = "getInquireList" parameterType = "java.util.Map" resultType = "inquire">
  		select *from (select rownum rn, tt.* from
-		(select * from inquiryboard order by inquiry_ref desc, inquiry_lev asc)tt)
+		(select * from inquiryboard where inquiry_id = #{inquiry_id} order by inquiry_ref desc, inquiry_lev asc)tt)
 		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
 		
 		<!-- 
@@ -56,10 +56,16 @@
 								  logtime=sysdate 
 								  where inquiry_seq=#{inquiry_seq} 
 	</update>
-	
+	<!-- 총 글수 -->
 	<select id="getTotalA" resultType="int">
  		select count(*) from inquiryboard
  	</select>
+ 	
+ 	<!-- id값의 총글수 -->
+ 	<select id="getIdTotalA" resultType="int">
+ 		select count(*) from inquiryboard where inquiry_id=#{inquiry_id}
+ 	</select>
+ 	
 	
 	<!-- 글삭제 -->
 	<delete id="inquireDelete" parameterType="int">
@@ -71,7 +77,7 @@
 		insert into inquiryboard(inquiry_seq, inquiry_id, inquiry_name, inquiryType, inquiry_telephone, inquiry_subject, inquiry_contents, inquiry_pseq, inquiry_ref, inquiry_lev, inquiry_state,logtime) values(
 											inquiry_seq.nextval
 										   , '관리자'
-										   , '관리자'
+										   , '{}'
 										   , #{inquiryType}
 										   , '홈페이지 문의 바랍니다'
 										   , '[답글]'||#{inquiry_subject}

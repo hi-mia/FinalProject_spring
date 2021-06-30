@@ -3,13 +3,20 @@ $(function(){
 	$.ajax({
 		type: 'post',
 		url : '/jaju/serviceCenter/getInquireList',
-		data : 'pg='+ $('#pg').val(),
+		data : {'pg' : $('#pg').val(),
+		   	   'inquiry_id' : $('#inquiry_id').val()},
 		dataType : 'json',
 		success : function(data){
 			//console.log(JSON.stringify(data));
 			//alert(JSON.stringify(data));
 			//alert(data.list.length);
-			 
+			
+		if(data.inquiry_id == ""){
+			alert('먼저 로그인 하세요');
+			location.href='/jaju/member/loginForm';
+		}else{
+			
+		}
 			if(data.list.length != 0){
 				$('.no_data').hide();
 				

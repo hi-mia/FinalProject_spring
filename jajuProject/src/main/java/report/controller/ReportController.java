@@ -121,7 +121,7 @@ public class ReportController {
 		//세션
 		String memId = (String) session.getAttribute("memId");
 		
-		//System.out.println(memId+ "       1");
+		
 		//1 페이지당 10개씩
 		List<ReportDTO> list = reportService.getReportList(pg, report_id);
 		
