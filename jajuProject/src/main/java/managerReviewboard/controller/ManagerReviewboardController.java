@@ -137,7 +137,24 @@ public class ManagerReviewboardController {
 					
 		}
 		
-	//삭제
+		//삭제- 게시물
+		@RequestMapping(value="managerReviewboardDelete", method=RequestMethod.POST)
+		@ResponseBody
+		public ModelAndView managerReviewboardDelete(@RequestParam int review_seq) {
+
+			managerReviewboardService.managerReviewboardDelete(review_seq);
+			
+			return new ModelAndView("redirect:/manager/managerReviewboardList");
+		}
 		
+	//삭제 - 리스트
+		@RequestMapping(value="managerReviewboardListDelete", method=RequestMethod.POST)
+		public ModelAndView managerReviewboardListDelete(String[] check) {
+
+			//System.out.println(check);
+			managerReviewboardService.managerReviewboardListDelete(check);
+			
+			return new ModelAndView("redirect:/manager/managerReviewboardList?pg=1");
+		}
 
 }

@@ -50,7 +50,16 @@
 </select>
 
 <!-- 삭제 -->
+ <delete id="managerReviewboardDelete" parameterType="int">
+ 	delete reviewboard where review_seq=#{review_seq}
+</delete>
 
-
+<!-- 글 체크박스 삭제 -->
+<delete id="managerReviewboardListDelete" parameterType="java.util.Map">
+    delete reviewboard where review_seq in 
+	<foreach collection="array" item="data" open="(" close=")" separator=",">
+	    #{data}        
+	</foreach>
+</delete>
 
  </mapper>

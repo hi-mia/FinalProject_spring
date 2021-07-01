@@ -141,28 +141,28 @@ $('#managerReviewSearchBtn').click(function(){
 });
 
 //전체 선택 또는 해제
-//$('#all').click(function(){
-//	
-//	if($('#all').prop('checked')) {
-//		$('input[name=check]').prop('checked', true);	
-//	}else{
-//		$('input[name=check]').prop('checked', false);
-//	}
-//
-//});
+$('#all').click(function(){
+	
+	if($('#all').prop('checked')) {
+		$('input[name=check]').prop('checked', true);	
+	}else{
+		$('input[name=check]').prop('checked', false);
+	}
+
+});
 
 //선택 삭제
-//$('#choiceDeleteBtn').click(function(){
-//	var count = $('input[name=check]:checked').length; //체크된 개수가 나온다
-//	
-//	if(count == 0){
-//		alert("삭제할 게시물을 선택해주세요");
-//	}else{
-//		if(confirm("정말로 삭제하시겠습니까?")){
-//			   $('#managerReviewboardListDelete').attr("action", "/jaju/manager/managerReviewboardListDelete");
-//				$('#managerReviewboardListDelete').submit();
-//				alert('게시글 삭제 완료');
-//		}
-//	}
-//});
+$('#choiceDeleteBtn_review').click(function(){
+	var count = $('input[name=check]:checked').length; //체크된 개수가 나온다
+	
+	if(count == 0){
+		alert("삭제할 게시물을 선택해주세요");
+	}else{
+		if(confirm("정말로 삭제하시겠습니까?")){
+			   $('#managerReviewboardListDelete').attr("action", "/jaju/manager/managerReviewboardListDelete");
+				$('#managerReviewboardListDelete').submit();
+				alert('게시글 삭제 완료');
+		}
+	}
+});
 

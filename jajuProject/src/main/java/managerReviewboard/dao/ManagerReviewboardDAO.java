@@ -19,5 +19,9 @@ public interface ManagerReviewboardDAO {
 
 	public int getSearchTotal_review(Map<String, String> map);
 
+	public void managerReviewboardDelete(int review_seq);
+
+	public void managerReviewboardListDelete(Map<String, String[]> map);
+
 
 }

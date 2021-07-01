@@ -20,4 +20,8 @@ public interface ManagerReviewboardService {
 
 	public ReviewboardPaging reviewboardPaging(Map<String, String> map);
 
+	public void managerReviewboardDelete(int review_seq);
+
+	public void managerReviewboardListDelete(String[] check);
+
 }

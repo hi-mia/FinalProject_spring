@@ -80,4 +80,18 @@ public class ManagerReviewboardServiceImpl implements ManagerReviewboardService 
 		return reviewboardPaging;
 	}
 
+	@Override
+	public void managerReviewboardDelete(int review_seq) {
+		managerReviewboardDAO.managerReviewboardDelete(review_seq);
+		
+	}
+
+	@Override
+	public void managerReviewboardListDelete(String[] check) {
+		Map<String, String[]> map = new HashMap<String, String[]>();
+		map.put("array", check);
+		managerReviewboardDAO.managerReviewboardListDelete(map);
+		
+	}
+
 }

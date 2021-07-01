@@ -46,4 +46,14 @@ public class ManagerReviewboardDAOMybatis implements ManagerReviewboardDAO {
 	public int getSearchTotal_review(Map<String, String> map) {
 		return sqlSession.selectOne("managerReviewboardSQL.getSearchTotal_review",map);
 	}
+
+	@Override
+	public void managerReviewboardDelete(int review_seq) {
+		sqlSession.delete("managerReviewboardSQL.managerReviewboardDelete", review_seq);
+	}
+
+	@Override
+	public void managerReviewboardListDelete(Map<String, String[]> map) {
+		sqlSession.delete("managerReviewboardSQL.managerReviewboardListDelete", map);
+	}
 }
