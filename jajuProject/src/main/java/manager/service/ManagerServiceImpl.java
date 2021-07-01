@@ -12,6 +12,7 @@ import freeboard.bean.FreeboardCommentPaging;
 import freeboard.bean.FreeboardDTO;
 import freeboard.bean.FreeboardPaging;
 import manager.bean.ManagerPaging;
+import inquire.bean.InquireDTO;
 import manager.dao.ManagerDAO;
 import member.bean.MemberDTO;
 import reviewboard.bean.ReviewboardDTO;
@@ -218,6 +219,19 @@ public class ManagerServiceImpl implements ManagerService {
 		managerPaging.setTotalA(memberSearchCount);
 		managerPaging.makePagingHTML();
 		return managerPaging;
+	}
+	
+	@Override
+	public List<InquireDTO> getManagerInquire(String pg) {
+		//1페이지당 10개씩
+		int endNum = Integer.parseInt(pg)*10;
+		int startNum = endNum-9;
+		
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("startNum",startNum+"");
+		map.put("endNum",endNum+"");
+		
+		return managerDAO.getManagerInquire(map);
 	}
 
 }

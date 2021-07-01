@@ -5,6 +5,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,7 @@ import freeboard.bean.FreeboardCommentPaging;
 import freeboard.bean.FreeboardDTO;
 import freeboard.bean.FreeboardPaging;
 import manager.bean.ManagerPaging;
+import inquire.bean.InquireDTO;
 import manager.service.ManagerService;
 import member.bean.MemberDTO;
 import reviewboard.bean.ReviewboardDTO;
@@ -312,6 +315,28 @@ public class ManagerController {
 			
 		}
 		
-
+	@RequestMapping(value="/managerServiceInquire", method=RequestMethod.GET)
+	public ModelAndView managerServiceInquire() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/manager/managerServiceInquire");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/getManagerInquire",method=RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView getManagerInquire(@RequestParam(required = false, defaultValue = "1") String pg, 
+										  HttpSession session) {
+		
+		List<InquireDTO>list = managerService.getManagerInquire(pg);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg", pg);
+		mav.addObject("list", list);
+		mav.setViewName("jsonView");
+		//mav.addObject("managerPaging", managerPaging);
+		return mav;
+		
+	}
 
 }

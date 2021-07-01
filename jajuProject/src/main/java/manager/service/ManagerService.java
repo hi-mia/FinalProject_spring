@@ -8,6 +8,7 @@ import freeboard.bean.FreeboardCommentPaging;
 import freeboard.bean.FreeboardDTO;
 import freeboard.bean.FreeboardPaging;
 import manager.bean.ManagerPaging;
+import inquire.bean.InquireDTO;
 import member.bean.MemberDTO;
 import reviewboard.bean.ReviewboardDTO;
 import reviewboard.bean.ReviewboardPaging;
@@ -51,5 +52,7 @@ public interface ManagerService {
 	public List<FreeboardDTO> getManagerFreeboardSearchList(Map<String, String> map);
 
 	public void managerFreeboardListDelete(String[] check);
+
+	public List<InquireDTO> getManagerInquire(String pg);
 
 }

@@ -6,6 +6,7 @@ import java.util.Map;
 import freeboard.bean.FreeboardCommentDTO;
 import freeboard.bean.FreeboardCommentPaging;
 import freeboard.bean.FreeboardDTO;
+import inquire.bean.InquireDTO;
 import member.bean.MemberDTO;
 import reviewboard.bean.ReviewboardDTO;
 
@@ -51,5 +52,9 @@ public interface ManagerDAO {
 	public int getMemberTotalA();
 	//검색 페이징 처리. 
 	public int getSearchTotalA(Map<String, String> map);
+
+	public List<InquireDTO> getManagerInquire(Map<String, String> map);
+
+	
 
 }

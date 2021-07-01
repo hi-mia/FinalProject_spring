@@ -10,6 +10,8 @@
 <div class="total" style="display:flex; justify-content: center;">
 <jsp:include page="/manager/managerMenu.jsp"/>
 <div id="content" class="cont_post post_spam">
+<input type = "hidden" name = "pg" id = "pg" value="${pg }">
+<input type = "hidden" name = "inquiry_id" id = "inquiry_id" value="${session.memId }">
 	<div class="wrap_tit">
 		<h3 class="cont_tit">
 			<span class="tit_menu">1:1 문의 관리</span>
@@ -48,12 +50,14 @@
 	</div>
 
 	<div id="admin_listview">
-		<table class="tbl_admin">
+		<table class="tbl_admin" id = "tbl_admin">
 
 		
 			<thead>
 			<tr>
-				<th class="" style="width:40px;"><input type="checkbox" id="all" onclick="checkAll()"></th>
+				<th class="" style="width:40px;">
+					<input type="checkbox" id="all" onclick="checkAll()">
+				</th>
                <th class="board_seq" style="width:75px;">번호</th>
                <th class="board_subject" style="width:135px;">카테고리</th>
                <th class="board_subject" style="width:274px;">제목</th>
@@ -62,7 +66,7 @@
                <th class="board_id" style="width:105px;">처리상태</th>
 			</tr> 
 			</thead>
-		<tr>
+<!-- 		<tr>
 			   <td align="center"><input type="checkbox"></td>
                <td align="center">번호</td>
                <td align="center">카테고리</td>
@@ -70,7 +74,7 @@
                <td align="center">작성자</td>
                <td align="center">작성일</td>
                <td align="center">처리상태</td>
-			</tr>
+			</tr> -->
 	
 	</table>
 </div>
@@ -94,7 +98,7 @@
 </div>
 </body>
 <script type = "text/javascript" src = "http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/jaju/manager_js/managerServiceNotice.js"></script>
+<script src="/jaju/manager_js/managerServiceInquire.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	

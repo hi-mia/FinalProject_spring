@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import freeboard.bean.FreeboardCommentDTO;
 import freeboard.bean.FreeboardDTO;
+import inquire.bean.InquireDTO;
 import member.bean.MemberDTO;
 import reviewboard.bean.ReviewboardDTO;
 
@@ -116,5 +117,9 @@ public class ManagerDAOMybatis implements ManagerDAO{
 	public void managerFreeboardListDelete(Map<String, String[]> map) {
 		sqlSession.delete("managerSQL.managerFreeboardListDelete", map);
 	}
-	
+
+	@Override
+	public List<InquireDTO> getManagerInquire(Map<String, String> map) {
+		return sqlSession.selectList("managerSQL.getManagerInquire", map);
+	}
 }

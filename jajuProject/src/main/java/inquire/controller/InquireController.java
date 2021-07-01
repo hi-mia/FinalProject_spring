@@ -55,7 +55,7 @@ public class InquireController {
 		
 		int i = 0;
 		for(MultipartFile img: list) {
-			filePath = "D:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
+			filePath = "C:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 			fileName = img.getOriginalFilename();
 			file = new File(filePath,fileName);
 			
@@ -101,14 +101,14 @@ public class InquireController {
 		//세션
 		String memId = (String) session.getAttribute("memId");
 				
-		//1페이지당 3개
+		
 		List<InquireDTO>list = inquireService.getInquireList(pg, inquiry_id);
 		
 		//페이징 처리
 		InquirePaging inquirePaging = inquireService.inquirePaging(pg, inquiry_id);
 		list.size();
 		
-		System.out.println(list);
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg",pg);
 		mav.addObject("list", list);

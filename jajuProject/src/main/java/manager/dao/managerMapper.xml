@@ -103,6 +103,13 @@
 	</if> -->
 	
 </select>
+
+<select id="getManagerInquire" parameterType="java.util.Map" resultType="inquire">
+	select * from 
+	(select rownum rn, tt.* from
+	(select * from inquiryboard where inquiry_id not in ('관리자') order by inquiry_id desc)tt)
+	where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+</select>
  
 <!-- 자유 게시판 관리 -->
 <select id="getManagerFreeboardList" resultType="freeboard">
