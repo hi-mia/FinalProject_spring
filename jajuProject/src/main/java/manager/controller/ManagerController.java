@@ -2,6 +2,8 @@ package manager.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import inquire.bean.InquireDTO;
 import manager.service.ManagerService;
 import member.bean.MemberDTO;
 
@@ -35,12 +38,6 @@ public class ManagerController {
 		return "/index";
 	}
 	
-	@RequestMapping(value="/managerServiceInquire", method=RequestMethod.GET)
-	public String managerServiceInquire(Model model) {
-		model.addAttribute("display", "/manager/managerServiceInquire.jsp");
-		return "/index";
-	}
-	
 	@RequestMapping(value="/getManagerMember",method=RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView getManagerMember(@RequestParam(required = false, defaultValue = "1") String pg) {
@@ -57,5 +54,12 @@ public class ManagerController {
 		
 	}
 	
+	@RequestMapping(value="/managerServiceInquire", method=RequestMethod.GET)
+	public String managerServiceInquire(Model model) {
+		model.addAttribute("display", "/manager/managerServiceInquire.jsp");
+		return "/index";
+	}
 	
+
+
 }

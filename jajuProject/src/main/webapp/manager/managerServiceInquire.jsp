@@ -49,12 +49,14 @@
 	</div>
 
 	<div id="admin_listview">
-		<table class="tbl_admin">
+		<table class="tbl_admin" id = "tbl_admin">
 
 		
 			<thead>
 			<tr>
-				<th class="" style="width:40px;"><input type="checkbox" id="all" onclick="checkAll()"></th>
+				<th class="" style="width:40px;">
+					<input type="checkbox" id="all" onclick="checkAll()">
+				</th>
                <th class="board_seq" style="width:75px;">번호</th>
                <th class="board_subject" style="width:135px;">카테고리</th>
                <th class="board_subject" style="width:274px;">제목</th>
@@ -63,7 +65,7 @@
                <th class="board_id" style="width:105px;">처리상태</th>
 			</tr> 
 			</thead>
-		<tr>
+<!-- 		<tr>
 			   <td align="center"><input type="checkbox"></td>
                <td align="center">번호</td>
                <td align="center">카테고리</td>
@@ -71,7 +73,7 @@
                <td align="center">작성자</td>
                <td align="center">작성일</td>
                <td align="center">처리상태</td>
-			</tr>
+			</tr> -->
 	
 	</table>
 </div>

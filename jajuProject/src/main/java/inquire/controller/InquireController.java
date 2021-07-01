@@ -101,14 +101,14 @@ public class InquireController {
 		//세션
 		String memId = (String) session.getAttribute("memId");
 				
-		//1페이지당 3개
+		
 		List<InquireDTO>list = inquireService.getInquireList(pg, inquiry_id);
 		
 		//페이징 처리
 		InquirePaging inquirePaging = inquireService.inquirePaging(pg, inquiry_id);
 		list.size();
 		
-		System.out.println(list);
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg",pg);
 		mav.addObject("list", list);

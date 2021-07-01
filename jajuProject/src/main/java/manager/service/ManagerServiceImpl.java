@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import inquire.bean.InquireDTO;
 import manager.dao.ManagerDAO;
 import member.bean.MemberDTO;
 
@@ -27,6 +28,19 @@ public class ManagerServiceImpl implements ManagerService {
 		map.put("endNum",endNum+"");
 		
 		return managerDAO.getManagerMember(map);
+	}
+
+	@Override
+	public List<InquireDTO> getManagerInquire(String pg, String inquiry_id) {
+		int endNum = Integer.parseInt(pg)*10;
+		int startNum = endNum-9;
+		
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("inquiry_id", inquiry_id);
+		map.put("startNum",startNum+"");
+		map.put("endNum",endNum+"");
+		
+		return managerDAO.getManagerInquire(map);
 	}
 
 }

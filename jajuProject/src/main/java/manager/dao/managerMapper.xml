@@ -10,5 +10,12 @@
 	(select * from jajumember order by member_date desc)tt)
 	where rn &gt;=#{startNum} and rn &lt;=#{endNum}
 </select>
+
+<select id="getManagerInquire" parameterType="java.util.Map" resultType="inquire">
+	select * from 
+	(select rownum rn, tt.* from
+	(select * from inquiryboard order by member_date desc)tt)
+	where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+</select>
  
  </mapper>
