@@ -46,12 +46,10 @@ public interface ManagerDAO {
 
 	public void managerFreeboardListDelete(Map<String, String[]> map);
 
-<<<<<<< HEAD
 
-=======
 	//페이징처리, 토탈 int 가져오기
 	public int getMemberTotalA();
 	//검색 페이징 처리. 
 	public int getSearchTotalA(Map<String, String> map);
->>>>>>> 375674cf1b4d52ea42a0afd0a8e7fb01ff0a1394
+
 }
