@@ -49,9 +49,6 @@
 		</div>
 
 	<form name="managerMemberForm" id="managerMemberForm" method="post" action="">
-
-
-		
 			<!-- 전체회원관리 (append 되는 곳) -->
 			<div id="admin_listview">
 			
@@ -67,14 +64,8 @@
 							<option value="member_date_desc">가입일 최신순</option>
 							<option value="member_date_asc">가입일 오래된순</option>
 							<option value="member_manner_desc">매너온도높은순</option>
-							<option value="count_saleRecord_desc">판매게시글수</option>
 						</select> 
 					</div>
-					
-					<span class="txt_g" id="input_checked_id_span"></span>
-<!-- 					<button type="button" class="btn_admin btn_type1" id="btnGradeChange">
-						<span class="ico_admin ico_change"></span><span class="txt_btn">변경</span>
-					</button> -->
 				</div>
 				
 				<div class="bundle_set">
@@ -89,6 +80,7 @@
 					</button>
 				</div>
 			</div>
+			
 			
 			<table class="tbl_admin tbl_type3"  id="adminTable" summary="전체회원 목록입니다. 닉네임, 회원등급, 가입일, 최종방문일, 방문수, 게시글수를 제공합니다.">
 				<caption class="ir_caption">전체회원 관리 목록</caption>
@@ -226,19 +218,22 @@
 				</div> -->
 				
 			</div>
-
-			<div id="pagingArea" class="page_admin">
 			
+			
+			<div style="text-align: center;" id="memberPagingDiv"></div>
+
+			<!-- <div id="pagingArea" class="page_admin">
 				<a class="btn_page btn_prev page_disabled">
 					<span class="ico_admin"></span>&nbsp;이전
 				</a>
-				
 				<ul class="bundle_page"><li class="on"><a>페이징처리하는곳</a></li></ul>
 				
 				<a class="btn_page btn_next page_disabled">다음&nbsp;
 					<span class="ico_admin"></span>
 				</a>
-			</div>
+			</div>  -->
+			
+			
 
            <div id="accountNotiLayer">
                <ul class="account_noti">
@@ -252,8 +247,28 @@
 	</div><!-- end content -->
 	</div>
 </div>
+<input type="hidden" id="searchPg" value="1">
+
 
 	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>	
 	<script src="/jaju/manager_js/managerMember.js"></script>
+		
+	<script type="text/javascript">
+
+	function managerPaging(pg){
+		var keyword = document.getElementById('search-text').value;
+		if(keyword == ''){
+			location.href="managerMember?pg="+pg;
+			//$('#sortinSelect').trigger('change');		
+		} else{
+			$('#searchPg').val(pg);
+			alert($('#searchPg').val())
+			$('#search-text_Btn').trigger('click','research');
+			//location.href = 'boardSearch?pg='+pg+'&select='+$('#select option:selected').val() +'&keyword='+$('#keyword').val();
+			//encodeURIComponent('${keyword}');
+			//$('#searchPg').val(1);
+	}
+}
+	</script>
 </body>
 </html>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import manager.bean.ManagerPaging;
 import manager.service.ManagerService;
 import member.bean.MemberDTO;
 
@@ -21,6 +22,7 @@ public class ManagerController {
 
 	@Autowired
 	private ManagerService managerService;
+	
 
 	@RequestMapping(value = "index", method = RequestMethod.GET)
 	public ModelAndView index() {
@@ -30,8 +32,9 @@ public class ManagerController {
 	}
 
 	@RequestMapping(value = "managerMember", method = RequestMethod.GET)
-	public ModelAndView managerMember() {
+	public ModelAndView managerMember(@RequestParam(required = false, defaultValue = "1") String pg) {
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg",pg);
 		mav.setViewName("/manager/managerMember");
 		return mav;
 	}
@@ -39,19 +42,21 @@ public class ManagerController {
 	// 화면 띄웠을 때 리스트 가져오기
 	@RequestMapping(value = "/getManagerMember", method = RequestMethod.POST)
 	@ResponseBody
+	
 	public ModelAndView getManagerMember(@RequestParam Map<String, String> map,
 			@RequestParam(required = false, defaultValue = "1") String pg) {
 		System.out.println("관리자 리스트 가져오는 곳 맵 : " + map);
 
 		List<MemberDTO> list = managerService.getManagerMember(map);// pg넘겨서 페이징 처리해서 회원 리스트 가져오기
 
-		// System.out.println("겟메니저맴버= "+list);
+		ManagerPaging managerPaging = managerService.managerPaging(map);
+
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg", pg);
 		mav.addObject("list", list);
+		mav.addObject("managerPaging", managerPaging);
 		mav.setViewName("jsonView");
-		// mav.addObject("managerPaging", managerPaging);
 		return mav;
 	}
 
@@ -78,17 +83,19 @@ public class ManagerController {
 	@ResponseBody
 	public ModelAndView getSearchMemberInfo(@RequestParam Map<String, String> map,
 			@RequestParam(required = false, defaultValue = "1") String pg) {
-		System.out.println("getSearchMemberInfo : " + map);
+		//System.out.println("getSearchMemberInfo : " + map);
 
 		List<MemberDTO> list = managerService.getSearchMemberInfo(map);// pg넘겨서 페이징 처리해서 회원 리스트 가져오기
+		
+		ManagerPaging managerSearchPaging = managerService.managerSearchPaging(map);
 
-		System.out.println("getSearchMemberInfo= " + list);
+		//System.out.println("getSearchMemberInfo= " + list);
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg", pg);
 		mav.addObject("list", list);
 		mav.setViewName("jsonView");
-		// mav.addObject("managerPaging", managerPaging);
+		mav.addObject("managerSearchPaging", managerSearchPaging);
 		return mav;
 	}
 
