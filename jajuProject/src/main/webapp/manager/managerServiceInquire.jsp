@@ -11,6 +11,7 @@
 <jsp:include page="/manager/managerMenu.jsp"/>
 <div id="content" class="cont_post post_spam">
 <input type = "hidden" name = "pg" id = "pg" value="${pg }">
+<input type = "hidden" name = "inquiry_id" id = "inquiry_id" value="${session.memId }">
 	<div class="wrap_tit">
 		<h3 class="cont_tit">
 			<span class="tit_menu">1:1 문의 관리</span>

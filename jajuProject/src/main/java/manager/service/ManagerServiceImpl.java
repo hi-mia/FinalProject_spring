@@ -31,12 +31,12 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 
 	@Override
-	public List<InquireDTO> getManagerInquire(String pg, String inquiry_id) {
+	public List<InquireDTO> getManagerInquire(String pg) {
+		//1페이지당 10개씩
 		int endNum = Integer.parseInt(pg)*10;
 		int startNum = endNum-9;
 		
 		Map<String,String> map = new HashMap<String,String>();
-		map.put("inquiry_id", inquiry_id);
 		map.put("startNum",startNum+"");
 		map.put("endNum",endNum+"");
 		

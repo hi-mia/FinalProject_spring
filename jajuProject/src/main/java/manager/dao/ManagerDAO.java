@@ -12,4 +12,6 @@ public interface ManagerDAO {
 
 	public List<InquireDTO> getManagerInquire(Map<String, String> map);
 
+	
+
 }

@@ -9,6 +9,6 @@ public interface ManagerService {
 
 	public List<MemberDTO> getManagerMember(String pg);
 
-	public List<InquireDTO> getManagerInquire(String pg, String inquiry_id);
+	public List<InquireDTO> getManagerInquire(String pg);
 
 }

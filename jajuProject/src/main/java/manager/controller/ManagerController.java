@@ -55,11 +55,27 @@ public class ManagerController {
 	}
 	
 	@RequestMapping(value="/managerServiceInquire", method=RequestMethod.GET)
-	public String managerServiceInquire(Model model) {
-		model.addAttribute("display", "/manager/managerServiceInquire.jsp");
-		return "/index";
+	public ModelAndView managerServiceInquire() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/manager/managerServiceInquire");
+		
+		return mav;
 	}
 	
-
+	@RequestMapping(value="/getManagerInquire",method=RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView getManagerInquire(@RequestParam(required = false, defaultValue = "1") String pg, 
+										  HttpSession session) {
+		
+		List<InquireDTO>list = managerService.getManagerInquire(pg);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg", pg);
+		mav.addObject("list", list);
+		mav.setViewName("jsonView");
+		//mav.addObject("managerPaging", managerPaging);
+		return mav;
+		
+	}
 
 }
