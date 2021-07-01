@@ -2,7 +2,7 @@
 $(function(){
 	//alert($('#pg').val());
 	$.ajax({
-		url: '/jaju/manager/getManagerNoticeList',
+		url: '/jaju/manager/getManagerReportList',
 		type:'post',
 		data: 'pg='+$('#pg').val(),
 		dataType:'json',
@@ -20,25 +20,38 @@ $(function(){
 						onclick: 'checkAll()',
 		        	}))
 	        	).append($('<td/>',{
-	        		width: '80px',
+	        		width: '75px',
 	                align: 'center',
-	                text: items.notice_seq
+	                text: items.report_seq
+	            })).append($('<td/>',{
+	            	width: '135px',
+	            	align: 'center',
+	            	text: items.reportType
 	            })).append($('<td/>',{
 	            	
 	            	}).append($('<a/>',{
 	            		href: '#',
-	            		width: '594px',
-	            		text: items.notice_subject,
-	            		class: 'subject'+items.notice_seq
+	            		width: '274px',
+	            		text: items.report_subject,
+	            		class: 'subject'+items.report_seq
 	            	}))
 	            ).append($('<td/>',{
-	            	width: '120px',
+	            	width: '100px',
+	                align: 'center',
+	                text: items.report_id
+	            })).append($('<td/>',{
+	            	width: '105px',
 	            	align: 'center',
 	            	text: items.logtime
-	            })).appendTo('.mangerNoticeTable');
+	            })).append($('<td/>',{
+	            	width: '105px',
+	            	align: 'center',
+	            	text: items.report_state,
+	            	class: 'state',
+	            })).appendTo('.mangerReportTable');
 	        	
-	        	$('.subject'+items.notice_seq).click(function(){
-					location.href = '/jaju/serviceCenter/noticeView?notice_seq='+items.notice_seq+'&pg='+$('#pg').val();
+	        	$('.subject'+items.report_seq).click(function(){
+					location.href = '/jaju/manager/managerReportView?report_seq='+items.report_seq+'&pg='+$('#pg').val();
 				});
 	        	
 	        	//처리중 처리완료 색 변경
@@ -47,7 +60,7 @@ $(function(){
 	        }); //each
 			
 			//페이징 처리
-	        $('#pagingArea').html(data.noticePaging.pagingHTML);
+	        $('#pagingArea').html(data.reportPaging.pagingHTML);
 	        
 		},
       	error: function(err){
@@ -57,6 +70,6 @@ $(function(){
 });
 
 //페이징 이동
-function noticePaging(pg){
-	location.href = "/jaju/manager/managerServiceNoticeList?pg="+pg;
+function reportPaging(pg){
+	location.href = "/jaju/manager/managerReportList?pg="+pg;
 }

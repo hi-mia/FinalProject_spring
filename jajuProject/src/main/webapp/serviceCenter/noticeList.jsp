@@ -35,14 +35,6 @@
 	<div class="pagediv"></div>
 </div>
 
-<div style="position: relative; float:left; margin-left: 100px;">
-	<div style="position: absolute; right: 0; top: 15px;">
-		<a href="/jaju/serviceCenter/noticeWriteForm">
-			<span class="bhs_buttonsm yb" style="float: none;">글쓰기</span>
-		</a>
-	</div>
-</div>
-
 <form id="noticeList" name="noticeList">
 <input type="hidden" name="pg" class="pg" value="1">
 <div id="totalSearch">
