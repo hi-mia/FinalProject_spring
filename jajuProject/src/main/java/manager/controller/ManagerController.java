@@ -20,6 +20,8 @@ import freeboard.bean.FreeboardDTO;
 import freeboard.bean.FreeboardPaging;
 import manager.service.ManagerService;
 import member.bean.MemberDTO;
+import reviewboard.bean.ReviewboardDTO;
+import reviewboard.bean.ReviewboardPaging;
 
 @Controller
 @RequestMapping(value = "/manager")
@@ -303,6 +305,6 @@ public class ManagerController {
 			
 		}
 		
-		
+
 
 }

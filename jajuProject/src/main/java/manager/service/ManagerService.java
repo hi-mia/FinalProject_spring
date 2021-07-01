@@ -8,6 +8,8 @@ import freeboard.bean.FreeboardCommentPaging;
 import freeboard.bean.FreeboardDTO;
 import freeboard.bean.FreeboardPaging;
 import member.bean.MemberDTO;
+import reviewboard.bean.ReviewboardDTO;
+import reviewboard.bean.ReviewboardPaging;
 
 public interface ManagerService {
 
@@ -45,6 +47,4 @@ public interface ManagerService {
 
 	public void managerFreeboardListDelete(String[] check);
 
-
-	
 }

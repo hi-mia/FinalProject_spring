@@ -13,6 +13,8 @@ import freeboard.bean.FreeboardDTO;
 import freeboard.bean.FreeboardPaging;
 import manager.dao.ManagerDAO;
 import member.bean.MemberDTO;
+import reviewboard.bean.ReviewboardDTO;
+import reviewboard.bean.ReviewboardPaging;
 
 @Service
 public class ManagerServiceImpl implements ManagerService {

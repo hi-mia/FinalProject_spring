@@ -117,7 +117,8 @@
 					<a href="#"	class="button">인기매물</a></li>
 				<li class="cheap-product-category  header_a_li">
 					<a href="/jaju/freeboard/freeboardList?pg=1"	class="button">자유게시판</a></li>
-				
+				<li class="cheap-product-category  header_a_li">
+					<a href="/jaju/manager/managerReviewboardList?pg=1">리뷰게 관리</a></li>	
 			</ul>
 			<%--mainnav --%>
 

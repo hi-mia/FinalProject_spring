@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import freeboard.bean.FreeboardCommentDTO;
 import freeboard.bean.FreeboardDTO;
 import member.bean.MemberDTO;
+import reviewboard.bean.ReviewboardDTO;
 
 @Transactional
 @Repository

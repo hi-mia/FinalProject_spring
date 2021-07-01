@@ -99,7 +99,7 @@
 	
 </select>
  
-<!-- 게시판 관리 -->
+<!-- 자유 게시판 관리 -->
 <select id="getManagerFreeboardList" resultType="freeboard">
  			select * from (
 	 		select rownum rn ,tt.*from(

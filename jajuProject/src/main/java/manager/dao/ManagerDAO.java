@@ -7,6 +7,7 @@ import freeboard.bean.FreeboardCommentDTO;
 import freeboard.bean.FreeboardCommentPaging;
 import freeboard.bean.FreeboardDTO;
 import member.bean.MemberDTO;
+import reviewboard.bean.ReviewboardDTO;
 
 public interface ManagerDAO {
 
@@ -44,5 +45,6 @@ public interface ManagerDAO {
 	public List<FreeboardDTO> getManagerFreeboardSearchList(Map<String, String> map);
 
 	public void managerFreeboardListDelete(Map<String, String[]> map);
+
 
 }
