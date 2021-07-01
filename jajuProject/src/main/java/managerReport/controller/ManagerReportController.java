@@ -25,12 +25,12 @@ public class ManagerReportController {
 	@Autowired
 	private ManagerReportService managerReportService;
 	
-	@RequestMapping(value = "managerServiceReportList", method = RequestMethod.GET)
-	public ModelAndView managerServiceReportList(@RequestParam(required = false, defaultValue = "1") String pg) {
+	@RequestMapping(value = "managerReportList", method = RequestMethod.GET)
+	public ModelAndView managerReportList(@RequestParam(required = false, defaultValue = "1") String pg) {
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("pg", pg);
-		mav.setViewName("/manager/managerServiceReportList");
+		mav.setViewName("/manager/managerReportList");
 		return mav;
 	}
 	
@@ -46,20 +46,21 @@ public class ManagerReportController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg", pg);
 		mav.addObject("list", list);
-		mav.setViewName("jsonView");
 		mav.addObject("reportPaging", reportPaging);
+		mav.setViewName("jsonView");
 		return mav;
 		
 	}
 	
-	@RequestMapping(value="/reportView", method=RequestMethod.GET)
-	public String reportView(@RequestParam String report_seq,
+	@RequestMapping(value="/managerReportView", method=RequestMethod.GET)
+	public ModelAndView managerReportView(@RequestParam String report_seq,
 							 @RequestParam String pg,
-							 HttpSession session, Model model) {
+							 HttpSession session) {
 		
-		model.addAttribute("report_seq", report_seq);
-		model.addAttribute("pg", pg);
-		model.addAttribute("display", "/serviceCenter/reportView.jsp");
-		return "/index";
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("report_seq", report_seq);
+		mav.addObject("pg", pg);
+		mav.setViewName("/manager/managerReportView");
+		return mav;
 	}
 }

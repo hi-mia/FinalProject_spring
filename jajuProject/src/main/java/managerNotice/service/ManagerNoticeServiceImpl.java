@@ -16,17 +16,47 @@ public class ManagerNoticeServiceImpl implements ManagerNoticeService {
 	private ManagerNoticeDAO managerNoticeDAO;
 	@Autowired
 	private NoticePaging noticePaging;
+
+	@Override
+	public void ManagerNoticeWrite(NoticeDTO noticeDTO) {
+		//System.out.println(reportDTO);
+		managerNoticeDAO.ManagerNoticeWrite(noticeDTO);
+		
+	}
 	
 	@Override
 	public List<NoticeDTO> getManagerNoticeList(Map<String, String> map) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		int endNum = Integer.parseInt(map.get("pg"))*10;
+		int startNum = endNum-9;
+
+		map.put("startNum",startNum+"");
+		map.put("endNum",endNum+"");
+		
+		return managerNoticeDAO.getManagerNoticeList(map);
+	}
+	
+	@Override
+	public NoticePaging noticePaging(String pg) {
+		int totalA = managerNoticeDAO.getNoticeTotalA(); //총글수
+		
+		noticePaging.setCurrentPage(Integer.parseInt(pg));//현재 페이지
+		noticePaging.setPageBlock(5);
+		noticePaging.setPageSize(10);
+		noticePaging.setTotalA(totalA);
+		noticePaging.makePagingHTML();
+		
+		return noticePaging;
 	}
 
 	@Override
-	public NoticePaging noticePaging(String pg) {
-		// TODO Auto-generated method stub
-		return null;
+	public NoticeDTO getNotice(String notice_seq) {
+		return managerNoticeDAO.getNotice(notice_seq);
 	}
 
+	@Override
+	public NoticeDTO getNoticePage(String notice_seq) {
+		return managerNoticeDAO.getNoticePage(notice_seq);
+	}
+	
 }

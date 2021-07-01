@@ -7,8 +7,6 @@ import notice.bean.NoticeDTO;
 import notice.bean.NoticePaging;
 
 public interface NoticeService {
-
-	public void noticeWrite(NoticeDTO noticeDTO);
 	
 	public List<NoticeDTO> getNoticeList(String pg);
 

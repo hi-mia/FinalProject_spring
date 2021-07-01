@@ -34,6 +34,10 @@
 		
 		</div>
 		<div class="bundle_set" style="align: right;">
+			<button type="button" class="btn_admin btn_type7_1">
+				<span class="ico_admin write"></span>
+				<span class="txt_btn writeBtn">글쓰기</span>
+			</button>
 			<button type="button" class="btn_admin btn_type2 button-delete-article">
 				<span class="ico_admin ico_del"></span>
 				<span class="txt_btn">삭제</span>
@@ -67,11 +71,11 @@
 </form>
 </div>
 <script type = "text/javascript" src = "http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/jaju/manager_js/managerServiceNoticeList.js"></script>
+<script src="/jaju/manager_js/managerNoticeList.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
    
-   $('#managerServiceNotice').addClass('on');
+   $('#managerNoticeList').addClass('on');
 });
 </script>
 

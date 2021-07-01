@@ -3,15 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/jaju/css/serviceMenu.css" /> 
-<link rel="stylesheet" href="/jaju/css/noticeWriteForm.css" />    
+<link rel="stylesheet" href="/jaju/manager_css/managerNoticeWriteForm.css" />    
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <div style="width: 1050px; margin: auto;" >
-<jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 <div class="page_section section_qna">
 <div class="head_aticle">
 <h2 class="tit">공지사항 글쓰기</h2>
@@ -74,7 +72,8 @@
 	<tbody>
 		<tr>
 			<td align="right" style="padding-top:5px; border:none;" id="avoidDbl">
-				<input type="button"class = "bhs_button yb" id = "noticeWriteBtn" value="저장" style="float:none;">
+				<input type="button"class="bhs_button yb" id="noticeWriteBtn" value="저장" style="float:none;">
+				<input type="button"class="bhs_button yb" id="noticeListBtn" value="목록" style="float:none;">
 			</td>
 		</tr>
 	</tbody>
@@ -86,13 +85,6 @@
 </div>
 </body>
 <script type = "text/javascript" src = "http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/jaju/js/noticeWriteForm.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){
-	
-	$('#type1').addClass('on');
-});
-</script>
+<script src="/jaju/manager_js/managerNoticeWriteForm.js"></script>
 
 </html>
