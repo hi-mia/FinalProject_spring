@@ -66,21 +66,21 @@
 	<if test='searchMode == "member_id" '>
 		select * from 
 		(select rownum rn, tt.* from
-		(select * from jajumember where member_id like '%'||#{search-text}||'%' order by member_date desc)tt)
+		(select * from jajumember where member_id like '%'||#{search-text}||'%' and member_id !='jajuadmin' order by member_date desc)tt)
 		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
 	</if>
 	
 	<if test='searchMode == "member_email"'>
 		select * from 
 		(select rownum rn, tt.* from
-		(select * from jajumember where member_email like '%'||#{search-text}||'%' order by member_date asc)tt)
+		(select * from jajumember where member_email like '%'||#{search-text}||'%' and member_id !='jajuadmin' order by member_date asc)tt)
 		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
 	</if>
 	
 	<if test='searchMode == "member_id_email"'>
 		select * from 
 		(select rownum rn, tt.* from
-		(select * from jajumember where member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%' order by member_date desc)tt)
+		(select * from jajumember where member_id !='jajuadmin' and member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%' order by member_date desc)tt)
 		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
 	</if>
 </select>
@@ -187,7 +187,7 @@
 
 
 <!-- 회원리스트 paging 처리 -->
-<select id="getTotalA" parameterType="String" resultType="int">
+<select id="getMemberTotalA" parameterType="String" resultType="int">
 	select count(*) from jajumember
 </select>
 <!-- 검색 paging 처리  -->
@@ -196,7 +196,7 @@
 		select count(*) from jajumember where member_id like '%'||#{search-text}||'%'
 	</if>	
 	<if test='searchMode == "member_email"'>
-		select count(*) from jajumember member_email like '%'||#{search-text}||'%' 
+		select count(*) from jajumember where member_email like '%'||#{search-text}||'%' 
 	</if>
 	<if test='searchMode == "member_id_email"'>
 		select count(*) from jajumember where member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%'

@@ -132,7 +132,7 @@ public class ManagerController {
 		return mav;
 	}
 
-//---------------------- 게시판 관리	
+		//---------------------- 게시판 관리	
 		@RequestMapping(value="/managerFreeboardList", method=RequestMethod.GET)
 		public String managerFreeboardList(Model model) {
 			model.addAttribute("display", "/manager/managerFreeboardList.jsp");
