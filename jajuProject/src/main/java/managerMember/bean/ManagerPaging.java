@@ -1,4 +1,4 @@
-package manager.bean;
+package managerMember.bean;
 
 import org.springframework.stereotype.Component;
 

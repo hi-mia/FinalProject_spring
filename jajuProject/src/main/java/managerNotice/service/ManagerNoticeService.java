@@ -8,8 +8,8 @@ import notice.bean.NoticePaging;
 
 public interface ManagerNoticeService {
 
-	List<NoticeDTO> getManagerNoticeList(Map<String, String> map);
+	public List<NoticeDTO> getManagerNoticeList(Map<String, String> map);
 
-	NoticePaging noticePaging(String pg);
+	public NoticePaging noticePaging(String pg);
 
 }

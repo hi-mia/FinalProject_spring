@@ -44,10 +44,11 @@ public class MemberController {
 		if(memberDTO != null) {
 			session.setAttribute("memId", memberDTO.getMember_id());
 			model.addAttribute("memId", session.getAttribute("memId"));
+
+			return memberDTO.getMember_id();
+		}else {
+			return "";
 		}
-		
-		
-		return memberDTO.getMember_id();
 	}
 	
 	@RequestMapping(value="/logout", method=RequestMethod.POST)

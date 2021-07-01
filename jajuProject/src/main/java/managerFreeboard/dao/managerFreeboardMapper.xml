@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="managerfreeboardSQL">
+ 
+ <!-- 자유 게시판 관리 -->
+<select id="getManagerFreeboardList" resultType="freeboard">
+ 			select * from (
+	 		select rownum rn ,tt.*from(
+	 		select * from freeboard order by logtime desc)tt)
+	 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
+</select>
+
+<select id="getTotalA" resultType="int">
+	select count(*) as count from freeboard
+</select>
+
+<select id="getManagerFreeboardView" parameterType="int" resultType="freeboard">
+	select * from freeboard where board_seq = #{board_seq}
+</select>
+
+ <!-- 삭제 -->
+ <delete id="managerFreeboardDelete" parameterType="int">
+ 	delete freeboard where board_seq=#{board_seq}
+</delete>
+
+<!-- 글 체크박스 삭제 -->
+<delete id="managerFreeboardListDelete" parameterType="java.util.Map">
+    delete freeboard where board_seq in 
+	<foreach collection="array" item="data" open="(" close=")" separator=",">
+	    #{data}        
+	</foreach>
+</delete>
+   
+<!-- 댓글 불러오기 -->
+	<select id="getManagerFreeboardComment" parameterType="java.util.Map" resultType="freeboardComment">
+		select * from (
+ 		select rownum rn ,tt.*from(
+ 		select * from freeboard_comment where board_seq = ${board_seq} order by comment_ref desc, comment_step asc)tt)
+ 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
+	</select>
+	
+	<select id="getCommentTotal2" resultType="int" parameterType="Integer">
+		select count(*) as count from freeboard_comment where board_seq=${board_seq}
+	</select>
+	
+<!-- 댓글 1개 가져오기 -->
+	<select id="getManagerFreeboardCommentOne" parameterType="Integer" resultType="freeboardComment">
+		select * from freeboard_comment where comment_seq = ${comment_pseq}
+	</select>
+	
+<!-- 댓글 삭제 -->
+	<delete id="managerCommentDelete" parameterType="freeboardComment">
+		begin
+ 			update freeboard_comment set comment_content =  '[원글이 삭제된 답글]'||comment_content where comment_pseq = #{comment_seq};
+ 			delete freeboard_comment where comment_seq = #{comment_seq};
+ 		end;
+	</delete>
+	
+<!-- 이전글, 다음글 -->
+	<select id="getPage" parameterType="int" resultType="freeboard">
+		select * from(
+		select board_seq,
+			lag(board_seq, 1, 0) over(order by board_seq desc) prev_num,
+			lag(board_subject, 1, '이전글이 없습니다') over (order by board_seq desc) prev_subject,
+			lead(board_seq,1,0) over (order by board_seq desc) next_num,
+			lead(board_subject, 1, '다음글이 없습니다') over (order by board_seq desc) next_subject
+		from freeboard) 
+		where board_seq=#{board_seq}
+	</select>	 
+
+<!-- 검색 -->
+<select id="getManagerFreeboardSearchList" parameterType="java.util.Map" resultType="freeboard">
+	<![CDATA[
+		select * from 
+		(select rownum rn, tt. * from 
+	 	(select * from freeboard where ${searchOption} like '%'||#{keyword}||'%' order by logtime desc)tt) 
+	 	where rn >= ${startNum} and rn <= ${endNum}
+	]]>
+</select>
+
+<!-- 검색한 총글수 -->
+<select id="getSearchTotal" parameterType="java.util.Map" resultType="int">
+	select count(*) as count from freeboard where ${searchOption} like '%'||#{keyword}||'%'
+</select>
+ 
+  </mapper>

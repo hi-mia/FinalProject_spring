@@ -8,8 +8,8 @@ import report.bean.ReportPaging;
 
 public interface ManagerReportService {
 
-	List<ReportDTO> getManagerReportList(Map<String, String> map);
+	public List<ReportDTO> getManagerReportList(Map<String, String> map);
 
-	ReportPaging reportPaging(String pg);
+	public ReportPaging reportPaging(String pg);
 
 }
