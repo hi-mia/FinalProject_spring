@@ -81,7 +81,7 @@ function freeboardPaging(pg){
 	var boardSearchText = document.getElementById('keyword').value;
 	
 	if(boardSearchText == ''){
-		location.href = '/jaju/freeboard/freeboardList?pg='+pg;
+		location.href = '/jaju/manager/managerFreeboardList?pg='+pg;
 	} else{
 		$('#searchPg').val(pg);
 		$('#boardSearchBtn').trigger('click');

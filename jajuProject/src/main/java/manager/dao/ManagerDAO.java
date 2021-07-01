@@ -12,8 +12,7 @@ public interface ManagerDAO {
 
 
 	public List<MemberDTO> getManagerMember(Map<String, String> map);
-
-<<<<<<< HEAD
+	
 	public void changeMemberState(Map<String, String[]> map);
 
 	public void managerMemberForm(Map<String, String[]> map);
@@ -21,7 +20,7 @@ public interface ManagerDAO {
 	public List<MemberDTO> getSearchMemberInfo(Map<String, String> map);
 
 	public List<MemberDTO> getManagerMemberBlack(Map<String, String> map);
-=======
+
 	public List<FreeboardDTO> getManagerFreeboardList(Map<String, String> map);
 
 	public int getTotalA();
@@ -39,5 +38,11 @@ public interface ManagerDAO {
 	public void managerFreeboardDelete(int board_seq);
 
 	public void managerCommentDelete(FreeboardCommentDTO freeboardCommentDTO);
->>>>>>> idleline12
+
+	public int getSearchTotal(Map<String, String> map);
+
+	public List<FreeboardDTO> getManagerFreeboardSearchList(Map<String, String> map);
+
+	public void managerFreeboardListDelete(Map<String, String[]> map);
+
 }

@@ -121,8 +121,6 @@
          bordercolor="#d6e6f2" align="center" frame="hsides" rules="rows"
          width="1050" id="commentWriteTable">
          <tr >
-            <td height="80" width="150" align="center">댓글: &nbsp; <span id="replySpan"></span>
-            </td>
          </tr>
       </table>
 	</div>

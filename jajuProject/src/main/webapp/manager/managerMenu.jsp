@@ -26,9 +26,9 @@
 	<li class="lnb_admin3">
 		<strong><span class="ico_admin"></span> <span class="txt_lnb">게시판 관리</span></strong>
 		<ul>
-			<li id="founder_articlemanagement" style="text-align: left;"><a href="/_c21_/founder_articlemanagement?grpid=1Z5aM" class="link_lnb">판매게시판 관리</a></li>
-			<li id="founder_commentmanagement" style="text-align: left;"><a href="/_c21_/founder_commentmanagement?grpid=1Z5aM" class="link_lnb">리뷰게시판 관리</a></li>
-			<li id="founder_noticemanagement" style="text-align: left;"><a href="/_c21_/founder_noticemanagement?grpid=1Z5aM" class="link_lnb">자유게시판 관리</a></li>
+			<li id="managerSaleboard" style="text-align: left;"><a href="/_c21_/founder_articlemanagement?grpid=1Z5aM" class="link_lnb">판매게시판 관리</a></li>
+			<li id="managerFreeboard" style="text-align: left;"><a href="/_c21_/founder_commentmanagement?grpid=1Z5aM" class="link_lnb">자유게시판 관리</a></li>
+			<li id="managerReviewboard" style="text-align: left;"><a href="/_c21_/founder_noticemanagement?grpid=1Z5aM" class="link_lnb">리뷰게시판 관리</a></li>
 		</ul>
 	</li>
 		<li class="lnb_admin4">
