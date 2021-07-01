@@ -7,6 +7,7 @@ import freeboard.bean.FreeboardCommentDTO;
 import freeboard.bean.FreeboardCommentPaging;
 import freeboard.bean.FreeboardDTO;
 import freeboard.bean.FreeboardPaging;
+import manager.bean.ManagerPaging;
 import member.bean.MemberDTO;
 import reviewboard.bean.ReviewboardDTO;
 import reviewboard.bean.ReviewboardPaging;
@@ -22,6 +23,10 @@ public interface ManagerService {
 	public List<MemberDTO> getSearchMemberInfo(Map<String, String> map);
 
 	public List<MemberDTO> getManagerMemberBlack(Map<String, String> map);
+	//전체회원 리스트 페이징 처리하기
+	public ManagerPaging managerPaging(Map<String, String> map);
+	//검색 후 페이징 처리하기
+	public ManagerPaging managerSearchPaging(Map<String, String> map);
 
 	public List<FreeboardDTO> getManagerFreeboardList(String pg);
 

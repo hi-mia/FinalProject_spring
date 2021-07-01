@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@charset "UTF-8";
 
 @font-face {
      font-family: 'S-CoreDream-4Regular';
@@ -313,6 +314,11 @@ label {
     line-height: 32px;
     vertical-align: top;
 }
+.box_search {
+    float: right;
+    height: 31px;
+    margin-top: 4px;
+}
 .box_search .select_admin {
     float: left;
     border: 1px solid #cfd2d5;
@@ -394,8 +400,8 @@ button {
     text-indent: 9px;
 }
 .set_list {
-    width: 800px;
-    height: 46px;
+    width: 860px;
+    height: 56px;
     padding: 12px 20px 0;
     border-top: 1px solid #e4e4e4;
     background: #fafafa;
@@ -470,6 +476,7 @@ select {
     border-radius: 5px;
     border: 0.5px solid;
 	font-family: 'S-CoreDream-4Regular';
+	font-size: 14px!important;
 }
 option {
     font-weight: normal;
@@ -527,7 +534,6 @@ option {
     line-height: 30px;
     text-align: left;
     word-wrap: normal;
-        margin-left: 5px;
 }
 .select_admin .img_selectbox, .select_admin .img_selectbox_press {
     display: block;
@@ -1245,61 +1251,17 @@ body#cafeAdmin #side {
     cursor: pointer;
     white-space: normal;
 }
-
-/*페이징 처리 css*/
-#currentPaging {
-	display: inline-block;
-    width: 34px;
-    height: 34px;
-    border: 1px solid #ddd;
-    border-left: 1;
-    vertical-align: top;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    font-weight: 700;
-    line-height: 34px;
-}
-#currentPaging:hover{
-	border: 1px solid #47597e;
-}
-#paging {
-	display: inline-block;
-    width: 34px;
-    height: 34px;
-    border: 1px solid #ddd;
-    border-left: 1;
-    vertical-align: top;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    font-weight: 700;
-    line-height: 34px;
-}
-#paging:hover,#prev_paging:hover,#next_paging:hover{
-	border: 1px solid #47597e;
-}
-#prev_paging{
-    background-image: url(https://res.kurly.com/pc/etc/old/images/common/icon-pagination-prev.png);
-	width: 34px;
-    height: 34px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    vertical-align: top;
-    display: inline-block;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    text-indent: -9999px;
-    border: 1px solid #ddd;
-}
-#next_paging{
-    background-image: url(https://res.kurly.com/pc/etc/old/images/common/icon-pagination-next.png);
-    width: 34px;
-    height: 34px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    vertical-align: top;
-    display: inline-block;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    text-indent: -9999px;
-    border: 1px solid #ddd;
+/* #listControlBar {
+    width: 800px;
+    height: 46px;
+    padding: 12px 20px 0;
+    border-top: 1px solid #e4e4e4;
+    background: #fafafa;
+    white-space: nowrap;
+    letter-spacing: -.5px;
+} */
+caption {
+    padding-top: 0px!important;
+    padding-bottom: 0px!important;
+    color: #777;
 }
