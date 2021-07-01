@@ -21,6 +21,7 @@ public class ManagerInquireServiceImple implements ManagerInquireService {
 		int startNum = endNum-9;
 		
 		Map<String,String> map = new HashMap<String,String>();
+		
 		map.put("startNum",startNum+"");
 		map.put("endNum",endNum+"");
 		

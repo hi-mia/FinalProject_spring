@@ -48,6 +48,7 @@ public class InquireController {
 	@ResponseBody
 	public void inquireWrite(@ModelAttribute InquireDTO inquireDTO,
 							 @RequestParam ("img[]") List<MultipartFile> list,
+							 HttpSession session,
 							 Model model) {
 		String filePath;
 		String fileName;
@@ -86,7 +87,7 @@ public class InquireController {
 			inquireDTO.setInquiry_image3("");
 		}
 		i++;
-		
+		inquireDTO.setInquiry_id((String)session.getAttribute("memId"));
 		//DB
 		inquireService.inquireWrite(inquireDTO);
 		

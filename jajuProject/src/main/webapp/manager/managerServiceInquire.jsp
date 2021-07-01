@@ -12,6 +12,7 @@
 <div id="content" class="cont_post post_spam">
 <input type = "hidden" name = "pg" id = "pg" value="${pg }">
 <input type = "hidden" name = "inquiry_id" id = "inquiry_id" value="${session.memId }">
+<input type = "hidden" name = "inquiry_seq" id = "inquiry_seq" value = "${inquiry_seq }">
 	<div class="wrap_tit">
 		<h3 class="cont_tit">
 			<span class="tit_menu">1:1 문의 관리</span>
@@ -106,6 +107,20 @@ $(document).ready(function(){
 });
 </script>
 
+<script type="text/javascript">
+//전체 선택 또는 해제
+$('#all').click(function(){
+	//alert($('#all').attr('checked')); // - checked 속성이 없어서 undefind으로 나온다.
+	//alert($('#all').prop('checked')); //true 또는 false
+	
+	if($('#all').prop('checked')){
+		$('input[name=check]').prop('checked', true);
+	}else{
+		$('input[name=check]').prop('checked', false);
+		
+	}
+});
+</script>
 <script type="text/javascript">
 //전체 선택 또는 해제
 $('#all').click(function(){
