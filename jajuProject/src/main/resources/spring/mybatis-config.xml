@@ -26,6 +26,5 @@
 		<typeAlias alias="mypageScrap" type="mypage.bean.ScrapDTO" />
 		<typeAlias alias="mylocation" type="mypage.bean.MylocationDTO" />
  		<typeAlias alias="mycount" type="mypage.bean.MyCountDTO" />
- 		<typeAlias alias="review" type="reviewboard.bean.ReviewboardDTO" />
  	</typeAliases>
  </configuration>

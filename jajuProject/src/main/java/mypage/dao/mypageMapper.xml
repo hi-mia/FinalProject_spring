@@ -321,7 +321,7 @@ select count(*) as count from message where message_reader=#{id} and message_cha
    delete from follow where follow_id=#{follow_id} and member_id = #{member_id}
 </delete>
 <!-- 나의 프로필 판매 내역 목록 -->
-<select id="getMyProfileReviewList" parameterType="java.util.Map" resultType="review">
+<select id="getMyProfileReviewList" parameterType="java.util.Map" resultType="reviewboard">
 		<![CDATA[
 			select * from 
 			(select rownum rn, tt.* from 
