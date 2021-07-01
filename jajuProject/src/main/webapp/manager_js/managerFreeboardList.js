@@ -51,7 +51,7 @@ $(function(){
 		         });
 
 			  //페이징 처리
-			$('#pagingAreaPg').html(data.freeboardPaging.pagingHTML);		   
+			$('#pagingArea').html(data.freeboardPaging.pagingHTML);		   
 		}, 
 			error:function(err){
 			console.log(err);
@@ -128,7 +128,7 @@ $('#managerBoardSearchBtn').click(function(){
 	         });
 
 			
-				$('#pagingAreaPg').html(data.freeboardPaging.pagingHTML);		   
+				$('#pagingArea').html(data.freeboardPaging.pagingHTML);		   
 			
 		}, error: function(err){
 			console.log(err);

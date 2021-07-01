@@ -87,9 +87,10 @@
 
 <!-- 페이징 -->
 
-      <div id="article-summary-layer" class="layer_post summary-layer"></div>
-      <div id="pagingAreaPg" class="page_admin"></div>
-   </div>
+   <div id="pagingAreaPg" class="page_admin"></div>
+   <div id="pagingArea" class="page_admin"></div>
+</div>
+
 </div>
 
 
@@ -107,7 +108,8 @@ function freeboardPaging(pg){
 	var boardSearchText = document.getElementById('keyword').value;
 	
 	if(boardSearchText == ''){
-		location.href = '/jaju/freeboard/freeboardList?pg='+pg;
+		//location.href = '/jaju/freeboard/freeboardList?pg='+pg;
+		location.href="managerFreeboardList?pg="+pg;
 	} else{
 		$('#searchPg').val(pg);
 		$('#managerBoardSearchBtn').trigger('click');
