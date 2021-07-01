@@ -17,12 +17,11 @@
 	<context:component-scan base-package="mypage.*"/>
 	<context:component-scan base-package="manager.*"/>
 	<context:component-scan base-package="managerFreeboard.*"/>
+	<context:component-scan base-package="managerReviewboard.*"/>
 	<context:component-scan base-package="managerMember.*"/>
 	<context:component-scan base-package="managerNotice.*"/>
 	<context:component-scan base-package="managerReport.*"/>
 	<context:component-scan base-package="managerInquire.*"/>
 
-	
-	
 	<context:component-scan base-package="spring.conf" />
 </beans>

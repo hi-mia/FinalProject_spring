@@ -3,14 +3,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/jaju/manager_css/managerFreeboardView.css" />
+<link rel="stylesheet" href="/jaju/css/reviewboardView.css" />
 <jsp:include page="/manager/managerMenu.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<input type="hidden" id="board_seq" value="${board_seq }">
+<input type="hidden" id="review_seq" value="${param.review_seq }">
 <input type="hidden" id="pg" value="${param.pg }"/>
+<input type="hidden" name="sale_seq" id="sale_seq" value="${param.sale_seq }">
+
 <div id="wrap">
 <div id="pos_scroll"></div>
 <div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
@@ -38,17 +40,35 @@
 			<tbody>
 				<tr>
 					<th scope="row" style="border:none;">제목</th>
-					<td colspan="5"> <span id="subjectSpan"></span></td>
+					<td colspan="7"> <span id="subjectSpan"></span></td>
 				</tr>
-				<tr  class="board_id" >
+				
+				<tr class="board_id" >
 					<th scope="row">작성자</th>
-					<td colspan="5" ><span id="idSpan"></span></td>
+					<td colspan="7" ><span id="idSpan"></span></td>
 				</tr>
 				<tr>
 				<th scope="row">작성일</th>
-					<td colspan="3"><span id="dateSpan"></span></td>
+					<td colspan="4"><span id="dateSpan"></span></td>
 				<th scope="row">조회수</th>
-					<td colspan="1"><span id="hitSpan"></span></td>	
+					<td colspan="2"><span id="hitSpan"></span></td>	
+				</tr>
+					
+				<tr>
+					<th scope="row" style="border:none;">평점</th>
+					<td colspan="7"> <span id="mannerSpan"></span></td>
+				</tr>
+				
+				<tr>
+					<th scope="row" style="border:none;">구매상품</th>
+					<td colspan="2"><img id="image1" width="150" height="150"></td>
+					<td colspan="5">
+					<span id="sale_subjectSpan"></span></td>
+				</tr>
+				
+					<tr>
+					<th scope="row" style="border:none;">판매자</th>
+					<td colspan="7"> <span id="member_idSpan"></span></td>
 				</tr>
 				
 			</tbody>
@@ -61,16 +81,18 @@
 			<tr>
 			<td style="padding:10px;" height="200" valign="top" id="contents">
 			<table width="100%" style="table-layout:fixed">
-			
+						
 			<tbody>
+			
 			<tr>
 			<td class="board_view_content" style="word-wrap:break-word;word-break:break-all" id="contents_924" valign="top">
 			<div style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; margin: 0px;">
 			<font color="#222222" face="Font" style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; margin: 0px;">
-				<pre class="viewPre"><span id="contentSpan"></span></pre>
-					<div id="imageDiv">
+				<span id="contentSpan"></span>
+				<div id="imageDiv">
 					
 					</div>
+
 			</font>
 			</div>
 			</td>
@@ -91,7 +113,7 @@
 		
 		<tr>
 		<td align="right">
-		<span class="bhs_button yb" style="float:none; cursor:pointer; " id="managerFreeboardDeleteBtn">삭제</span>
+		<span class="bhs_button yb" style="float:none; cursor:pointer; " id="managerReviewboardDeleteBtn">삭제</span>
 		</td>
 		</tr>
 		
@@ -103,29 +125,6 @@
 		<br><br><br>
 		
 		
-<!-- 댓글 -->
-	<div id="commentDiv">
-		<table id="commentTable" >
-			<tr style="border-bottom: 1px solid #f5f5f5;">
-				<th width="200" style="padding-bottom: 10px;">번호</th>
-				<th width="400" style="padding-bottom: 10px;">내용</th>
-				<th width="200" style="padding-bottom: 10px;">작성자</th>
-				<th width="200" style="padding-bottom: 10px;">작성일</th>
-			</tr>
-
-		</table>
-		<div id="pagingDiv" style="text-align: center; margin-bottom: 10px;">
-		
-		</div>
-		
-		<table border="2" id=c cellspacing="0" cellpadding="10"
-         bordercolor="#d6e6f2" align="center" frame="hsides" rules="rows"
-         width="1050" id="commentWriteTable">
-         <tr >
-         </tr>
-      </table>
-	</div>
-		<br>
 		<div class="xans-element- xans-board xans-board-movement-1002 xans-board-movement xans-board-1002 " style="width: 800px;">
 			<ul>
 				<li class="prev">
@@ -142,6 +141,7 @@
 				</li>
 			</ul>
 		</div>
+		<br>
 		<table width="100%" cellpadding="5" cellspacing="0">
 			<colgroup>
 				<col width="100" align="right" bgcolor="#f7f7f7" style="padding-right:10px">
@@ -164,70 +164,8 @@
 </div>
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/jaju/manager_js/managerFreeboardView.js"></script>
-<script src="/jaju/manager_js/managerFreeboardDelete.js"></script>
-<script type="text/javascript">
-function freeboardCommentPaging(pg){
-	$.ajax({
-		type: 'post',
-		url: '/jaju/freeboard/getFreeboardComment',
-		data: {'board_seq': $('#board_seq').val(), 'pg': pg},
-		dataType: 'json',
-		success: function(data){
-			//alert(JSON.stringify(data));
-			
-			$('#commentTable tr:gt(0)').remove();
-			
-			$.each(data.list, function(index,items){
-				
-				$('<tr/>').append($('<td/>',{
-					text : items.comment_seq
-				})).append($('<td/>',{
-					style : 'text-align: left;'
-					
-					}).append($('<a/>',{
-						text : items.comment_content,
-						id: 'subjectA',
-						class: 'content_'+ items.comment_seq
-					}))
-				).append($('<td/>',{
-					text : items.board_id
-				})).append($('<td/>',{
-					class: 'trLast',
-					text : items.logtime
-				})).appendTo($('#commentTable'));
-				
-				for(var i=1; i<items.comment_lev; i++){
-					$('.content_'+items.comment_seq).before('&emsp;');
-				}
-				if(items.comment_pseq != 0 ){
-					$('.content_'+items.comment_seq).before($('<img>',{
-						src: '/jaju/jajuImage/reply.gif'
-					}));
-				}
-				
-			}); //each
-			
-			$('.trLast').append($('<img>',{
-				src: '/jaju/jajuImage/delete.png',
-				id: 'commentDeleteBtn',
-				style: 'cursor: pointer; float: right;',
-				width: '20px',
-				height: '20px'
-			}));
-			
-			$('#pagingDiv').html(data.freeboardCommentPaging.pagingHTML);
-			
-		},error: function(err){
-			alert("댓글 불러오기 에러");
-			console.log(err);
-		}
-	});
-	
-}
-
-</script>
-
-
+<script src="/jaju/manager_js/managerReviewboardView.js"></script>
+<script src="/jaju/manager_js/managerReviewboardDelete.js"></script>
+</body>
 </body>
 </html>

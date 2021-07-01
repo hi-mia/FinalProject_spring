@@ -11,4 +11,13 @@ public interface ManagerReviewboardDAO {
 
 	public int getTotalA();
 
+	public ReviewboardDTO getManagerReviewboardView(int review_seq);
+	
+	public ReviewboardDTO getPage_review(int review_seq);
+
+	public List<ReviewboardDTO> getManagerReviewboardSearchList(Map<String, String> map);
+
+	public int getSearchTotal_review(Map<String, String> map);
+
+
 }

@@ -27,9 +27,11 @@ public class ManagerFreeboardController {
 
 	//---------------------- 게시판 관리	
 	@RequestMapping(value="/managerFreeboardList", method=RequestMethod.GET)
-	public String managerFreeboardList(Model model) {
-		model.addAttribute("display", "/manager/managerFreeboardList.jsp");
-		return "/index";
+	public ModelAndView managerFreeboardList(@RequestParam(required = false, defaultValue = "1") String pg) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg", pg);
+		mav.setViewName("/manager/managerFreeboardList");
+		return mav;
 	}
 	
 	@RequestMapping(value="/getManagerFreeboardList", method=RequestMethod.POST)
@@ -61,17 +63,17 @@ public class ManagerFreeboardController {
 	
 //뷰
 	@RequestMapping(value="/managerFreeboardView", method=RequestMethod.GET)
-	public String managerFreeboardView(@RequestParam int board_seq,
-										Model model) { //나에게 들어오는 데이터: seq, pg
+	public ModelAndView managerFreeboardView(@RequestParam int board_seq) { //나에게 들어오는 데이터: seq, pg
 		//						HttpSession session,
 									
 		//ID 세션 가져오기
 		//String memId = (String) session.getAttribute("memId");
 		//model.addAttribute("memId", memId);
-		model.addAttribute("board_seq", board_seq); //seq를 모델에 넣어줌
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("board_seq", board_seq); //seq를 모델에 넣어줌
 				
-		model.addAttribute("display","/manager/managerFreeboardView.jsp");
-		return "/index";
+		mav.setViewName("/manager/managerFreeboardView");
+		return mav;
 	}
 			
 	@RequestMapping(value="/getManagerFreeboardView", method=RequestMethod.POST)
