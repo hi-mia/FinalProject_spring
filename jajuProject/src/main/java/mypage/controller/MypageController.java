@@ -57,15 +57,15 @@ public class MypageController {
 	}
 
 	// 마이페이지 프로필 이미지 변경 (window.open)
-		@RequestMapping(value = "myPageChangeImg", method = RequestMethod.GET)
-		public String myPageChangeImg(Model model, HttpSession session,@RequestParam(required = false, defaultValue = "1") String pg) {
+		@RequestMapping(value = "MypageChangeImg", method = RequestMethod.GET)
+		public String MypageChangeImg(Model model, HttpSession session,@RequestParam(required = false, defaultValue = "1") String pg) {
 			// ID 세션 가져오기
 			String memId = (String) session.getAttribute("memId");
 			// model에 아이디 같이 보내기.
 			model.addAttribute("memId", memId);
 			model.addAttribute("pg", pg);
 
-			return "/mypage/myPageChangeImg";
+			return "/mypage/MypageChangeImg";
 		}
 
 	// TODO 내판매내역

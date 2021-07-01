@@ -107,7 +107,7 @@
 <script type="text/javascript" src="/jaju/js/myPageChangeImg.js"></script>
 <script type="text/javascript">
 function myRecodePaging(pg){
-	location.href="myPageChangeImg?pg="+pg;
+	location.href="MypageChangeImg?pg="+pg;
 }
 </script>
 </body>

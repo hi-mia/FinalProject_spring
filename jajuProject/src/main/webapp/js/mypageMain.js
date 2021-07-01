@@ -269,8 +269,8 @@ $('#change_image').click(function(){
 			 "my_Message", 
 			 "width=500 height=500 left=500 top=700 scrollbars=yes");  */
 	
-	window.open("/jaju/mypage/myPageChangeImg", 
-			 "myPageChangeImg", 
+	 window.open("/jaju/mypage/MypageChangeImg", 
+			 "MypageChangeImg", 
 			 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY); 
 	
 
