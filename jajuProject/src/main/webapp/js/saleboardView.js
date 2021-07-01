@@ -112,7 +112,9 @@ $(function(){
 			$('#member_id .tit').prepend($('<img/>',{
 				src : '/jaju/storage/'+ data.saleboardDTO.member_image,
 				width: '50px',
-				height: '50px'
+				height: '50px',
+				id : "profilImg",
+				style: 'cursor: pointer; width : 50px; height: 50px;'
 			}));
 			$('#member_id .desc').html('&nbsp;'+data.saleboardDTO.member_manner+'°C');
 			if(data.saleboardDTO.member_manner < 30){
@@ -520,8 +522,27 @@ $('#memberreportA').click(function(){
 	
 });
 
+$(document).on('click','#profilImg',function(){
+//$('#profilImg').click(function(){
 
+	var popupWidth=500;
+	var popupHeight=620;
 
+	 var popupX = (window.screen.width/2)-(popupWidth/2);
+	 // 만들 팝업창 width 크기의 1/2 만큼 보정값으로 빼주었음
+
+	 var popupY= (window.screen.height/2)-(popupHeight/2);
+	 // 만들 팝업창 height 크기의 1/2 만큼 보정값으로 빼주었음
+
+/* 	 window.open("/jaju/mypage/myMessage", 
+			 "my_Message", 
+			 "width=500 height=500 left=500 top=700 scrollbars=yes");  */
+	
+	window.open("/jaju/mypage/mypageChangeImg?id="+$('#member_id .tit').text(), 
+			 "mypageChangeImg", 
+			 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY); 	
+
+});
 
 
 

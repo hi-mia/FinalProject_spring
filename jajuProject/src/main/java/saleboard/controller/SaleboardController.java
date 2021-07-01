@@ -70,7 +70,7 @@ public class SaleboardController {
 		public void saleboardWrite(@ModelAttribute SaleboardDTO saleboardDTO,
 				@RequestParam("file") List<MultipartFile> list) {
 			
-			String filePath = "C:\\sts_work\\jajuProject\\src\\main\\webapp\\storage";
+			String filePath = "C:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 
 			String fileName;
 			File file;
@@ -201,7 +201,7 @@ public class SaleboardController {
 		public void saleboardModify(@ModelAttribute SaleboardDTO saleboardDTO,
 								@RequestParam("file[]") List<MultipartFile> list) {
 			
-			String filePath = "C:\\sts_work\\jajuProject\\src\\main\\webapp\\storage";
+			String filePath = "C:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 
 			String fileName;
 			File file;

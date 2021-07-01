@@ -22,7 +22,7 @@
 <colgroup><col width="14%" align="right"></colgroup>
 <tbody>
 
-<tr>
+<tr class="saleboardModifyTr">
 	<th class="saleboardModifyTd">제목</th>
 	<td>
 		<select class="sale_state" name="sale_state" id="sale_state" onchange="">
