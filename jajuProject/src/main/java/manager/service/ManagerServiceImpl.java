@@ -85,7 +85,6 @@ public class ManagerServiceImpl implements ManagerService {
 		
 		return managerDAO.getManagerMemberBlack(map);
 	}
-
 		
 	@Override
 	public List<FreeboardDTO> getManagerFreeboardList(String pg) {

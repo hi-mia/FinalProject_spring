@@ -30,7 +30,7 @@ $(document).ready(function(){
 		            	align: 'center',
 		            	text: items.reportType
 		            })).append($('<td/>',{
-		            	
+		            	width: '300px',
 		            	}).append($('<a/>',{
 		            		href: '#',
 		            		text: items.report_subject,

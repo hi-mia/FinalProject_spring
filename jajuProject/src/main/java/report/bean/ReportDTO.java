@@ -12,6 +12,7 @@ public class ReportDTO {
 	private int sale_seq; //신고 글번호
 	private String sale_id; //신고 아이디
 	private int report_seq; //글번호
+	private String report_name; //이름	
 	private String report_id; //아이디
 	private String reportType; //신고 유형
 	private String report_tal; //전화번호

@@ -209,5 +209,4 @@
 		select count(*) from jajumember where member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%'
 	</if>
 </select>
-
  </mapper>

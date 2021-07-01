@@ -77,14 +77,6 @@
 	margin: 0 auto;
 	display: inline-block;
 }
-body#cafeAdmin #content.cont_post {
-    width: 840px;
-    margin: 33px 0 0 60px;
-    padding-bottom: 50px;
-}
-body#cafeAdmin #content {
-    color: #444;
-}
 #content {
     float: left;
     margin: 33px 0 0 0;
@@ -95,6 +87,92 @@ body#cafeAdmin #content {
     margin-left: 50px;
     margin-bottom: 100px;
     border-top: 1px solid #d4d7da;
+}
+#pagingArea{
+	border-top: 1px solid #e4e4e4;
+}
+#pagingAreaPg{
+	background: #FAFAFA;
+	height: 50px;
+	border-top: 1px solid #efefef;
+}
+.prevPaging {
+    background-image: url(/jaju/jajuImage/icon-pagination-prev.webp);
+}
+.nextPaging {
+    background-image: url(/jaju/jajuImage/icon-pagination-next.webp);
+}
+.prevPaging, .nextPaging {
+	border-radius: 3px;
+    color: silver;
+    cursor: pointer;
+	display: inline-block;
+	border: 1px solid #a7a7a7;
+    width: 28px;
+	height: 28px;
+    line-height: 27px;
+    margin: 7px 1px 0;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    text-indent: -9999px;
+}
+.currentPaging:hover, .thisPaging:hover {
+   background: #f7f7f7;
+}
+.thisPaging{
+	border-radius: 3px;
+    border: 1px solid #a7a7a7;
+    font-weight: 700;
+    color: #a7a7a7;
+    width: 28px;
+	height: 28px;
+    font-size: 12px;
+    line-height: 28px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 7px 1px 0;
+    vertical-align: middle;
+}
+.currentPaging{
+	border-radius: 3px;
+    border: 1px solid #ff9398;
+    font-weight: 700;
+    color: #ed3e49;
+    width: 28px;
+	height: 28px;
+    font-size: 12px;
+    line-height: 28px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 7px 1px 0;
+    vertical-align: middle;
+}
+.mangerNoticeTable th{
+	position: relative;
+    height: 43px;
+    font-size: 13px;
+    color: #000;
+}
+.mangerNoticeTable td{
+	position: relative;
+    height: 43px;
+    font-size: 13px;
+    color: #000;
+    border-top: 1px solid #efefef;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+    word-wrap: normal;
+} 
+body#cafeAdmin #content.cont_post {
+    width: 840px;
+    margin: 33px 0 0 60px;
+    padding-bottom: 50px;
+}
+body#cafeAdmin #content {
+    color: #444;
 }
 dd, div, dl, dt, li, p, table, td, th, ul {
     line-height: 1.6;
@@ -211,9 +289,6 @@ option {
 }
 .box_search .select_admin .img_selectbox {
     background-position: 100% 13px;
-}
-.select_admin .img_selectbox {
-    background: url(//t1.daumcdn.net/cafe_image/cf_img3/admin_2018/arr_open_180116-2.gif) no-repeat 100% 14px;
 }
 .select_admin>.img_selectbox, .select_admin>.img_selectbox_press {
     text-decoration: none;
@@ -407,26 +482,7 @@ button {
     width: 22px;
     height: 22px;
 }
-.img_checkbox {
-	 background: url(//t1.daumcdn.net/cafe_image/cf_img3/admin_2017/ico_check.gif) no-repeat 0 0;
-    margin: 2px 4px 0 0;
-    cursor: pointer;
-}
-.img_checkbox, .img_radiobtn {
-    display: inline-block;
-    overflow: hidden;
-    font-size: 0;
-    line-height: 0;
-    vertical-align: top;
-}
-img {
-    border: none;
-}
-img[Attributes Style] {
-    width: 18px;
-    aspect-ratio: auto 18 / 18;
-    height: 18px;
-}
+
 input[type="checkbox" i] {
     background-color: initial;
     cursor: default;
@@ -570,14 +626,7 @@ input[type="checkbox" i] {
     border-spacing: 0;
     table-layout: fixed;
 }
-table {
-    display: table;
-    border-collapse: separate;
-    box-sizing: border-box;
-    text-indent: initial;
-    border-spacing: 2px;
-    border-color: grey;
-}
+
 .ir_caption {
     overflow: hidden;
     width: 1px;
@@ -602,14 +651,8 @@ col {
     padding-left: 10px;
     text-align: left;
 }
-thead {
-    display: table-header-group;
-    vertical-align: middle;
-    border-color: inherit;
-}
 tr {
     display: table-row;
-    vertical-align: inherit;
     border-color: inherit;
 }
 .tbl_admin th {
@@ -635,19 +678,9 @@ tbody {
     padding-left: 10px;
     text-align: center;
 }
-.tbl_admin td {
-    position: relative;
-    height: 43px;
-    font-size: 13px;
-    color: #000;
-}
-td .img_checkbox {
-    margin-top: 2px;
-}
 .tbl_admin td .table_data {
     display: block;
     overflow: hidden;
-    padding: 0 10px;
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 13px;
@@ -667,20 +700,6 @@ td .img_checkbox {
 }
 .select_post .selectbox_div {
     overflow-y: scroll;
-}
-.select_admin .selectbox_div {
-    overflow: hidden;
-    z-index: 10;
-    position: absolute;
-    top: -10000px;
-    left: -10000px;
-    border: 1px solid #127cfd;
-    background: #fff;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
-}
-.selectbox_div {
-    top: -10000px;
-    left: -10000px;
 }
 ul {
     display: block;
@@ -723,41 +742,12 @@ ul {
 .page_admin {
     text-align: center;
 }
-.page_admin .bundle_page {
-    display: inline-block;
-    padding: 0 5px 0 2px;
-}
-.page_admin .page_disabled, .page_admin .page_disabled a {
-    color: silver;
-    cursor: default;
-}
-.page_admin .btn_prev {
-    padding: 0 5px 0 4px;
-}
-td{
-	border-bottom: 1px solid #e4e4e4;
-}
-#pagingArea{
-	border-top: 1px solid #e4e4e4;
-}
-#pagingAreaPg{
-	background: #FAFAFA;
-	height: 50px;
-}
-.page_admin .btn_page, .page_admin .btn_page a {
-    font-size: 13px;
-    line-height: 24px;
-    cursor: pointer;
-}
+ 
 .page_admin li {
     display: inline-block;
     vertical-align: top;
 }
-.page_admin .bundle_page a {
-    line-height: 24px;
-    cursor: pointer;
-    margin-left: 4px;
-}
+
 .page_admin a {
     display: inline-block;
     height: 26px;
@@ -769,28 +759,7 @@ td{
     color: #000;
     text-decoration: none;
 }
-.page_admin .btn_page .ico_admin {
-    width: 7px;
-    height: 12px;
-    margin: 7px 2px 0;
-}
-.page_admin .btn_prev.page_disabled .ico_admin {
-    background-position: -80px -40px;
-}
-.page_admin .on a, .page_admin .on a:hover {
-    border-radius: 3px;
-    border: 1px solid #ff9398;
-    font-weight: 700;
-    color: #ed3e49;
-}
-.page_admin .bundle_page a {
-    line-height: 24px;
-    cursor: pointer;
-    margin-left: 4px;
-}
-.page_admin .btn_next.page_disabled .ico_admin {
-    background-position: -80px -60px;
-}
+
 .admin_2017 #articleSummaryLayer, .admin_2017 #nameContextMenu, .admin_2017 .summary-layer {
     position: absolute;
     top: -10000px;
