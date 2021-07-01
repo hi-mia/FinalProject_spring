@@ -35,6 +35,7 @@ $(function(){
 			//ajax 써서 거래 가능 지역 가져오기
 			
 			
+			
 			$.ajax({
 				type: 'post',
 				url: '/jaju/mypage/getMyScrap',
