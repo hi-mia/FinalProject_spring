@@ -5,6 +5,7 @@ $(function(){
 		url:'/jaju/mypage/getMyProfileInfo',
 		data: //{'id':$('#id').val()},//id값 가져가야 해당 로그인 한 사람의 관심정보 가져올 수 있음.
 		 {'id':$('#id').val()},
+		 
 		dataType:'json',
 		success:function(data){
 			var text
@@ -256,7 +257,7 @@ $(function(){
 $('#change_image').click(function(){
 
 	var popupWidth=500;
-	var popupHeight=620;
+	var popupHeight=700;
 
 	 var popupX = (window.screen.width/2)-(popupWidth/2);
 	 // 만들 팝업창 width 크기의 1/2 만큼 보정값으로 빼주었음
@@ -268,8 +269,8 @@ $('#change_image').click(function(){
 			 "my_Message", 
 			 "width=500 height=500 left=500 top=700 scrollbars=yes");  */
 	
-	window.open("/jaju/mypage/mypageChangeImg?id="+$('#id').val(), 
-			 "mypageChangeImg", 
+	window.open("/jaju/mypage/myPageChangeImg", 
+			 "myPageChangeImg", 
 			 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY); 
 	
 

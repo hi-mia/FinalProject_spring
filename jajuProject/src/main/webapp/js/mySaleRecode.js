@@ -70,7 +70,7 @@ $(function(){
 			});//each
 			
 			//페이징처리
-			$('#mySaleRecodePagingDiv').html(data.myRecodePaging.pagingHTML);
+			$('#mySaleRecodePagingDiv').html(data.mySalePaging.pagingHTML);
 			
 			}//else
 
@@ -81,6 +81,6 @@ $(function(){
 	});
 });
 
-function myRecodePaging(pg){
+function mySalePaging(pg){
 	location.href="mySaleRecode?pg="+pg;
 }

@@ -1,5 +1,7 @@
 $(function(){
    opener.parent.location.reload();
+   
+   
    $.ajax({
       //먼저 기존의 이미지, 아이디 (아이디는 세션값으로 처리), 매너온도, 현재 위치 addr1,2만 받아오기 행정동법정동 까지만. 
       url:'/jaju/mypage/getMyProfileInfo',
@@ -7,6 +9,7 @@ $(function(){
       data:
       {
          'id':$('#id').val(),
+         
       },
       dataType:'json',
       success:function(data){
@@ -28,7 +31,65 @@ $(function(){
          console.log("myPageChangeImg.js error 발생"+err);
       }
    });
+   		
+   		//console.log("js id값"+$('#id').val())
+		//console.log("js pg값"+$('#pg').val())
+   		$.ajax({
+   			
+	      //아이디 (아이디는 세션값으로 처리),제목만 받아오기
+	      url:'/jaju/mypage/getMyProfileReviewList',
+	      type:'post',
+	      data:
+	      {
+	         'id':$('#id').val(),
+	         'pg':$('#pg').val(),
+	      },
+	      dataType:'json',
+	      success:function(data){
+	         //console.log(data.memberDTO);
+	         //성공하면 , 기존 span태그에 붙여주기 
+	    	  
+	    	  console.log(JSON.stringify(data));
+	    	  saleContentSpan
+	         
+	    	  if(JSON.stringify(data.list)=='[]'){
+					//$('.title').remove();
+					
+					$('<tr/>').append($('<td/>',{
+						align:'center',
+						text:'판매 후기가 없습니다.',
+						style:'height:200px;'
+					})).appendTo($('#saleContentTd'));
+				}
+				
+	    	  else {
+	    		  $.each(data.list, function(index, items){
+	    			 $('<tr/>').append($('<td/>',{
+							align:'center',
+							style:'cursor: pointer',
+							id:'subject_' 
+					}).append($('<a/>',{
+						text:items.review_subject,
+						class:'subject_'+items.review_seq //글제목 부분
+					}))).appendTo($('#saleContentTd'));
+					
+					
+	    			 //페이징처리
+	    			 $('#getMyProfileReviewListPagingDiv').html(data.getMyProfileReviewListPage.pagingHTML); 
+	    		  });//each
+	    		  
+	    		
+	  			
+	    	  }//else
+	      },error:function(err){
+	         console.log("getMyProfileReviewList.js error 발생"+err);
+	      }
+
+   	});
 });
+
+
+
 
 function readURL(input) {
     if (input.files && input.files[0]) {
@@ -50,6 +111,7 @@ function readURL(input) {
    
 //만약 
 $('#update_btn').click(function(){
+   
    var formData= new FormData($('#myPageChangeImgForm')[0]);
    //forms 객체 생성. [0]번째 form 안에 있는 내용 넘기기
    //alert(formData);

@@ -37,6 +37,11 @@
    font-size: 18px;
    margin-right: 6px;
 }
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -49,24 +54,24 @@
 
       <h1 id="profile_name" align="center" >프로필 변경</h1>
 
-      <table border="0" id="table" cellspacing="0" cellpadding="10" bordercolor="#fff" align="center" 
+      <table id="profileFont" border="0" id="table" cellspacing="0" cellpadding="10" bordercolor="#fff" align="center" 
          width="450px" height="550px" frame="hsides" rules="rows">
 
          <tr>
             <td rowspan="4" class="image" align="center" style="margin-top:5px; margin-bottom:5px;">
             
             <img id="image1"  width="180px" height="180px"></td>
-            <td>이름</td>
+            <td id="profileFont">이름</td>
             <td width="90px"><span id="member_name_span"></span></td>
          </tr>
 
          <tr>
-            <td>매너온도</td>
+            <td id="profileFont">매너온도</td>
             <td><span id="member_manner_span"></span></td>
          </tr>
 
          <tr>
-            <td>현재지역</td>
+            <td id="profileFont">현재지역</td>
             <td><span id="member_location_span"></span></td>
          </tr>
 
@@ -79,20 +84,31 @@
          </tr>
 
          <tr>
-            <td colspan="3" align="center" height="250px">
-            <span id="saleContentSpan">내 판매 내역 추가 할 예정</span>
+            <td id="saleContentTd" colspan="3" align="center" height="250px">
+            <span class="profileFont" id="saleContentSpan">내 판매 후기 내역</span>
             </td>
          </tr>
-
+		<tr>
+         <td colspan="3" align="center">
+         <div style="margin: 0px; text-align: center;"
+			id="getMyProfileReviewListPagingDiv"></div>
+			
+		 </td>
+		 </tr>
          <tr>
             <td colspan="3" align="center">
             <button id="update_btn" >수정하기</button></td>
          </tr>
+         
       </table>
    </form>
    
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/jaju/js/myPageChangeImg.js"></script>
-
+<script type="text/javascript" src="/jaju/js/myPageChangeImg.js"></script>
+<script type="text/javascript">
+function myRecodePaging(pg){
+	location.href="myPageChangeImg?pg="+pg;
+}
+</script>
 </body>
 </html>

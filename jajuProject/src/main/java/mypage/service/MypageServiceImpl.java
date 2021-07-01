@@ -13,8 +13,11 @@ import org.springframework.stereotype.Service;
 import member.bean.MemberDTO;
 import mypage.bean.FollowDTO;
 import mypage.bean.MessageDTO;
+import mypage.bean.MyBuyPaging;
 import mypage.bean.MyCountDTO;
+import mypage.bean.MyDealPaging;
 import mypage.bean.MyRecodePaging;
+import mypage.bean.MySalePaging;
 import mypage.bean.MyScrap_Paging;
 import mypage.bean.MylocationDTO;
 import mypage.bean.MypageDTO;
@@ -22,6 +25,7 @@ import mypage.bean.MypagePaging;
 import saleboard.bean.SaleboardDTO;
 import mypage.bean.ScrapDTO;
 import mypage.dao.MypageDAO;
+import reviewboard.bean.ReviewboardDTO;
 
 @Service
 public class MypageServiceImpl implements MypageService {
@@ -37,7 +41,16 @@ public class MypageServiceImpl implements MypageService {
 
 	@Autowired
 	private MyRecodePaging myRecodePaging;
-
+	
+	@Autowired
+	private MySalePaging mySalePaging;
+	
+	@Autowired
+	private MyBuyPaging myBuyPaging;
+	
+	@Autowired
+	private MyDealPaging myDealPaging;
+	
 	@Override
 	public MypageDTO getKeywordList(String id) {
 		return mypageDAO.getKeywordList(id);
@@ -288,16 +301,16 @@ public class MypageServiceImpl implements MypageService {
 	}
 
 	@Override
-	public MyRecodePaging myRecodePaging(Map<String, String> map) {
+	public MySalePaging mySalePaging(Map<String, String> map) {
 		int totalA = mypageDAO.getTotalASale(map.get("id")); // 총글수
 
-		myRecodePaging.setCurrentPage(Integer.parseInt(map.get("pg")));
-		myRecodePaging.setPageBlock(3);
-		myRecodePaging.setPageSize(5);
-		myRecodePaging.setTotalA(totalA);
-		myRecodePaging.makePagingHTML();
+		mySalePaging.setCurrentPage(Integer.parseInt(map.get("pg")));
+		mySalePaging.setPageBlock(3);
+		mySalePaging.setPageSize(5);
+		mySalePaging.setTotalA(totalA);
+		mySalePaging.makePagingHTML();
 
-		return myRecodePaging;
+		return mySalePaging;
 	}
 
 
@@ -343,16 +356,16 @@ public class MypageServiceImpl implements MypageService {
 	}
 
 	@Override
-	public MyRecodePaging myRecodePaging2(Map<String, String> map) {
+	public MyBuyPaging myBuyPaging(Map<String, String> map) {
 		int totalA = mypageDAO.getTotalABuy(map.get("id")); // 총글수
 
-		myRecodePaging.setCurrentPage(Integer.parseInt(map.get("pg")));
-		myRecodePaging.setPageBlock(3);
-		myRecodePaging.setPageSize(5);
-		myRecodePaging.setTotalA(totalA);
-		myRecodePaging.makePagingHTML();
+		myBuyPaging.setCurrentPage(Integer.parseInt(map.get("pg")));
+		myBuyPaging.setPageBlock(3);
+		myBuyPaging.setPageSize(5);
+		myBuyPaging.setTotalA(totalA);
+		myBuyPaging.makePagingHTML();
 
-		return myRecodePaging;
+		return myBuyPaging;
 	}
 
 	@Override
@@ -371,17 +384,17 @@ public class MypageServiceImpl implements MypageService {
 	}
 
 	@Override
-	public MyRecodePaging myRecodePaging3(Map<String, String> map) {
+	public MyDealPaging myDealPaging(Map<String, String> map) {
 		
 		int totalA = mypageDAO.getTotalADeal(map.get("id")); // 총글수
 
-		myRecodePaging.setCurrentPage(Integer.parseInt(map.get("pg")));
-		myRecodePaging.setPageBlock(3);
-		myRecodePaging.setPageSize(5);
-		myRecodePaging.setTotalA(totalA);
-		myRecodePaging.makePagingHTML();
+		myDealPaging.setCurrentPage(Integer.parseInt(map.get("pg")));
+		myDealPaging.setPageBlock(3);
+		myDealPaging.setPageSize(5);
+		myDealPaging.setTotalA(totalA);
+		myDealPaging.makePagingHTML();
 
-		return myRecodePaging;
+		return myDealPaging;
 	}
 
 	@Override
@@ -449,12 +462,6 @@ public class MypageServiceImpl implements MypageService {
 		mypageDAO.writeMyMessage(map);		
 	}
 	
-	//마이페이지 이미지 변경
-	@Override
-	public void myPageChangeImg(Map<String, String> map) {
-		mypageDAO.myPageChangeImg(map) ;
-	}
-
 	@Override
 	public MemberDTO getMyProfileInfo(Map<String, String> map) {
 		return mypageDAO.getMyProfileInfo(map);
@@ -507,5 +514,33 @@ public class MypageServiceImpl implements MypageService {
 		mypageDAO.deleteMyFollow(map);	
 	}
 	
+	
+	// 프로필 후기 내역
+		@Override
+		public List<ReviewboardDTO> getMyProfileReviewList(Map<String, String> map) {
+			// 1페이지당 5개씩
+			int endNum = Integer.parseInt(map.get("pg")) * 5;
+			int startNum = endNum - 4;
+			// System.out.println("pg값"+pg);
 
+			map.put("startNum", startNum+"");
+			map.put("endNum", endNum+"");
+			//System.out.println("3START" + startNum);
+			//System.out.println("3END" + endNum);
+
+			return mypageDAO.getMyProfileReviewList(map);
+		}
+
+		@Override
+		public MyRecodePaging getMyProfileReviewListPage(Map<String, String> map) {
+			int totalA = mypageDAO.getMyProfileReviewListPagetotalA(map.get("id")); // 총글수
+
+			myRecodePaging.setCurrentPage(Integer.parseInt(map.get("pg")));
+			myRecodePaging.setPageBlock(3);
+			myRecodePaging.setPageSize(5);
+			myRecodePaging.setTotalA(totalA);
+			myRecodePaging.makePagingHTML();
+
+			return myRecodePaging;
+		}
 }
