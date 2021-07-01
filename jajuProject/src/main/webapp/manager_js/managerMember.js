@@ -13,11 +13,11 @@ $(function(){
 		url: '/jaju/manager/getManagerMember',
 		type:'post',
 		dataType:'json',
-		data: {'pg': '1', 'sortinSelect': $('#sortinSelect').val()},
+		data: {'pg': $('#pg').val(), 'sortinSelect': $('#sortinSelect').val()},
 				//'pg': $('#pg').val()
 		success:function(data){
 			$.each(data.list, function(index, items){
-				//console.log(JSON.stringify(data));
+				console.log(JSON.stringify(data));
 				$('<tr/>').append($('<td/>',{
 					class:'chk',
 				}).append($('<input/>',{
@@ -27,11 +27,13 @@ $(function(){
 					value:items.member_id,
 					class:"checkradio_styled"
 				}))).append($('<td/>').append($('<div/>',{
-					class:'table_data'
+					class:'table_data',
+					style:'text-align:center;'	
 				}).append($('<a/>',{
 					href:'#',
 					class:'user_info',
-					text:items.member_id
+					text:items.member_id,
+					style:'text-align:center;'	
 				})))).append($('<td/>',{
 					class:'member_email',
 					text:items.member_email,
@@ -50,7 +52,8 @@ $(function(){
 					style:'text-align:center;'					
 				})).append($('<td/>',{
 					class:'member_warning_span',
-					text:items.member_warning	
+					text:items.member_warning,
+					style:'text-align:center;'		
 				})).append($('<td/>',{
 					class:'member_sell_span',
 					text:'판매리스트 이동'	
@@ -68,7 +71,7 @@ $(function(){
 				});
 			});//each
 			
-			
+			$('#memberPagingDiv').html(data.managerPaging.pagingHTML);
 			
 		},error:function(err){
 			console.log("관리자-회원 쪽 에러발생"+err);
@@ -111,6 +114,7 @@ $('#btnWithdraw').click(function(){
 			alert("삭제할 항목을 선택 하세요");
 		}
 		else {
+			
 			if(confirm(checkboxValues+"의 아이디를 삭제 하시겠습니까?")){
 				$("#managerMemberForm").attr("action", "/jaju/manager/deleteMemberId");
 				$('#managerMemberForm').submit();
@@ -186,27 +190,16 @@ $('#sortinSelect').change(function(){
 				   }
 				});
 			});//each
-			$(document).on('click', '.item', function(){
-				if($('#memId').val() == ''){
-					alert("먼저 로그인 하세요");
-				}else {
-					var seq = $(this).attr('id');
-					location.href = '/jaju/saleboard/saleboardView?sale_seq='+seq+'&pg=1';
-				}
-			});
-			
-			//$('#pagingDiv').html(data.saleboardPaging.pagingHTML);
-			
 		}, error: function(err){
 			console.log(err);
-			alert('리스트 생성 오류');
-			
+			alert('회원 리스트 생성 오류');
 		}
 	});//ajax
 });
 
 /*==검색==*/
 $('#search-text_Btn').click(function(){
+	
 	if($('#search-text').val() == ""){
 		alert("검색어를 입력해 주세요");
 		$('#search-text').focus();
@@ -221,6 +214,12 @@ $('#search-text_Btn').click(function(){
 				'sortinSelect': $('#sortinSelect').val()},
 			dataType: 'json',
 			success: function(data){
+				
+				if(JSON.stringify(data.list)=='[]'){ 
+		    		 alert("찾는 내용이 없습니다.");
+		    	}
+				else{
+				
 				//alert(JSON.stringify(data));
 				$('#memberListBody tr').remove();
 				
@@ -266,9 +265,10 @@ $('#search-text_Btn').click(function(){
 					
 				}); //each
 
-				//$('#pagingDiv').html(data.saleboardPaging.pagingHTML);
-				
 				//if(str != 'research'){$('#searchPg').val(1);}
+				
+				}//else
+				$('#memberPagingDiv').html(data.managerSearchPaging.pagingHTML);
 				
 			}, error: function(err){
 				console.log(err);
@@ -276,7 +276,7 @@ $('#search-text_Btn').click(function(){
 				
 			}
 		});
-	} 
+	}//else
 });
 
 //가입일 최신순, 오래된 순, 매너온도 순

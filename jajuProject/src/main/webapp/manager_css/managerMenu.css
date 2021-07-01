@@ -10,7 +10,7 @@
 	font-family: 'S-CoreDream-4Regular';
 }
 
-#listControlBar {
+/* #listControlBar {
     width: 800px;
     height: 46px;
     padding: 12px 20px 0;
@@ -18,7 +18,7 @@
     background: #fafafa;
     white-space: nowrap;
     letter-spacing: -.5px;
-}
+} */
 #side{
 	width: 170px;
 	float: left;

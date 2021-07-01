@@ -31,7 +31,7 @@ public class ManagerDAOMybatis implements ManagerDAO{
 		//강제탈퇴기능
 		@Override
 		public void managerMemberForm(Map<String, String[]> map) {
-			sqlSession.delete("managerSQL.managerMemberForm", map);		
+			sqlSession.update("managerSQL.managerMemberForm", map);		
 		}
 		//검색리스트
 		@Override
@@ -42,6 +42,15 @@ public class ManagerDAOMybatis implements ManagerDAO{
 		@Override
 		public List<MemberDTO> getManagerMemberBlack(Map<String, String> map) {
 			return sqlSession.selectList("managerSQL.getManagerMemberBlack",map);
+		}
+		@Override
+		public int getTotalA() {
+			return sqlSession.selectOne("managerSQL.getTotalA");
+		}
+		@Override
+		public int getSearchTotalA(Map<String, String> map) {
+			return sqlSession.selectOne("managerSQL.getSearchTotalA",map);
+
 		}
 
 

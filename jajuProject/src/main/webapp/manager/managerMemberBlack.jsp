@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/jaju/manager_css/managerMember.css" />
+<link rel="stylesheet" href="/jaju/manager_css/managerMemberBlack.css" />
 </head>
 <body>
 
-<div style="width: 1080px; margin: auto;">
+<div style="width: 1280px; margin: auto;">
 
 <jsp:include page="/manager/managerMenu.jsp"/>
 
@@ -54,7 +54,7 @@
 			<div id="admin_listview">
 			
 			<!-- 상단에 회원 정보 수정하는 거로 바꿈 -->
-			<div class="set_list" id="listControlBar">
+			<div class="set_list" id="listControlBar_black">
 				<div class="bundle_set">
 					<div class="txt_choice">
 						<!--<div class="check_admin">

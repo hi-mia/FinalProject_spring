@@ -10,41 +10,46 @@
 	<if test='sortinSelect == "member_date_desc" '>
 		select * from 
 		(select rownum rn, tt.* from
-		(select * from jajumember order by member_date desc)tt)
+		(select * from jajumember where member_state='0' and member_id !='jajuadmin' order by member_date desc)tt)
 		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
 	</if>
 	
 	<if test='sortinSelect == "member_date_asc" '>
 		select * from 
 		(select rownum rn, tt.* from
-		(select * from jajumember order by member_date asc)tt)
+		(select * from jajumember where member_state='0' and member_id !='jajuadmin' order by member_date asc)tt)
 		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
 	</if>
 	
 	<if test='sortinSelect == "member_manner_desc" '>
 		select * from 
 		(select rownum rn, tt.* from
-		(select * from jajumember order by member_manner desc)tt)
+		(select * from jajumember where member_state='0' and member_id !='jajuadmin' order by member_manner desc)tt)
 		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
 	</if>
 	
-	<!-- <if test='sortinSelect == "sale_count_high" '>
-		select * from 
-		(select rownum rn, tt.* from
-		(select count(*) from sale_board order by member_manner desc)tt)
-		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
-	</if>-->
 
 </select>
 
-
-<delete id="managerMemberForm" parameterType="java.util.Map" >
-	delete from jajumember where member_id in 
+<!-- 강제탈퇴 눌렀을 경우, 상태는 2로 변경, 이메일만 놔두고 다 0 이나 null로 변경하기 (update)-->
+<update id="managerMemberForm" parameterType="java.util.Map" >
+	update jajumember set member_seq='0',member_pwd='0',member_name='0', 
+	member_telephone='0',member_sido='0',member_sigungu='0',member_address='0',
+	member_detailAddr='0',member_gender='0',member_manner='0',member_warning='0',member_date=sysdate,
+	member_image='0', member_state='2' where member_id in
 	<foreach collection="array" item="data" open="(" close=")" separator=",">
 		#{data}
 	<!-- ${array[i]} -->
 	</foreach>
-</delete>
+</update>
+
+<!-- 강제탈퇴 눌렀을 경우, 원래 삭제되는 mapper 
+<delete id="managerMemberForm" parameterType="java.util.Map" >
+	delete from jajumember where member_id in 
+	<foreach collection="array" item="data" open="(" close=")" separator=",">
+		#{data}
+	</foreach>
+</delete> -->
 
 <!-- 선택한 회원 활동중지, 상태 0->1으로 변경  -->
 <update id="changeMemberState" parameterType="java.util.Map" >
@@ -98,6 +103,7 @@
 	</if> -->
 	
 </select>
+<<<<<<< HEAD
  
 <!-- 게시판 관리 -->
 <select id="getManagerFreeboardList" resultType="freeboard">
@@ -180,4 +186,23 @@
 	select count(*) as count from freeboard where ${searchOption} like '%'||#{keyword}||'%'
 </select>
 
+=======
+
+<!-- 회원리스트 paging 처리 -->
+<select id="getTotalA" parameterType="String" resultType="int">
+	select count(*) from jajumember
+</select>
+<!-- 검색 paging 처리  -->
+<select id="getSearchTotalA" parameterType="String" resultType="int">
+	<if test='searchMode == "member_id" '>
+		select count(*) from jajumember where member_id like '%'||#{search-text}||'%'
+	</if>	
+	<if test='searchMode == "member_email"'>
+		select count(*) from jajumember member_email like '%'||#{search-text}||'%' 
+	</if>
+	<if test='searchMode == "member_id_email"'>
+		select count(*) from jajumember where member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%'
+	</if>
+</select>
+>>>>>>> minji_branch
  </mapper>
