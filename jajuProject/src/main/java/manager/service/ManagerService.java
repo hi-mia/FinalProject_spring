@@ -3,14 +3,11 @@ package manager.service;
 import java.util.List;
 import java.util.Map;
 
-<<<<<<< HEAD
 import freeboard.bean.FreeboardCommentDTO;
 import freeboard.bean.FreeboardCommentPaging;
 import freeboard.bean.FreeboardDTO;
 import freeboard.bean.FreeboardPaging;
-=======
 import manager.bean.ManagerPaging;
->>>>>>> minji_branch
 import member.bean.MemberDTO;
 
 public interface ManagerService {

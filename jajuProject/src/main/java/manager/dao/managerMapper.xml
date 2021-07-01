@@ -103,7 +103,6 @@
 	</if> -->
 	
 </select>
-<<<<<<< HEAD
  
 <!-- 게시판 관리 -->
 <select id="getManagerFreeboardList" resultType="freeboard">
@@ -186,7 +185,6 @@
 	select count(*) as count from freeboard where ${searchOption} like '%'||#{keyword}||'%'
 </select>
 
-=======
 
 <!-- 회원리스트 paging 처리 -->
 <select id="getTotalA" parameterType="String" resultType="int">
@@ -204,5 +202,5 @@
 		select count(*) from jajumember where member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%'
 	</if>
 </select>
->>>>>>> minji_branch
+
  </mapper>

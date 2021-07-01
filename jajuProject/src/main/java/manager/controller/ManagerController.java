@@ -14,14 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-<<<<<<< HEAD
 import freeboard.bean.FreeboardCommentDTO;
 import freeboard.bean.FreeboardCommentPaging;
 import freeboard.bean.FreeboardDTO;
 import freeboard.bean.FreeboardPaging;
-=======
 import manager.bean.ManagerPaging;
->>>>>>> minji_branch
 import manager.service.ManagerService;
 import member.bean.MemberDTO;
 

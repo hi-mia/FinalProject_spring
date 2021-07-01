@@ -7,14 +7,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-<<<<<<< HEAD
 import freeboard.bean.FreeboardCommentDTO;
 import freeboard.bean.FreeboardCommentPaging;
 import freeboard.bean.FreeboardDTO;
 import freeboard.bean.FreeboardPaging;
-=======
 import manager.bean.ManagerPaging;
->>>>>>> minji_branch
 import manager.dao.ManagerDAO;
 import member.bean.MemberDTO;
 
@@ -22,7 +19,6 @@ import member.bean.MemberDTO;
 public class ManagerServiceImpl implements ManagerService {
 	@Autowired
 	private ManagerDAO managerDAO;
-<<<<<<< HEAD
 	
 	@Autowired
 	private FreeboardPaging freeboardPaging;
@@ -30,11 +26,9 @@ public class ManagerServiceImpl implements ManagerService {
 	@Autowired
 	private FreeboardCommentPaging freeboardCommentPaging;
 
-=======
 	@Autowired
 	private ManagerPaging managerPaging;
 	
->>>>>>> minji_branch
 	@Override
 	public List<MemberDTO> getManagerMember(Map<String, String> map) {
 		//1페이지당 10개씩
@@ -88,7 +82,7 @@ public class ManagerServiceImpl implements ManagerService {
 		
 		return managerDAO.getManagerMemberBlack(map);
 	}
-<<<<<<< HEAD
+
 		
 	@Override
 	public List<FreeboardDTO> getManagerFreeboardList(String pg) {
@@ -197,13 +191,12 @@ public class ManagerServiceImpl implements ManagerService {
 	public void managerFreeboardListDelete(String[] check) {
 		Map<String, String[]> map = new HashMap<String, String[]>();
 		map.put("array", check);
-		
 		managerDAO.managerFreeboardListDelete(map);
-=======
+	}
 	//페이징처리 하는 곳.
 	@Override
 	public ManagerPaging managerPaging(Map<String, String> map) {
-		int memberCount = managerDAO.getTotalA();
+		int memberCount = managerDAO.getMemberTotalA();
 		//System.out.println(memberCount);
 		managerPaging.setCurrentPage(Integer.parseInt(map.get("pg")));
 		managerPaging.setPageBlock(4);
@@ -223,7 +216,6 @@ public class ManagerServiceImpl implements ManagerService {
 		managerPaging.setTotalA(memberSearchCount);
 		managerPaging.makePagingHTML();
 		return managerPaging;
->>>>>>> minji_branch
 	}
 
 }
