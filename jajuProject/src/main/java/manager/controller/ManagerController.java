@@ -3,9 +3,12 @@ package manager.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import manager.service.ManagerService;
 import member.bean.MemberDTO;
+import notice.bean.NoticeDTO;
+import notice.bean.NoticePaging;
+import report.bean.ReportDTO;
+import report.bean.ReportPaging;
 
 @Controller
 @RequestMapping(value = "/manager")
@@ -118,4 +125,21 @@ public class ManagerController {
 		// mav.addObject("managerPaging", managerPaging);
 		return mav;
 	}
+	
+	@RequestMapping(value = "managerServiceInquire", method = RequestMethod.GET)
+	public ModelAndView managerServiceInquire() {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/manager/managerServiceInquire");
+		return mav;
+	}
+	
+	@RequestMapping(value = "managerServiceQuestion", method = RequestMethod.GET)
+	public ModelAndView managerServiceQuestion() {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/manager/managerServiceQuestion");
+		return mav;
+	}
+	
 }

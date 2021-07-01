@@ -6,9 +6,10 @@
 
 <div class="total" style="display:flex; justify-content: center;">
 <jsp:include page="/manager/managerMenu.jsp"/>
-
+<form id="managerSerivceReportList" name="managerSerivceReportList">
 <div id="content" class="cont_post post_spam">
 <input type="hidden" id="pg" name="pg" value="${pg}">	
+<input type="hidden" id="report_seq" name="report_seq" value="${report_seq}">	
 	<div class="wrap_tit">
 		<h3 class="cont_tit">
 			<span class="tit_menu">신고게시판 관리</span>
@@ -34,7 +35,7 @@
 		
 	</div>
 
-	<div class="set_list" id="listControlBar" style="width: 840px; height: 50px; background: #FAFAFA; border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4;">
+	<div class="set_list" id="listControlBar" style="width: 800px; height: 50px; background: #FAFAFA; border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4;">
 		<div class="bundle_set">
 		
 		</div>
@@ -48,20 +49,18 @@
 
 	<div id="admin_listview">
 		<table class="mangerReportTable" style="font-size: 13px">
-
-		
-			<thead>
+		<thead>
 			<tr>
-				<th class="" style="width:40px;"><input type="checkbox" id="all" onclick="checkAll()"></th>
-               <th class="board_seq" style="width:75px;">번호</th>
-               <th class="board_subject" style="width:135px;">카테고리</th>
-               <th class="board_subject" style="width:274px;">제목</th>
-               <th class="board_hit" style="width:100px;">작성자</th>
-               <th class="logtime" style="width:105px;">작성일</th>
-               <th class="board_id" style="width:105px;">처리상태</th>
+			   <th class="" style="width:40px;"><input type="checkbox" id="all" onclick="checkAll()"></th>
+               <th class="report_seq" style="width:75px;">번호</th>
+               <th class="reportType" style="width:135px;">카테고리</th>
+               <th class="report_subject" style="width:274px;">제목</th>
+               <th class="report_id" style="width:100px;">작성자</th>
+               <th class="report_logtime" style="width:105px;">작성일</th>
+               <th class="report_state" style="width:105px;">처리상태</th>
 			</tr> 
-			</thead>
-		<tr>
+		</thead>
+			<!-- <tr>
 			   <td align="center"><input type="checkbox"></th>
                <td align="center">번호</td>
                <td align="center">카테고리</td>
@@ -69,30 +68,18 @@
                <td align="center">작성자</td>
                <td align="center">작성일</td>
                <td align="center">처리상태</td>
-			</tr>
+			</tr> -->
 	
 	</table>
 </div>
 
-<div id="pagingAreaPg" class="page_admin"></div>
-
-		<div id="pagingArea" class="page_admin">
-			
-				<a class="btn_page btn_prev page_disabled" style="height: 20px;">
-					<span class="ico_admin"></span>&nbsp;이전
-				</a>
-				
-				<ul class="bundle_page"><li class="on"><a>1</a></li></ul>
-				
-				<a class="btn_page btn_next page_disabled">다음&nbsp;
-					<span class="ico_admin"></span>
-				</a>
-			</div>
-		<div id="article-summary-layer" class="layer_post summary-layer"></div>
-	</div>
+	<div id="pagingAreaPg" class="page_admin"></div>
+	<div id="pagingArea" class="page_admin"></div>
+</div>
+</form>
 </div>
 <script type = "text/javascript" src = "http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/jaju/manager_js/managerServiceReport.js"></script>
+<script src="/jaju/manager_js/managerServiceReportList.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	

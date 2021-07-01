@@ -71,5 +71,5 @@ $(function(){
 
 //페이징 이동
 function reportPaging(pg){
-	location.href = "/jaju/manager/managerServiceReport?pg="+pg;
+	location.href = "/jaju/manager/managerServiceReportList?pg="+pg;
 }

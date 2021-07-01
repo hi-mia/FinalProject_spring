@@ -7,7 +7,10 @@
 
 <div class="total" style="display:flex; justify-content: center;">
 <jsp:include page="/manager/managerMenu.jsp"/>
+<form id="managerServiceNoticeList" name="managerServiceNoticeList">
 <div id="content" class="cont_post post_spam">
+<input type="hidden" id="pg" name="pg" value="${pg}">	
+<input type="hidden" id="notice_seq" name="notice_seq" value="${notice_seq}">	
 	<div class="wrap_tit">
 		<h3 class="cont_tit">
 			<span class="tit_menu">공지사항 관리</span>
@@ -26,7 +29,7 @@
 		
 	</div>
 
-	<div class="set_list" id="listControlBar" style="width: 840px; height: 50px; background: #FAFAFA; border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4;">
+	<div class="set_list" id="listControlBar" style="width: 800px; height: 50px; background: #FAFAFA; border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4;">
 		<div class="bundle_set">
 		
 		</div>
@@ -39,7 +42,7 @@
 	</div>
 
 	<div id="admin_listview">
-		<table class="tbl_admin">
+		<table class="mangerNoticeTable">
 
 		
 			<thead>
@@ -50,35 +53,23 @@
                <th class="board_hit" style="width:120px;">작성일</th>
 			</tr> 
 			</thead>
-		<tr>
+			<!-- <tr>
 			   <td align="center"><input type="checkbox"></td>
                <td align="center">번호</td>
-               <td>제목</td>
+               <td><a>제목 </a></td>
                <td align="center">작성일</td>
-			</tr>
+			</tr> -->
 	
 	</table>
 </div>
 
-<div id="pagingAreaPg" class="page_admin"></div>
-
-		<div id="pagingArea" class="page_admin">
-			
-				<a class="btn_page btn_prev page_disabled" style="height: 20px;">
-					<span class="ico_admin"></span>&nbsp;이전
-				</a>
-				
-				<ul class="bundle_page"><li class="on"><a>1</a></li></ul>
-				
-				<a class="btn_page btn_next page_disabled">다음&nbsp;
-					<span class="ico_admin"></span>
-				</a>
-			</div>
-		<div id="article-summary-layer" class="layer_post summary-layer"></div>
-	</div>
+	<div id="pagingAreaPg" class="page_admin"></div>
+	<div id="pagingArea" class="page_admin"></div>
+</div>
+</form>
 </div>
 <script type = "text/javascript" src = "http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/jaju/manager_js/managerServiceNotice.js"></script>
+<script src="/jaju/manager_js/managerServiceNoticeList.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	
