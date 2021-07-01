@@ -12,7 +12,6 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-
 /*
 .list_order {
 	padding-top: 10px;
