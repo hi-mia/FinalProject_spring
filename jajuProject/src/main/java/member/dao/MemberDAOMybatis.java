@@ -49,4 +49,9 @@ public class MemberDAOMybatis implements MemberDAO {
 	public MemberDTO getPwd(Map<String, String> map) {
 		return sqlSession.selectOne("memberSQL.getPwd", map);
 	}
+
+	@Override
+	public MemberDTO isBlackList(String member_email) {
+		return sqlSession.selectOne("memberSQL.isBlackList", member_email);
+	}
 }

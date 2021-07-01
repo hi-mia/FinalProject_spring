@@ -13,4 +13,5 @@ public interface MemberService {
 	public String getPwd(Map<String, String> map);
 	public MemberDTO getMember(String member_id);
 	public void modify(MemberDTO memberDTO);
+	public String isBlackList(String member_email);
 }

@@ -335,9 +335,14 @@ $('#writeBtn').click(function(){
 			url: '/jaju/member/write',
 			type: 'post',
 			data: $('#form').serialize(),
-			success: function(){
-				alert('회원가입 성공');
-				location.href="/jaju/";
+			dataType: 'text',
+			success: function(data){
+				if(data != 'blackList'){
+					alert('회원가입 성공');
+					location.href="/jaju/";
+				}else {
+					alert('회원가입이 불가능한 정보입니다.\n 자세한 사항은 문의바랍니다.')
+				}
 			},
 			error: function(err){
 				console.log(err);

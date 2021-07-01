@@ -53,4 +53,8 @@
  	<select id="getPwd" parameterType="java.util.Map" resultType="member">
  		select * from jajumember where member_name=#{search_name} and member_email=#{search_email} and member_id=#{search_id}
  	</select>
+ 	
+ 	<select id="isBlackList" parameterType="String" resultType="member">
+ 		select * from jajumember where member_email=#{member_email} and member_state='2'
+ 	</select>
  </mapper>

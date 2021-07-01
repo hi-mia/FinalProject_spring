@@ -49,9 +49,9 @@
 
 						<li><a href="/jaju/serviceCenter/questionList">자주하는 질문</a></li>
 
-						<li><a href="/jaju/serviceCenter/inquireList">1:1 문의</a></li>
 						<c:if test="${memId != null}">
-						<li><a href="/jaju/mypage/myKeywordForm">마이페이지</a></li>
+							<li><a href="/jaju/serviceCenter/inquireList">1:1 문의</a></li>
+							<li><a href="/jaju/mypage/myKeywordForm">마이페이지</a></li>
 						</c:if>
 					</ul>
 				</li>

@@ -76,4 +76,15 @@ public class MemberServiceImpl implements MemberService {
 	public MemberDTO getMember(String member_id) {
 		return memberDAO.getMember(member_id);
 	}
+
+	@Override
+	public String isBlackList(String member_email) {
+		MemberDTO memberDTO = memberDAO.isBlackList(member_email);
+		
+		if(memberDTO != null) {
+			return "blackList";
+		}else {
+			return "non_blackList";
+		}
+	}
 }
