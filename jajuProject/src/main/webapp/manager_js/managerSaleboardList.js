@@ -116,7 +116,9 @@ $('#categoryOption').change(function(){
 				  $(document).on('click', '#item', function(){
 
 			               var seq = $(this).parent().prev().text();
+
 			               location.href = '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+seq+'&pg=1';
+
 
 			         });
 
@@ -177,6 +179,7 @@ $('#categoryOption').change(function(){
 
 			               var seq = $(this).parent().prev().text();
 			               location.href = '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+seq+'&pg=1';
+
 
 			         });
 
@@ -246,6 +249,7 @@ $('#managerBoardSearchBtn').click(function(){
 				  $(document).on('click', '#item', function(){
 
 			               var seq = $(this).parent().prev().text();
+
 			               location.href = '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+seq+'&pg=1';
 
 			         });
