@@ -10,6 +10,14 @@
 	font-family: 'S-CoreDream-4Regular';
 }
 
+#qnb {
+	margin-top: 129px;
+}
+
+.layout-wrapper{
+	margin-top: 150px;
+}
+
 .tit_page {
     overflow: hidden;
     width: 1050px;
