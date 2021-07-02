@@ -39,9 +39,9 @@ public class ManagerNoticeController {
 		return mav;
 	}
 	
-	@RequestMapping(value="ManagerNoticeWrite", method=RequestMethod.POST)
+	@RequestMapping(value="/managerNoticeWrite", method=RequestMethod.POST)
 	@ResponseBody
-	public void ManagerNoticeWrite(@ModelAttribute NoticeDTO noticeDTO,
+	public void managerNoticeWrite(@ModelAttribute NoticeDTO noticeDTO,
 							 @RequestParam ("img[]") List<MultipartFile> list) { //img[] 배열이라고 알려준다, 파일이 여러개가 가능) {
 
 
@@ -156,10 +156,10 @@ public class ManagerNoticeController {
 		
 		
 		//DB
-		managerNoticeService.ManagerNoticeWrite(noticeDTO);
+		managerNoticeService.managerNoticeWrite(noticeDTO);
 	}
 	
-	@RequestMapping(value = "managerNoticeList", method = RequestMethod.GET)
+	@RequestMapping(value = "/managerNoticeList", method = RequestMethod.GET)
 	public ModelAndView managerNoticeList(@RequestParam(required = false, defaultValue = "1") String pg) {
 		
 		ModelAndView mav = new ModelAndView();
@@ -212,6 +212,14 @@ public class ManagerNoticeController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/managerNoticeDelete", method=RequestMethod.POST)
+	public ModelAndView managerNoticeDelete(String[] check) {
+		
+		managerNoticeService.managerNoticeDelete(check);
+		
+		return new ModelAndView("redirect:/manager/managerNoticeList");
+	}
+	
 	@RequestMapping(value="/getNoticePage", method=RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView getNoticePage(@RequestParam String notice_seq) {
@@ -222,6 +230,23 @@ public class ManagerNoticeController {
 		//System.out.println(noticeDTO.getNext_subject());
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("noticeDTO", noticeDTO);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	@RequestMapping(value="getNoticeSearchList", method=RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView getReportSearchList(@RequestParam Map<String, String> map) {
+		
+		List<NoticeDTO> list = managerNoticeService.getNoticeSearchList(map);
+		
+		//페이징 처리
+		NoticePaging noticePaging = managerNoticeService.noticePaging(map);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg", map.get("pg"));
+		mav.addObject("list", list);
+		mav.addObject("noticePaging", noticePaging);
 		mav.setViewName("jsonView");
 		return mav;
 	}

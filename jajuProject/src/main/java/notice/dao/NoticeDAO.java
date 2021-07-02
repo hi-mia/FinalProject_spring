@@ -17,6 +17,6 @@ public interface NoticeDAO {
 
 	public int getTotalSearchA(Map<String, String> map);
 
-	public NoticeDTO getPage(String notice_seq);
+	public NoticeDTO getNoticePage(String notice_seq);
 
 }

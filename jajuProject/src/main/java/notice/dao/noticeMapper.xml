@@ -39,7 +39,7 @@
 	</select>
 	
 	<!-- 이전글, 다음글 -->
-	<select id="getPage" parameterType="int" resultType="notice">
+	<select id="getNoticePage" parameterType="int" resultType="notice">
 		select * from(
 		select notice_seq,
 			lag(notice_seq, 1, 0) over(order by notice_seq desc) prev_num,

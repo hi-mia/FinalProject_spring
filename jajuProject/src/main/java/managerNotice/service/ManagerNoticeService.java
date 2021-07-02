@@ -8,7 +8,7 @@ import notice.bean.NoticePaging;
 
 public interface ManagerNoticeService {
 
-	public void ManagerNoticeWrite(NoticeDTO noticeDTO);
+	public void managerNoticeWrite(NoticeDTO noticeDTO);
 
 	public List<NoticeDTO> getManagerNoticeList(Map<String, String> map);
 
@@ -17,4 +17,11 @@ public interface ManagerNoticeService {
 	public NoticeDTO getNotice(String notice_seq);
 	
 	public NoticeDTO getNoticePage(String notice_seq);
+	
+	public void managerNoticeDelete(String[] check);
+	
+	public List<NoticeDTO> getNoticeSearchList(Map<String, String> map);
+
+	public NoticePaging noticePaging(Map<String, String> map);
+	
 }

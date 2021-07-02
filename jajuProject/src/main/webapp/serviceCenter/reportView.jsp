@@ -11,9 +11,6 @@
 
 <form id="reportViewForm" name="reportViewForm">
 <input type="hidden" id="report_seq" name="report_seq" value="${report_seq}">
-
-
-<input type="hidden" id="comment_seq" name="comment_seq" value="${comment_seq}">
 <input type="hidden" id="pg" name="pg" value="${pg}">
 <div style="width: 1050px; margin: auto;" >
 <div id="wrap">
@@ -120,78 +117,6 @@
 		</tr>
 		</tbody>
 		</table>
-		
-		<div class="replyRealTotal">
-		<div class="replyTotal">
-		
-		<table class="replyList" style="">
-			<!-- <tbody>
-				<tr>
-					<td class="contnet">
-						안녕하세요
-						<br><br><br><br><br><br><br><br>
-					</td>
-				</tr>
-				<tr>
-					<td class="date" style="text-align:right; border-top: 1px solid #333;">
-						2021.06.21
-					</td>
-				</tr>
-				
-				<tr>
-					<td style="align: right;">
-						<a href="javascript:void(0)" onclick="mode(4)">
-							<span class="reportBtn comModify" style="float:none;">수정</span>
-						</a>
-						<a href="javascript:void(0)" onclick="mode(5)">
-							<span class="reportBtn comDelete" style="float:none;">삭제</span>
-						</a>
-					</td>
-				</tr>
-			</tbody> -->
-		</table>
-		
-		<table class="reply">
-			<tbody>
-				<tr>
-					<td>
-					<textarea id="comment_content" name="comment_content" placeholder="댓글을 입력하세요"></textarea>
-					<div id="commentDiv"></div>
-					</td>
-				</tr>
-			
-				<tr>
-					<td align="right">
-						<a href="javascript:void(0)" onclick="mode(3)">
-							<span class="reportBtn comWrite" style="float:none;">등록</span>
-						</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		
-		<table class="replyModify">
-			<tbody>
-				<tr>
-					<td>
-					<textarea id="comment_content" name="comment_content" class="comment_content" placeholder="댓글을 입력하세요"></textarea>
-					<div id="commentDiv" class="commentDiv"></div>
-					</td>
-				</tr>
-			
-				<tr>
-					<td align="right">
-						<input type="button" class="reportBtn comReWrite" value="저장">
-						<%-- <a href="javascript:void(0)" onclick="mode(6,${param.comment_seq})">
-							<span class="reportBtn comReWrite" style="float:none;">저장</span>
-						</a> --%>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		
-		</div>
-		</div>
 		
 		</td>
 		</tr>

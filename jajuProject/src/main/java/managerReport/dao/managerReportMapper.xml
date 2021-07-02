@@ -15,4 +15,72 @@
 		select count(*) as count from memberreport
 	</select>
 	
+	<!-- 검색 -->
+	<select id="getReportSearchList" parameterType="java.util.Map" resultType="report">
+		<![CDATA[
+			select * from 
+			(select rownum rn, tt. * from 
+	 		(select * from memberreport where ${itemcd} like '%'||#{keyword}||'%' 
+	 		                     order by report_seq desc)tt
+	 		)where rn >= #{startNum} and rn <= #{endNum}
+		]]>
+	</select>
+	 
+	  <!-- 검색한 총글수 -->
+	<select id="getTotalSearchA" parameterType="java.util.Map" resultType="int">
+		select count(*) from memberreport where ${itemcd} like '%'||#{keyword}||'%'
+	</select>
+	
+	<!-- 글 삭제 -->
+ 	<delete id="managerReportDelete" parameterType="java.util.Map">
+		delete memberreport where report_seq in 
+		<foreach collection="array" item="data" open="(" close=")" separator=",">
+			#{data}
+			<!-- ${array[i]} -->
+		</foreach>
+		
+	</delete>
+	
+	
+	
+	
+	<!-- 댓글 -->
+	
+	<!-- 댓글입력 -->
+	 <insert id="commentWrite" parameterType="java.util.Map">
+	 	begin
+		insert into reportcomment values (${report_seq},
+										 seq_reportcomment.nextval,
+								 		 #{comment_content},
+								 		 sysdate);
+	 
+	 	update memberreport set report_state='처리완료' where report_seq=#{report_seq};
+	 	end;
+	 </insert>
+	 
+	 <!-- 목록 -->
+	 <select id="getCommentList" parameterType="int" resultType="comment">
+	 	select * from reportcomment where report_seq=#{report_seq}
+	 </select>
+	 
+	 <!-- 댓글 불러오기 -->
+	 <select id="getComment" parameterType="int" resultType="comment">
+ 		select * from reportcomment where comment_seq=#{comment_seq}
+ 	</select>
+	 
+	 <!-- 수정 -->
+	 <update id="commentModify" parameterType="comment">
+		update reportcomment set comment_content=#{comment_content},
+						 		 logtime=sysdate where comment_seq=#{comment_seq}
+	 </update>
+	 
+	 <!-- 삭제 -->
+	 <delete id="commentDelete" parameterType="java.util.Map">
+		begin
+	 	delete from reportcomment where comment_seq=#{comment_seq};
+	 	
+	 	update memberreport set report_state='처리중' where report_seq=#{report_seq};
+	 	end;
+	 </delete>
+	
  </mapper>
