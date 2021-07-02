@@ -3,23 +3,31 @@
 <!DOCTYPE html>
 <html>
 
-<link rel="stylesheet" href="/jaju/manager_css/managerServiceNotice.css" />
+<link rel="stylesheet" href="/jaju/manager_css/managerNoticeList.css" />
 
-<div class="total" style="display:flex; justify-content: center;">
+<div class="total">
+<jsp:include page="/manager/managerHeader.jsp"/>
 <jsp:include page="/manager/managerMenu.jsp"/>
-<form id="managerServiceNoticeList" name="managerServiceNoticeList">
+<form id=managerNoticeList name="managerNoticeList">
 <div id="content" class="cont_post post_spam">
 <input type="hidden" id="pg" name="pg" value="${pg}">	
-<input type="hidden" id="notice_seq" name="notice_seq" value="${notice_seq}">	
+<%-- <input type="hidden" id="notice_seq" name="notice_seq" value="${notice_seq}"> --%>	
 	<div class="wrap_tit">
 		<h3 class="cont_tit">
 			<span class="tit_menu">공지사항 관리</span>
 		</h3>
 		
 		<div class="box_search">
+			<div class="select_admin" style="font-size: 14px;">
+			<select id="itemcd" name="itemcd">
+				<option value="notice_subject">&nbsp;&nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				<option value="notice_content">&nbsp;&nbsp;&nbsp;&nbsp;내용&nbsp;&nbsp;&nbsp;&nbsp;</option>
+			</select>
+			</div>
+			
 			<div class="search_input">
-				<input id="search-text" maxlength="20" size="25" class="tf_search textbox_default" title="검색어">
-				<button type="button" class="btn_admin btn_search button-search">
+				<input id="keyword" name="keyword" value="${keyword}" maxlength="20" size="25" class="tf_search textbox_default">
+				<button type="button" class="noticeSearch">
 					<span class="ico_admin">검색</span>
 				</button>
 			</div>
@@ -29,7 +37,7 @@
 		
 	</div>
 
-	<div class="set_list" id="listControlBar" style="width: 800px; height: 50px; background: #FAFAFA; border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4;">
+	<div class="set_list" id="listControlBar" style="width: 840px; height: 59px; background: #FAFAFA; border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4;">
 		<div class="bundle_set">
 		
 		</div>
@@ -38,7 +46,7 @@
 				<span class="ico_admin write"></span>
 				<span class="txt_btn writeBtn">글쓰기</span>
 			</button>
-			<button type="button" class="btn_admin btn_type2 button-delete-article">
+			<button type="button" id="noticeDeleteBtn" class="btn_admin btn_type2 button-delete-article">
 				<span class="ico_admin ico_del"></span>
 				<span class="txt_btn">삭제</span>
 			</button>
@@ -50,9 +58,9 @@
          <thead>
          <tr>
             <th class="" style="width:40px;"><input type="checkbox" id="all" onclick="checkAll()"></th>
-               <th class="board_seq" style="width:80px;">번호</th>
-               <th class="board_subject" style="width:594px;">제목</th>
-               <th class="board_hit" style="width:120px;">작성일</th>
+               <th class="notice_seq" style="width:80px;">번호</th>
+               <th class="notice_subject" style="width:594px;">제목</th>
+               <th class="notice_logtime" style="width:120px;">작성일</th>
 			</tr> 
 			</thead>
 			<!-- <tr>
@@ -76,33 +84,6 @@
 $(document).ready(function(){
    
    $('#managerNoticeList').addClass('on');
-});
-</script>
-
-<script type="text/javascript">
-//전체 선택 또는 해제
-$('#all').click(function(){
-   //alert($('#all').attr('checked')); // - checked 속성이 없어서 undefind으로 나온다.
-   //alert($('#all').prop('checked')); //true 또는 false
-   
-   if($('#all').prop('checked')){
-      $('input[name=check]').prop('checked', true);
-   }else{
-      $('input[name=check]').prop('checked', false);
-      
-   }
-});
-
-//선택 삭제
-$('#choiceDeleteBtn').click(function(){
-   var count = $('input[name=check]:checked').length;
-   
-   if(count == 0){
-      alert("삭제할 항목을 선택하세요");
-   }else{
-      confirm("정말로 삭제하시겠습니까?");
-      $('#imageboardDeleteForm').submit();
-   }
 });
 </script>
 </html>

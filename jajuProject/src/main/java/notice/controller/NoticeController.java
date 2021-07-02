@@ -103,7 +103,7 @@ public class NoticeController {
 	@ResponseBody
 	public ModelAndView getNoticePage(@RequestParam String notice_seq) {
 		
-		NoticeDTO noticeDTO = noticeService.getPage(notice_seq);
+		NoticeDTO noticeDTO = noticeService.getNoticePage(notice_seq);
 		
 		//System.out.println(noticeDTO.getPrev_subject());
 		//System.out.println(noticeDTO.getNext_subject());

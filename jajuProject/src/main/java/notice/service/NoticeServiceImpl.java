@@ -79,9 +79,8 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public NoticeDTO getPage(String notice_seq) {
-		
-		return noticeDAO.getPage(notice_seq);
+	public NoticeDTO getNoticePage(String notice_seq) {
+		return noticeDAO.getNoticePage(notice_seq);
 	}
 
 }

@@ -7,15 +7,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-
+<div style="width: 1080px; margin: auto;">
 <form id="managerReportView" name="managerReportView">
+<jsp:include page="/manager/managerHeader.jsp"/>
+<jsp:include page="/manager/managerMenu.jsp"/>
 <input type="hidden" id="report_seq" name="report_seq" value="${report_seq}">
-
-
 <input type="hidden" id="comment_seq" name="comment_seq" value="${comment_seq}">
 <input type="hidden" id="pg" name="pg" value="${pg}">
-<div style="width: 1050px; margin: auto;" >
-<div id="wrap">
+
+<div id="wrap" style="float: left; margin-top: 50px;">
 <div id="pos_scroll"></div>
 <div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
 
@@ -102,7 +102,7 @@
 			<tbody>
 				<tr>
 					<td align="right">
-						<a href="javascript:void(0)" onclick="mode(2)">
+						<a href="javascript:void(0)" onclick="mode(1)">
 							<span class="reportBtn delete" style="float:none;">삭제</span>
 						</a>
 						<a href="/jaju/manager/managerReportList">
@@ -158,7 +158,7 @@
 			
 				<tr>
 					<td align="right">
-						<a href="javascript:void(0)" onclick="mode(3)">
+						<a href="javascript:void(0)" onclick="mode(2)">
 							<span class="reportBtn comWrite" style="float:none;">등록</span>
 						</a>
 					</td>
@@ -199,10 +199,10 @@
 </div>
 </div>
 </div>
-</div>
 </form>
+</div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/jaju/manager_js/manageReportView.js"></script>
+<script src="/jaju/manager_js/managerReportView.js"></script>
 
 </body>
 </html>

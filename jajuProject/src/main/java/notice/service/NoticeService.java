@@ -18,6 +18,6 @@ public interface NoticeService {
 
 	public NoticePaging noticePaging(Map<String, String> map);
 
-	public NoticeDTO getPage(String notice_seq);
+	public NoticeDTO getNoticePage(String notice_seq);
 	
 }

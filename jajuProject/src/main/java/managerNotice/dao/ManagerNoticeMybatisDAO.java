@@ -17,8 +17,8 @@ public class ManagerNoticeMybatisDAO implements ManagerNoticeDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public void ManagerNoticeWrite(NoticeDTO noticeDTO) {
-		sqlSession.insert("managerNoticeSQL.ManagerNoticeWrite", noticeDTO);
+	public void managerNoticeWrite(NoticeDTO noticeDTO) {
+		sqlSession.insert("managerNoticeSQL.managerNoticeWrite", noticeDTO);
 		
 	}
 	
@@ -40,6 +40,23 @@ public class ManagerNoticeMybatisDAO implements ManagerNoticeDAO {
 	@Override
 	public NoticeDTO getNoticePage(String notice_seq) {
 		return sqlSession.selectOne("managerNoticeSQL.getNoticePage", Integer.parseInt(notice_seq));
+	}
+	
+	@Override
+	public void managerNoticeDelete(Map<String, String[]> map) {
+		sqlSession.delete("managerNoticeSQL.managerNoticeDelete", map);
+		
+	}
+
+	@Override
+	public List<NoticeDTO> getNoticeSearchList(Map<String, String> map) {
+		List<NoticeDTO> list =  sqlSession.selectList("managerNoticeSQL.getNoticeSearchList", map);
+		return list;
+	}
+
+	@Override
+	public int getTotalSearchA(Map<String, String> map) {
+		return sqlSession.selectOne("managerNoticeSQL.getTotalSearchA", map);
 	}
 	
 }

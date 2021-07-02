@@ -12,7 +12,7 @@
 .total{
 	width: 1080px;
 	margin: 0 auto;
-	display: inline-block;
+	/* display: inline-block; */
 }
 #content {
     float: left;
@@ -20,7 +20,7 @@
     padding-bottom: 40px;
     background: #fff;
     width: 840px;
-    margin-top: 150px;
+    margin-top: 50px;
     margin-left: 50px;
     margin-bottom: 100px;
     border-top: 1px solid #d4d7da;
@@ -47,6 +47,7 @@
 	border: 1px solid #a7a7a7;
     width: 28px;
 	height: 28px;
+    font-size: 11px;
     line-height: 27px;
     margin: 7px 1px 0;
     vertical-align: middle;
@@ -64,8 +65,8 @@
     color: #a7a7a7;
     width: 28px;
 	height: 28px;
-    font-size: 12px;
-    line-height: 28px;
+	font-size: 11px;
+    line-height: 27px;
     cursor: pointer;
     display: inline-block;
     margin: 7px 1px 0;
@@ -78,20 +79,20 @@
     color: #ed3e49;
     width: 28px;
 	height: 28px;
-    font-size: 12px;
-    line-height: 28px;
+	font-size: 11px;
+    line-height: 27px;
     cursor: pointer;
     display: inline-block;
     margin: 7px 1px 0;
     vertical-align: middle;
 }
-.mangerReportTable th{
+.mangerNoticeTable th{
 	position: relative;
     height: 43px;
     font-size: 13px;
     color: #000;
 }
-.mangerReportTable td{
+.mangerNoticeTable td{
 	position: relative;
     height: 43px;
     font-size: 13px;
@@ -304,13 +305,19 @@ input {
     font: 400 13.3333px Arial;
     border-radius: 2px;
 }
-.box_search .btn_search {
+.box_search .noticeSearch {
     float: right;
     margin: 1px 2px 0 0;
     height: 30px;
     width: 30px;
     padding: 5px;
     background: rgba(0,0,0,0);
+}
+.box_search .noticeSearch .ico_admin {
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-position: -20px -60px;
 }
 .btn_admin, .btn_admin:hover, .btn_admin_open, .btn_admin_open:hover {
     cursor: pointer;
@@ -336,6 +343,29 @@ input {
     white-space: nowrap;
     letter-spacing: -.5px;
 }
+.btn_type7_1 {
+    overflow: visible;
+    width: auto;
+    font-size: 14px;
+    height: 33px;
+    padding: 0 10px;
+    border-radius: 3px;
+    border: 1px solid #b0b4b9;
+    font-size: 14px;
+    line-height: 40px;
+    background: #fff;
+}
+.btn_admin .write {
+    width: 18px;
+    height: 18px;
+    margin-top: 8px;
+    background-position: -61px -341px;
+}
+.btn_type7_1:hover {
+    border: 1px solid #b0b4b9;
+    background: #f2f2f3;
+}
+
 button {
     appearance: auto;
     -webkit-writing-mode: horizontal-tb !important;
@@ -352,12 +382,7 @@ button {
     font: 400 13.3333px Arial;
     border-radius: 2px;
 }
-.box_search .btn_search .ico_admin {
-    display: block;
-    width: 16px;
-    height: 16px;
-    background-position: -20px -60px;
-}
+
 .article_option_list, .cmt_option_list, .member_join .option_list, .member_withdraw .option_list {
     padding-top: 23px;
 }
@@ -530,13 +555,6 @@ input[type="checkbox" i] {
     color: #ed3e49;
     line-height: 29px;
 }
-.btn_type2 .txt_btn {
-    color: #ed3e49;
-}
-.btn_type2 .txt_btn {
-    color: #127cfd;
-    line-height: 29px;
-}
 .btn_admin .txt_btn {
     display: inline-block;
     font-size: 14px;
@@ -602,6 +620,42 @@ tr {
 }
 .tbl_admin .num_g {
     text-align: center;
+}
+select:not(:-internal-list-box) {
+    overflow: visible !important;
+}
+select {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    box-sizing: border-box;
+    align-items: center;
+    white-space: pre;
+    -webkit-rtl-ordering: logical;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    cursor: default;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    border-radius: 2px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+}
+option {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
 }
 tbody {
     display: table-row-group;

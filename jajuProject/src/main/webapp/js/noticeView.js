@@ -66,7 +66,7 @@ $(function(){
 $(function(){
 	$.ajax({
 		type: 'post',
-		url: '/jaju/serviceCenter/getPage',
+		url: '/jaju/serviceCenter/getNoticePage',
 		data: {'notice_seq' : $('#notice_seq').val()},
 		dataType: 'json',
 		success: function(data){

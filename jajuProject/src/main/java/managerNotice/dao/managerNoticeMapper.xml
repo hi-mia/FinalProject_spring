@@ -5,7 +5,7 @@
  <mapper namespace="managerNoticeSQL">
  
  	<!-- 글쓰기 -->
- 	<insert id="noticeWrite" parameterType="notice">
+ 	<insert id="managerNoticeWrite" parameterType="notice">
 		insert into noticeboard values(seq_noticeboard.nextval,
 				 					#{notice_subject},
 				 					#{notice_content},
@@ -38,6 +38,32 @@
  	<select id="getNotice" parameterType="int" resultType="notice">
  		select * from noticeboard where notice_seq=#{notice_seq}
  	</select> -->
+	
+	<!-- 검색 -->
+	<select id="getNoticeSearchList" parameterType="java.util.Map" resultType="notice">
+		<![CDATA[
+			select * from 
+			(select rownum rn, tt. * from 
+	 		(select * from noticeboard where ${itemcd} like '%'||#{keyword}||'%' 
+	 		                     order by notice_seq desc)tt
+	 		)where rn >= #{startNum} and rn <= #{endNum}
+		]]>
+	</select>
+	 
+	 <!-- 글 삭제 -->
+ 	<delete id="managerNoticeDelete" parameterType="java.util.Map">
+		delete noticeboard where notice_seq in 
+		<foreach collection="array" item="data" open="(" close=")" separator=",">
+			#{data}
+			<!-- ${array[i]} -->
+		</foreach>
+		
+	</delete>
+	 
+	  <!-- 검색한 총글수 -->
+	<select id="getTotalSearchA" parameterType="java.util.Map" resultType="int">
+		select count(*) from noticeboard where ${itemcd} like '%'||#{keyword}||'%'
+	</select>
 	
 	<!-- 이전글, 다음글 -->
 	<select id="getNoticePage" parameterType="int" resultType="notice">
