@@ -90,7 +90,6 @@
                          sale_delivery=#{sale_delivery},
                           sale_onlineTran=#{sale_onlineTran}, 
                           sale_content=#{sale_content},         
-                         sale_date=sysdate, 
                          sale_hide=#{sale_hide},
                            sale_buyer=#{sale_buyer}, 
                         sale_image1=#{sale_image1}, 
@@ -117,7 +116,6 @@
                          sale_delivery=#{sale_delivery},
                           sale_onlineTran=#{sale_onlineTran}, 
                           sale_content=#{sale_content},         
-                         sale_date=sysdate, 
                          sale_hide=#{sale_hide}, 
                          sale_buyer=#{sale_buyer}
                   where sale_seq=#{sale_seq}
