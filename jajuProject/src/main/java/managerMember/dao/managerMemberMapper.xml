@@ -102,6 +102,7 @@
 		(select * from jajumember where member_state='2' order by member_date desc)tt)
 		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
 	</if> 
+	
 </select>
 
 
