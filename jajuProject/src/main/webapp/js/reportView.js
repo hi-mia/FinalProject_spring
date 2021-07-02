@@ -16,6 +16,7 @@ $(function(){
 			$('#talSpan').text(data.reportDTO.report_tal);
 			$('#dateSpan').text(data.reportDTO.logtime);
 			$('#contentSpan').text(data.reportDTO.report_content);
+			$('#sale_subjectSpan').text(data.reportDTO.sale_subject);
 			
 			if(data.reportDTO.report_image1 != null){
 				$('#imageSpan1').attr('src','/jaju/storage/'+data.reportDTO.report_image1);

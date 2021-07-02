@@ -50,8 +50,8 @@
 				
 				<tr class="etcArea">
 					<td colspan="2">
-						<ul>
-							<li class="tpye ">
+						<ul style="margin-block-end: 0em; ">
+							<li class="tpye">
 								<strong class="th">전화번호</strong>
 								<span class="td" id="talSpan"></span>
 							</li>
@@ -62,6 +62,12 @@
 						</ul>
 					</td>
 				</tr>
+				
+				<tr>
+					<th scope="row" style="border-top: none; border-bottom: 1px solid #f4f4f4;">신고글 제목</th>
+					<td style="border-top: none; border-bottom: 1px solid #f4f4f4;"><span id="sale_subjectSpan"></span></td>
+				</tr>
+				
 			</tbody>
 				</table>
 			</td>

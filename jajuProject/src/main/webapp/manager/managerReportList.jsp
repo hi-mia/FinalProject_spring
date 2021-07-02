@@ -84,6 +84,6 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	
-	$('#managerReportList').addClass('on');
+	$('#managerServiceReport').addClass('on');
 });
 </script>
