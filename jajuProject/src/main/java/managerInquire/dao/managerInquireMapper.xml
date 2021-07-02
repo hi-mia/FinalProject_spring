@@ -13,11 +13,19 @@
 </select>
  
  <delete id="managerInquireDelete" parameterType="java.util.Map">
-		delete inquiryboard where inquiry_seq in 
-		<foreach collection="array" item="data" open="(" close=")" separator=",">
-			 #{data} 
+		begin
+			delete inquiryboard where inquiry_seq in
+			<foreach collection="array" item="data" open="(" close=")" separator=",">
+				 #{data} 
 			<!-- ${array[i]} -->
-		</foreach>
+			</foreach>;
+			
+			delete inquiryboard where inquiry_ref in
+			<foreach collection="array" item="data" open="(" close=")" separator=",">
+				 #{data} 
+			<!-- ${array[i]} -->
+			</foreach>;
+		end;
 	</delete>
 
 
