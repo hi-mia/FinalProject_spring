@@ -20,6 +20,6 @@ public interface ManagerSaleboardService {
 
 	public void managerSaleboardDelete(int sale_seq);
 
-	public SaleboardDTO getPage_sale(int sale_seq);
+	public SaleboardDTO getPage_sale(Map<String, String> map);
 
 }

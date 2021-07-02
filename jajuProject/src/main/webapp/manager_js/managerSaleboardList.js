@@ -49,7 +49,7 @@ $(function(){
 			  $(document).on('click', '#item', function(){
 
 		               var seq = $(this).parent().prev().text();
-		               location.href = '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+seq+'&pg=1';
+		               location.href = '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+seq+'&pg=1'+'&sale_category='+$('#categoryOption').val();
 
 		         });
 
@@ -117,7 +117,7 @@ $('#categoryOption').change(function(){
 
 			               var seq = $(this).parent().prev().text();
 
-			               location.href = '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+seq+'&pg=1';
+			               location.href = '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+seq+'&pg=1'+'&sale_category='+$('#categoryOption').val();
 
 
 			         });
@@ -178,7 +178,7 @@ $('#categoryOption').change(function(){
 				  $(document).on('click', '#item', function(){
 
 			               var seq = $(this).parent().prev().text();
-			               location.href = '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+seq+'&pg=1';
+			               location.href = '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+seq+'&pg=1'+'&sale_category='+$('#categoryOption').val();
 
 
 			         });
@@ -250,7 +250,7 @@ $('#managerBoardSearchBtn').click(function(){
 
 			               var seq = $(this).parent().prev().text();
 
-			               location.href = '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+seq+'&pg=1';
+			               location.href = '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+seq+'&pg=1'+'&sale_category='+$('#categoryOption').val();
 
 			         });
 

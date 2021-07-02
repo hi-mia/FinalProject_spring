@@ -12,6 +12,8 @@
 
 <input type="hidden" id="sale_seq" value="${param.sale_seq}">
 <input type="hidden" id="pg" value="${param.pg }"/>
+<input type="hidden" id="sale_category" value="${param.sale_category }"/>
+
 <div id="wrap">
 <div id="pos_scroll"></div>
 <div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
@@ -79,17 +81,19 @@
 			
 			<tbody>
 			<tr>
-			<td class="board_view_content" style="word-wrap:break-word;word-break:break-all" id="contents_924" valign="top">
+			<td class="board_view_content" style="word-wrap:break-word;word-break:break-all; width: 80%" id="contents_924" valign="top">
 			<div style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; margin: 0px;">
 			<font color="#222222" face="Font" style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; margin: 0px;">
 				<pre class="viewPre"><span id="contentSpan"></span></pre>
 			</font>
 			</div>
 			</td>
+			<td id="imageTd"></td>
 			</tr>
 		</tbody>
 		</table>
 		</td>
+		
 		</tr>
 		<tr><td height="1" bgcolor="#f4f4f4"></td></tr>
 		</tbody></table><br>
@@ -175,6 +179,8 @@
 </div>
 </div>
 </div>
+
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/manager_js/managerSaleboardView.js"></script>
 <script src="/jaju/manager_js/managerSaleboardDelete.js"></script>

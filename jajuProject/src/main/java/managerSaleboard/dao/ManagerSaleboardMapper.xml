@@ -70,5 +70,28 @@
 <delete id="managerSaleboardDelete" parameterType="int">
  	delete sale_board where sale_seq=#{sale_seq}
 </delete>
+	<!-- 이전글 다음글 -->
+   <select id="getPage_sale" parameterType="java.util.Map" resultType="saleboard">
+	   <if test='sale_category == "*" '>
+	      select * from(
+	      select sale_seq,
+	         lag(sale_seq, 1, 0) over(order by sale_seq desc) prev_num,
+	         lag(sale_subject, 1, '이전글이 없습니다') over (order by sale_seq desc) prev_subject,
+	         lead(sale_seq,1,0) over (order by sale_seq desc) next_num,
+	         lead(sale_subject, 1, '다음글이 없습니다') over (order by sale_seq desc) next_subject
+	      from sale_board) 
+	      where sale_seq=${sale_seq}
+      	</if>
+      	<if test='sale_category != "*" '>
+	      select * from(
+	      select sale_seq,
+	         lag(sale_seq, 1, 0) over(order by sale_seq desc) prev_num,
+	         lag(sale_subject, 1, '이전글이 없습니다') over (order by sale_seq desc) prev_subject,
+	         lead(sale_seq,1,0) over (order by sale_seq desc) next_num,
+	         lead(sale_subject, 1, '다음글이 없습니다') over (order by sale_seq desc) next_subject
+	      from sale_board where sale_category = #{sale_category}) 
+	      where sale_seq=${sale_seq} 
+      	</if>
+   </select>  
   
 </mapper>

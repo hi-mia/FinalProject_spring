@@ -94,8 +94,8 @@ public class ManagerSaleboardServiceImpl implements ManagerSaleboardService {
 
 
 	@Override
-	public SaleboardDTO getPage_sale(int sale_seq) {
-		return managerSaleboardDAO.getPage_sale(sale_seq);
+	public SaleboardDTO getPage_sale(Map<String, String> map) {
+		return managerSaleboardDAO.getPage_sale(map);
 	}
 
 }
