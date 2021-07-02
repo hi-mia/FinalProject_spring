@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<jsp:include page="/manager/managerHeader.jsp"/>
 <div class="page_section section_qna">
 <div class="head_aticle">
 <h2 class="tit">1:1문의 관리자 답변</h2>

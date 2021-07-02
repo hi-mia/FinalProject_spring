@@ -124,8 +124,10 @@ public class InquireController {
 	@RequestMapping(value = "inquireView", method=RequestMethod.GET)
 	public String inquireView(@RequestParam String seq, 
 								 @RequestParam String pg,
+								 @RequestParam String inquiry_id,
 								 Model model) {
 		model.addAttribute("seq", seq);
+		model.addAttribute("inquiry_id", inquiry_id);
 		model.addAttribute("pg", pg);
 		model.addAttribute("display","/serviceCenter/inquireView.jsp");
 		return "/index";
@@ -136,9 +138,11 @@ public class InquireController {
 		@RequestMapping(value = "managerInquireView", method=RequestMethod.GET)
 		public ModelAndView managerInquireView(@RequestParam String seq, 
 									 @RequestParam String pg,
+									 @RequestParam (required=false, defaultValue="1") String inquiry_id,
 									 Model model) {
 			
 			ModelAndView mav = new ModelAndView();
+			mav.addObject("inquiry_id", inquiry_id);
 			mav.addObject("seq", seq);
 			mav.addObject("pg", pg);
 			mav.setViewName("/serviceCenter/inquireView");

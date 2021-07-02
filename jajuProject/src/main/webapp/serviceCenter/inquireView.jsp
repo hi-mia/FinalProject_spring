@@ -16,6 +16,10 @@
 <c:if test="${memId != 'jajuadmin' }">
 <jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 </c:if>
+<c:if test="${memId == 'jajuadmin' }">
+<jsp:include page="/manager/managerHeader.jsp"/>
+</c:if>
+
 <div id="wrap">
 <div id="pos_scroll"></div>
 <div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
@@ -109,12 +113,12 @@
 						</c:if>
 						</a>
 						<a href="javascript:void(0)" onclick ="mode(1)" >
-						<c:if test="${memId != 'jajuadmin' || inquiry_id != '관리자'}">
+						<c:if test="${memId != 'jajuadmin' && inquiry_id != '관리자'}">
 							<span class="inquireBtn modify" style="float:none;">수정</span>
 						</c:if>
 						</a>
 						<a href="javascript:void(0)" onclick ="mode(2)">
-						<c:if test="${memId != 'jajuadmin' || inquiry_id != '관리자'}">
+						<c:if test="${memId != 'jajuadmin' && inquiry_id != '관리자'}">
 							<span class="inquireBtn delete" style="float:none;">삭제</span>
 						</c:if>
 						</a>

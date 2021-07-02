@@ -53,7 +53,7 @@ $(function(){
 				$('.subject'+items.inquiry_seq).click(function(){
 					//alert(items.inquiry_seq);
 					//alert($('#pg').val());
-					location.href = '/jaju/serviceCenter/managerInquireView?seq='+items.inquiry_seq+'&pg='+$('#pg').val();
+					location.href = '/jaju/serviceCenter/managerInquireView?seq='+items.inquiry_seq+'&pg='+$('#pg').val()+'&inquiry_id='+items.inquiry_id;
 				});
 			});
 		},
