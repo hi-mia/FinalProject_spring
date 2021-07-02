@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/jaju/manager_css/managerFreeboardView.css" />
+<link rel="stylesheet" href="/jaju/manager_css/managerSaleboardView.css" />
 <jsp:include page="/manager/managerMenu.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<input type="hidden" id="board_seq" value="${board_seq }">
+<input type="hidden" id="board_seq" value="${sale_seq}">
 <input type="hidden" id="pg" value="${param.pg }"/>
 <div id="wrap">
 <div id="pos_scroll"></div>
@@ -50,6 +50,20 @@
 				<th scope="row">조회수</th>
 					<td colspan="1"><span id="hitSpan"></span></td>	
 				</tr>
+				<tr>
+				<th scope="row" style="border:none;">판매 사진</th>
+					<td colspan="5"><div id="imageDiv">
+					
+					</div></td>
+				</tr>
+				<tr>
+				<th scope="row" style="border:none;">판매 지역</th>
+					<td colspan="5"> <span id="locationSpan"></span></td>
+				</tr>
+				<tr>
+				<th scope="row" style="border:none;">원문 링크</th>
+					<td colspan="5"> <span id="linkSpan"></span></td>
+				</tr>
 				
 			</tbody>
 		</table>
@@ -68,9 +82,6 @@
 			<div style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; margin: 0px;">
 			<font color="#222222" face="Font" style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; margin: 0px;">
 				<pre class="viewPre"><span id="contentSpan"></span></pre>
-					<div id="imageDiv">
-					
-					</div>
 			</font>
 			</div>
 			</td>
@@ -91,7 +102,7 @@
 		
 		<tr>
 		<td align="right">
-		<span class="bhs_button yb" style="float:none; cursor:pointer; " id="managerFreeboardDeleteBtn">삭제</span>
+		<span class="bhs_button yb" style="float:none; cursor:pointer; " id="managerSaleboardDeleteBtn">삭제</span>
 		</td>
 		</tr>
 		
@@ -164,14 +175,15 @@
 </div>
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/jaju/manager_js/managerFreeboardView.js"></script>
-<script src="/jaju/manager_js/managerFreeboardDelete.js"></script>
+<script src="/jaju/manager_js/managerSaleboardView.js"></script>
+<script src="/jaju/manager_js/managerSaleboardDelete.js"></script>
 <script type="text/javascript">
-function freeboardCommentPaging(pg){
+/*
+function saleboardCommentPaging(pg){
 	$.ajax({
 		type: 'post',
-		url: '/jaju/freeboard/getFreeboardComment',
-		data: {'board_seq': $('#board_seq').val(), 'pg': pg},
+		url: '/jaju/saleboard/getSaleboardComment',
+		data: {'sale_seq': $('#sale_seq').val(), 'pg': pg},
 		dataType: 'json',
 		success: function(data){
 			//alert(JSON.stringify(data));
@@ -216,7 +228,7 @@ function freeboardCommentPaging(pg){
 				height: '20px'
 			}));
 			
-			$('#pagingDiv').html(data.freeboardCommentPaging.pagingHTML);
+			$('#pagingDiv').html(data.saleboardCommentPaging.pagingHTML);
 			
 		},error: function(err){
 			alert("댓글 불러오기 에러");
@@ -225,6 +237,7 @@ function freeboardCommentPaging(pg){
 	});
 	
 }
+*/
 
 </script>
 
