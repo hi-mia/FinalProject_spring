@@ -176,8 +176,9 @@ $('#sortinSelect').change(function(){
 					text:items.member_warning,
 					style:'text-align:center;'
 				})).append($('<td/>',{
-					class:'member_sell_span',
-					text:'판매리스트 이동'	
+					class:'member_sell_span'+items.member_id,
+					text:'판매리스트 이동',
+					style:'cursor:pointer;'
 				})).appendTo($('#memberListBody'));
 				
 				// 전체 선택 또는 해제
@@ -189,7 +190,23 @@ $('#sortinSelect').change(function(){
 				   }else {
 				      $('input[name=check]').prop('checked',false);
 				   }
-				});
+				});//class : all click
+				
+				$('.member_sell_span'+items.member_id).click(function(){
+		               var popupWidth=540;
+		               var popupHeight=660;
+
+		               var popupX = (window.screen.width/2)-(popupWidth/2);
+		               // 만들 팝업창 width 크기의 1/2 만큼 보정값으로 빼주었음
+
+		               var popupY= (window.screen.height/2)-(popupHeight/2);
+		               // 만들 팝업창 height 크기의 1/2 만큼 보정값으로 빼주었음
+		               
+		               window.open("/jaju/manager/managerMemberHistory?id="+items.member_id, 
+		                        "managerMemberHistory", 
+		                        'status=no, scroll=no,  height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY); 
+		         });//member_sell span click
+				
 			});//each
 		}, error: function(err){
 			console.log(err);
