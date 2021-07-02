@@ -17,15 +17,15 @@
 		<div class="box_search">
 			<div class="select_admin" style="font-size: 14px;">
 			<select name="searchOption" id="searchOption">
-				<option value=board_subject>&nbsp;&nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;</option>
-				<option value="board_content">&nbsp;&nbsp;&nbsp;&nbsp;내용&nbsp;&nbsp;&nbsp;&nbsp;</option>
-				<option value="board_id">&nbsp;&nbsp;&nbsp;&nbsp;작성자&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				<option value="review_subject">&nbsp;&nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				<option value="review_content">&nbsp;&nbsp;&nbsp;&nbsp;내용&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				<option value="review_id">&nbsp;&nbsp;&nbsp;&nbsp;작성자&nbsp;&nbsp;&nbsp;&nbsp;</option>
 			</select>
 			</div>
 			
 			<div class="search_input">
 				<input type="text" id="keyword" name="keyword" maxlength="20" size="25" class="tf_search textbox_default" title="검색어">
-				<button type="button" id="managerBoardSearchBtn" class="btn_admin btn_search button-search">
+				<button type="button" id="managerReviewSearchBtn" class="btn_admin btn_search button-search">
 					<span class="ico_admin">검색</span>
 				</button>
 			</div>
@@ -49,7 +49,7 @@
             </div>
          </div>
          <div class="bundle_set">
-            <button type="button" id="choiceDeleteBtn" class="btn_admin btn_type2 button-delete-article">
+            <button type="button" id="choiceDeleteBtn_review" class="btn_admin btn_type2 button-delete-article">
                <span class="ico_admin ico_del"></span>
                <span class="txt_btn">삭제</span>
             </button>
@@ -71,11 +71,11 @@
             <thead>
             <tr>
                <th scope="col" class=""><input type="checkbox" id="all"></th>
-               <th scope="col" class="board_seq">글번호</th>
-               <th scope="col" class="board_subject">제목</th>
-               <th scope="col" class="board_id">글쓴이</th>
-               <th scope="col" class="logtime">작성일</th>
-               <th scope="col" class="board_hit">조회수</th>
+               <th scope="col" class="review_seq">글번호</th>
+               <th scope="col" class="review_subject">제목</th>
+               <th scope="col" class="review_id">글쓴이</th>
+               <th scope="col" class="review_date">작성일</th>
+               <th scope="col" class="review_hit">조회수</th>
             </tr>
             </thead>
             <tbody id="article-list">
@@ -88,7 +88,7 @@
 <!-- 페이징 -->
 
    <div id="pagingAreaPg" class="page_admin"></div>
-   <div id="pagingArea" class="page_admin"></div>
+   <div id="pagingArea_review" class="page_admin"></div>
 </div>
 
 </div>

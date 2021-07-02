@@ -27,17 +27,17 @@
 		<strong><span class="ico_admin"></span> <span class="txt_lnb">게시판 관리</span></strong>
 		<ul>
 			<li id="managerSaleboard" style="text-align: left;"><a href="/jaju/managerSaleboard/managerSaleboardList?pg=1&sale_category=*" class="link_lnb">판매게시판 관리</a></li>
-			<li id="managerFreeboard" style="text-align: left;"><a href="/_c21_/founder_commentmanagement?grpid=1Z5aM" class="link_lnb">자유게시판 관리</a></li>
-			<li id="managerReviewboard" style="text-align: left;"><a href="/_c21_/founder_noticemanagement?grpid=1Z5aM" class="link_lnb">리뷰게시판 관리</a></li>
+			<li id="managerFreeboard" style="text-align: left;"><a href="/jaju/manager/managerFreeboardList?pg=1" class="link_lnb">자유게시판 관리</a></li>
+			<li id="managerReviewboard" style="text-align: left;"><a href="/jaju/manager/managerReviewboardList?pg=1" class="link_lnb">리뷰게시판 관리</a></li>
 		</ul>
 	</li>
 		<li class="lnb_admin4">
 		<strong><span class="ico_admin"></span> <span class="txt_lnb">고객센터 관리</span></strong>
 		<ul>
-			<li id="managerNoticeList" style="text-align: left;"><a href="/jaju/manager/managerNoticeList" class="link_lnb">공지사항 관리</a></li>
+			<li id="managerServiceNotice" style="text-align: left;"><a href="/jaju/manager/managerServiceNotice" class="link_lnb">공지사항 관리</a></li>
 			<li id="managerServiceQuestion" style="text-align: left;"><a href="/jaju/manager/managerServiceQuestion" class="link_lnb">자주묻는질문 관리</a></li>
 			<li id="managerServiceInquire" style="text-align: left;"><a href="/jaju/manager/managerServiceInquire" class="link_lnb">1:1 문의 관리</a></li>
-			<li id="managerReportList" style="text-align: left;"><a href="/jaju/manager/managerReportList" class="link_lnb">신고게시판 관리</a></li>
+			<li id="managerServiceReport" style="text-align: left;"><a href="/jaju/manager/managerServiceReport" class="link_lnb">신고게시판 관리</a></li>
 		</ul>
 	</li>
 </ul>

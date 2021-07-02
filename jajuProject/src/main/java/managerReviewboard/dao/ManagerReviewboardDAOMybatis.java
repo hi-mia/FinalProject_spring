@@ -19,13 +19,41 @@ public class ManagerReviewboardDAOMybatis implements ManagerReviewboardDAO {
 
 	@Override
 	public List<ReviewboardDTO> getManagerReviewboardList(Map<String, String> map) {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList("managerReviewboardSQL.getManagerReviewboardList", map);
 	}
 
 	@Override
 	public int getTotalA() {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.selectOne("managerReviewboardSQL.getTotalA");
+	}
+
+	@Override
+	public ReviewboardDTO getManagerReviewboardView(int review_seq) {
+		return sqlSession.selectOne("managerReviewboardSQL.getManagerReviewboardView", review_seq);
+	}
+
+	@Override
+	public ReviewboardDTO getPage_review(int review_seq) {
+		return sqlSession.selectOne("managerReviewboardSQL.getPage_review", review_seq);
+	}
+
+	@Override
+	public List<ReviewboardDTO> getManagerReviewboardSearchList(Map<String, String> map) {
+		return sqlSession.selectList("managerReviewboardSQL.getManagerReviewboardSearchList", map);
+	}
+
+	@Override
+	public int getSearchTotal_review(Map<String, String> map) {
+		return sqlSession.selectOne("managerReviewboardSQL.getSearchTotal_review",map);
+	}
+
+	@Override
+	public void managerReviewboardDelete(int review_seq) {
+		sqlSession.delete("managerReviewboardSQL.managerReviewboardDelete", review_seq);
+	}
+
+	@Override
+	public void managerReviewboardListDelete(Map<String, String[]> map) {
+		sqlSession.delete("managerReviewboardSQL.managerReviewboardListDelete", map);
 	}
 }

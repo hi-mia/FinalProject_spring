@@ -14,6 +14,10 @@
 	margin-top: 129px;
 }
 
+.layout-wrapper{
+	margin-top: 150px;
+}
+
 .tit_page {
     overflow: hidden;
     width: 1050px;
@@ -70,6 +74,7 @@ td, th {
     padding: 0;
 }
 .boardView {
+
     table-layout: fixed;
     border-top: 2px solid #333;
     border-bottom: 1px solid #f4f4f4;
@@ -85,6 +90,7 @@ element.style {
     border-bottom: 2px solid #333;
     margin: 20px 0;
 }
+
 .xans-myshop-couponserial {
     padding-bottom: 20px;
 }
@@ -184,23 +190,4 @@ h1.tit{
 }
 .xans-board-listheader{
 	font-size: 14px;
-}
-
-#commentTable {
-	font-size: 20px;
-}
-
-#pagingDiv {
-	font-size: 16px;
-}
-
-
-.viewPre{
-   white-space: pre-line;
-   word-break: break-all;
-   background: white;
-   font-size: 14px;
-   color: #333;
-   border: white;
-   margin: 0;
 }
