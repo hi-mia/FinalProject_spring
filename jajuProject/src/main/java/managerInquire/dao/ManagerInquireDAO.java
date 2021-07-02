@@ -9,4 +9,6 @@ public interface ManagerInquireDAO {
 
 	public List<InquireDTO> getManagerInquire(Map<String, String> map);
 
+	public void managerInquireDelete(Map<String, String[]> map);
+
 }

@@ -21,6 +21,7 @@ public class ManagerInquireController {
 	@Autowired
 	private ManagerInquireService managerInquireService;
 	
+	
 	@RequestMapping(value="/managerServiceInquire", method=RequestMethod.GET)
 	public ModelAndView managerServiceInquire(@RequestParam(required = false, defaultValue = "1") String pg) {
 		ModelAndView mav = new ModelAndView();
@@ -60,4 +61,10 @@ public class ManagerInquireController {
 		return mav;
 	}
 
+	@RequestMapping(value = "managerInquireDelete", method=RequestMethod.GET)
+	public ModelAndView managerInquireDelete(String[] check) {
+		System.out.println(check);
+		managerInquireService.managerInquireDelete(check);
+		return new ModelAndView("redirect:/manager/managerServiceInquire");
+	}
 }

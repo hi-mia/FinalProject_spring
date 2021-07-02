@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="/jaju/manager_css/managerServiceInquire.css" />
 </head>
 <body>
-
+<form id = "managerInquireDelete" method="get" action="managerInquireDelete">
 <div class="total" style="display:flex; justify-content: center;">
 <jsp:include page="/manager/managerMenu.jsp"/>
 <div id="content" class="cont_post post_spam">
@@ -89,6 +89,7 @@
 		<div id="article-summary-layer" class="layer_post summary-layer"></div>
 	</div>
 </div>
+</form>
 </body>
 <script type = "text/javascript" src = "http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/manager_js/managerServiceInquire.js"></script>

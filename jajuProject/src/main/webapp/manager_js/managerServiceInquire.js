@@ -19,7 +19,7 @@ $(function(){
 						type : 'checkbox',
 						id : 'all',
 						name : 'check',
-						onclick : 'checkAll()'
+						value : items.inquiry_seq
 					}))
 				).append($('<td/>',{
 					width: '75px',
@@ -82,6 +82,6 @@ $('#choiceDeleteBtn').click(function(){
 		alert("삭제할 항목을 선택하세요");
 	}else{
 		confirm("정말로 삭제 하시겠습니까?");
-		$('#imageboardDeleteForm').submit();
+		$('#managerInquireDelete').submit();
 	}
 });
