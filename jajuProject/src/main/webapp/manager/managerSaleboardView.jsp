@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<input type="hidden" id="board_seq" value="${sale_seq}">
+<input type="hidden" id="board_seq" value="${param.sale_seq}">
 <input type="hidden" id="pg" value="${param.pg }"/>
 <div id="wrap">
 <div id="pos_scroll"></div>

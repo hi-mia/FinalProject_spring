@@ -41,6 +41,16 @@ public class ManagerSaleboardDAOMybatis implements ManagerSaleboardDAO {
 		sqlSession.delete("managerSaleboardSQL.managerSaleboardListDelete", check);
 		sqlSession.delete("managerSaleboardSQL.managerSaleboardListCommentDelete", check);
 	}
+
+	@Override
+	public void managerSaleboardDelete(int sale_seq) {
+		sqlSession.delete("managerSaleboardSQL.managerSaleboardDelete", sale_seq);
+	}
+
+	@Override
+	public SaleboardDTO getPage_sale(int sale_seq) {
+		return sqlSession.selectOne("managerSaleboardSQL.getPage_sale", sale_seq);
+	}
 	
 	
 	

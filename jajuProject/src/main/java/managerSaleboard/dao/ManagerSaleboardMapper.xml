@@ -66,14 +66,9 @@
 		</foreach>
   	</delete>
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
+<!-- 삭제 -->
+<delete id="managerSaleboardDelete" parameterType="int">
+ 	delete sale_board where sale_seq=#{sale_seq}
+</delete>
   
 </mapper>

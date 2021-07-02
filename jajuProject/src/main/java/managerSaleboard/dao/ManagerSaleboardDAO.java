@@ -17,4 +17,8 @@ public interface ManagerSaleboardDAO {
 
 	public void managerSaleboardListDelete(String[] check);
 
+	public void managerSaleboardDelete(int sale_seq);
+
+	public SaleboardDTO getPage_sale(int sale_seq);
+
 }
