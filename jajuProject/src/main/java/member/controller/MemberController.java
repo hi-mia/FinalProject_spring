@@ -176,4 +176,11 @@ public class MemberController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value="/retireForm", method=RequestMethod.GET)
+	public String retire(Model model) {
+		model.addAttribute("display", "/member/retireForm.jsp");
+		
+		return "/index";
+	}
 }

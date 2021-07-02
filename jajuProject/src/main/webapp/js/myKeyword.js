@@ -1,5 +1,7 @@
 //초기 페이지 로딩 시 저장한 관심 키워드 불러오기.
 $(function(){
+	$('.myKeyword').css({'color': '#064acb', 'font-weight': 'bold'});
+	$('.sign_up_item a').css('color', '#064acb')
 	//alert($('#id').val());
 	$.ajax({
 		type:'post',

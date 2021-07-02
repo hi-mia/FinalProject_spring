@@ -1,4 +1,7 @@
 $(function(){
+	$('.modify').css({'color': '#064acb', 'font-weight': 'bold'});
+	$('.sign_up_item a').css('color', '#064acb')
+	
 	$.ajax({
 		url: '/jaju/member/getMember',
 		type: 'post',

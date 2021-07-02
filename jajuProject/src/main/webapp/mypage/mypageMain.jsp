@@ -122,13 +122,14 @@
 
 			<div class="inner_snb">
 				<ul class="list_menu">
-					<li><a href="/jaju/mypage/myKeywordForm" onclick="">관심 키워드
+					<li><a href="/jaju/mypage/myKeywordForm" class="myKeyword" onclick="">관심 키워드
 							등록</a></li>
-					<li><a href="/jaju/mypage/myLocationForm" onclick="">관심 지역
+					<li><a href="/jaju/mypage/myLocationForm" class="myLocation" onclick="">관심 지역
 							등록</a></li>
-					<li><a href="/jaju/member/modifyForm">회원 정보 수정</a></li>
-					<li><a href="/jaju/serviceCenter/reportList" onclick="">1:1
+					<li><a href="/jaju/serviceCenter/inquireList" class="inquireList" onclick="">1:1
 							문의 내역</a></li>
+					<li><a href="/jaju/member/modifyForm" class="modify">회원 정보 수정</a></li>
+					<li><a href="/jaju/member/retireForm" class="retire">회원 탈퇴</a></li>
 				</ul>
 			</div>
 			<a href="/jaju/serviceCenter/reportWriteForm" class="link_inquire" style="margin-bottom: 50px;">
