@@ -12,11 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import freeboard.bean.FreeboardDTO;
 import managerSaleboard.service.ManagerSaleboardService;
 import saleboard.bean.SaleboardDTO;
 import saleboard.bean.SaleboardPaging;
-
-
 
 @Controller
 @RequestMapping(value = "/managerSaleboard")
@@ -25,7 +24,6 @@ public class ManagerSaleboardController {
 	private SqlSession session;
 	@Autowired
 	private ManagerSaleboardService managerSaleboardService;
-	
 	
 	@RequestMapping(value = "managerSaleboardList", method = RequestMethod.GET)
 	public ModelAndView index() {
@@ -82,5 +80,37 @@ public class ManagerSaleboardController {
 		managerSaleboardService.managerSaleboardListDelete(check);
 		
 	}
+	
+	@RequestMapping(value = "managerSaleboardView", method = RequestMethod.GET)
+	   public ModelAndView managerSaleboardView() {
+	      ModelAndView mav = new ModelAndView();
+	      mav.setViewName("/manager/managerSaleboardView");
+	      return mav;
+	   }
+	
+	
+	//삭제- 게시물
+		@RequestMapping(value="managerSaleboardDelete", method=RequestMethod.POST)
+		@ResponseBody
+		public ModelAndView managerSaleboardDelete(@RequestParam int sale_seq) {
+
+			managerSaleboardService.managerSaleboardDelete(sale_seq);
+			
+			return new ModelAndView("redirect:/manager/managerSaleboardList");
+		}
+		
+		//이전글 다음글
+		@RequestMapping(value="getPage_sale", method=RequestMethod.POST)
+		@ResponseBody
+		public ModelAndView getPage_sale(@RequestParam int sale_seq) {
+			
+			SaleboardDTO saleboardDTO = managerSaleboardService.getPage_sale(sale_seq);
+			
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("saleboardDTO", saleboardDTO);
+			mav.setViewName("jsonView");
+			return mav;
+		}
+
 
 }

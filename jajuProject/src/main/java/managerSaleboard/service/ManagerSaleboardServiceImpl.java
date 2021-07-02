@@ -86,4 +86,16 @@ public class ManagerSaleboardServiceImpl implements ManagerSaleboardService {
 		managerSaleboardDAO.managerSaleboardListDelete(check);
 	}
 
+
+	@Override
+	public void managerSaleboardDelete(int sale_seq) {
+		managerSaleboardDAO.managerSaleboardDelete(sale_seq);
+	}
+
+
+	@Override
+	public SaleboardDTO getPage_sale(int sale_seq) {
+		return managerSaleboardDAO.getPage_sale(sale_seq);
+	}
+
 }
