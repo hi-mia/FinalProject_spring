@@ -82,5 +82,13 @@ public class ManagerSaleboardController {
 		managerSaleboardService.managerSaleboardListDelete(check);
 		
 	}
+	@RequestMapping(value = "managerSaleboardView", method = RequestMethod.GET)
+	public ModelAndView managerSaleboardView() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/manager/managerSaleboardView");
+		return mav;
+	}
+	
+	
 
 }

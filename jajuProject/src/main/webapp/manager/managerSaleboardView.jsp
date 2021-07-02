@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<input type="hidden" id="board_seq" value="${sale_seq}">
+<input type="hidden" id="sale_seq" value="${param.sale_seq}">
 <input type="hidden" id="pg" value="${param.pg }"/>
 <div id="wrap">
 <div id="pos_scroll"></div>
@@ -178,7 +178,7 @@
 <script src="/jaju/manager_js/managerSaleboardView.js"></script>
 <script src="/jaju/manager_js/managerSaleboardDelete.js"></script>
 <script type="text/javascript">
-/*
+
 function saleboardCommentPaging(pg){
 	$.ajax({
 		type: 'post',
@@ -203,9 +203,9 @@ function saleboardCommentPaging(pg){
 						class: 'content_'+ items.comment_seq
 					}))
 				).append($('<td/>',{
-					text : items.board_id
+					text : items.member_id
 				})).append($('<td/>',{
-					class: 'trLast',
+					class: 'trLast'+items.comment_seq,
 					text : items.logtime
 				})).appendTo($('#commentTable'));
 				
@@ -218,15 +218,15 @@ function saleboardCommentPaging(pg){
 					}));
 				}
 				
+				$('.trLast'+items.comment_seq).append($('<img>',{
+					src: '/jaju/jajuImage/delete.png',
+					id: 'commentDeleteBtn',
+					style: 'cursor: pointer; float: right;',
+					width: '20px',
+					height: '20px'
+				}));
 			}); //each
 			
-			$('.trLast').append($('<img>',{
-				src: '/jaju/jajuImage/delete.png',
-				id: 'commentDeleteBtn',
-				style: 'cursor: pointer; float: right;',
-				width: '20px',
-				height: '20px'
-			}));
 			
 			$('#pagingDiv').html(data.saleboardCommentPaging.pagingHTML);
 			
@@ -237,7 +237,7 @@ function saleboardCommentPaging(pg){
 	});
 	
 }
-*/
+
 
 </script>
 
