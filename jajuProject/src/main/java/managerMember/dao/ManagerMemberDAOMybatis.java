@@ -1,5 +1,6 @@
 package managerMember.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import java.util.Map;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import managerMember.bean.ManagerMainDTO;
 import member.bean.MemberDTO;
 
 @Transactional
@@ -56,8 +58,16 @@ public class ManagerMemberDAOMybatis implements ManagerMemberDAO {
 	@Override
 	public int getSearchTotalA(Map<String, String> map) {
 		return sqlSession.selectOne("managerMemberSQL.getSearchTotalA", map);
-
 	}
 
+	@Override
+	public int getMemberBlackTotalA() {
+		return sqlSession.selectOne("managerMemberSQL.getMemberBlackTotalA");
+	}
+
+	@Override
+	public List<ManagerMainDTO> getMemberCategory() {
+		return sqlSession.selectList("managerMemberSQL.getMemberCategory");
+	}
 
 }

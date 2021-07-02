@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import managerMember.bean.ManagerMainDTO;
 import managerMember.bean.ManagerPaging;
 import managerMember.dao.ManagerMemberDAO;
 import member.bean.MemberDTO;
@@ -96,4 +97,22 @@ public class ManagerMemberServiceImpl implements ManagerMemberService {
 		managerPaging.makePagingHTML();
 		return managerPaging;
 	}
+
+	@Override
+	public ManagerPaging managerPagingBlack(Map<String, String> map) {
+		int memberBlackCount = managerMemberDAO.getMemberBlackTotalA();
+		// System.out.println(memberCount);
+		managerPaging.setCurrentPage(Integer.parseInt(map.get("pg")));
+		managerPaging.setPageBlock(4);
+		managerPaging.setPageSize(10);
+		managerPaging.setTotalA(memberBlackCount);
+		managerPaging.makePagingHTML();
+		return managerPaging;
+	}
+	/*==차트 구현을 위한 카테고리, 카테고리 count 가져오기 ==*/
+	@Override
+	public List<ManagerMainDTO> getMemberCategory() {
+		return managerMemberDAO.getMemberCategory();
+	}
+
 }

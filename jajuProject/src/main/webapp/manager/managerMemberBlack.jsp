@@ -146,9 +146,13 @@
 	</form>
 
 
-			<div class="set_list" id="listControlBar2" style="background: #FAFAFA;height: 40px;">
-			</div>
+	<div class="set_list" id="listControlBar2" style="background: #FAFAFA;height: 40px;">
+	</div>
 
+
+		<div style="text-align: center;" id="memberPagingDiv"></div>
+
+<!-- 
 			<div id="pagingArea" class="page_admin">
 			
 				<a class="btn_page btn_prev page_disabled">
@@ -160,7 +164,7 @@
 				<a class="btn_page btn_next page_disabled">다음&nbsp;
 					<span class="ico_admin"></span>
 				</a>
-			</div>
+			</div> -->
 
            <div id="accountNotiLayer">
                <ul class="account_noti">
@@ -173,7 +177,28 @@
 	</div><!-- end content -->
 	</div>
 </div>
+<input type="hidden" id="searchPg" value="1">
+
+
 	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>	
 	<script src="/jaju/manager_js/managerMemberBlack.js"></script>
+	
+		<script type="text/javascript">
+
+	function managerPaging(pg){
+		var keyword = document.getElementById('search-text').value;
+		if(keyword == ''){
+			location.href="managerMemberBlack?pg="+pg;
+			//$('#sortinSelect').trigger('change');		
+		} else{
+			$('#searchPg').val(pg);
+			alert($('#searchPg').val())
+			$('#search-text_Btn').trigger('click','research');
+			//location.href = 'boardSearch?pg='+pg+'&select='+$('#select option:selected').val() +'&keyword='+$('#keyword').val();
+			//encodeURIComponent('${keyword}');
+			//$('#searchPg').val(1);
+	}
+}
+	</script>
 </body>
 </html>

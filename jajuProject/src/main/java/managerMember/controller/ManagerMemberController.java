@@ -1,5 +1,6 @@
 package managerMember.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import managerMember.bean.ManagerMainDTO;
 import managerMember.bean.ManagerPaging;
 import managerMember.service.ManagerMemberService;
 import member.bean.MemberDTO;
@@ -110,14 +112,43 @@ public class ManagerMemberController {
 		List<MemberDTO> list = managerMemberService.getManagerMemberBlack(map);// pg넘겨서 페이징 처리해서 회원 리스트 가져오기
 
 		// System.out.println("블랙리스트 = "+list);
+		ManagerPaging managerPagingBlack = managerMemberService.managerPagingBlack(map);
 
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg", pg);
 		mav.addObject("list", list);
 		mav.setViewName("jsonView");
-		// mav.addObject("managerPaging", managerPaging);
+		mav.addObject("managerPagingBlack", managerPagingBlack);
 		return mav;
 	}
 
+	//changeBlackMemberState 에 대한 변경 컨트롤러 작성하기
+	// 활동정지해제~ black-> 일반으로
+	@RequestMapping(value = "changeBlackMemberState", method = RequestMethod.POST)
+	// check 안에는 id값이 담겨있음.
+	public ModelAndView changeBlackMemberState(String[] check,
+			@RequestParam(required = false, defaultValue = "1") String pg) {
+		System.out.println("check = " + check[0]);
+		//managerMemberService.changeBlackMemberState(check); ---> 이거 해결하기~ 
+		return new ModelAndView("redirect:/manager/managerMemberBlack");
+	}
+	
+	
+	/*------- 차트 구현을 위한 controller --------*/
+	@RequestMapping(value = "/getMemberCategory", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView getMemberCategory(@RequestParam Map<String, String> map,
+		@RequestParam(required = false, defaultValue = "1") String pg) {
+		
+		List<ManagerMainDTO> list = managerMemberService.getMemberCategory();
+		
+		System.out.println("차트 카테고리 리스트"+list);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", list);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
 	
 }
