@@ -17,6 +17,11 @@ $(function(){
 			$('#talSpan').text(data.reportDTO.report_tal);
 			$('#dateSpan').text(data.reportDTO.logtime);
 			$('#contentSpan').text(data.reportDTO.report_content);
+			$('#sale_subjectSpan').text(data.reportDTO.sale_subject);
+			
+			//신고 글 링크
+			$('#sale_subject').attr('herf', '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+reportDTO.sale_seq+'&pg=1');
+			
 			
 			if(data.reportDTO.report_image1 != null){
 				$('#imageSpan1').attr('src','/jaju/storage/'+data.reportDTO.report_image1);

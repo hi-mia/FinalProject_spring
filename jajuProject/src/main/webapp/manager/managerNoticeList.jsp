@@ -83,7 +83,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
    
-   $('#managerNoticeList').addClass('on');
+   $('#managerServiceNotice').addClass('on');
 });
 </script>
 </html>
