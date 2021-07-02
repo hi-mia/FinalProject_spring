@@ -258,7 +258,8 @@ select count(*) as count from message where message_reader=#{id} and message_cha
 	SELECT
 	(SELECT COUNT(*) from sale_board where member_id=#{id} and (sale_state='판매중' or sale_state='예약중')) as dealCount,
     (SELECT COUNT(*) from sale_board where member_id=#{id} and sale_state='판매완료' ) AS saleCount,
-    (SELECT COUNT(*) from sale_board where sale_buyer=#{id} and sale_state='판매완료' ) AS buyCount
+    (SELECT COUNT(*) from sale_board where sale_buyer=#{id} and sale_state='판매완료' ) AS buyCount,
+	(SELECT COUNT(*) from reviewboard where member_id=#{id}) AS reviewCount
 	FROM DUAL
 </select>
 	
@@ -319,6 +320,19 @@ select count(*) as count from message where message_reader=#{id} and message_cha
 <delete id="deleteMyFollow" parameterType="java.util.Map" >
    delete from follow where follow_id=#{follow_id} and member_id = #{member_id}
 </delete>
+<!-- 나의 프로필 판매 내역 목록 -->
+<select id="getMyProfileReviewList" parameterType="java.util.Map" resultType="reviewboard">
+		<![CDATA[
+			select * from 
+			(select rownum rn, tt.* from 
+ 			(select * from reviewboard where member_id=#{id} order by review_seq desc)tt)
+ 			where rn >= #{startNum} and rn <= #{endNum}
+		]]>
+	</select>
+<!--나의 프로필 판매목록 Paging 총 글수  -->
+<select id="getMyProfileReviewListPagetotalA" parameterType="String" resultType="int">
+	select count(*) as count from reviewboard where member_id=#{id}
+</select>
 
 </mapper>
  

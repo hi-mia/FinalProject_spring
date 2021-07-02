@@ -177,9 +177,9 @@ button, html input[type=button], input[type=reset], input[type=submit] {
     cursor: pointer;
 }
 .bhs_button {
-    width: 150px;
+    width: 100px;
     display: inline-block;
-    line-height: 40px;
+    line-height: 35px;
     text-align: center;
     background-color: #617aad;
     border: 1px solid #47597e;

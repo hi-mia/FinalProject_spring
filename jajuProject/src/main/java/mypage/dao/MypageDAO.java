@@ -11,6 +11,7 @@ import mypage.bean.MylocationDTO;
 import mypage.bean.MypageDTO;
 import saleboard.bean.SaleboardDTO;
 import mypage.bean.ScrapDTO;
+import reviewboard.bean.ReviewboardDTO;
 
 public interface MypageDAO {
 
@@ -92,8 +93,6 @@ public interface MypageDAO {
 
 	public void writeMyMessage(Map<String, String> map);
 
-	public void myPageChangeImg(Map<String, String> map);
-
 	public MemberDTO getMyProfileInfo(Map<String, String> map);
 
 	public int getMyMessageListPageTotalA(String id);
@@ -119,7 +118,10 @@ public interface MypageDAO {
 	public FollowDTO getMyFollow(Map<String, String> map);
 
 	public void deleteMyFollow(Map<String, String> map);
+	// 프로필 후기 내역
+	public List<ReviewboardDTO> getMyProfileReviewList(Map<String, String> map);
 
+	public int getMyProfileReviewListPagetotalA(String id);
 
 
 

@@ -1,9 +1,11 @@
 //1:1문의글 리스트 뿌리기
 $(function(){
+	
 	$.ajax({
 		url : '/jaju/manager/getManagerInquire',
 		type : 'post',
-		data : 'pg =' + $('#pg').val(),
+		data : {'pg ': $('#pg').val(),
+				'inquiry_seq':$('#inquiry_seq').val()},
 		dataType : 'json',
 		success : function(data){
 			//alert(JSON.stringify(data));
@@ -48,7 +50,9 @@ $(function(){
 				})).appendTo($('#tbl_admin'))
 				
 				$('.subject'+items.inquiry_seq).click(function(){
-					location.href = '/jaju/serviceCenter/inquireView?inquiry_seq='+items.inquiry_seq+'&pg='+$('#pg').val();
+					//alert(items.inquiry_seq);
+					//alert($('#pg').val());
+					location.href = '/jaju/serviceCenter/managerInquireView?seq='+items.inquiry_seq+'&pg='+$('#pg').val();
 				});
 			});
 		},

@@ -23,8 +23,11 @@ import org.springframework.web.servlet.ModelAndView;
 import member.bean.MemberDTO;
 import mypage.bean.FollowDTO;
 import mypage.bean.MessageDTO;
+import mypage.bean.MyBuyPaging;
 import mypage.bean.MyCountDTO;
+import mypage.bean.MyDealPaging;
 import mypage.bean.MyRecodePaging;
+import mypage.bean.MySalePaging;
 import mypage.bean.MyScrap_Paging;
 import mypage.bean.MylocationDTO;
 import mypage.bean.MypageDTO;
@@ -32,6 +35,7 @@ import mypage.bean.MypagePaging;
 import saleboard.bean.SaleboardDTO;
 import mypage.bean.ScrapDTO;
 import mypage.service.MypageService;
+import reviewboard.bean.ReviewboardDTO;
 
 @Controller
 @RequestMapping(value = "mypage")
@@ -53,16 +57,16 @@ public class MypageController {
 	}
 
 	// 마이페이지 프로필 이미지 변경 (window.open)
-	@RequestMapping(value = "mypageChangeImg", method = RequestMethod.GET)
-	public String mypageChangeImg(@RequestParam(required = false, defaultValue = "1") String pg, Model model,
-			HttpSession session) {
-		// ID 세션 가져오기
-		String memId = (String) session.getAttribute("memId");
-		// model에 아이디 같이 보내기.
-		model.addAttribute("memId", memId);
+		@RequestMapping(value = "MypageChangeImg", method = RequestMethod.GET)
+		public String MypageChangeImg(Model model, HttpSession session,@RequestParam(required = false, defaultValue = "1") String pg) {
+			// ID 세션 가져오기
+			String memId = (String) session.getAttribute("memId");
+			// model에 아이디 같이 보내기.
+			model.addAttribute("memId", memId);
+			model.addAttribute("pg", pg);
 
-		return "/mypage/MypageChangeImg";
-	}
+			return "/mypage/MypageChangeImg";
+		}
 
 	// TODO 내판매내역
 	@RequestMapping(value = "mySaleRecode", method = RequestMethod.GET)
@@ -100,16 +104,6 @@ public class MypageController {
 		model.addAttribute("memId", memId);
 		model.addAttribute("pg", pg); // pg값 받기
 		model.addAttribute("display", "/mypage/myDealRecode.jsp");
-		return "/index";
-	}
-
-	// 내거래내역
-	@RequestMapping(value = "myDealRecord", method = RequestMethod.GET)
-	public String myDealRecord(Model model, HttpSession session) {
-		String memId = (String) session.getAttribute("memId");
-
-		model.addAttribute("memId", memId);
-		model.addAttribute("display", "/mypage/myDealRecord.jsp");
 		return "/index";
 	}
 
@@ -642,17 +636,22 @@ public class MypageController {
 
 	@RequestMapping(value = "mySaleRecodeList", method = RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView mySaleRecodeList(@RequestParam String pg, @RequestParam Map<String, String> map) {
+	public ModelAndView mySaleRecodeList(@RequestParam String id, @RequestParam String pg, @RequestParam Map<String, String> map) {
 		// System.out.println("pg가는지"+pg);
 		// 1페이지당 5개씩
+		map.put("id", id);
+		map.put("pg", pg);
+		System.out.println("확인11?"+id);
+		System.out.println("확인11.?"+pg);
+		
 		List<SaleboardDTO> list = mypageService.mySaleRecodeList(map);
-
+		
 		// 페이징처리
-		MyRecodePaging myRecodePaging = mypageService.myRecodePaging(map);
+		MySalePaging mySalePaging = mypageService.mySalePaging(map);
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
-		mav.addObject("myRecodePaging", myRecodePaging);
+		mav.addObject("mySalePaging", mySalePaging);
 		mav.setViewName("jsonView");
 
 		return mav;
@@ -661,17 +660,22 @@ public class MypageController {
 
 	@RequestMapping(value = "myBuyRecodeList", method = RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView myBuyRecodeList(@RequestParam String pg, @RequestParam Map<String, String> map) {
+	public ModelAndView myBuyRecodeList(@RequestParam String id, @RequestParam String pg, @RequestParam Map<String, String> map) {
 		// System.out.println("pg가는지"+pg);
 		// 1페이지당 5개씩
+		map.put("id", id);
+		map.put("pg", pg);
+		System.out.println("확인22?"+id);
+		System.out.println("확인22.?"+pg);
+		
 		List<SaleboardDTO> list = mypageService.myBuyRecodeList(map);
 		// System.out.println("pg가는지2"+pg);
 		// 페이징처리
-		MyRecodePaging myRecodePaging2 = mypageService.myRecodePaging2(map);
+		MyBuyPaging myBuyPaging = mypageService.myBuyPaging(map);
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
-		mav.addObject("myRecodePaging2", myRecodePaging2);
+		mav.addObject("myBuyPaging", myBuyPaging);
 		mav.setViewName("jsonView");
 
 		return mav;
@@ -680,20 +684,23 @@ public class MypageController {
 
 	@RequestMapping(value = "myDealRecodeList", method = RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView myDealRecodeList(@RequestParam String pg, @RequestParam Map<String, String> map) {
+	public ModelAndView myDealRecodeList(@RequestParam String id, @RequestParam String pg, @RequestParam Map<String, String> map) {
 		// map에 pg 같이 담아 보내기. id+pg
 
-		//System.out.println("myDealRecodeList==" + map);
-
+		System.out.println("myDealRecodeList==" + map);
+		map.put("id", id);
+		map.put("pg", pg);
+		System.out.println("확인33?"+id);
+		System.out.println("확인33.?"+pg);
 		// 1페이지당 5개씩
 		List<SaleboardDTO> list = mypageService.myDealRecodeList(map);
 
 		// 페이징처리
-		MyRecodePaging myRecodePaging3 = mypageService.myRecodePaging3(map);
+		MyDealPaging myDealPaging = mypageService.myDealPaging(map);
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
-		mav.addObject("myRecodePaging3", myRecodePaging3);
+		mav.addObject("myDealPaging", myDealPaging);
 		mav.setViewName("jsonView");
 
 		return mav;
@@ -771,19 +778,6 @@ public class MypageController {
 		return mav;
 	}
 
-	// 마이페이지 프로필 이미지 변경 myPageChangeImg
-	@RequestMapping(value = "myPageChangeImg", method = RequestMethod.POST)
-	@ResponseBody
-	public ModelAndView myPageChangeImg(@RequestParam Map<String, String> map, HttpSession session) {
-		//System.out.println("myPageChangeImg 의 map == " + map);
-
-		mypageService.myPageChangeImg(map);// update image 하기.
-
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("jsonView");
-		return mav;
-	}
-
 	/* <input type="file" name="img" > name이 1개인 경우 */
 	@RequestMapping(value = "updateProfileImage", method = RequestMethod.POST)
 	@ResponseBody
@@ -845,6 +839,31 @@ public class MypageController {
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("memberDTO", memberDTO);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	@RequestMapping(value = "getMyProfileReviewList", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView getMyProfileReviewList(@RequestParam Map<String, String> map, @RequestParam String pg,
+			HttpSession session, @RequestParam String id) {
+		//String id = (String) session.getAttribute("memId");
+		System.out.println("ReviewList id?"+id);
+		System.out.println("ReviewList pg값?"+pg);
+		map.put("pg", pg);
+		map.put("id",id);
+		// 1페이지당 5개씩
+		List<ReviewboardDTO> list = mypageService.getMyProfileReviewList(map);
+		
+
+		// 페이징처리
+		// System.out.println("getMyProfileReviewList컨트롤러"+map);
+		MyRecodePaging getMyProfileReviewListPage = mypageService.getMyProfileReviewListPage(map);
+
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg", pg);
+		mav.addObject("list", list);
+		mav.addObject("getMyProfileReviewListPage", getMyProfileReviewListPage);
 		mav.setViewName("jsonView");
 		return mav;
 	}

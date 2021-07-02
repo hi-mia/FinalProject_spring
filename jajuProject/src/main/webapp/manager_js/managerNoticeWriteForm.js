@@ -18,14 +18,14 @@ $('#noticeWriteBtn').click(function(){
 		var formData = new FormData($('#noticeWriteForm')[0]);
 		$.ajax({
 			type: 'post',
-		 	url: '/jaju/serviceCenter/noticeWrite',
+		 	url: '/jaju/manager/ManagerNoticeWrite',
 		 	enctype: 'multipart/form-data',
 			processData: false,
 			contentType: false,
 		 	data: formData,
 		 	success: function(){
 		 			alert('글 작성이 완료되었습니다');
-		 			location.href='/jaju/serviceCenter/noticeList?pg=1'
+		 			location.href='/jaju/manager/managerNoticeList?pg=1'
 		 	},
 		 	error: function(err){
 		 		console.log(err);
@@ -33,6 +33,10 @@ $('#noticeWriteBtn').click(function(){
 		});
 	}
 	
+});
+
+$('#noticeListBtn').click(function(){
+	location.href = "/jaju/manager/managerNoticeList?pg=1";
 });
 
 //이미지 업로드

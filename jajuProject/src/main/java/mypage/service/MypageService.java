@@ -8,13 +8,17 @@ import javax.servlet.http.HttpSession;
 import member.bean.MemberDTO;
 import mypage.bean.FollowDTO;
 import mypage.bean.MessageDTO;
+import mypage.bean.MyBuyPaging;
 import mypage.bean.MyCountDTO;
+import mypage.bean.MyDealPaging;
 import mypage.bean.MyRecodePaging;
+import mypage.bean.MySalePaging;
 import mypage.bean.MyScrap_Paging;
 import mypage.bean.MylocationDTO;
 import mypage.bean.MypageDTO;
 import mypage.bean.MypagePaging;
 import mypage.bean.ScrapDTO;
+import reviewboard.bean.ReviewboardDTO;
 import saleboard.bean.SaleboardDTO;
 
 public interface MypageService {
@@ -62,15 +66,15 @@ public interface MypageService {
 	
 	public List<SaleboardDTO> mySaleRecodeList(Map<String, String> map);
 
-	public MyRecodePaging myRecodePaging(Map<String, String> map);
+	public MySalePaging mySalePaging(Map<String, String> map);
 
 	public List<SaleboardDTO> myBuyRecodeList(Map<String, String> map);
 
-	public MyRecodePaging myRecodePaging2(Map<String, String> map);
+	public MyBuyPaging myBuyPaging(Map<String, String> map);
 
 	public List<SaleboardDTO> myDealRecodeList(Map<String, String> map);
 
-	public MyRecodePaging myRecodePaging3(Map<String, String> map);
+	public MyDealPaging myDealPaging(Map<String, String> map);
 
 	/*public MypagePaging myScrapPaging(String pg);*/
 	
@@ -104,7 +108,7 @@ public interface MypageService {
 	
 	public void writeMyMessage(Map<String, String> map);
 	//마이페이지 , 프로필 이미지 변경.
-	public void myPageChangeImg(Map<String, String> map);
+	
 	//마이페이지 , 기본 정보 불러오기
 	public MemberDTO getMyProfileInfo(Map<String, String> map);
 	
@@ -131,6 +135,8 @@ public interface MypageService {
 	public FollowDTO getMyFollow(Map<String, String> map);
 	public void deleteMyFollow(Map<String, String> map);
 
-	
+	//프로필 후기 내역
+		public List<ReviewboardDTO> getMyProfileReviewList(Map<String, String> map);
+		public MyRecodePaging getMyProfileReviewListPage(Map<String, String> map);
 
 }

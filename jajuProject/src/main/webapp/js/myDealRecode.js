@@ -119,7 +119,7 @@ $(function(){
 			});// each
 			
 			// 페이징처리
-			$('#myDealRecodePagingDiv').html(data.myRecodePaging3.pagingHTML);
+			$('#myDealRecodePagingDiv').html(data.myDealPaging.pagingHTML);
 			
 			}//else
 
@@ -130,6 +130,6 @@ $(function(){
 	});
 });
 
-function myRecodePaging(pg){
+function myDealPaging(pg){
 	location.href="myDealRecode?pg="+pg;
 }

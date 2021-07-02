@@ -7,13 +7,22 @@
      font-weight: normal;
      font-style: normal;
 }
-* {
+#profileFont , .profileFont{
     letter-spacing: -.05em;
     color: #4c4c4c;
     font-size: 17px;
     font-family: 'S-CoreDream-4Regular';
    -webkit-text-size-adjust: 100%;
 }
+#subject_{
+	float:left;
+	font-size: 14px;
+	letter-spacing: -.05em;
+	color: #4c4c4c;
+	font-family: 'S-CoreDream-4Regular';
+   -webkit-text-size-adjust: 100%;
+}
+
 
 html {
     -ms-text-size-adjust: 100%;
@@ -27,7 +36,84 @@ html {
     border:none;
     border-radius: 3px;
 }
+
+
 #profile_name{
 	font-size: 20px;
 	font-weight: 700;
+}
+
+
+#currentPaging {
+	
+	display: inline-block;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #ddd;
+    border-left: 1;
+    vertical-align: top;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    line-height: 34px;
+}
+#currentPaging:hover{
+	border: 1px solid #47597e;
+}
+#paging {
+	display: inline-block;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #ddd;
+    border-left: 1;
+    vertical-align: top;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    line-height: 34px;
+}
+#paging:hover,#prev_paging:hover,#next_paging:hover{
+	border: 1px solid #47597e;
+}
+#prev_paging{
+    background-image: url(https://res.kurly.com/pc/etc/old/images/common/icon-pagination-prev.png);
+	width: 34px;
+    height: 34px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    vertical-align: top;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    text-indent: -9999px;
+    border: 1px solid #ddd;
+}
+#next_paging{
+    background-image: url(https://res.kurly.com/pc/etc/old/images/common/icon-pagination-next.png);
+    width: 34px;
+    height: 34px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    vertical-align: top;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    text-indent: -9999px;
+    border: 1px solid #ddd;
+}
+#change_state_btn{
+	height: 30px;
+    width: 90px;
+	background-color: #617aad;
+    color: #fff;
+    border:none;
+    border-radius: 3px;
+    float:right;
+}
+#change_state_btn:hover{
+	height: 30px;
+    width: 90px;
+	background-color: #9EB7CD;
+    border:none;
+    border-radius: 3px;
 }

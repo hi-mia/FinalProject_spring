@@ -17,13 +17,6 @@ public class NoticeServiceImpl implements NoticeService {
 	private NoticeDAO noticeDAO;
 	@Autowired
 	private NoticePaging noticePaging;
-
-	@Override
-	public void noticeWrite(NoticeDTO noticeDTO) {
-		//System.out.println(reportDTO);
-		noticeDAO.noticeWrite(noticeDTO);
-		
-	}
 	
 	@Override
 	public List<NoticeDTO> getNoticeList(String pg) {

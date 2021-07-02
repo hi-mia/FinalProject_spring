@@ -16,6 +16,7 @@ import mypage.bean.MylocationDTO;
 import mypage.bean.MypageDTO;
 import saleboard.bean.SaleboardDTO;
 import mypage.bean.ScrapDTO;
+import reviewboard.bean.ReviewboardDTO;
 
 @Transactional
 @Repository
@@ -260,11 +261,6 @@ public class MypageDAOMybatis implements MypageDAO {
 	}
 
 	@Override
-	public void myPageChangeImg(Map<String, String> map) {
-		sqlSession.update("mypageSQL.myPageChangeImg",map);
-	}
-
-	@Override
 	public MemberDTO getMyProfileInfo(Map<String, String> map) {
 		return sqlSession.selectOne("mypageSQL.getMyProfileInfo",map) ;
 	}
@@ -332,5 +328,17 @@ public class MypageDAOMybatis implements MypageDAO {
 	@Override
 	public void deleteMyFollow(Map<String, String> map) {
 		sqlSession.delete("mypageSQL.deleteMyFollow", map);		
+	}
+	// 프로필 후기 내역 
+	@Override
+	public List<ReviewboardDTO> getMyProfileReviewList(Map<String, String> map) {
+		List<ReviewboardDTO> list=sqlSession.selectList("mypageSQL.getMyProfileReviewList",map);
+		
+		return list;
+	}
+
+	@Override
+	public int getMyProfileReviewListPagetotalA(String id) {
+		return sqlSession.selectOne("mypageSQL.getMyProfileReviewListPagetotalA",id);
 	}
 }

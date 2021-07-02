@@ -17,12 +17,6 @@ public class NoticeDAOMybatis implements NoticeDAO {
 	private SqlSession sqlSession;
 	
 	@Override
-	public void noticeWrite(NoticeDTO noticeDTO) {
-		sqlSession.insert("noticeboardSQL.noticeWrite", noticeDTO);
-		
-	}
-	
-	@Override
 	public List<NoticeDTO> getNoticeList(Map<String, String> map) {
 		List<NoticeDTO> list = sqlSession.selectList("noticeboardSQL.getNoticeList", map);
 		return list;

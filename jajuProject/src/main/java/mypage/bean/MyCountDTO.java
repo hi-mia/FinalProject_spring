@@ -9,4 +9,6 @@ public class MyCountDTO {
 	private String dealCount;
 	private String saleCount;
 	private String buyCount;
+	private String reviewCount;
+	
 }
