@@ -52,7 +52,7 @@
 				
 				<tr class="etcArea">
 					<td colspan="2">
-						<ul>
+						<ul style="margin-block-start: 0em; margin-block-end: 0em;">
 							<li class="tpye ">
 								<strong class="th">전화번호</strong>
 								<span class="td" id="talSpan"></span>
@@ -62,6 +62,13 @@
 								<span class="td" id="dateSpan"></span>
 							</li>
 						</ul>
+					</td>
+				</tr>
+				
+				<tr>
+					<th scope="row" style="border-bottom: 1px solid #f4f4f4;">신고글 제목</th>
+					<td style="border-top: none; border-bottom: 1px solid #f4f4f4;">
+						<a id="sale_subject" href=""><span id="sale_subjectSpan"></span></a>
 					</td>
 				</tr>
 			</tbody>
@@ -203,6 +210,11 @@
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/manager_js/managerReportView.js"></script>
-
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$('#managerServiceReport').addClass('on');
+});
+</script>
 </body>
 </html>
