@@ -132,6 +132,20 @@ public class InquireController {
 		
 	}
 	
+	//1:1문의확인 관리자창
+		@RequestMapping(value = "managerInquireView", method=RequestMethod.GET)
+		public ModelAndView managerInquireView(@RequestParam String seq, 
+									 @RequestParam String pg,
+									 Model model) {
+			
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("seq", seq);
+			mav.addObject("pg", pg);
+			mav.setViewName("/serviceCenter/inquireView");
+			return mav;
+			
+		}
+	
 	@RequestMapping(value = "getInquireView", method=RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView getInquireView(@RequestParam String seq) {
