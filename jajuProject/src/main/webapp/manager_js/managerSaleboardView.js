@@ -1,33 +1,7 @@
 
 //이전글, 다음글
 $(function(){
-	$.ajax({
-		type: 'post',
-		url: '/jaju/managerSaleboard/getPage_sale',
-		data: {'sale_seq' : $('#sale_seq').val()},
-		dataType: 'json',
-		success: function(data){
-			//alert(JSON.stringify(data));
-			
-
-			$('#prevSpan').text(data.saleboardDTO.prev_subject);
-			if(data.saleboardDTO.prev_subject != '이전글이 없습니다'){
-				$('#prevBtn').attr('href', '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+data.saleboardDTO.prev_num+'&pg=1');
-			}
-			
-			$('#nextSpan').text(data.saleboardDTO.next_subject);
-			if(data.saleboardDTO.next_subject != '다음글이 없습니다'){
-				$('#nextBtn').attr('href', '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+data.saleboardDTO.next_num+'&pg=1');
-			}
-			
-		},
-		error: function(err){
-			console.log(err);
-		}
-	});
-});
-
-$(function(){
+	
 		$.ajax({
 			type: 'post',
 			url: '/jaju/saleboard/getSaleboardViewReview',
@@ -57,14 +31,24 @@ $(function(){
 			for(var i=1; i<=10; i++){
 				if(map.get('image'+i) != 'null'){
 					$('#imageDiv').append($('<img/>',{
-						width:"80",
-						height:"80",
 						class:"miniImg",
 						src: '/jaju/storage/'+map.get('image'+i),
-						id: map.get('image'+i)
+						id: map.get('image'+i),
+						style: 'cursor : pointer; width : 50px; height:50px;'
 					}));
 				}
 			}
+			$('#imageTd').append($('<img/>',{
+				width:"200",
+				height:"200",
+				class:"miniImg",
+				src: '/jaju/storage/'+map.get('image1'),
+				
+			}));
+			$(document).on('click', '.miniImg', function(){				
+				$('#imageTd img').attr('src', $(this).attr('src'));
+			});
+			
 			$('#locationSpan').text(data.saleboardDTO.member_sido+ " "+ data.saleboardDTO.member_sigungu);
 			$('#linkSpan').html('<a href="/jaju/saleboard/saleboardView?sale_seq='+$('#sale_seq').val()+'&pg=1">' + '/jaju/saleboard/saleboardView?sale_seq='+$('#sale_seq').val()+'&pg=1</a>');
 			$('#contentSpan').text(data.saleboardDTO.sale_content);
@@ -120,6 +104,31 @@ $(function(){
 					
 					$('#pagingDiv').html(data.saleboardCommentPaging.pagingHTML);
 					
+					$.ajax({
+						type: 'post',
+						url: '/jaju/managerSaleboard/getPage_sale',
+						data: {'sale_seq' : $('#sale_seq').val(), 'sale_category' : $('#sale_category').val()},
+						dataType: 'json',
+						success: function(data){
+							//alert(JSON.stringify(data));
+							
+
+							$('#prevSpan').text(data.saleboardDTO.prev_subject);
+							if(data.saleboardDTO.prev_subject != '이전글이 없습니다'){
+								$('#prevBtn').attr('href', '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+data.saleboardDTO.prev_num+'&pg=1'+'&sale_category='+$('#sale_category').val());
+							}
+							
+							$('#nextSpan').text(data.saleboardDTO.next_subject);
+							if(data.saleboardDTO.next_subject != '다음글이 없습니다'){
+								$('#nextBtn').attr('href', '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+data.saleboardDTO.next_num+'&pg=1'+'&sale_category='+$('#sale_category').val());
+							}
+							
+						},
+						error: function(err){
+							console.log(err);
+						}
+					});
+					
 					
 				},error: function(err){
 					alert("댓글 불러오기 에러");
@@ -132,6 +141,9 @@ $(function(){
 			alert('판매 게시글 불러오기 에러')
 		}
 	});
+		
+		
+		
 });
 
 //댓글 삭제 

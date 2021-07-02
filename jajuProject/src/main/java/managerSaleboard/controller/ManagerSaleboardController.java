@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import freeboard.bean.FreeboardDTO;
 import managerSaleboard.service.ManagerSaleboardService;
 import saleboard.bean.SaleboardDTO;
 import saleboard.bean.SaleboardPaging;
@@ -102,9 +101,9 @@ public class ManagerSaleboardController {
 		//이전글 다음글
 		@RequestMapping(value="getPage_sale", method=RequestMethod.POST)
 		@ResponseBody
-		public ModelAndView getPage_sale(@RequestParam int sale_seq) {
+		public ModelAndView getPage_sale(@RequestParam Map<String, String> map) {
 			
-			SaleboardDTO saleboardDTO = managerSaleboardService.getPage_sale(sale_seq);
+			SaleboardDTO saleboardDTO = managerSaleboardService.getPage_sale(map);
 			
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("saleboardDTO", saleboardDTO);

@@ -48,8 +48,8 @@ public class ManagerSaleboardDAOMybatis implements ManagerSaleboardDAO {
 	}
 
 	@Override
-	public SaleboardDTO getPage_sale(int sale_seq) {
-		return sqlSession.selectOne("managerSaleboardSQL.getPage_sale", sale_seq);
+	public SaleboardDTO getPage_sale(Map<String, String> map) {
+		return sqlSession.selectOne("managerSaleboardSQL.getPage_sale", map);
 	}
 	
 	

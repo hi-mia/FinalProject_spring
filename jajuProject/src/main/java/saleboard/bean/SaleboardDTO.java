@@ -39,4 +39,9 @@ public class SaleboardDTO {
 	private double member_manner;
 	private String member_image;
 	private String member_sido;
+	
+	private int prev_num; //이전글 글번호
+	private int next_num; //다음글 글번호
+	private String prev_subject; //이전글 제목
+	private String next_subject; //다음글 제목
 }
