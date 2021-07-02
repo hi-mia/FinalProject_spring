@@ -21,8 +21,9 @@ public class ManagerInquireController {
 	private ManagerInquireService managerInquireService;
 	
 	@RequestMapping(value="/managerServiceInquire", method=RequestMethod.GET)
-	public ModelAndView managerServiceInquire() {
+	public ModelAndView managerServiceInquire(@RequestParam(required = false, defaultValue = "1") String pg) {
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg", pg);
 		mav.setViewName("/manager/managerServiceInquire");
 		
 		return mav;
@@ -30,9 +31,8 @@ public class ManagerInquireController {
 	
 	@RequestMapping(value="/getManagerInquire",method=RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView getManagerInquire(@RequestParam(required = false, defaultValue = "1") String pg, 
+	public ModelAndView getManagerInquire(@RequestParam(required = false, defaultValue = "1") String pg,
 										  HttpSession session) {
-		
 		List<InquireDTO>list = managerInquireService.getManagerInquire(pg);
 		
 		ModelAndView mav = new ModelAndView();

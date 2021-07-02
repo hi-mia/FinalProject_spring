@@ -9,8 +9,8 @@ import lombok.Data;
 @Data
 public class InquireDTO {
 	private int inquiry_seq;
-	private String inquiry_id = "hong";
-	private String inquiry_name = "홍길동";
+	private String inquiry_id;
+	private String inquiry_name;
 	private String inquiryType;
 	private String inquiry_telephone;
 	private String inquiry_subject;

@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import inquire.bean.InquireDTO;
 import inquire.bean.InquirePaging;
 import inquire.dao.InquireDAO;
+import member.bean.MemberDTO;
+import member.dao.MemberDAO;
 
 @Service
 public class InquireServiceImpl implements InquireService {
@@ -21,12 +23,16 @@ public class InquireServiceImpl implements InquireService {
 	private InquireDAO inquireDAO;
 	@Autowired
 	private InquirePaging inquirePaging;
+	@Autowired
+	private MemberDAO memberDAO;
 	
 	
 	@Override
 	public void inquireWrite(InquireDTO inquireDTO) {
+		MemberDTO memberDTO = memberDAO.getMember((String)session.getAttribute("memId"));
+		inquireDTO.setInquiry_id(memberDTO.getMember_id());
+		inquireDTO.setInquiry_name(memberDTO.getMember_name());
 		inquireDAO.inquireWrite(inquireDTO);
-		
 	}
 
 
