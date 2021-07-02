@@ -45,7 +45,7 @@
 		<div class="bundle_set" style="align: right;">
 			<button type="button" class="btn_admin btn_type2 button-delete-article">
 				<span class="ico_admin ico_del"></span>
-				<span class="txt_btn">삭제</span>
+				<span class="txt_btn" id = "choiceDeleteBtn">삭제</span>
 			</button>
 		</div>
 	</div>
@@ -57,7 +57,7 @@
 			<thead>
 			<tr>
 				<th class="" style="width:40px;">
-					<input type="checkbox" id="all" onclick="checkAll()">
+					<input type="checkbox" id="all" name="all"/>
 				</th>
                <th class="board_seq" style="width:75px;">번호</th>
                <th class="board_subject" style="width:135px;">카테고리</th>
@@ -67,15 +67,7 @@
                <th class="board_id" style="width:105px;">처리상태</th>
 			</tr> 
 			</thead>
-<!-- 		<tr>
-			   <td align="center"><input type="checkbox"></td>
-               <td align="center">번호</td>
-               <td align="center">카테고리</td>
-               <td>제목</td>
-               <td align="center">작성자</td>
-               <td align="center">작성일</td>
-               <td align="center">처리상태</td>
-			</tr> -->
+
 	
 	</table>
 </div>
@@ -104,35 +96,6 @@
 $(document).ready(function(){
 	
 	$('#managerServiceInquire').addClass('on');
-});
-</script>
-
-<script type="text/javascript">
-//전체 선택 또는 해제
-$('#all').click(function(){
-	//alert($('#all').attr('checked')); // - checked 속성이 없어서 undefind으로 나온다.
-	//alert($('#all').prop('checked')); //true 또는 false
-	
-	if($('#all').prop('checked')){
-		$('input[name=check]').prop('checked', true);
-	}else{
-		$('input[name=check]').prop('checked', false);
-		
-	}
-});
-</script>
-<script type="text/javascript">
-//전체 선택 또는 해제
-$('#all').click(function(){
-	//alert($('#all').attr('checked')); // - checked 속성이 없어서 undefind으로 나온다.
-	//alert($('#all').prop('checked')); //true 또는 false
-	
-	if($('#all').prop('checked')){
-		$('input[name=check]').prop('checked', true);
-	}else{
-		$('input[name=check]').prop('checked', false);
-		
-	}
 });
 </script>
 </html>

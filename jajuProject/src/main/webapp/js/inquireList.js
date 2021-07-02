@@ -62,7 +62,7 @@ $(function(){
 					}//if
 					
 					$('.a'+items.inquiry_seq).click(function(){
-						location.href = '/jaju/serviceCenter/inquireView?seq='+items.inquiry_seq+'&pg=' + $('#pg').val();
+						location.href = '/jaju/serviceCenter/inquireView?seq='+items.inquiry_seq+'&pg=' + $('#pg').val()+'&inquiry_id='+items.inquiry_id;
 					});
 					
 		        	//처리중 처리완료 색 변경

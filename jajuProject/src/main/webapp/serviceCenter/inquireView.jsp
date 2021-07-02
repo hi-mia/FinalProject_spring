@@ -18,6 +18,7 @@
 </c:if>
 <c:if test="${memId == 'jajuadmin' }">
 <jsp:include page="/manager/managerHeader.jsp"/>
+<jsp:include page="/manager/managerMenu.jsp"/>
 </c:if>
 
 <div id="wrap">

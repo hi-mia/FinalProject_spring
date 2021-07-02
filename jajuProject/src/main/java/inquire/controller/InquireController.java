@@ -124,8 +124,9 @@ public class InquireController {
 	@RequestMapping(value = "inquireView", method=RequestMethod.GET)
 	public String inquireView(@RequestParam String seq, 
 								 @RequestParam String pg,
-								 @RequestParam String inquiry_id,
+								 @RequestParam (required=false, defaultValue="1") String inquiry_id,
 								 Model model) {
+		System.out.println(inquiry_id);
 		model.addAttribute("seq", seq);
 		model.addAttribute("inquiry_id", inquiry_id);
 		model.addAttribute("pg", pg);
@@ -140,7 +141,7 @@ public class InquireController {
 									 @RequestParam String pg,
 									 @RequestParam (required=false, defaultValue="1") String inquiry_id,
 									 Model model) {
-			
+			System.out.println(inquiry_id);
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("inquiry_id", inquiry_id);
 			mav.addObject("seq", seq);
