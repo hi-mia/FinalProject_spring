@@ -10,16 +10,34 @@
 <jsp:include page="/manager/managerMenu.jsp"/>
 <div id="content" class="cont_post post_spam">
       <div class="wrap_tit">
-         <h3 class="cont_tit">
-            <span class="tit_menu">판매게시판 관리</span>
-         </h3>
          <form name = "managerSaleboardSearchList" id="managerSaleboardSearchList" method="post">
+         <input type="hidden" id="categorySelected" value="${param.sale_category }" />
+			<select name="categoryOption" id="categoryOption" style="float: left; font-size: 14px;">
+				<option value="*">전체</option>
+				<option value="digital">디지털/가전</option>
+				<option value="life">생활</option>
+				<option value="instant_food">가공식품</option>
+				<option value="women_cloth">여성의류</option>
+				<option value="beauty">뷰티 / 미용</option>
+				<option value="furniture">가구 / 인테리어</option>
+				<option value="sport">스포츠 / 레저</option>
+				<option value="men_choth">남성 / 패션잡화</option>
+				<option value="dogCat">반려동물용품</option>
+				<option value="kids">유아동 / 유아도서</option>
+				<option value="womenAcc">여성잡화</option>
+				<option value="game">게임 / 취미</option>
+				<option value="kitchen">주방용품</option>
+				<option value="book">도서 / 티켓 / 음반</option>
+				<option value="else">기타 중고물품</option>
+			</select>
+         
 		<div class="box_search">
 			<div class="select_admin" style="font-size: 14px;">
+			
 			<select name="searchOption" id="searchOption">
-				<option value=board_subject>&nbsp;&nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;</option>
-				<option value="board_content">&nbsp;&nbsp;&nbsp;&nbsp;내용&nbsp;&nbsp;&nbsp;&nbsp;</option>
-				<option value="board_id">&nbsp;&nbsp;&nbsp;&nbsp;작성자&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				<option value=sale_subject>&nbsp;&nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				<option value="sale_content">&nbsp;&nbsp;&nbsp;&nbsp;내용&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				<option value="member_id">&nbsp;&nbsp;&nbsp;&nbsp;작성자&nbsp;&nbsp;&nbsp;&nbsp;</option>
 			</select>
 			</div>
 			
@@ -104,12 +122,12 @@ $(document).ready(function(){
 });
 
 
-function freeboardPaging(pg){
+function saleboardPaging(pg){
 	var boardSearchText = document.getElementById('keyword').value;
 	
 	if(boardSearchText == ''){
 		//location.href = '/jaju/freeboard/freeboardList?pg='+pg;
-		location.href="managerSaleboardList?pg="+pg;
+		location.href="/jaju/managerSaleboard/managerSaleboardList?pg="+pg+'&sale_category='+$('#categoryOption').val();
 	} else{
 		$('#searchPg').val(pg);
 		$('#managerBoardSearchBtn').trigger('click');

@@ -2,7 +2,69 @@
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="managerSaleboardSQL">
+
+
+<mapper namespace="managerSaleboardSQL">
+  	<select id="getManagerSaleboardList" parameterType="java.util.Map" resultType="saleboard">		
+		<if test='sale_category == "*" '>
+			select * from (
+		 	select rownum rn ,tt.*from(
+		 	select * from sale_board join jajumember using(member_id) order by sale_date desc)tt)
+		 	<![CDATA[where rn >= ${startNum} and rn <= ${endNum}]]>
+		 </if>
+		<if test='sale_category != "*" '>
+			select * from (
+		 	select rownum rn ,tt.*from(
+		 	select * from sale_board join jajumember using(member_id) where sale_category like #{sale_category} order by sale_date desc)tt)
+		 	<![CDATA[where rn >= ${startNum} and rn <= ${endNum}]]>
+		 </if>
+  	</select>
+  	<select id="getTotalA" parameterType="java.util.Map" resultType="Integer">
+  		<if test='sale_category == "*" '>
+  			select count(*) as count from sale_board join jajumember using(member_id)
+  		</if>
+  		<if test='sale_category != "*" '>
+  			select count(*) as count from sale_board join jajumember using(member_id) where sale_category = #{sale_category}
+  		</if>
+  	</select>
+  	<!-- 검색 리스트 불러오기 -->
+  	<select id="getManagerSaleboardSearchList" parameterType="java.util.Map" resultType="saleboard">
+  		<if test='sale_category == "*" '>
+			select * from (
+		 	select rownum rn ,tt.*from(
+		 	select * from sale_board join jajumember using(member_id) where ${searchOption} like '%'||#{keyword}||'%' order by sale_date desc)tt)
+		 	<![CDATA[where rn >= ${startNum} and rn <= ${endNum}]]>
+		 </if>
+		<if test='sale_category != "*" '>
+			select * from (
+		 	select rownum rn ,tt.*from(
+		 	select * from sale_board join jajumember using(member_id) where sale_category like #{sale_category} and ${searchOption} like '%'||#{keyword}||'%' order by sale_date desc)tt)
+		 	<![CDATA[where rn >= ${startNum} and rn <= ${endNum}]]>
+		 </if>
+  	</select>
+  	<!-- 검색 토탈 -->
+  	<select id="getTotalASearch" parameterType="java.util.Map" resultType="Integer">
+  		<if test='sale_category == "*" '>
+  			select count(*) as count from sale_board join jajumember using(member_id) where ${searchOption} like '%'||#{keyword}||'%'
+  		</if>
+  		<if test='sale_category != "*" '>
+  			select count(*) as count from sale_board join jajumember using(member_id) where sale_category = #{sale_category} and ${searchOption} like '%'||#{keyword}||'%'
+  		</if>
+  	</select>
+  	<!-- 판매 리스트 삭제 -->
+  	<delete id="managerSaleboardListDelete" parameterType="java.util.Map">
+  		delete sale_board where sale_seq in 
+		<foreach collection="array" item="data" open="(" close=")" separator=",">
+	   		#{data}        
+		</foreach>
+  	</delete>
+  	
+  	<delete id="managerSaleboardListCommentDelete" parameterType="java.util.Map">
+  		delete sale_board_comment where sale_seq in 
+		<foreach collection="array" item="data" open="(" close=")" separator=",">
+	   		#{data}        
+		</foreach>
+  	</delete>
   
   
   
@@ -14,5 +76,4 @@
   
   
   
-  
-  </mapper>
+</mapper>

@@ -7,16 +7,16 @@ import lombok.Data;
 @Data
 @Component
 public class SaleboardPaging {
-	private int currentPage;//ÇöÀçÆäÀÌÁö
-	private int pageBlock;//ÀÌÀü[1][2][3]´ÙÀ½
-	private int pageSize;// 1ÆäÀÌÁö´ç 5°³¾¿
-	private int totalA;//ÃÑ±Û¼ö
+	private int currentPage;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private int pageBlock;//ï¿½ï¿½ï¿½ï¿½[1][2][3]ï¿½ï¿½ï¿½ï¿½
+	private int pageSize;// 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½
+	private int totalA;//ï¿½Ñ±Û¼ï¿½
 	private StringBuffer pagingHTML;
 	
 	public void makePagingHTML() {
 		pagingHTML = new StringBuffer();
 		
-		int totalP = (totalA+pageSize-1)/pageSize;//ÃÑ ÆäÀÌÁö ¼ö
+		int totalP = (totalA+pageSize-1)/pageSize;//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 		
 		int startPage = (currentPage-1) / pageBlock * pageBlock + 1;
 		
@@ -24,19 +24,19 @@ public class SaleboardPaging {
 		if(endPage > totalP) endPage = totalP;
 		
 		if(startPage > pageBlock) {
-			pagingHTML.append("<span id='paging' class='prevPaging' onclick='saleboardPaging("+(startPage-1)+")'></span>");
+			pagingHTML.append("<span id='paging' class='paging prevPaging' onclick='saleboardPaging("+(startPage-1)+")'></span>");
 		}
 		
 		for(int i=startPage; i<=endPage; i++) {
 			if(i == currentPage) {
-				pagingHTML.append("<span id='currentPaging' onclick='saleboardPaging("+ i +")'><strong>"+i+"</strong></span>");
+				pagingHTML.append("<span id='currentPaging' class='paging currentPaging' onclick='saleboardPaging("+ i +")'><strong>"+i+"</strong></span>");
 			} else {
-				pagingHTML.append("<span id='paging' onclick='saleboardPaging("+ i +")'><strong>"+i+"<strong></span>");
+				pagingHTML.append("<span id='paging' class='paging thisPaging' onclick='saleboardPaging("+ i +")'><strong>"+i+"<strong></span>");
 			}
 		}
 		
 		if(endPage < totalP) { 
-			pagingHTML.append("<span id='paging' class='nextPaging' onclick='saleboardPaging("+(endPage+1)+")'></span>");
+			pagingHTML.append("<span id='paging' class='paging nextPaging' onclick='saleboardPaging("+(endPage+1)+")'></span>");
 		}
 		
 	}
