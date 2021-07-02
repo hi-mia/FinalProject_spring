@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,13 +13,15 @@
 <input type="hidden" name="seq" id = "inquiry_seq" value= "${seq}">
 <input type="hidden" name="pg" value="${pg}">
 <div style="width: 1050px; margin: auto;" >
+<c:if test="${memId != 'jajuadmin' }">
 <jsp:include page="/serviceCenter/serviceMenu.jsp"/>
+</c:if>
 <div id="wrap">
 <div id="pos_scroll"></div>
 <div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
 
 <div class="tit_page" style="width:800px; align:center;">
-	<h1 class="tit" >1:1 문의</h1>
+	<h3 class="tit" >1:1 문의</h3>
 </div>
 
 <div id="main">
@@ -100,17 +103,30 @@
 			<tbody>
 				<tr>
 					<td align="right">
-						<a href="/jaju/serviceCenter/inquireReplyForm?seq=${seq }&pg=${pg}">
+						<a href="/jaju/manager/managerInquireReplyForm?seq=${seq }&pg=${pg}">
+						<c:if test="${memId == 'jajuadmin' }">
 							<span class="inquireBtn reply" style="float:none;">답글</span>
+						</c:if>
 						</a>
 						<a href="javascript:void(0)" onclick ="mode(1)" >
+						<c:if test="${memId != 'jajuadmin' || inquiry_id != '관리자'}">
 							<span class="inquireBtn modify" style="float:none;">수정</span>
+						</c:if>
 						</a>
 						<a href="javascript:void(0)" onclick ="mode(2)">
+						<c:if test="${memId != 'jajuadmin' || inquiry_id != '관리자'}">
 							<span class="inquireBtn delete" style="float:none;">삭제</span>
+						</c:if>
 						</a>
 						<a href="/jaju/serviceCenter/inquireList">
+						<c:if test="${memId != 'jajuadmin' }">
 							<span class="inquireBtn list" style="float:none;">목록</span>
+						</c:if>
+						</a>
+						<a href="/jaju/manager/managerServiceInquire">
+						<c:if test="${memId == 'jajuadmin' }">
+							<span class="inquireBtn list" style="float:none;">목록</span>
+						</c:if>
 						</a>
 					</td>
 				</tr>

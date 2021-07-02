@@ -290,17 +290,17 @@ public class InquireController {
 		
 	}
 	
-	//관리자 답글
-	@RequestMapping(value="inquireReplyForm", method=RequestMethod.GET)
-	public String inquireReplyForm(@RequestParam String seq, 
-								   @RequestParam String pg,
-								   Model model) {
-		//답글 - 원글페이지, 원글 밑
-		model.addAttribute("pseq",seq);//원글번호
-		model.addAttribute("pg",pg);//원글 페이지번호
-		model.addAttribute("display", "/serviceCenter/inquireReplyForm.jsp");
-		return "/index";
-	}
+//	//관리자 답글
+//	@RequestMapping(value="inquireReplyForm", method=RequestMethod.GET)
+//	public String inquireReplyForm(@RequestParam String seq, 
+//								   @RequestParam String pg,
+//								   Model model) {
+//		//답글 - 원글페이지, 원글 밑
+//		model.addAttribute("pseq",seq);//원글번호
+//		model.addAttribute("pg",pg);//원글 페이지번호
+//		model.addAttribute("display", "/serviceCenter/inquireReplyForm.jsp");
+//		return "/index";
+//	}
 	
 	@RequestMapping(value="inquireReply", method=RequestMethod.POST)
 	@ResponseBody

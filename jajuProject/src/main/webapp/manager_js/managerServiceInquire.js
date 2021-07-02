@@ -5,7 +5,8 @@ $(function(){
 		url : '/jaju/manager/getManagerInquire',
 		type : 'post',
 		data : {'pg ': $('#pg').val(),
-				'inquiry_seq':$('#inquiry_seq').val()},
+				'inquiry_seq':$('#inquiry_seq').val(),
+				'inquiry_id' : $('#inquiry_id').val()},
 		dataType : 'json',
 		success : function(data){
 			//alert(JSON.stringify(data));
