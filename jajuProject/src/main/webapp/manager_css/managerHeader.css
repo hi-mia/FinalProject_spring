@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700,900);
+
+h1.market_h1 .mainBtn, p.market_p, .homePageBtn{
+	margin: 0;
+	padding: 0;
+	font-family: 'Lato';
+}
+h1.market_h1 .mainBtn {
+	font-size: 2.0em;
+	padding: 10px 0;
+	font-weight: 800;
+	color: white;
+	width: 100%;
+}
+
+p.market_p {
+	font-size: 1.1em;
+	font-weight: 300;
+	letter-spacing: 5px;
+}
+
+
+.header {
+	width: 100%;
+	text-align: center;
+	background: #d2d2d2;
+	/* background: #ddd; */
+	color: white;
+}
+.main{
+	width: 100%;
+	padding:30px 0;
+	text-align: right;
+	background: #d2d2d2;
+	/* background: #ddd; */
+	color: white;
+	padding-top: 30px;
+	padding-bottom: 60px;
+}
+
+
+.homePageBtn {
+	font-size: 15px;
+	display: inline-block;
+	border: 1px solid white;
+	padding: 5px 10px;
+	border-radius: 10px;
+	cursor: pointer;
+	font-weight: 300;
+	color: white;
+	align: right;
+	margin-right: 30px;
+}
+.homePageBtn:hover {
+	background-color: white;
+	color: #d2d2d2;
+	/* color: #ddd; */
+}

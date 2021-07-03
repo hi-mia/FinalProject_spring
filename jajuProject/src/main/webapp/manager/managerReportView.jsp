@@ -1,15 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
 <link rel="stylesheet" href="/jaju/css/reportView.css" />
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
+
+<jsp:include page="/manager/managerHeader.jsp"/>
+
 <div style="width: 1080px; margin: auto;">
 <form id="managerReportView" name="managerReportView">
-<jsp:include page="/manager/managerHeader.jsp"/>
 <jsp:include page="/manager/managerMenu.jsp"/>
 <input type="hidden" id="report_seq" name="report_seq" value="${report_seq}">
 <input type="hidden" id="comment_seq" name="comment_seq" value="${comment_seq}">
@@ -20,7 +17,7 @@
 <div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
 
 <div class="tit_page" style="width:800px; align:center;">
-	<h1 class="tit" >신고 게시판</h1>
+	<h1 class="tit" style="margin-bottom: 20px;">신고 게시판</h1>
 </div>
 
 <div id="main">
@@ -216,5 +213,3 @@ $(document).ready(function(){
 	$('#managerServiceReport').addClass('on');
 });
 </script>
-</body>
-</html>

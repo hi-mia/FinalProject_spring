@@ -312,6 +312,8 @@ input {
     width: 30px;
     padding: 5px;
     background: rgba(0,0,0,0);
+    border: none;
+    cursor: pointer;
 }
 .box_search .noticeSearch .ico_admin {
     display: block;

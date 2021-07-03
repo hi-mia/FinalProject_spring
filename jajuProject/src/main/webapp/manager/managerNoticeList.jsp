@@ -4,9 +4,9 @@
 <html>
 
 <link rel="stylesheet" href="/jaju/manager_css/managerNoticeList.css" />
+<jsp:include page="/manager/managerHeader.jsp"/>
 
 <div class="total">
-<jsp:include page="/manager/managerHeader.jsp"/>
 <jsp:include page="/manager/managerMenu.jsp"/>
 <form id=managerNoticeList name="managerNoticeList">
 <div id="content" class="cont_post post_spam">
@@ -37,11 +37,11 @@
 		
 	</div>
 
-	<div class="set_list" id="listControlBar" style="width: 840px; height: 59px; background: #FAFAFA; border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4;">
+	<div class="set_list" id="listControlBar" style="width: 840px; height: 59px; padding: 0; background: #FAFAFA; border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4;">
 		<div class="bundle_set">
 		
 		</div>
-		<div class="bundle_set" style="align: right;">
+		<div class="bundle_set" style="align: right; margin-top: 14px; margin-right: 14px;">
 			<button type="button" class="btn_admin btn_type7_1">
 				<span class="ico_admin write"></span>
 				<span class="txt_btn writeBtn">글쓰기</span>

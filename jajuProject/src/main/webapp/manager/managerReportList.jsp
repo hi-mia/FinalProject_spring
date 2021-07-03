@@ -4,8 +4,8 @@
 
 <link rel="stylesheet" href="/jaju/manager_css/managerReportList.css" />
 
-<div class="total">
 <jsp:include page="/manager/managerHeader.jsp"/>
+<div class="total">
 <jsp:include page="/manager/managerMenu.jsp"/>
 <form id="managerReportList" name="managerReportList">
 <div id="content" class="cont_post post_spam">
@@ -26,7 +26,7 @@
 			
 			<div class="search_input">
 				<input id="keyword" name="keyword" value="${keyword}" maxlength="20" size="25" class="tf_search textbox_default">
-				<button type="button" class="reportSearch">
+				<button type="button" class="reportSearch" style="color: white;">
 					<span class="ico_admin">검색</span>
 				</button>
 			</div>
@@ -36,11 +36,11 @@
 		
 	</div>
 
-	<div class="set_list" id="listControlBar" style="width: 840px; height: 59px; background: #FAFAFA; border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4;">
+	<div class="set_list" id="listControlBar" style="width: 840px; height: 59px; padding: 0; background: #FAFAFA; border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4;">
 		<div class="bundle_set">
 		
 		</div>
-		<div class="bundle_set" style="align: right;">
+		<div class="bundle_set" style="align: right; margin-top: 14px; margin-right: 14px;">
 			<button type="button" id="reportDeleteBtn" class="btn_admin btn_type2 button-delete-article">
 				<span class="ico_admin ico_del"></span>
 				<span class="txt_btn">삭제</span>

@@ -2,24 +2,19 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
 <link rel="stylesheet" href="/jaju/manager_css/managerFreeboardView.css" />
+<jsp:include page="/manager/managerHeader.jsp"/>
+
+<div class="total">
 <jsp:include page="/manager/managerMenu.jsp"/>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 <input type="hidden" id="board_seq" value="${board_seq }">
 <input type="hidden" id="pg" value="${param.pg }"/>
 <div id="wrap">
-<div id="pos_scroll"></div>
-<div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
+<div id="container" style="float:left; margin-top:50px; margin-left:40px; width:800px;">
 
-<div class="tit_page" style="width:800px; align:center;">
-	<h1 class="tit"></h1>
-</div>
+	<h1 class="tit" style="margin-left: 7px;">자유게시판</h1>
 
-<div id="main">
+<div id="main" style="margin-top: -80px;">
 <div id="content">
 
 <div id="qnb" class="quick-navigation" style="top: 70px;"></div>
@@ -89,7 +84,7 @@
 		<table width="100%">
 		<tbody>
 		
-		<tr>
+		<tr style="width: 800px;">
 		<td align="right">
 		<span class="bhs_button yb" style="float:none; cursor:pointer; " id="managerFreeboardDeleteBtn">삭제</span>
 		</td>
@@ -104,7 +99,7 @@
 		
 		
 <!-- 댓글 -->
-	<div id="commentDiv">
+	<div id="commentDiv" style="width: 800px;">
 		<table id="commentTable" >
 			<tr style="border-bottom: 1px solid #f5f5f5;">
 				<th width="200" style="padding-bottom: 10px;">번호</th>
@@ -158,6 +153,7 @@
 		</tbody>
 		</table>
 	</div>
+</div>
 </div>
 </div>
 </div>
@@ -227,7 +223,10 @@ function freeboardCommentPaging(pg){
 }
 
 </script>
-
-
-</body>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$('#managerFreeboard').addClass('on');
+});
+</script>
 </html>
