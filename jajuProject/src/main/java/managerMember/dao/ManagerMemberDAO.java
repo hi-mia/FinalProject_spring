@@ -28,4 +28,6 @@ public interface ManagerMemberDAO {
 	//차트
 	public List<ManagerMainDTO> getMemberCategory();
 
+	public ManagerMainDTO getSaleAvg();
+
 }

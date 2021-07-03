@@ -619,7 +619,13 @@ ul.list_menu {
 }
 #historyDiv1,#historyDiv2,#historyDiv3,#historyDiv4{
     margin-top: 100px;
-    height: 180px;
+    /*height: 180px;*/
     display: grid;
    /* vertical-align: baseline; */
+}
+#subject_{
+	margin-right:40px; 
+	cursor: pointer; 
+	height:15px; 
+	padding:10px;
 }

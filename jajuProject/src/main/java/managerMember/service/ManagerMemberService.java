@@ -29,4 +29,6 @@ public interface ManagerMemberService {
 	//차트 - 키워드 , 키워드 개수 
 	public List<ManagerMainDTO> getMemberCategory();
 
+	public ManagerMainDTO getSaleAvg();
+
 }

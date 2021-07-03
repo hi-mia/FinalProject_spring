@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
+
 <link href="/jaju/manager_css/managerHeader.css" rel="stylesheet">
 
 <div class="main">

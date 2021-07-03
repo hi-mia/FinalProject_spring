@@ -1,6 +1,5 @@
 package managerMember.controller;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -136,6 +135,7 @@ public class ManagerMemberController {
 	
 	
 	/*------- 차트 구현을 위한 controller --------*/
+	//카테고리
 	@RequestMapping(value = "/getMemberCategory", method = RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView getMemberCategory(@RequestParam Map<String, String> map,
@@ -149,6 +149,56 @@ public class ManagerMemberController {
 		mav.setViewName("jsonView");
 		return mav;
 	}
+	//1일 판매 게시글 개수(7일)
+	@RequestMapping(value = "/getSaleAvg", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView getSaleAvg(@RequestParam Map<String, String> map,
+		@RequestParam(required = false, defaultValue = "1") String pg) {
+		
+		ManagerMainDTO managerMainDTO = managerMemberService.getSaleAvg();
+		
+		System.out.println("차트 카테고리 리스트"+managerMainDTO);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("managerMainDTO", managerMainDTO);
+		mav.setViewName("jsonView");
+		return mav;
+	}
 	
+	
+	//(관리자 확인용 프로필)
+	   @RequestMapping(value="/managerMemberHistory", method=RequestMethod.GET)
+	   public String managerMemberHistory(Model model,String id,@RequestParam(required = false, defaultValue = "1") String pg) {
+	      model.addAttribute("id",id);
+	      model.addAttribute("pg",pg);
+	      return "/manager/managerMemberHistory";
+	   }
+	   //(관리자 확인용 프로필_판매완료)
+	   @RequestMapping(value="/managerMemberSale", method=RequestMethod.GET)
+	   public String managerMemberSale(Model model,String id,@RequestParam(required = false, defaultValue = "1") String pg) {
+	      model.addAttribute("id",id);
+	      model.addAttribute("pg",pg);
+	      return "/manager/managerMemberSale";
+	   }
+	   //(관리자 확인용 프로필_판매후기)
+	   @RequestMapping(value="/managerMemberReview", method=RequestMethod.GET)
+	   public String managerMemberReview(Model model,String id,@RequestParam(required = false, defaultValue = "1") String pg) {
+	      model.addAttribute("id",id);
+	      model.addAttribute("pg",pg);
+	      return "/manager/managerMemberReview";
+	   }
+	   //(관리자 확인용 프로필_구매완료)
+	   @RequestMapping(value="/managerMemberBuy", method=RequestMethod.GET)
+	   public String managerMemberBuy(Model model,String id,@RequestParam(required = false, defaultValue = "1") String pg) {
+	      model.addAttribute("id",id);
+	      model.addAttribute("pg",pg);
+	      return "/manager/managerMemberBuy";
+	   }
+	   //(관리자 확인용 프로필_판매중)
+	   @RequestMapping(value="/managerMemberDeal", method=RequestMethod.GET)
+	   public String managerMemberDeal(Model model,String id,@RequestParam(required = false, defaultValue = "1") String pg) {
+	      model.addAttribute("id",id);
+	      model.addAttribute("pg",pg);
+	      return "/manager/managerMemberDeal";
+	   }
 	
 }

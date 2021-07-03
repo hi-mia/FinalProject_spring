@@ -128,11 +128,32 @@
 	select count(*) from jajumember where member_state='1'
 </select>
 
-<!-- 차트  mapper-->
+<!-- 차트  mapper 카테고리 -->
 <select id="getMemberCategory" resultType="managerMember.bean.ManagerMainDTO">
-	select sale_category, count(*) as countCategory
-	from sale_board group by sale_category having count(*)>=1 order by count(*) desc
+		select * from 
+		(select rownum rn, tt.* from
+		(select sale_category, count(*) as countCategory
+		from sale_board group by sale_category order by count(*) desc)tt)
+		where rn &gt;='1' and rn &lt;='5'
 </select> 
-
+<!-- 차트  mapper 카테고리 -->
+<select id="getSaleAvg" resultType="managerMember.bean.ManagerMainDTO">
+	SELECT
+   (SELECT COUNT(*) from sale_board where to_char(sale_date,'yyyy-mm-dd') = to_char(sysdate-7,'yyyy-MM-dd')) as dd7,
+   (SELECT COUNT(*) from sale_board where to_char(sale_date,'yyyy-mm-dd') = to_char(sysdate-6,'yyyy-MM-dd')) as dd6,
+   (SELECT COUNT(*) from sale_board where to_char(sale_date,'yyyy-mm-dd') = to_char(sysdate-5,'yyyy-MM-dd')) as dd5,
+   (SELECT COUNT(*) from sale_board where to_char(sale_date,'yyyy-mm-dd') = to_char(sysdate-4,'yyyy-MM-dd')) as dd4,
+   (SELECT COUNT(*) from sale_board where to_char(sale_date,'yyyy-mm-dd') = to_char(sysdate-3,'yyyy-MM-dd')) as dd3,
+   (SELECT COUNT(*) from sale_board where to_char(sale_date,'yyyy-mm-dd') = to_char(sysdate-2,'yyyy-MM-dd')) as dd2,
+   (SELECT COUNT(*) from sale_board where to_char(sale_date,'yyyy-mm-dd') = to_char(sysdate-1,'yyyy-MM-dd')) as dd1,
+    (to_char(sysdate-7,'yyyy-MM-dd')) as d7,
+    (to_char(sysdate-6,'yyyy-MM-dd')) as d6,
+    (to_char(sysdate-7,'yyyy-MM-dd')) as d5,
+    (to_char(sysdate-6,'yyyy-MM-dd')) as d4,
+    (to_char(sysdate-7,'yyyy-MM-dd')) as d3,
+    (to_char(sysdate-6,'yyyy-MM-dd')) as d2,
+    (to_char(sysdate-6,'yyyy-MM-dd')) as d1
+    FROM DUAL
+</select> 
 
  </mapper>
