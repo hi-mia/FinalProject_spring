@@ -45,7 +45,7 @@
 
 				<div class="box_stat" id="statBox">
 			<div class="stat">
-				<span class="stat_title">1:1문의<br> 신규게시글 수</span>
+				<span class="stat_title">1:1 문의<br> 신규게시글 수</span>
 				<!--[if gt IE 7]><!-->
 				<span class="ico_etc_tip" id="btn_tip_uv">
 					<span class="sr_only">1:1문의란?</span>
@@ -63,7 +63,7 @@
 				</span>
 			</div>
 			<div class="stat">
-				<span class="stat_title">신고게시판<br> 신규게시글 수</span>
+				<span class="stat_title">신고 게시판<br> 신규게시글 수</span>
 				<!--[if gt IE 7]><!-->
 				<span class="ico_etc_tip" id="btn_tip_pv">
 					<span class="sr_only">신고글이란?</span>

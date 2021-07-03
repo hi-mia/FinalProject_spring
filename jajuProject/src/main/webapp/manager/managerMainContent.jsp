@@ -10,22 +10,20 @@
 <body>
 
 	<section class="row">
-		<div class="col-12 col-lg-9">
-
-	<div class="card">
-		<div class="card-body py-4 px-5">
+		<div class="col-12 col-lg-9" >
+			<div style="width: 1000px; margin-right:200px;">
 			<div class="d-flex align-items-center">
+				<a class="triangle_go"><img class="triangle" src="/jaju/jajuImage/trianglePrev.png" alt="triangle"></a>
 				<div class="avatar avatar-xl">
-					<img src="assets/images/faces/1.jpg" alt="Face 1">
+					<img class="calendar" src="/jaju/jajuImage/calendar.png" alt="calendar">
 				</div>
 				<div class="ms-3 name">
-					<h5 class="font-bold">관리자</h5>
-					<h6 class="text-muted mb-0">@jajuadmin</h6>
+					<h5 class="font-bold">2021.07.03</h5>
 				</div>
+				<a class="triangle_back"><img class="triangle" src="/jaju/jajuImage/triangleNext.png" alt="triangle"></a>
 			</div>
 		</div>
-	</div>
-			
+
 	<div class="row" >
 		<div class="col-6 col-lg-3 col-md-6">
 			<div class="card" >
@@ -37,8 +35,8 @@
 							</div>
 						</div>
 						<div class="col-md-8">
-							<h6 class="text-muted font-semibold">1:1문의</h6>
-							<h6 class="font-extrabold mb-0">신규글수append</h6>
+							<h6 class="text-muted font-semibold" style="font-size: 26px; padding-left:13px; padding-top: 5px;">1:1 문의</h6>
+							<h6 class="font-extrabold mb-0">200</h6>
 						</div>
 					</div>
 				</div>
@@ -46,7 +44,7 @@
 		</div>
 		<div class="col-6 col-lg-3 col-md-6">
 			<div class="card">
-				<div class="card-body px-3 py-4-5">
+				<div class="card-body px-3 py-4-5" style="padding-bottom: 0">
 					<div class="row">
 						<div class="col-md-4">
 							<div class="stats-icon blue">
@@ -54,8 +52,8 @@
 							</div>
 						</div>
 						<div class="col-md-8">
-							<h6 class="text-muted font-semibold">신고게시판</h6>
-							<h6 class="font-extrabold mb-0">신규글수append</h6>
+							<h6 class="text-muted font-semibold" style="font-size: 23px;">신고 게시판</h6>
+							<h6 class="font-extrabold mb-0">200</h6>
 						</div>
 					</div>
 				</div>
@@ -71,8 +69,8 @@
 							</div>
 						</div>
 						<div class="col-md-8">
-							<h6 class="text-muted font-semibold">신규 가입자수</h6>
-							<h6 class="font-extrabold mb-0">신규수append</h6>
+							<h6 class="text-muted font-semibold" style="font-size: 20px;">신규 가입회원</h6>
+							<h6 class="font-extrabold mb-0">200</h6>
 						</div>
 					</div>
 				</div>
@@ -88,8 +86,8 @@
 							</div>
 						</div>
 						<div class="col-md-8">
-							<h6 class="text-muted font-semibold">일별 판매 게시글 수</h6>
-							<h6 class="font-extrabold mb-0">신규글수append</h6>
+							<h6 class="text-muted font-semibold" style="font-size: 23px;">판매 게시글</h6>
+							<h6 class="font-extrabold mb-0">1000</h6>
 						</div>
 					</div>
 				</div>

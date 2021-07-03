@@ -290,5 +290,61 @@ a.link_lnb{
 ul.list_lnb{
 	padding-left: 0;
 }
-#side {
-	padding-left: 0;
+.col-md-8{
+	padding-left: 20px;
+}
+div.col-md-4{
+	margin-left: -15px;
+}
+h6.text-muted.font-semibold, h6.font-extrabold.mb-0{
+	font-size: 25px;
+	margin-right: -10px;
+}
+div.card-body.px-3.py-4-5{
+	height: 150px;
+}
+h6.text-muted.font-semibold{
+	height: 48px;
+	padding-top: 10px;
+	vertical-align: 10px;
+}
+h6.font-extrabold.mb-0{
+	width: 243px;
+	margin-left: -90px;
+	text-align: center;
+}
+.d-flex.align-items-center{
+	background: #ddd;
+	border-radius: 50%;
+	width: 55px;
+	height: 55px;
+	margin-bottom: 20px;
+	margin-left: 390px;
+}
+div.card-body.py-4.px-5{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+div.avatar.avatar-xl > img.calendar{
+	width: 30px;
+	height: 30px;
+	margin-left: 13px;
+	border-radius: 0; 
+}
+.font-bold{
+	width: 170px;
+	font-size: 30px;
+	margin-left: 20px;
+}
+.triangle{
+	width: 20px; 
+	/* height: ; */
+}
+.triangle_go{
+	margin-left: 300px;
+	cursor: pointer;
+}
+.triangle_back{
+	margin-left: 700px;
+	cursor: pointer;
+}
