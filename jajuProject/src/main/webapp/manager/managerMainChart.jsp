@@ -10,7 +10,7 @@
   box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 body{
-    background-color: #f2f7ff;
+    background-color: #ededed;
 }
 #container {
 	position: relative;
