@@ -45,8 +45,8 @@ public class NoticeDAOMybatis implements NoticeDAO {
 	}
 
 	@Override
-	public NoticeDTO getPage(String notice_seq) {
-		return sqlSession.selectOne("noticeboardSQL.getPage", Integer.parseInt(notice_seq));
+	public NoticeDTO getNoticePage(String notice_seq) {
+		return sqlSession.selectOne("noticeboardSQL.getNoticePage", Integer.parseInt(notice_seq));
 	}
 
 }

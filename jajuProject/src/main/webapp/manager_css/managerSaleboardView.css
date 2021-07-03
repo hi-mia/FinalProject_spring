@@ -9,10 +9,8 @@
 *{
 	font-family: 'S-CoreDream-4Regular';
 }
-.total{
-	width: 1080px;
-	margin: auto;
-}
+
+
 #qnb {
 	margin-top: 129px;
 }
@@ -147,7 +145,6 @@ a:-webkit-any-link {
     border: 1px solid #47597e;
     margin-left: 5px;
     font-size: 13px;
-    align: right;
 }
 .xans-board-movement li a, .xans-board-movement li strong {
     float: left;

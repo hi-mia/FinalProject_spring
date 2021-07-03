@@ -243,21 +243,21 @@ function saleboardCommentPaging(pg){
 					}));
 				}
 				
-			if(items.member_id == $('#memId').val()){
-				$('.trLast').append($('<img>',{
-					src: '/jaju/jajuImage/delete.png',
-					id: 'commentDeleteBtn',
-					style: 'cursor: pointer; float: right;',
-					width: '20px',
-					height: '20px'
-				})).append($('<img>',{
-					src: '/jaju/jajuImage/modify.png',
-					id: 'commentModifyBtn',
-					style: 'cursor: pointer; float: right;',
-					width: '20px',
-					height: '20px'
-				}));
-			}
+				if(items.member_id == $('#memId').val()){
+					$('.trLast'+items.comment_seq).append($('<img>',{
+						src: '/jaju/jajuImage/delete.png',
+						id: 'commentDeleteBtn',
+						style: 'cursor: pointer; float: right;',
+						width: '20px',
+						height: '20px'
+					})).append($('<img>',{
+						src: '/jaju/jajuImage/modify.png',
+						id: 'commentModifyBtn',
+						style: 'cursor: pointer; float: right;',
+						width: '20px',
+						height: '20px'
+					}));
+				}
 			}); //each
 			
 			

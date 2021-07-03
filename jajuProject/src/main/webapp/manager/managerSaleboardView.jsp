@@ -2,19 +2,27 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="/jaju/manager_css/managerFreeboardView.css" />
-<jsp:include page="/manager/managerHeader.jsp"/>
-
-<div class="total">
+<head>
+<link rel="stylesheet" href="/jaju/manager_css/managerSaleboardView.css" />
 <jsp:include page="/manager/managerMenu.jsp"/>
-<input type="hidden" id="board_seq" value="${board_seq }">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<input type="hidden" id="sale_seq" value="${param.sale_seq}">
 <input type="hidden" id="pg" value="${param.pg }"/>
+<input type="hidden" id="sale_category" value="${param.sale_category }"/>
+
 <div id="wrap">
-<div id="container" style="float:left; margin-top:50px; margin-left:40px; width:800px;">
+<div id="pos_scroll"></div>
+<div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
 
-	<h1 class="tit" style="margin-left: 7px;">자유게시판</h1>
+<div class="tit_page" style="width:800px; align:center;">
+	<h1 class="tit"></h1>
+</div>
 
-<div id="main" style="margin-top: -80px;">
+<div id="main">
 <div id="content">
 
 <div id="qnb" class="quick-navigation" style="top: 70px;"></div>
@@ -45,6 +53,20 @@
 				<th scope="row">조회수</th>
 					<td colspan="1"><span id="hitSpan"></span></td>	
 				</tr>
+				<tr>
+				<th scope="row" style="border:none;">판매 사진</th>
+					<td colspan="5"><div id="imageDiv">
+					
+					</div></td>
+				</tr>
+				<tr>
+				<th scope="row" style="border:none;">판매 지역</th>
+					<td colspan="5"> <span id="locationSpan"></span></td>
+				</tr>
+				<tr>
+				<th scope="row" style="border:none;">원문 링크</th>
+					<td colspan="5"> <span id="linkSpan"></span></td>
+				</tr>
 				
 			</tbody>
 		</table>
@@ -59,20 +81,19 @@
 			
 			<tbody>
 			<tr>
-			<td class="board_view_content" style="word-wrap:break-word;word-break:break-all" id="contents_924" valign="top">
+			<td class="board_view_content" style="word-wrap:break-word;word-break:break-all; width: 80%" id="contents_924" valign="top">
 			<div style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; margin: 0px;">
 			<font color="#222222" face="Font" style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; margin: 0px;">
 				<pre class="viewPre"><span id="contentSpan"></span></pre>
-					<div id="imageDiv">
-					
-					</div>
 			</font>
 			</div>
 			</td>
+			<td id="imageTd"></td>
 			</tr>
 		</tbody>
 		</table>
 		</td>
+		
 		</tr>
 		<tr><td height="1" bgcolor="#f4f4f4"></td></tr>
 		</tbody></table><br>
@@ -84,9 +105,9 @@
 		<table width="100%">
 		<tbody>
 		
-		<tr style="width: 800px;">
+		<tr>
 		<td align="right">
-		<span class="bhs_button yb" style="float:none; cursor:pointer; " id="managerFreeboardDeleteBtn">삭제</span>
+		<span class="bhs_button yb" style="float:none; cursor:pointer; " id="managerSaleboardDeleteBtn">삭제</span>
 		</td>
 		</tr>
 		
@@ -99,7 +120,7 @@
 		
 		
 <!-- 댓글 -->
-	<div id="commentDiv" style="width: 800px;">
+	<div id="commentDiv">
 		<table id="commentTable" >
 			<tr style="border-bottom: 1px solid #f5f5f5;">
 				<th width="200" style="padding-bottom: 10px;">번호</th>
@@ -158,16 +179,18 @@
 </div>
 </div>
 </div>
-</div>
+
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/jaju/manager_js/managerFreeboardView.js"></script>
-<script src="/jaju/manager_js/managerFreeboardDelete.js"></script>
+<script src="/jaju/manager_js/managerSaleboardView.js"></script>
+<script src="/jaju/manager_js/managerSaleboardDelete.js"></script>
 <script type="text/javascript">
-function freeboardCommentPaging(pg){
+
+function saleboardCommentPaging(pg){
 	$.ajax({
 		type: 'post',
-		url: '/jaju/freeboard/getFreeboardComment',
-		data: {'board_seq': $('#board_seq').val(), 'pg': pg},
+		url: '/jaju/saleboard/getSaleboardComment',
+		data: {'sale_seq': $('#sale_seq').val(), 'pg': pg},
 		dataType: 'json',
 		success: function(data){
 			//alert(JSON.stringify(data));
@@ -187,9 +210,9 @@ function freeboardCommentPaging(pg){
 						class: 'content_'+ items.comment_seq
 					}))
 				).append($('<td/>',{
-					text : items.board_id
+					text : items.member_id
 				})).append($('<td/>',{
-					class: 'trLast',
+					class: 'trLast'+items.comment_seq,
 					text : items.logtime
 				})).appendTo($('#commentTable'));
 				
@@ -202,17 +225,17 @@ function freeboardCommentPaging(pg){
 					}));
 				}
 				
+				$('.trLast'+items.comment_seq).append($('<img>',{
+					src: '/jaju/jajuImage/delete.png',
+					id: 'commentDeleteBtn',
+					style: 'cursor: pointer; float: right;',
+					width: '20px',
+					height: '20px'
+				}));
 			}); //each
 			
-			$('.trLast').append($('<img>',{
-				src: '/jaju/jajuImage/delete.png',
-				id: 'commentDeleteBtn',
-				style: 'cursor: pointer; float: right;',
-				width: '20px',
-				height: '20px'
-			}));
 			
-			$('#pagingDiv').html(data.freeboardCommentPaging.pagingHTML);
+			$('#pagingDiv').html(data.saleboardCommentPaging.pagingHTML);
 			
 		},error: function(err){
 			alert("댓글 불러오기 에러");
@@ -222,11 +245,9 @@ function freeboardCommentPaging(pg){
 	
 }
 
+
 </script>
-<script type="text/javascript">
-$(document).ready(function(){
-	
-	$('#managerFreeboard').addClass('on');
-});
-</script>
+
+
+</body>
 </html>

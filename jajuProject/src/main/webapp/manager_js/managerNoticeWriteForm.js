@@ -18,7 +18,7 @@ $('#noticeWriteBtn').click(function(){
 		var formData = new FormData($('#noticeWriteForm')[0]);
 		$.ajax({
 			type: 'post',
-		 	url: '/jaju/manager/ManagerNoticeWrite',
+		 	url: '/jaju/manager/managerNoticeWrite',
 		 	enctype: 'multipart/form-data',
 			processData: false,
 			contentType: false,

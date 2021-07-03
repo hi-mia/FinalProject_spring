@@ -1,18 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
 <link rel="stylesheet" href="/jaju/css/noticeView.css" />
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
 
+<jsp:include page="/manager/managerHeader.jsp"/>
+<div style="width: 1050px; margin: auto;" >
+<jsp:include page="/manager/managerMenu.jsp"/>
 <form id="ManagerNoticeView" name="ManagerNoticeView">
 <input type="hidden" id="notice_seq" name="notice_seq" value="${notice_seq}">
 <input type="hidden" id="pg" name="pg" value="${pg}">
-<div style="width: 1050px; margin: auto;" >
-<div id="wrap">
+<div id="wrap" style="width:1080px; margin-top: 60px;">
 <div id="pos_scroll"></div>
 <div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
 
@@ -151,10 +148,13 @@
 </div>
 </div>
 </div>
-</div>
 </form>
+</div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/manager_js/managerNoticeView.js"></script>
-
-</body>
-</html>
+<script type="text/javascript">
+$(document).ready(function(){
+   
+   $('#managerServiceNotice').addClass('on');
+});
+</script>

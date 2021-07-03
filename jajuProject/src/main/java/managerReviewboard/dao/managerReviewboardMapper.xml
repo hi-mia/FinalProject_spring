@@ -16,4 +16,50 @@
 	select count(*) as count from reviewboard
 </select>
 
+<!-- 뷰 -->
+<select id="getManagerReviewboardView" parameterType="int" resultType="reviewboard">
+	select * from reviewboard where review_seq = #{review_seq}
+</select>
+
+
+<!-- 이전글 다음글 -->
+	<select id="getPage_review" parameterType="int" resultType="reviewboard">
+		select * from(
+		select review_seq,
+			lag(review_seq, 1, 0) over(order by review_seq desc) prev_num,
+			lag(review_subject, 1, '이전글이 없습니다') over (order by review_seq desc) prev_subject,
+			lead(review_seq,1,0) over (order by review_seq desc) next_num,
+			lead(review_subject, 1, '다음글이 없습니다') over (order by review_seq desc) next_subject
+		from reviewboard) 
+		where review_seq=#{review_seq}
+	</select>	
+
+<!-- 검색 -->
+<select id="getManagerReviewboardSearchList" parameterType="java.util.Map" resultType="reviewboard">
+	<![CDATA[
+		select * from 
+		(select rownum rn, tt. * from 
+	 	(select * from reviewboard where ${searchOption} like '%'||#{keyword}||'%' order by review_date desc)tt) 
+	 	where rn >= ${startNum} and rn <= ${endNum}
+	]]>
+</select>
+
+<!-- 검색한 총글수 -->
+<select id="getSearchTotal_review" parameterType="java.util.Map" resultType="int">
+	select count(*) as count from reviewboard where ${searchOption} like '%'||#{keyword}||'%'
+</select>
+
+<!-- 삭제 -->
+ <delete id="managerReviewboardDelete" parameterType="int">
+ 	delete reviewboard where review_seq=#{review_seq}
+</delete>
+
+<!-- 글 체크박스 삭제 -->
+<delete id="managerReviewboardListDelete" parameterType="java.util.Map">
+    delete reviewboard where review_seq in 
+	<foreach collection="array" item="data" open="(" close=")" separator=",">
+	    #{data}        
+	</foreach>
+</delete>
+
  </mapper>

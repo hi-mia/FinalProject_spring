@@ -22,7 +22,7 @@ public class NoticeDTO {
 	private String image8;
 	private String image9;
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd")
-	private Date sysdate;
+	private Date logtime;
 	
 	private int prev_num; //이전글 글번호
 	private int next_num; //다음글 글번호

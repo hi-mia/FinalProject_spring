@@ -1,26 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
 <link rel="stylesheet" href="/jaju/css/reportView.css" />
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
 
+<jsp:include page="/manager/managerHeader.jsp"/>
+
+<div style="width: 1080px; margin: auto;">
 <form id="managerReportView" name="managerReportView">
+<jsp:include page="/manager/managerMenu.jsp"/>
 <input type="hidden" id="report_seq" name="report_seq" value="${report_seq}">
-
-
 <input type="hidden" id="comment_seq" name="comment_seq" value="${comment_seq}">
 <input type="hidden" id="pg" name="pg" value="${pg}">
-<div style="width: 1050px; margin: auto;" >
-<div id="wrap">
+
+<div id="wrap" style="float: left; margin-top: 50px;">
 <div id="pos_scroll"></div>
 <div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
 
 <div class="tit_page" style="width:800px; align:center;">
-	<h1 class="tit" >신고 게시판</h1>
+	<h1 class="tit" style="margin-bottom: 20px;">신고 게시판</h1>
 </div>
 
 <div id="main">
@@ -52,7 +49,7 @@
 				
 				<tr class="etcArea">
 					<td colspan="2">
-						<ul>
+						<ul style="margin-block-start: 0em; margin-block-end: 0em;">
 							<li class="tpye ">
 								<strong class="th">전화번호</strong>
 								<span class="td" id="talSpan"></span>
@@ -62,6 +59,13 @@
 								<span class="td" id="dateSpan"></span>
 							</li>
 						</ul>
+					</td>
+				</tr>
+				
+				<tr>
+					<th scope="row" style="border-bottom: 1px solid #f4f4f4;">신고글 제목</th>
+					<td style="border-top: none; border-bottom: 1px solid #f4f4f4;">
+						<a id="sale_subject" href=""><span id="sale_subjectSpan"></span></a>
 					</td>
 				</tr>
 			</tbody>
@@ -102,7 +106,7 @@
 			<tbody>
 				<tr>
 					<td align="right">
-						<a href="javascript:void(0)" onclick="mode(2)">
+						<a href="javascript:void(0)" onclick="mode(1)">
 							<span class="reportBtn delete" style="float:none;">삭제</span>
 						</a>
 						<a href="/jaju/manager/managerReportList">
@@ -158,7 +162,7 @@
 			
 				<tr>
 					<td align="right">
-						<a href="javascript:void(0)" onclick="mode(3)">
+						<a href="javascript:void(0)" onclick="mode(2)">
 							<span class="reportBtn comWrite" style="float:none;">등록</span>
 						</a>
 					</td>
@@ -199,10 +203,13 @@
 </div>
 </div>
 </div>
-</div>
 </form>
+</div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/jaju/manager_js/manageReportView.js"></script>
-
-</body>
-</html>
+<script src="/jaju/manager_js/managerReportView.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$('#managerServiceReport').addClass('on');
+});
+</script>

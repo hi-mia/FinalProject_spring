@@ -9,12 +9,13 @@
 *{
 	font-family: 'S-CoreDream-4Regular';
 }
-.total{
-	width: 1080px;
-	margin: auto;
-}
+
 #qnb {
 	margin-top: 129px;
+}
+
+.layout-wrapper{
+	margin-top: 150px;
 }
 
 .tit_page {
@@ -73,6 +74,7 @@ td, th {
     padding: 0;
 }
 .boardView {
+
     table-layout: fixed;
     border-top: 2px solid #333;
     border-bottom: 1px solid #f4f4f4;
@@ -88,6 +90,7 @@ element.style {
     border-bottom: 2px solid #333;
     margin: 20px 0;
 }
+
 .xans-myshop-couponserial {
     padding-bottom: 20px;
 }
@@ -147,7 +150,6 @@ a:-webkit-any-link {
     border: 1px solid #47597e;
     margin-left: 5px;
     font-size: 13px;
-    align: right;
 }
 .xans-board-movement li a, .xans-board-movement li strong {
     float: left;
@@ -188,23 +190,4 @@ h1.tit{
 }
 .xans-board-listheader{
 	font-size: 14px;
-}
-
-#commentTable {
-	font-size: 20px;
-}
-
-#pagingDiv {
-	font-size: 16px;
-}
-
-
-.viewPre{
-   white-space: pre-line;
-   word-break: break-all;
-   background: white;
-   font-size: 14px;
-   color: #333;
-   border: white;
-   margin: 0;
 }

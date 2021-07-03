@@ -290,40 +290,48 @@ $('#scrapBtn').click(function(){
 	
 	
 	//if($('#scrapBtn img').attr('src') == '/jaju/jajuImage/blackhart.png' ){
-	if($('#scrapBtn').text() == '찜♡'){	
-		$.ajax({
-			type: 'post',
-			url: '/jaju/mypage/writeMyScrap',
-			data: {'member_id': member_id, 'sale_seq': $('#sale_seq').val(),
-				   'sale_state': $('#sale_state .desc').text(), 'sale_subject': $('.goods_name .name').text(),
-				   'sale_image1': $('#imageDiv img:first').attr('id')
-				   },
-			success: function(date){
-				//$('#scrapBtn img').attr('src', '/jaju/jajuImage/hart.png')
-				$('#scrapBtn').text("찜♥");
+	
+	
+	if($('#member_id .tit').text()==member_id){
+	      alert("본인의 판매글입니다.");
+	      return false;
+	   }else{	
+	
+			if($('#scrapBtn').text() == '찜♡'){	
+				$.ajax({
+					type: 'post',
+					url: '/jaju/mypage/writeMyScrap',
+					data: {'member_id': member_id, 'sale_seq': $('#sale_seq').val(),
+						   'sale_state': $('#sale_state .desc').text(), 'sale_subject': $('.goods_name .name').text(),
+						   'sale_image1': $('#imageDiv img:first').attr('id')
+						   },
+					success: function(date){
+						//$('#scrapBtn img').attr('src', '/jaju/jajuImage/hart.png')
+						$('#scrapBtn').text("찜♥");
+						
+					},error: function(err){
+						alert("찜 하기 에러");
+						console.log(err);
+					}
+					
+				});
+			} else{
+				$.ajax({
+					type: 'post',
+					url: '/jaju/mypage/deleteMyScrapView',
+					data: {'member_id': member_id, 'sale_seq': $('#sale_seq').val()},
+					success: function(date){
+						//$('#scrapBtn img').attr('src', '/jaju/jajuImage/blackhart.png')
+						$('#scrapBtn').text("찜♡");
+					},error: function(err){
+						alert("찜 삭제 에러");
+						console.log(err);
+					}
+					
+				});
 				
-			},error: function(err){
-				alert("찜 하기 에러");
-				console.log(err);
 			}
-			
-		});
-	} else{
-		$.ajax({
-			type: 'post',
-			url: '/jaju/mypage/deleteMyScrapView',
-			data: {'member_id': member_id, 'sale_seq': $('#sale_seq').val()},
-			success: function(date){
-				//$('#scrapBtn img').attr('src', '/jaju/jajuImage/blackhart.png')
-				$('#scrapBtn').text("찜♡");
-			},error: function(err){
-				alert("찜 삭제 에러");
-				console.log(err);
-			}
-			
-		});
-		
-	}
+	   }
 		
 });
 //팔로우 클릭 (1.뷰 불러올 때 팔로우 상태 확인 후 팔로잉 으로 체크 )
@@ -390,12 +398,14 @@ $('.txt_type').click(function(){
 
 	 var popupY= (window.screen.height/2)-(popupHeight/2);
 	 // 만들 팝업창 height 크기의 1/2 만큼 보정값으로 빼주었음
-
-	
-	window.open("/jaju/mypage/myMessageForm?sale_seq=" +$('#sale_seq').val()+"&message_writer="+ message_writer +"&message_reader=" + $('#member_id .tit').text()+"&pg=1", 
-			 "sale_my_Message", 
-			 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
-	
+	 if($('#member_id .tit').text()==member_id){
+	      alert("본인의 판매글입니다.");
+	      return false;
+	   }else{
+			window.open("/jaju/mypage/myMessageForm?sale_seq=" +$('#sale_seq').val()+"&message_writer="+ message_writer +"&message_reader=" + $('#member_id .tit').text()+"&pg=1", 
+					 "sale_my_Message", 
+					 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+	   }
 });
 
 

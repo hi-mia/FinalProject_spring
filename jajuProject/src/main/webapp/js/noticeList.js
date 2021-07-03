@@ -46,9 +46,10 @@ $(document).ready(function(){
 
 //검색
 $('#searchBtn').click(function(){
-	//alert("--------");
+	
 	 if($('#keyword').val() == ''){
 		   alert("검색어를 입력하세요")
+		   location.href = '/jaju/manager/noticeList'
 	   }else{
 		   $('#noticeListTable tr:gt(0)').remove();
 		   
@@ -61,33 +62,36 @@ $('#searchBtn').click(function(){
 			   dataType: 'json',
 			   success: function(data){
 				   //alert(JSON.stringify(data));
-	   
-				   $.each(data.list, function(index, items){
-					   $('<tr/>').append($('<td/>',{
-						   width: '80',
-						   align: 'center',
-						   text: items.notice_seq,
-					   })).append($('<td/>',{
-						   color: '#333'	
-					   		}).append($('<a/>',{
-					   			href: '#',
-					   			text: items.notice_subject,
-					   			class: 'subject'+items.notice_seq
-					   		}))
-					   ).append($('<td/>',{
-						   width: '150',
-						   align: 'center',
-						   class: 'eng',
-						   text: items.logtime,
-					   })).appendTo('#noticeListTable');
-
-					   $('.subject'+items.notice_seq).click(function(){
-						   location.href = '/jaju/serviceCenter/noticeView?notice_seq='+items.notice_seq+'&pg='+$('#pg').val();
-		
-					   }); 
-	   
-				   });//each
-   
+				   if(data.list.length == 0){
+					   alert('검색어가 없습니다');
+					   
+				   }else{
+					   $.each(data.list, function(index, items){
+						   $('<tr/>').append($('<td/>',{
+							   width: '80',
+							   align: 'center',
+							   text: items.notice_seq,
+						   })).append($('<td/>',{
+							   color: '#333'	
+						   		}).append($('<a/>',{
+						   			href: '#',
+						   			text: items.notice_subject,
+						   			class: 'subject'+items.notice_seq
+						   		}))
+						   ).append($('<td/>',{
+							   width: '150',
+							   align: 'center',
+							   class: 'eng',
+							   text: items.logtime,
+						   })).appendTo('#noticeListTable');
+	
+						   $('.subject'+items.notice_seq).click(function(){
+							   location.href = '/jaju/serviceCenter/noticeView?notice_seq='+items.notice_seq+'&pg='+$('#pg').val();
+			
+						   }); 
+		   
+					   });//each
+				   }
 				   //페이징 처리
 				   $('.pagediv').html(data.noticePaging.pagingHTML);
 			   },

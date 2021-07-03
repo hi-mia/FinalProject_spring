@@ -1,18 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
+
 <link rel="stylesheet" href="/jaju/manager_css/managerNoticeWriteForm.css" />    
 
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<jsp:include page="/manager/managerHeader.jsp"/>
 <div style="width: 1050px; margin: auto;" >
-<div class="page_section section_qna">
+<jsp:include page="/manager/managerMenu.jsp"/>
+<div class="page_section section_qna" style="float:left;">
 <div class="head_aticle">
-<h2 class="tit">공지사항 글쓰기</h2>
+<h2 class="tit" style="font-size: 31px;">공지사항 글쓰기</h2>
 </div>
 
 <div class="xans-board-write">
@@ -83,8 +80,11 @@
 
 </div>
 </div>
-</body>
 <script type = "text/javascript" src = "http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/manager_js/managerNoticeWriteForm.js"></script>
-
-</html>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$('#managerServiceReport').addClass('on');
+});
+</script>
