@@ -115,4 +115,9 @@ public class ManagerMemberServiceImpl implements ManagerMemberService {
 		return managerMemberDAO.getMemberCategory();
 	}
 
+	@Override
+	public ManagerMainDTO getSaleAvg() {
+		return managerMemberDAO.getSaleAvg();
+	}
+
 }

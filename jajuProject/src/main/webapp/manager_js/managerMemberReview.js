@@ -34,23 +34,25 @@ $(function(){
 				
 	    	  else {
 	    		  $.each(data.list, function(index, items){
-	    			 $('<div/>').append($('<div/>',{
-							align:'center',
-							style:'cursor: pointer',
-							id:'subject_' 
-					}).append($('<a/>',{
-						text:items.review_subject,
-						class:'subject_'+items.review_seq //글제목 부분
-					}))).appendTo($('#historyDiv1'));
-					
+	                  $('<div/>').append($('<div/>',{
+	                      align:'center',
+	                      style:'margin-right:40px; cursor: pointer; height:15px; padding:10px;',
+	                      id:'subject_' 
+	                }).append($('<a/>',{
+	                   text:' 제 목: '+items.review_subject+' ',
+	                   class:'subject_'+items.review_seq, //글제목 부분
+	                   style:'cursor: pointer;'
+	                }).append($('<span/>',{
+	                         align:'center',
+	                         style:'margin-left:40px;   cursor: pointer;',
+	                         id:'reviewDate' ,
+	                         text:' 작성일: '+items.review_date
+	                   })))).appendTo($('#historyDiv1'));
 					
 	    			 //페이징처리
 	    			 $('#memberReviewListPageDiv').html(data.getMyProfileReviewListPage.pagingHTML); 
 	    		  });//each
-	    		  
-	    		
-	  			
-	    	  }//else
+	       	  }//else
 	      },error:function(err){
 	         console.log("memberHistory.js error 발생"+err);
 	      }

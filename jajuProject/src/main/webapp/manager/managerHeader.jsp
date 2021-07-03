@@ -21,7 +21,7 @@
 		<div class="logo_image">
 			<h1 class="logo">
 				<a href="/jaju/manager/index"> 
-					<img src="/jaju/logo/1.png" />
+					<img src="/jaju/logo/jaju_final_logo_blueBack.png" />
 				</a>
 			</h1>
 		</div>

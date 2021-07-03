@@ -74,6 +74,9 @@ $(function(){
 });
 //리스트에 따라 결과 가져오기
 $('#sortinSelect').change(function(){
+	
+	//console.log($(this).val()); //value값 가져오기
+	
 	$('#memberListBody tr').remove();
 	$.ajax({
 		url: '/jaju/manager/getManagerMemberBlack',

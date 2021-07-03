@@ -70,4 +70,9 @@ public class ManagerMemberDAOMybatis implements ManagerMemberDAO {
 		return sqlSession.selectList("managerMemberSQL.getMemberCategory");
 	}
 
+	@Override
+	public ManagerMainDTO getSaleAvg() {
+		return sqlSession.selectOne("managerMemberSQL.getSaleAvg");
+	}
+
 }

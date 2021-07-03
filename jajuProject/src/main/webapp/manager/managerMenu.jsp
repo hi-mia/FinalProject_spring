@@ -13,7 +13,7 @@
 	<li class="lnb_admin1" >
 		<strong><span class="ico_admin"></span> <span class="txt_lnb">운영/관리</span></strong>
 		<ul>
-			<li id="founder_standard_v2" style="text-align: left;"><a href="/_c21_/founder_standard_v2?grpid=1Z5aM" class="link_lnb">통계</a></li>
+			<li id="founder_standard_v2" style="text-align: left;"><a href="/jaju/manager/managerMainChart.jsp" class="link_lnb">통계</a></li>
 		</ul>
 	</li>
 	<li class="lnb_admin2">
