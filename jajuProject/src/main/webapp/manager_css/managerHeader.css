@@ -8,13 +8,16 @@ h1.market_h1 .mainBtn, p.market_p, .homePageBtn{
 	font-family: 'Lato';
 }
 h1.market_h1 .mainBtn {
-	font-size: 2.0em;
+	font-size: 2.5em;
 	padding: 10px 0;
 	font-weight: 800;
 	color: white;
 	width: 100%;
+	text-decoration: none;
 }
-
+h1.market_h1{
+	font-size: 25px;
+}
 p.market_p {
 	font-size: 1.1em;
 	font-weight: 300;
@@ -52,6 +55,7 @@ p.market_p {
 	color: white;
 	align: right;
 	margin-right: 30px;
+	text-decoration: none;
 }
 .homePageBtn:hover {
 	background-color: white;

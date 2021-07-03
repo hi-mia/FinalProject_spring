@@ -5,8 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>상단 수 표시</title>
-<link rel="stylesheet" href="/jaju/manager_css/managerMainChart.css" />
-<link rel="stylesheet" href="/jaju/manager_css/managerMainApp.css" />
 
 </head>
 <body>

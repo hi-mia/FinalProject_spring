@@ -112,6 +112,9 @@
 						<a href="/jaju/manager/managerReportList">
 							<span class="reportBtn list" style="float:none;">목록</span>
 						</a>
+						<button onclick="javascript:hide(0)'">
+							<span class="reportBtn hide" style="float:none;">목록</span>
+						</button>
 					</td>
 				</tr>
 			</tbody>

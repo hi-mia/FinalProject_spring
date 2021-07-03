@@ -9,7 +9,7 @@
 <a href="javascript: homePage()" class="homePageBtn">HomePage</a>
 <section class="header">
     <h1 class="market_h1">
-    	<a href="/jaju/manager/index" class="mainBtn">Jaju Market</a>
+    	<a href="/jaju/manager/managerMainChart.jsp" class="mainBtn">Jaju Market</a>
     </h1>
     <p class="market_p">JajuMarket Admin Page</p>   
 </section>
