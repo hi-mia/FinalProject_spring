@@ -123,7 +123,10 @@ select count(*) as count from message where message_reader=#{id} and message_cha
 <!-- 찜목록 불러오기, 원글은 어떻게 가져올 것이냐? -->
 <select id="getMyScrapList" parameterType="java.util.Map" resultType="mypageScrap">
 <!-- select * from scrap where member_id=#{id} order by seq_scrap -->
- 	select * from (select rownum rn, tt.* from(select * from scrap where member_id=#{id} order by scrap_seq desc)tt)where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+ 	select * from (select rownum rn, tt.* from(select * from scrap sc  
+            full outer join sale_board sa
+            on sa.sale_seq = sc.sale_seq
+            where sc.member_id=#{id} and sale_hide is null order by scrap_seq desc)tt)where rn &gt;=#{startNum} and rn &lt;=#{endNum}
  	<!-- scrap_seq,member_id,scrap_date,sale_seq,sale_state, sale_subject,sale_image1
  	 	select * from sale 
 	 	union all
@@ -216,12 +219,12 @@ select count(*) as count from message where message_reader=#{id} and message_cha
 	
 <!-- 구매내역 목록 -->	
 <select id="myBuyRecodeList" parameterType="java.util.Map" resultType="saleboard">
-		<![CDATA[
-			select * from 
-			(select rownum rn, tt.* from 
- 			(select * from sale_board where sale_buyer=#{id} and sale_state='판매완료' order by sale_seq desc)tt)
- 			where rn >= #{startNum} and rn <= #{endNum}
-		]]>
+	<![CDATA[
+		select * from 
+		(select rownum rn, tt.* from 
+ 		(select * from sale_board where sale_buyer=#{id} and sale_state='판매완료' and sale_hide is null order by sale_seq desc)tt)
+ 		where rn >= #{startNum} and rn <= #{endNum}
+	]]>
 </select>
 	
 <!-- 구매내역 paging  --> <!--#{id}  -->
@@ -258,13 +261,19 @@ select count(*) as count from message where message_reader=#{id} and message_cha
 	SELECT
 	(SELECT COUNT(*) from sale_board where member_id=#{id} and (sale_state='판매중' or sale_state='예약중')) as dealCount,
     (SELECT COUNT(*) from sale_board where member_id=#{id} and sale_state='판매완료' ) AS saleCount,
-    (SELECT COUNT(*) from sale_board where sale_buyer=#{id} and sale_state='판매완료' ) AS buyCount,
+    (SELECT COUNT(*) from sale_board where sale_buyer=#{id} and sale_state='판매완료' ) AS buyCountAll,
+	(SELECT COUNT(*) from sale_board where sale_buyer=#{id} and sale_state='판매완료' and sale_hide is null) AS buyCount,
 	(SELECT COUNT(*) from reviewboard where member_id=#{id}) AS reviewCount
+	
 	FROM DUAL
 </select>
 	
 <select id="getTotalScrapCount" parameterType="String" resultType="int">
-	select count(*) from scrap where member_id=#{id}
+	<!-- select count(*) from scrap where member_id=#{id} -->
+	select count(*) from scrap sc  
+            full outer join sale_board sa
+            on sa.sale_seq = sc.sale_seq
+            where sc.member_id=#{id} and sale_hide is null
 </select>
 
 <select id="getTotalFollowCount" parameterType="String" resultType="int">

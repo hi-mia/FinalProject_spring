@@ -19,25 +19,31 @@ $(function(){
 					
 					$('<div/>').append($('<div/>',{
 						align:'center',
-						text:'판매 완료가 없습니다.',
+						text:'판매내역이 없습니다.',
 						style:'height:200px;'
 					})).appendTo($('#historyDiv2'));
 				}
 				
 	    	  else {
 	    		  $.each(data.list, function(index, items){
-	    			 $('<div/>').append($('<div/>',{
-							align:'center',
-							style:'cursor: pointer',
-							id:'subject_' 
-					}).append($('<a/>',{
-						text:items.sale_subject,
-						class:'subject_'+items.sale_seq //글제목 부분
-					}))).appendTo($('#historyDiv2'));
+	    			  $('<tr/>').append($('<td/>').append($('<a/>',{
+		                   text:' 제 목: '+items.sale_subject+' ',
+		                   style:'cursor: pointer;', 	 	  
+		                   class:'subject_'+items.sale_seq //글제목 부분
+		                }))).append($('<td/>').append($('<span/>',{
+	                         align:'left',
+	                         style:'margin-left:100px;',
+	                         id:'saleDate',
+	                         text:' 작성일: '+items.sale_date
+	                   }))).appendTo($('#historyTable'));
+
 					
 					
 	    			 //페이징처리
 	    			 $('#memberSaleListPageDiv').html(data.mySalePaging.pagingHTML); 
+	    			 $(document).on("click",".subject_"+items.sale_seq,function(){		
+	    				 window.opener.location.href="/jaju/saleboard/saleboardView?sale_seq="+items.sale_seq+"&pg=1";
+	    				 });
 	    		  });//each
 	    		  		
 	    		  		

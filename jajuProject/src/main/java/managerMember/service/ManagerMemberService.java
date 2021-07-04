@@ -15,7 +15,9 @@ public interface ManagerMemberService {
 	public void deleteMemberId(String[] check);
 	
 	public void changeMemberState(String[] check);
-
+	//블랙리스트 회원 활동정지 해제
+	public void changeBlackMemberStateRollback(String[] check);
+	
 	public List<MemberDTO> getSearchMemberInfo(Map<String, String> map);
 
 	public List<MemberDTO> getManagerMemberBlack(Map<String, String> map);

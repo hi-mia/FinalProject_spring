@@ -19,8 +19,6 @@ $(function() {
 			console.log(data.messageDTO);
 			$('#message_reader_span').html(data.messageDTO.message_writer);
 			
-			
-			
 			$('#message_reader_span').text($('#message_reader').val());
 			$('#message_writer_Span').text($('#message_writer').val());
 
@@ -35,16 +33,17 @@ $(function() {
 							url : '/jaju/mypage/replyMyMessage',
 							async: false,
 							data : {
-								'message_reader' : $('#message_reader_span').text(),
+								'message_reader' : data.messageDTO.message_writer,
 								// data.messageDTO.message_writer,
 								'message_writer' : $('#id').val(),
 								'message_subject' : $('#message_subject').val(),
 								'message_content' : $('#message_content_Span').val(),
-								'sale_seq' : $('#seq').val()
+								'sale_seq' : data.messageDTO.sale_seq
 							},
 							success : function() {
 								alert('메세지가 보내졌습니다');
-								location.href = '/jaju/mypage/myMessage?pg=1';
+								//window.location.href = '/jaju/mypage/myMessage?pg=1';
+								window.close();
 							},
 							error : function(err) {
 								console.log(err);
@@ -53,19 +52,11 @@ $(function() {
 						});
 					}
 			}); // send btn
-			
-			
-			
-			
-			
-			
-			
+
 		},
 		error : function(err) {
 			console.log("err발생" + err);
 		}
 	});// ajax
-
-	
 
 });// function

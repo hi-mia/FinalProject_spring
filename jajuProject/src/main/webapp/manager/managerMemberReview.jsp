@@ -13,9 +13,13 @@
 <input type="hidden" id="pg" name="pg" value="${pg}">
 <jsp:include page="/manager/managerMemberHistory.jsp" />
 
-		<div id="historyDiv1"></div>
+		<div style="margin-top: 100px;">
+		<table id="historyTable" style="text-align-last: left;"></table>
+		</div>
+		
 		<div style="margin: 0px; text-align: center;"
 			id="memberReviewListPageDiv"></div>
+			
 <script type="text/javascript"
 		src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/jaju/manager_js/managerMemberReview.js"></script>

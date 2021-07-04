@@ -65,11 +65,7 @@ $(function(){
 									
 								))))).appendTo($('#profileTable'));
 				
-				$('.subject_'+items.sale_seq).click(function(){
-					var seq = items.sale_seq; 
-					//alert(seq);
-					location.href='/jaju/saleboard/saleboardView?sale_seq='+seq;	
-					});
+				
 			});// each
 			
 
@@ -126,8 +122,8 @@ $(function(){
 							}).append($('<a/>',{
 								href:'#',
 								text:items.sale_subject,
-								class : 'subject_'+items.sale_seq
-
+								class:'subject_'+items.sale_seq //글제목 부분
+								
 							}))
 							).append($('<div/>',{
 								class:'order_info'
@@ -159,10 +155,8 @@ $(function(){
 									
 								))))).appendTo($('#tabTable'));
 				
-				$('.subject_'+items.sale_seq).click(function(){
-					var seq = items.sale_seq; 
-					alert(seq);
-					location.href='/jaju/saleboard/saleboardView?sale_seq='+seq;	
+				$(document).on("click",".subject_"+items.sale_seq,function(){		
+					location.href="/jaju/saleboard/saleboardView?sale_seq="+items.sale_seq+"&pg=1";
 					});
 			});// each
 			
