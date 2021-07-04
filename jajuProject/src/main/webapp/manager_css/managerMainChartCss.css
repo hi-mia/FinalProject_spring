@@ -313,13 +313,14 @@ h6.font-extrabold.mb-0{
 	margin-left: -90px;
 	text-align: center;
 }
-.d-flex.align-items-center{
+.avatar.avatar-xl{
 	background: #ddd;
 	border-radius: 50%;
 	width: 55px;
 	height: 55px;
 	margin-bottom: 20px;
-	margin-left: 390px;
+	/* margin-left: 370px; */
+	align: center;
 }
 div.card-body.py-4.px-5{
 	padding-top: 15px;
@@ -330,21 +331,45 @@ div.avatar.avatar-xl > img.calendar{
 	height: 30px;
 	margin-left: 13px;
 	border-radius: 0; 
+	margin-top: 13px;
 }
 .font-bold{
 	width: 170px;
 	font-size: 30px;
-	margin-left: 20px;
+	margin-left: 10px;
+	display: inline-block;
 }
 .triangle{
 	width: 20px; 
-	/* height: ; */
+	margin-top: -14px;
 }
 .triangle_go{
-	margin-left: 300px;
+	margin-left: 8px;
+	margin-right: 10px;
 	cursor: pointer;
+	margin-top: -20px;
 }
 .triangle_back{
-	margin-left: 700px;
+	margin-left: 8px;
 	cursor: pointer;
+	align: right;
+	margin-top: -20px;
+}
+div.date{
+	margin-left: 400px;
+	margin-top: 50px;
+	display: inline-block;
+	width: 690px;
+	align: center;
+}
+img.inquire, img.report, img.member{
+	width: 35px;
+	margin-left: 2px;
+}
+img.new_board{
+	width: 35px;
+	margin-left: 3px;
+}
+div#side{
+	margin-top: 150px;
 }

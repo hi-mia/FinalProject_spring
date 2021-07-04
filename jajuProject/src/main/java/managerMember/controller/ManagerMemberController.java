@@ -95,10 +95,11 @@ public class ManagerMemberController {
 
 	// 전체회원 페이지 오픈 하는 곳, pg 1로 넘기기
 	@RequestMapping(value = "/managerMemberBlack", method = RequestMethod.GET)
-	public String managerMemberBlack(Model model, @RequestParam(required = false, defaultValue = "1") String pg) {
-		model.addAttribute("pg", pg);
-		model.addAttribute("display", "/manager/managerMemberBlack.jsp");
-		return "/index";
+	public ModelAndView managerMemberBlack(@RequestParam(required = false, defaultValue = "1") String pg) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg",pg);
+		mav.setViewName("/manager/managerMemberBlack");
+		return mav;
 	}
 
 	// 블랙리스트 불러오기

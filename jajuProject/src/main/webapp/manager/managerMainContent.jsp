@@ -9,20 +9,21 @@
 </head>
 <body>
 
-	<section class="row">
+<div class="date">
+	<a class="triangle_go">
+		<img class="triangle" src="/jaju/jajuImage/trianglePrev.png" alt="triangle">
+	</a>
+	<div class="avatar avatar-xl">
+		<img class="calendar" src="/jaju/jajuImage/calendar.png" alt="calendar">
+	</div>	
+	<h5 class="font-bold">2021.07.03</h5>
+	<a class="triangle_back">
+		<img class="triangle" src="/jaju/jajuImage/triangleNext.png" alt="triangle">
+	</a>
+</div>				
+				
+	<section class="row" style="margin-top: -25px;">
 		<div class="col-12 col-lg-9" >
-			<div style="width: 1000px; margin-right:200px;">
-			<div class="d-flex align-items-center">
-				<a class="triangle_go"><img class="triangle" src="/jaju/jajuImage/trianglePrev.png" alt="triangle"></a>
-				<div class="avatar avatar-xl">
-					<img class="calendar" src="/jaju/jajuImage/calendar.png" alt="calendar">
-				</div>
-				<div class="ms-3 name">
-					<h5 class="font-bold">2021.07.03</h5>
-				</div>
-				<a class="triangle_back"><img class="triangle" src="/jaju/jajuImage/triangleNext.png" alt="triangle"></a>
-			</div>
-		</div>
 
 	<div class="row" >
 		<div class="col-6 col-lg-3 col-md-6">
@@ -31,6 +32,7 @@
 					<div class="row">
 						<div class="col-md-4">
 							<div class="stats-icon purple">
+								<img class="inquire" src="/jaju/jajuImage/manager_inquire.png" alt="inquire">
 								<i class="iconly-boldShow"></i>
 							</div>
 						</div>
@@ -48,6 +50,7 @@
 					<div class="row">
 						<div class="col-md-4">
 							<div class="stats-icon blue">
+							<img class="report" src="/jaju/jajuImage/manager_report.png" alt="report">
 								<i class="iconly-boldProfile"></i>
 							</div>
 						</div>
@@ -65,6 +68,7 @@
 					<div class="row">
 						<div class="col-md-4">
 							<div class="stats-icon green">
+							<img class="member" src="/jaju/jajuImage/manager_member.png" alt="member">
 								<i class="iconly-boldAdd-User"></i>
 							</div>
 						</div>
@@ -82,6 +86,7 @@
 					<div class="row">
 						<div class="col-md-4">
 							<div class="stats-icon red">
+							<img class="new_board" src="/jaju/jajuImage/manager_new_board.png" alt="new_board">
 								<i class="iconly-boldBookmark"></i>
 							</div>
 						</div>

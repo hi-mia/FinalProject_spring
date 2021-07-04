@@ -7,10 +7,9 @@
 </head>
 <body>
 
+<jsp:include page="/manager/managerHeader.jsp"/>
 <div style="width: 1280px; margin: auto;">
-
 <jsp:include page="/manager/managerMenu.jsp"/>
-
 <div id="framecontent">
 
 <input type="hidden" name="pg" id="pg" value="${pg}">
@@ -270,5 +269,12 @@
 	}
 }
 	</script>
+	
+<script type="text/javascript">
+$(document).ready(function(){
+   
+   $('#managerMember').addClass('on');
+});
+</script>
 </body>
 </html>
