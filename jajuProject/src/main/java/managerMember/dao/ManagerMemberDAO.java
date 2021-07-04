@@ -13,7 +13,9 @@ public interface ManagerMemberDAO {
 	public void changeMemberState(Map<String, String[]> map);
 
 	public void managerMemberForm(Map<String, String[]> map);
-
+	
+	public void changeBlackMemberStateRollback(Map<String, String[]> map);
+	
 	public List<MemberDTO> getSearchMemberInfo(Map<String, String> map);
 
 	public List<MemberDTO> getManagerMemberBlack(Map<String, String> map);

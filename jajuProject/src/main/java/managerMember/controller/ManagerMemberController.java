@@ -63,7 +63,17 @@ public class ManagerMemberController {
 		managerMemberService.changeMemberState(check);
 		return new ModelAndView("redirect:/manager/managerMember");
 	}
-
+	
+	// 활동정지해제
+	@RequestMapping(value = "changeBlackMemberStateRollback", method = RequestMethod.POST)
+	// check 안에는 id값이 담겨있음.
+	public ModelAndView changeBlackMemberStateRollback(String[] check,
+		@RequestParam(required = false, defaultValue = "1") String pg) {
+		System.out.println("check = " + check[0]);
+		managerMemberService.changeBlackMemberStateRollback(check);
+		return new ModelAndView("redirect:/manager/managerMemberBlack");
+		}
+	
 	// 강제탈퇴
 	@RequestMapping(value = "deleteMemberId", method = RequestMethod.POST)
 	public ModelAndView deleteMemberId(String[] check) {

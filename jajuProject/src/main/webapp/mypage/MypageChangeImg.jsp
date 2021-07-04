@@ -84,7 +84,7 @@
          </tr>
 
          <tr>
-            <td id="saleContentTd" colspan="3" align="center" height="250px">
+            <td id="saleContentTd" colspan="3" align="center" height="250px" style="padding-bottom: 0px;">
             <span class="profileFont" id="saleContentSpan">내 판매 후기 내역</span>
             </td>
          </tr>

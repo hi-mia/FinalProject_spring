@@ -64,10 +64,10 @@ $(function(){
 					sale_text='판매완료 '+items.saleCount+'건';
 				}
 				
-				if(items.buyCount=="0"){
-					buy_text = '구매완료 '+items.buyCount+'건';//"구매를 시작해보세요!"
+				if(items.buyCountAll=="0"){
+					buy_text = '구매완료 '+items.buyCountAll+'건';//"구매를 시작해보세요!"
 				}else if(items.buyCount!=""){
-					buy_text ='구매완료 '+items.buyCount+'건';
+					buy_text ='구매완료 '+items.buyCountAll+'건';
 				}
 				if(items.buyCount=="0"){
 					deal_text = '판 매 중 '+items.dealCount+'건';//"판매중

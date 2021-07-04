@@ -16,7 +16,7 @@ $(function(){
 			
 			console.log(JSON.stringify(data));
 			
-			if(JSON.stringify(data.list)=='[]' && data.myRecodePaging3 != null){
+			if(JSON.stringify(data.list)=='[]' && data.myDealPaging != null){
 				$('.title').remove();
 				
 				$('<tr/>').append($('<td/>',{
@@ -65,7 +65,8 @@ $(function(){
 							}).append($('<div/>',{
 								class:'deal_name',
 							}).append($('<a/>',{
-								href:'#',text:items.sale_subject
+								text:items.sale_subject,
+								class:'subject_'+items.sale_seq //글제목 부분
 							}))
 							).append($('<div/>',{
 								class:'order_info'
@@ -100,21 +101,29 @@ $(function(){
 									//style:'height: 30px;width: 90px; background-color: #617aad;color: #fff;border: none;border-radius: 3px; float:right;'
 								}))))))).appendTo($('#tabTable'));
 				
-					$('.state_'+items.sale_seq).click(function(){
-						var popupWidth=560;
-						var popupHeight=800;
+				$('.state_'+items.sale_seq).click(function(){
+					var popupWidth=560;
+					var popupHeight=800;
 
-						var popupX = (window.screen.width/2)-(popupWidth/2);
-						// 만들 팝업창 width 크기의 1/2 만큼 보정값으로 빼주었음
+					var popupX = (window.screen.width/2)-(popupWidth/2);
+					// 만들 팝업창 width 크기의 1/2 만큼 보정값으로 빼주었음
 
-						var popupY= (window.screen.height/2)-(popupHeight/2);
-						// 만들 팝업창 height 크기의 1/2 만큼 보정값으로 빼주었음
-						
-						window.open("/jaju/saleboard/saleStateModifyForm?sale_seq="+items.sale_seq, 
-									"saleStateModifyForm", 
-									'status=no, scroll=no,  height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY); 
-					 
+					var popupY= (window.screen.height/2)-(popupHeight/2);
+					// 만들 팝업창 height 크기의 1/2 만큼 보정값으로 빼주었음
+					
+					//상태변경 버튼
+					window.open("/jaju/saleboard/saleStateModifyForm?sale_seq="+items.sale_seq, 
+								"saleStateModifyForm", 
+								'status=no, scroll=no,  height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY); 
+				 
+				});
+				
+				//판매게시판 보기
+				$(document).on("click",".subject_"+items.sale_seq,function(){		
+					location.href="/jaju/saleboard/saleboardView?sale_seq="+items.sale_seq+"&pg=1";
 					});
+				
+				
 				
 			});// each
 			

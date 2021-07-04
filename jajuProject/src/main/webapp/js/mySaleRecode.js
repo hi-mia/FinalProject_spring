@@ -12,7 +12,7 @@ $(function(){
 		success: function(data){
 			console.log(JSON.stringify(data));
 			
-			if(JSON.stringify(data.list)=='[]' && data.myRecodePaging != null){
+			if(JSON.stringify(data.list)=='[]' && data.mySalePaging != null){
 				
 				$('.title').remove();
 				
@@ -37,7 +37,8 @@ $(function(){
 							}).append($('<div/>',{
 								class:'deal_name',
 							}).append($('<a/>',{
-								href:'#',text:items.sale_subject
+								href:'#',text:items.sale_subject,
+								class:'subject_'+items.sale_seq //글제목 부분
 							}))
 							).append($('<div/>',{
 								class:'order_info'
@@ -67,8 +68,10 @@ $(function(){
 									class:'status end'	
 						}))))))).appendTo($('#tabTable'));
 				
+			$(document).on("click",".subject_"+items.sale_seq,function(){		
+				location.href="/jaju/saleboard/saleboardView?sale_seq="+items.sale_seq+"&pg=1";
+				});
 			});//each
-			
 			//페이징처리
 			$('#mySaleRecodePagingDiv').html(data.mySalePaging.pagingHTML);
 			
