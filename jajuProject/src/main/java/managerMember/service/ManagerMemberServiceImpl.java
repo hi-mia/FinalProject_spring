@@ -127,5 +127,33 @@ public class ManagerMemberServiceImpl implements ManagerMemberService {
 	public ManagerMainDTO getSaleAvg() {
 		return managerMemberDAO.getSaleAvg();
 	}
+	
+	@Override
+	public List<ManagerMainDTO> getLocationInfo() {
+		return managerMemberDAO.getLocationInfo();
+	}
+	
+	/*==== MAINCHART COUNT(*) NUM FROM DB ====*/
+	@Override
+	public int getManagerInquireCount() {
+		return managerMemberDAO.getManagerInquireCount();
+	}
+
+	@Override
+	public int getManagerReportCount() {
+		return managerMemberDAO.getManagerReportCount();
+	}
+
+	@Override
+	public int getManagerMemberCount() {
+		return managerMemberDAO.getManagerMemberCount();
+	}
+
+	@Override
+	public int getManagerSaleReportCount() {
+		return managerMemberDAO.getManagerSaleReportCount();
+	}
+
+
 
 }

@@ -33,4 +33,17 @@ public interface ManagerMemberService {
 
 	public ManagerMainDTO getSaleAvg();
 
+	public List<ManagerMainDTO> getLocationInfo();
+	
+	/*==== MAINCHART COUNT(*) NUM FROM DB ====*/
+	//1:1문의
+	public int getManagerInquireCount();
+	//신고글 
+	public int getManagerReportCount();
+	//신규회원가입 멤버수 
+	public int getManagerMemberCount();
+	//당일 판매 게시글 수 
+	public int getManagerSaleReportCount();
+
+
 }

@@ -164,5 +164,38 @@
     (to_char(sysdate-6,'yyyy-MM-dd')) as d1
     FROM DUAL
 </select> 
+<!-- 관심지역 차트 -->
+<select id="getLocationInfo" resultType="managerMember.bean.ManagerMainDTO">
+		select * from 
+    	(select rownum rn, tt.* from
+    	(SELECT Most_Regist, COUNT(Most_Regist)as COUNT FROM (
+		select location2_addr1||''||location2_addr2 as Most_Regist from location
+		UNION All
+		select location3_addr1||''||location3_addr2 as Most_Regist from location
+		)group by Most_Regist order by COUNT(Most_Regist) desc)tt)
+      	where rn &gt;='1' and rn &lt;='5'
+</select> 
+
+
+<!-- MAINCHART COUNT(*) NUMBER -->
+<!-- 1:1문의 처리중 인 게시글 수 -->
+<select id="getManagerInquireCount" resultType="int">
+	select count(*) from inquiryboard where inquiry_state='처리중'
+</select>
+<!-- 신고 게시판 처리중 인 게시글 수  -->
+<select id="getManagerReportCount" resultType="int">
+	select count(*) from memberreport where report_state='처리중'
+</select>
+
+<!-- 신고 회원 가입 멤버 수 (당일) -->
+<select id="getManagerMemberCount" resultType="int">
+	select count(*) from jajumember where member_date=sysdate
+</select>
+
+<!-- 판매 게시글 수 (당일) -->
+<select id="getManagerSaleReportCount" resultType="int">
+	select count(*) from sale_board where sale_date=sysdate
+</select>
+
 
  </mapper>

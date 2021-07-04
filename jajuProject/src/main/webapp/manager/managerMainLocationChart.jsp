@@ -1,82 +1,156 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>지역차트</title>
 <style type="text/css">
-
-.card{
-	width: 1000px!important;
-	/*+*/    margin-left: 5px;
-    /*height: 300px!important;*/
-    
-}</style>
+.card {
+	width: 1000px !important;
+	/*+*/
+	margin-left: 5px;
+	/*height: 300px!important;*/
+	
+}
+.chart_js{
+	width: 550px;
+	height:550px;
+	display: inline-block;
+	background-color: #fff;
+	    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .7rem;
+    padding-top: 30px;
+    padding-left: 15px;
+}
+</style>
 <link rel="stylesheet" href="/jaju/manager_css/managerMainChart.css" />
 </head>
 <body>
 
-	<div class="col-12 col-xl-4" >
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Profile Visit</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="d-flex align-items-center">
-                                                    <svg class="bi text-primary" width="32" height="32" fill="blue" style="width:10px">
-                                                        <use xlink:href="assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill"></use>
-                                                    </svg>
-                                                    <h5 class="mb-0 ms-3">Europe</h5>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <h5 class="mb-0">862</h5>
-                                            </div>
-                                            <div class="col-12" style="position: relative;">
-                                                <div id="chart-europe" style="min-height: 95px;"><div id="apexchartsdommm54" class="apexcharts-canvas apexchartsdommm54 apexcharts-theme-light" style="width: 223px; height: 80px;"><svg id="SvgjsSvg2649" width="223" height="80" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg apexcharts-zoomable hovering-zoom" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><g id="SvgjsG2651" class="apexcharts-inner apexcharts-graphical" transform="translate(22, 30)"><defs id="SvgjsDefs2650"><clipPath id="gridRectMaskdommm54"><rect id="SvgjsRect2661" width="197" height="37" x="-3" y="-1" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="gridRectMarkerMaskdommm54"><rect id="SvgjsRect2662" width="195" height="39" x="-2" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><linearGradient id="SvgjsLinearGradient2667" x1="0" y1="0" x2="0" y2="1"><stop id="SvgjsStop2668" stop-opacity="0.65" stop-color="rgba(83,80,233,0.65)" offset="0"></stop><stop id="SvgjsStop2669" stop-opacity="0.5" stop-color="rgba(169,168,244,0.5)" offset="1"></stop><stop id="SvgjsStop2670" stop-opacity="0.5" stop-color="rgba(169,168,244,0.5)" offset="1"></stop></linearGradient></defs><line id="SvgjsLine2658" x1="90.84782608695652" y1="0" x2="90.84782608695652" y2="35" stroke="#b6b6b6" stroke-dasharray="3" class="apexcharts-xcrosshairs" x="90.84782608695652" y="0" width="1" height="28" fill="#b1b9c4" filter="none" fill-opacity="0.9" stroke-width="1"></line><g id="SvgjsG2673" class="apexcharts-xaxis" transform="translate(0, 0)"><g id="SvgjsG2674" class="apexcharts-xaxis-texts-g" transform="translate(0, -4)"></g></g><g id="SvgjsG2680" class="apexcharts-grid"><g id="SvgjsG2681" class="apexcharts-gridlines-horizontal" style="display: none;"><line id="SvgjsLine2683" x1="0" y1="0" x2="191" y2="0" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2684" x1="0" y1="5" x2="191" y2="5" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2685" x1="0" y1="10" x2="191" y2="10" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2686" x1="0" y1="15" x2="191" y2="15" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2687" x1="0" y1="20" x2="191" y2="20" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2688" x1="0" y1="25" x2="191" y2="25" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2689" x1="0" y1="30" x2="191" y2="30" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2690" x1="0" y1="35" x2="191" y2="35" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line></g><g id="SvgjsG2682" class="apexcharts-gridlines-vertical" style="display: none;"></g><line id="SvgjsLine2692" x1="0" y1="35" x2="191" y2="35" stroke="transparent" stroke-dasharray="0"></line><line id="SvgjsLine2691" x1="0" y1="1" x2="0" y2="35" stroke="transparent" stroke-dasharray="0"></line></g><g id="SvgjsG2663" class="apexcharts-area-series apexcharts-plot-series"><g id="SvgjsG2664" class="apexcharts-series" seriesName="series1" data:longestSeries="true" rel="1" data:realIndex="0"><path id="SvgjsPath2671" d="M 0 35L 0 29.5C 8.719565217391303 29.5 16.193478260869565 5 24.913043478260867 5C 30.726086956521737 5 35.708695652173915 15 41.52173913043478 15C 47.33478260869565 15 52.31739130434782 23.5 58.130434782608695 23.5C 63.94347826086957 23.5 68.92608695652174 18 74.73913043478261 18C 80.55217391304348 18 85.53478260869565 28 91.34782608695652 28C 97.16086956521738 28 102.14347826086957 14.75 107.95652173913044 14.75C 113.7695652173913 14.75 118.75217391304348 4.75 124.56521739130434 4.75C 130.37826086956522 4.75 135.36086956521737 23.5 141.17391304347825 23.5C 146.98695652173913 23.5 151.96956521739128 18 157.78260869565216 18C 163.59565217391304 18 168.5782608695652 28 174.3913043478261 28C 180.20434782608697 28 185.18695652173912 14.75 191 14.75C 191 14.75 191 14.75 191 35M 191 14.75z" fill="url(#SvgjsLinearGradient2667)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-area" index="0" clip-path="url(#gridRectMaskdommm54)" pathTo="M 0 35L 0 29.5C 8.719565217391303 29.5 16.193478260869565 5 24.913043478260867 5C 30.726086956521737 5 35.708695652173915 15 41.52173913043478 15C 47.33478260869565 15 52.31739130434782 23.5 58.130434782608695 23.5C 63.94347826086957 23.5 68.92608695652174 18 74.73913043478261 18C 80.55217391304348 18 85.53478260869565 28 91.34782608695652 28C 97.16086956521738 28 102.14347826086957 14.75 107.95652173913044 14.75C 113.7695652173913 14.75 118.75217391304348 4.75 124.56521739130434 4.75C 130.37826086956522 4.75 135.36086956521737 23.5 141.17391304347825 23.5C 146.98695652173913 23.5 151.96956521739128 18 157.78260869565216 18C 163.59565217391304 18 168.5782608695652 28 174.3913043478261 28C 180.20434782608697 28 185.18695652173912 14.75 191 14.75C 191 14.75 191 14.75 191 35M 191 14.75z" pathFrom="M -1 45L -1 45L 24.913043478260867 45L 41.52173913043478 45L 58.130434782608695 45L 74.73913043478261 45L 91.34782608695652 45L 107.95652173913044 45L 124.56521739130434 45L 141.17391304347825 45L 157.78260869565216 45L 174.3913043478261 45L 191 45"></path><path id="SvgjsPath2672" d="M 0 29.5C 8.719565217391303 29.5 16.193478260869565 5 24.913043478260867 5C 30.726086956521737 5 35.708695652173915 15 41.52173913043478 15C 47.33478260869565 15 52.31739130434782 23.5 58.130434782608695 23.5C 63.94347826086957 23.5 68.92608695652174 18 74.73913043478261 18C 80.55217391304348 18 85.53478260869565 28 91.34782608695652 28C 97.16086956521738 28 102.14347826086957 14.75 107.95652173913044 14.75C 113.7695652173913 14.75 118.75217391304348 4.75 124.56521739130434 4.75C 130.37826086956522 4.75 135.36086956521737 23.5 141.17391304347825 23.5C 146.98695652173913 23.5 151.96956521739128 18 157.78260869565216 18C 163.59565217391304 18 168.5782608695652 28 174.3913043478261 28C 180.20434782608697 28 185.18695652173912 14.75 191 14.75" fill="none" fill-opacity="1" stroke="#5350e9" stroke-opacity="1" stroke-linecap="butt" stroke-width="2" stroke-dasharray="0" class="apexcharts-area" index="0" clip-path="url(#gridRectMaskdommm54)" pathTo="M 0 29.5C 8.719565217391303 29.5 16.193478260869565 5 24.913043478260867 5C 30.726086956521737 5 35.708695652173915 15 41.52173913043478 15C 47.33478260869565 15 52.31739130434782 23.5 58.130434782608695 23.5C 63.94347826086957 23.5 68.92608695652174 18 74.73913043478261 18C 80.55217391304348 18 85.53478260869565 28 91.34782608695652 28C 97.16086956521738 28 102.14347826086957 14.75 107.95652173913044 14.75C 113.7695652173913 14.75 118.75217391304348 4.75 124.56521739130434 4.75C 130.37826086956522 4.75 135.36086956521737 23.5 141.17391304347825 23.5C 146.98695652173913 23.5 151.96956521739128 18 157.78260869565216 18C 163.59565217391304 18 168.5782608695652 28 174.3913043478261 28C 180.20434782608697 28 185.18695652173912 14.75 191 14.75" pathFrom="M -1 45L -1 45L 24.913043478260867 45L 41.52173913043478 45L 58.130434782608695 45L 74.73913043478261 45L 91.34782608695652 45L 107.95652173913044 45L 124.56521739130434 45L 141.17391304347825 45L 157.78260869565216 45L 174.3913043478261 45L 191 45"></path><g id="SvgjsG2665" class="apexcharts-series-markers-wrap" data:realIndex="0"><g class="apexcharts-series-markers"><circle id="SvgjsCircle2698" r="0" cx="91.34782608695652" cy="28" class="apexcharts-marker wiyuzj19v no-pointer-events" stroke="#ffffff" fill="#5350e9" fill-opacity="1" stroke-width="2" stroke-opacity="0.9" default-marker-size="0"></circle></g></g></g><g id="SvgjsG2666" class="apexcharts-datalabels" data:realIndex="0"></g></g><line id="SvgjsLine2693" x1="0" y1="0" x2="191" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" class="apexcharts-ycrosshairs"></line><line id="SvgjsLine2694" x1="0" y1="0" x2="191" y2="0" stroke-dasharray="0" stroke-width="0" class="apexcharts-ycrosshairs-hidden"></line><g id="SvgjsG2695" class="apexcharts-yaxis-annotations"></g><g id="SvgjsG2696" class="apexcharts-xaxis-annotations"></g><g id="SvgjsG2697" class="apexcharts-point-annotations"></g><rect id="SvgjsRect2699" width="0" height="0" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fefefe" class="apexcharts-zoom-rect"></rect><rect id="SvgjsRect2700" width="0" height="0" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fefefe" class="apexcharts-selection-rect"></rect></g><rect id="SvgjsRect2657" width="0" height="0" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fefefe"></rect><g id="SvgjsG2678" class="apexcharts-yaxis" rel="0" transform="translate(-8, 0)"><g id="SvgjsG2679" class="apexcharts-yaxis-texts-g"></g></g><g id="SvgjsG2652" class="apexcharts-annotations"></g></svg><div class="apexcharts-legend" style="max-height: 40px;"></div><div class="apexcharts-tooltip apexcharts-theme-light" style="left: 2px; top: 0px;"><div class="apexcharts-tooltip-title" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">19/09/18 05:30</div><div class="apexcharts-tooltip-series-group apexcharts-active" style="order: 1; display: flex;"><span class="apexcharts-tooltip-marker" style="background-color: rgb(83, 80, 233);"></span><div class="apexcharts-tooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-label">series1: </span><span class="apexcharts-tooltip-text-value">340</span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div></div><div class="apexcharts-xaxistooltip apexcharts-xaxistooltip-bottom apexcharts-theme-light" style="left: 48.4666px; top: 67px;"><div class="apexcharts-xaxistooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px; min-width: 106.766px;">19/09/18 05:30</div></div><div class="apexcharts-yaxistooltip apexcharts-yaxistooltip-0 apexcharts-yaxistooltip-left apexcharts-theme-light"><div class="apexcharts-yaxistooltip-text"></div></div></div></div>
-                                            <div class="resize-triggers"><div class="expand-trigger"><div style="width: 248px; height: 96px;"></div></div><div class="contract-trigger"></div></div></div>
-                                        </div>
-                                        <%--.row{display:table-cell} --%>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="d-flex align-items-center">
-                                                    <svg class="bi text-success" width="32" height="32" fill="blue" style="width:10px">
-                                                        <use xlink:href="assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill"></use>
-                                                    </svg>
-                                                    <h5 class="mb-0 ms-3">America</h5>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <h5 class="mb-0">375</h5>
-                                            </div>
-                                            <div class="col-12" style="position: relative;">
-                                                <div id="chart-america" style="min-height: 95px;"><div id="apexchartsj3tvdcnb" class="apexcharts-canvas apexchartsj3tvdcnb apexcharts-theme-light" style="width: 223px; height: 80px;"><svg id="SvgjsSvg2702" width="223" height="80" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg apexcharts-zoomable hovering-zoom" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><g id="SvgjsG2704" class="apexcharts-inner apexcharts-graphical" transform="translate(22, 30)"><defs id="SvgjsDefs2703"><clipPath id="gridRectMaskj3tvdcnb"><rect id="SvgjsRect2714" width="197" height="37" x="-3" y="-1" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="gridRectMarkerMaskj3tvdcnb"><rect id="SvgjsRect2715" width="195" height="39" x="-2" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><linearGradient id="SvgjsLinearGradient2720" x1="0" y1="0" x2="0" y2="1"><stop id="SvgjsStop2721" stop-opacity="0.65" stop-color="rgba(0,139,117,0.65)" offset="0"></stop><stop id="SvgjsStop2722" stop-opacity="0.5" stop-color="rgba(128,197,186,0.5)" offset="1"></stop><stop id="SvgjsStop2723" stop-opacity="0.5" stop-color="rgba(128,197,186,0.5)" offset="1"></stop></linearGradient></defs><line id="SvgjsLine2711" x1="124.06521739130434" y1="0" x2="124.06521739130434" y2="35" stroke="#b6b6b6" stroke-dasharray="3" class="apexcharts-xcrosshairs" x="124.06521739130434" y="0" width="1" height="28" fill="#b1b9c4" filter="none" fill-opacity="0.9" stroke-width="1"></line><g id="SvgjsG2726" class="apexcharts-xaxis" transform="translate(0, 0)"><g id="SvgjsG2727" class="apexcharts-xaxis-texts-g" transform="translate(0, -4)"></g></g><g id="SvgjsG2733" class="apexcharts-grid"><g id="SvgjsG2734" class="apexcharts-gridlines-horizontal" style="display: none;"><line id="SvgjsLine2736" x1="0" y1="0" x2="191" y2="0" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2737" x1="0" y1="5" x2="191" y2="5" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2738" x1="0" y1="10" x2="191" y2="10" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2739" x1="0" y1="15" x2="191" y2="15" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2740" x1="0" y1="20" x2="191" y2="20" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2741" x1="0" y1="25" x2="191" y2="25" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2742" x1="0" y1="30" x2="191" y2="30" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2743" x1="0" y1="35" x2="191" y2="35" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line></g><g id="SvgjsG2735" class="apexcharts-gridlines-vertical" style="display: none;"></g><line id="SvgjsLine2745" x1="0" y1="35" x2="191" y2="35" stroke="transparent" stroke-dasharray="0"></line><line id="SvgjsLine2744" x1="0" y1="1" x2="0" y2="35" stroke="transparent" stroke-dasharray="0"></line></g><g id="SvgjsG2716" class="apexcharts-area-series apexcharts-plot-series"><g id="SvgjsG2717" class="apexcharts-series" seriesName="series1" data:longestSeries="true" rel="1" data:realIndex="0"><path id="SvgjsPath2724" d="M 0 35L 0 29.5C 8.719565217391303 29.5 16.193478260869565 5 24.913043478260867 5C 30.726086956521737 5 35.708695652173915 15 41.52173913043478 15C 47.33478260869565 15 52.31739130434782 23.5 58.130434782608695 23.5C 63.94347826086957 23.5 68.92608695652174 18 74.73913043478261 18C 80.55217391304348 18 85.53478260869565 28 91.34782608695652 28C 97.16086956521738 28 102.14347826086957 14.75 107.95652173913044 14.75C 113.7695652173913 14.75 118.75217391304348 4.75 124.56521739130434 4.75C 130.37826086956522 4.75 135.36086956521737 23.5 141.17391304347825 23.5C 146.98695652173913 23.5 151.96956521739128 18 157.78260869565216 18C 163.59565217391304 18 168.5782608695652 28 174.3913043478261 28C 180.20434782608697 28 185.18695652173912 14.75 191 14.75C 191 14.75 191 14.75 191 35M 191 14.75z" fill="url(#SvgjsLinearGradient2720)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-area" index="0" clip-path="url(#gridRectMaskj3tvdcnb)" pathTo="M 0 35L 0 29.5C 8.719565217391303 29.5 16.193478260869565 5 24.913043478260867 5C 30.726086956521737 5 35.708695652173915 15 41.52173913043478 15C 47.33478260869565 15 52.31739130434782 23.5 58.130434782608695 23.5C 63.94347826086957 23.5 68.92608695652174 18 74.73913043478261 18C 80.55217391304348 18 85.53478260869565 28 91.34782608695652 28C 97.16086956521738 28 102.14347826086957 14.75 107.95652173913044 14.75C 113.7695652173913 14.75 118.75217391304348 4.75 124.56521739130434 4.75C 130.37826086956522 4.75 135.36086956521737 23.5 141.17391304347825 23.5C 146.98695652173913 23.5 151.96956521739128 18 157.78260869565216 18C 163.59565217391304 18 168.5782608695652 28 174.3913043478261 28C 180.20434782608697 28 185.18695652173912 14.75 191 14.75C 191 14.75 191 14.75 191 35M 191 14.75z" pathFrom="M -1 45L -1 45L 24.913043478260867 45L 41.52173913043478 45L 58.130434782608695 45L 74.73913043478261 45L 91.34782608695652 45L 107.95652173913044 45L 124.56521739130434 45L 141.17391304347825 45L 157.78260869565216 45L 174.3913043478261 45L 191 45"></path><path id="SvgjsPath2725" d="M 0 29.5C 8.719565217391303 29.5 16.193478260869565 5 24.913043478260867 5C 30.726086956521737 5 35.708695652173915 15 41.52173913043478 15C 47.33478260869565 15 52.31739130434782 23.5 58.130434782608695 23.5C 63.94347826086957 23.5 68.92608695652174 18 74.73913043478261 18C 80.55217391304348 18 85.53478260869565 28 91.34782608695652 28C 97.16086956521738 28 102.14347826086957 14.75 107.95652173913044 14.75C 113.7695652173913 14.75 118.75217391304348 4.75 124.56521739130434 4.75C 130.37826086956522 4.75 135.36086956521737 23.5 141.17391304347825 23.5C 146.98695652173913 23.5 151.96956521739128 18 157.78260869565216 18C 163.59565217391304 18 168.5782608695652 28 174.3913043478261 28C 180.20434782608697 28 185.18695652173912 14.75 191 14.75" fill="none" fill-opacity="1" stroke="#008b75" stroke-opacity="1" stroke-linecap="butt" stroke-width="2" stroke-dasharray="0" class="apexcharts-area" index="0" clip-path="url(#gridRectMaskj3tvdcnb)" pathTo="M 0 29.5C 8.719565217391303 29.5 16.193478260869565 5 24.913043478260867 5C 30.726086956521737 5 35.708695652173915 15 41.52173913043478 15C 47.33478260869565 15 52.31739130434782 23.5 58.130434782608695 23.5C 63.94347826086957 23.5 68.92608695652174 18 74.73913043478261 18C 80.55217391304348 18 85.53478260869565 28 91.34782608695652 28C 97.16086956521738 28 102.14347826086957 14.75 107.95652173913044 14.75C 113.7695652173913 14.75 118.75217391304348 4.75 124.56521739130434 4.75C 130.37826086956522 4.75 135.36086956521737 23.5 141.17391304347825 23.5C 146.98695652173913 23.5 151.96956521739128 18 157.78260869565216 18C 163.59565217391304 18 168.5782608695652 28 174.3913043478261 28C 180.20434782608697 28 185.18695652173912 14.75 191 14.75" pathFrom="M -1 45L -1 45L 24.913043478260867 45L 41.52173913043478 45L 58.130434782608695 45L 74.73913043478261 45L 91.34782608695652 45L 107.95652173913044 45L 124.56521739130434 45L 141.17391304347825 45L 157.78260869565216 45L 174.3913043478261 45L 191 45"></path><g id="SvgjsG2718" class="apexcharts-series-markers-wrap" data:realIndex="0"><g class="apexcharts-series-markers"><circle id="SvgjsCircle2751" r="0" cx="124.56521739130434" cy="4.75" class="apexcharts-marker wdf7oi2t4 no-pointer-events" stroke="#ffffff" fill="#008b75" fill-opacity="1" stroke-width="2" stroke-opacity="0.9" default-marker-size="0"></circle></g></g></g><g id="SvgjsG2719" class="apexcharts-datalabels" data:realIndex="0"></g></g><line id="SvgjsLine2746" x1="0" y1="0" x2="191" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" class="apexcharts-ycrosshairs"></line><line id="SvgjsLine2747" x1="0" y1="0" x2="191" y2="0" stroke-dasharray="0" stroke-width="0" class="apexcharts-ycrosshairs-hidden"></line><g id="SvgjsG2748" class="apexcharts-yaxis-annotations"></g><g id="SvgjsG2749" class="apexcharts-xaxis-annotations"></g><g id="SvgjsG2750" class="apexcharts-point-annotations"></g><rect id="SvgjsRect2752" width="0" height="0" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fefefe" class="apexcharts-zoom-rect"></rect><rect id="SvgjsRect2753" width="0" height="0" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fefefe" class="apexcharts-selection-rect"></rect></g><rect id="SvgjsRect2710" width="0" height="0" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fefefe"></rect><g id="SvgjsG2731" class="apexcharts-yaxis" rel="0" transform="translate(-8, 0)"><g id="SvgjsG2732" class="apexcharts-yaxis-texts-g"></g></g><g id="SvgjsG2705" class="apexcharts-annotations"></g></svg><div class="apexcharts-legend" style="max-height: 40px;"></div><div class="apexcharts-tooltip apexcharts-theme-light" style="left: 22.1777px; top: 0px;"><div class="apexcharts-tooltip-title" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">19/09/18 07:30</div><div class="apexcharts-tooltip-series-group apexcharts-active" style="order: 1; display: flex;"><span class="apexcharts-tooltip-marker" style="background-color: rgb(0, 139, 117);"></span><div class="apexcharts-tooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-label">series1: </span><span class="apexcharts-tooltip-text-value">805</span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div></div><div class="apexcharts-xaxistooltip apexcharts-xaxistooltip-bottom apexcharts-theme-light" style="left: 95.0277px; top: 67px;"><div class="apexcharts-xaxistooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px; min-width: 106.766px;">19/09/18 07:30</div></div><div class="apexcharts-yaxistooltip apexcharts-yaxistooltip-0 apexcharts-yaxistooltip-left apexcharts-theme-light"><div class="apexcharts-yaxistooltip-text"></div></div></div></div>
-                                            <div class="resize-triggers"><div class="expand-trigger"><div style="width: 248px; height: 96px;"></div></div><div class="contract-trigger"></div></div></div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="d-flex align-items-center">
-                                                    <svg class="bi text-danger" width="32" height="32" fill="blue" style="width:10px">
-                                                        <use xlink:href="assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill"></use>
-                                                    </svg>
-                                                    <h5 class="mb-0 ms-3">Indonesia</h5>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <h5 class="mb-0">1025</h5>
-                                            </div>
-                                            <div class="col-12" style="position: relative;">
-                                                <div id="chart-indonesia" style="min-height: 95px;"><div id="apexchartsp4yzcqjv" class="apexcharts-canvas apexchartsp4yzcqjv apexcharts-theme-light" style="width: 223px; height: 80px;"><svg id="SvgjsSvg2755" width="223" height="80" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg apexcharts-zoomable hovering-zoom" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><g id="SvgjsG2757" class="apexcharts-inner apexcharts-graphical" transform="translate(22, 30)"><defs id="SvgjsDefs2756"><clipPath id="gridRectMaskp4yzcqjv"><rect id="SvgjsRect2767" width="197" height="37" x="-3" y="-1" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="gridRectMarkerMaskp4yzcqjv"><rect id="SvgjsRect2768" width="195" height="39" x="-2" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><linearGradient id="SvgjsLinearGradient2773" x1="0" y1="0" x2="0" y2="1"><stop id="SvgjsStop2774" stop-opacity="0.65" stop-color="rgba(220,53,69,0.65)" offset="0"></stop><stop id="SvgjsStop2775" stop-opacity="0.5" stop-color="rgba(238,154,162,0.5)" offset="1"></stop><stop id="SvgjsStop2776" stop-opacity="0.5" stop-color="rgba(238,154,162,0.5)" offset="1"></stop></linearGradient></defs><line id="SvgjsLine2764" x1="157.28260869565216" y1="0" x2="157.28260869565216" y2="35" stroke="#b6b6b6" stroke-dasharray="3" class="apexcharts-xcrosshairs" x="157.28260869565216" y="0" width="1" height="28" fill="#b1b9c4" filter="none" fill-opacity="0.9" stroke-width="1"></line><g id="SvgjsG2779" class="apexcharts-xaxis" transform="translate(0, 0)"><g id="SvgjsG2780" class="apexcharts-xaxis-texts-g" transform="translate(0, -4)"></g></g><g id="SvgjsG2786" class="apexcharts-grid"><g id="SvgjsG2787" class="apexcharts-gridlines-horizontal" style="display: none;"><line id="SvgjsLine2789" x1="0" y1="0" x2="191" y2="0" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2790" x1="0" y1="5" x2="191" y2="5" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2791" x1="0" y1="10" x2="191" y2="10" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2792" x1="0" y1="15" x2="191" y2="15" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2793" x1="0" y1="20" x2="191" y2="20" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2794" x1="0" y1="25" x2="191" y2="25" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2795" x1="0" y1="30" x2="191" y2="30" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine2796" x1="0" y1="35" x2="191" y2="35" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line></g><g id="SvgjsG2788" class="apexcharts-gridlines-vertical" style="display: none;"></g><line id="SvgjsLine2798" x1="0" y1="35" x2="191" y2="35" stroke="transparent" stroke-dasharray="0"></line><line id="SvgjsLine2797" x1="0" y1="1" x2="0" y2="35" stroke="transparent" stroke-dasharray="0"></line></g><g id="SvgjsG2769" class="apexcharts-area-series apexcharts-plot-series"><g id="SvgjsG2770" class="apexcharts-series" seriesName="series1" data:longestSeries="true" rel="1" data:realIndex="0"><path id="SvgjsPath2777" d="M 0 35L 0 29.5C 8.719565217391303 29.5 16.193478260869565 5 24.913043478260867 5C 30.726086956521737 5 35.708695652173915 15 41.52173913043478 15C 47.33478260869565 15 52.31739130434782 23.5 58.130434782608695 23.5C 63.94347826086957 23.5 68.92608695652174 18 74.73913043478261 18C 80.55217391304348 18 85.53478260869565 28 91.34782608695652 28C 97.16086956521738 28 102.14347826086957 14.75 107.95652173913044 14.75C 113.7695652173913 14.75 118.75217391304348 4.75 124.56521739130434 4.75C 130.37826086956522 4.75 135.36086956521737 23.5 141.17391304347825 23.5C 146.98695652173913 23.5 151.96956521739128 18 157.78260869565216 18C 163.59565217391304 18 168.5782608695652 28 174.3913043478261 28C 180.20434782608697 28 185.18695652173912 14.75 191 14.75C 191 14.75 191 14.75 191 35M 191 14.75z" fill="url(#SvgjsLinearGradient2773)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-area" index="0" clip-path="url(#gridRectMaskp4yzcqjv)" pathTo="M 0 35L 0 29.5C 8.719565217391303 29.5 16.193478260869565 5 24.913043478260867 5C 30.726086956521737 5 35.708695652173915 15 41.52173913043478 15C 47.33478260869565 15 52.31739130434782 23.5 58.130434782608695 23.5C 63.94347826086957 23.5 68.92608695652174 18 74.73913043478261 18C 80.55217391304348 18 85.53478260869565 28 91.34782608695652 28C 97.16086956521738 28 102.14347826086957 14.75 107.95652173913044 14.75C 113.7695652173913 14.75 118.75217391304348 4.75 124.56521739130434 4.75C 130.37826086956522 4.75 135.36086956521737 23.5 141.17391304347825 23.5C 146.98695652173913 23.5 151.96956521739128 18 157.78260869565216 18C 163.59565217391304 18 168.5782608695652 28 174.3913043478261 28C 180.20434782608697 28 185.18695652173912 14.75 191 14.75C 191 14.75 191 14.75 191 35M 191 14.75z" pathFrom="M -1 45L -1 45L 24.913043478260867 45L 41.52173913043478 45L 58.130434782608695 45L 74.73913043478261 45L 91.34782608695652 45L 107.95652173913044 45L 124.56521739130434 45L 141.17391304347825 45L 157.78260869565216 45L 174.3913043478261 45L 191 45"></path><path id="SvgjsPath2778" d="M 0 29.5C 8.719565217391303 29.5 16.193478260869565 5 24.913043478260867 5C 30.726086956521737 5 35.708695652173915 15 41.52173913043478 15C 47.33478260869565 15 52.31739130434782 23.5 58.130434782608695 23.5C 63.94347826086957 23.5 68.92608695652174 18 74.73913043478261 18C 80.55217391304348 18 85.53478260869565 28 91.34782608695652 28C 97.16086956521738 28 102.14347826086957 14.75 107.95652173913044 14.75C 113.7695652173913 14.75 118.75217391304348 4.75 124.56521739130434 4.75C 130.37826086956522 4.75 135.36086956521737 23.5 141.17391304347825 23.5C 146.98695652173913 23.5 151.96956521739128 18 157.78260869565216 18C 163.59565217391304 18 168.5782608695652 28 174.3913043478261 28C 180.20434782608697 28 185.18695652173912 14.75 191 14.75" fill="none" fill-opacity="1" stroke="#dc3545" stroke-opacity="1" stroke-linecap="butt" stroke-width="2" stroke-dasharray="0" class="apexcharts-area" index="0" clip-path="url(#gridRectMaskp4yzcqjv)" pathTo="M 0 29.5C 8.719565217391303 29.5 16.193478260869565 5 24.913043478260867 5C 30.726086956521737 5 35.708695652173915 15 41.52173913043478 15C 47.33478260869565 15 52.31739130434782 23.5 58.130434782608695 23.5C 63.94347826086957 23.5 68.92608695652174 18 74.73913043478261 18C 80.55217391304348 18 85.53478260869565 28 91.34782608695652 28C 97.16086956521738 28 102.14347826086957 14.75 107.95652173913044 14.75C 113.7695652173913 14.75 118.75217391304348 4.75 124.56521739130434 4.75C 130.37826086956522 4.75 135.36086956521737 23.5 141.17391304347825 23.5C 146.98695652173913 23.5 151.96956521739128 18 157.78260869565216 18C 163.59565217391304 18 168.5782608695652 28 174.3913043478261 28C 180.20434782608697 28 185.18695652173912 14.75 191 14.75" pathFrom="M -1 45L -1 45L 24.913043478260867 45L 41.52173913043478 45L 58.130434782608695 45L 74.73913043478261 45L 91.34782608695652 45L 107.95652173913044 45L 124.56521739130434 45L 141.17391304347825 45L 157.78260869565216 45L 174.3913043478261 45L 191 45"></path><g id="SvgjsG2771" class="apexcharts-series-markers-wrap" data:realIndex="0"><g class="apexcharts-series-markers"><circle id="SvgjsCircle2804" r="0" cx="157.78260869565216" cy="18" class="apexcharts-marker wy6q5ycmg no-pointer-events" stroke="#ffffff" fill="#dc3545" fill-opacity="1" stroke-width="2" stroke-opacity="0.9" default-marker-size="0"></circle></g></g></g><g id="SvgjsG2772" class="apexcharts-datalabels" data:realIndex="0"></g></g><line id="SvgjsLine2799" x1="0" y1="0" x2="191" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" class="apexcharts-ycrosshairs"></line><line id="SvgjsLine2800" x1="0" y1="0" x2="191" y2="0" stroke-dasharray="0" stroke-width="0" class="apexcharts-ycrosshairs-hidden"></line><g id="SvgjsG2801" class="apexcharts-yaxis-annotations"></g><g id="SvgjsG2802" class="apexcharts-xaxis-annotations"></g><g id="SvgjsG2803" class="apexcharts-point-annotations"></g><rect id="SvgjsRect2805" width="0" height="0" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fefefe" class="apexcharts-zoom-rect"></rect><rect id="SvgjsRect2806" width="0" height="0" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fefefe" class="apexcharts-selection-rect"></rect></g><rect id="SvgjsRect2763" width="0" height="0" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fefefe"></rect><g id="SvgjsG2784" class="apexcharts-yaxis" rel="0" transform="translate(-8, 0)"><g id="SvgjsG2785" class="apexcharts-yaxis-texts-g"></g></g><g id="SvgjsG2758" class="apexcharts-annotations"></g></svg><div class="apexcharts-legend" style="max-height: 40px;"></div><div class="apexcharts-tooltip apexcharts-theme-light" style="left: 55.3951px; top: 0px;"><div class="apexcharts-tooltip-title" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">19/09/18 09:30</div><div class="apexcharts-tooltip-series-group apexcharts-active" style="order: 1; display: flex;"><span class="apexcharts-tooltip-marker" style="background-color: rgb(220, 53, 69);"></span><div class="apexcharts-tooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-label">series1: </span><span class="apexcharts-tooltip-text-value">540</span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div></div><div class="apexcharts-xaxistooltip apexcharts-xaxistooltip-bottom apexcharts-theme-light" style="left: 128.245px; top: 67px;"><div class="apexcharts-xaxistooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px; min-width: 106.766px;">19/09/18 09:30</div></div><div class="apexcharts-yaxistooltip apexcharts-yaxistooltip-0 apexcharts-yaxistooltip-left apexcharts-theme-light"><div class="apexcharts-yaxistooltip-text"></div></div></div></div>
-                                            <div class="resize-triggers"><div class="expand-trigger"><div style="width: 248px; height: 96px;"></div></div><div class="contract-trigger"></div></div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-	
-	
+	<div class="col-12 col-xl-4">
+		<div class="card">
+			<div class="card-header">
+				<h4>관심지역 통계</h4>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-6">
+						<div class="d-flex align-items-center"  style="height: 60px;">
+							<svg class="bi text-primary" width="32" height="32" fill="blue" style="width: 10px">
+                                  <use xlink:href="assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill"></use>
+                           		</svg>
+							<h5 class="mb-0 ms-3">관심 지역 등록 BEST5<br></h5>
+						</div>
+					</div>
+
+					<div class="col-12" style="position: relative;">
+
+						<!-- 여기 차트 들어갈 위치 -->
+						<div class="chart_js">
+							<canvas id="myChart3"  width="500" height="500" align="center"></canvas>
+						</div>
+
+						<div class="resize-triggers">
+							<div class="expand-trigger">
+								<div style="width: 248px; height: 96px;"></div>
+							</div>
+							<div class="contract-trigger"></div>
+						</div>
+					</div>
+				</div>
+				<%--.row{display:table-cell} --%>
+
+			</div>
+		</div>
+	</div>
+
+	<!--Load the AJAX API-->
+ 	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>	
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+   	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    
+    <script>
+  //선 여러개로 표현하기 
+  //이건 막대 그래프 (일주일 단위, 하루 판매 개수 가져오기 )
+  $(function() {
+  	function makeChart(ctx, type, labels, data) {
+  		var myChart = new Chart(ctx, {
+  		    type: type,
+  		    data: {
+  		        labels: labels,
+  		        datasets: [{
+  		            label: '관심등록 인기 BEST 5',//판매게시판에 등록 된 카테고리 통계 %
+  		            data: data,
+  		            //backgroundColor: //randomColor(labels)
+  		            backgroundColor: [
+  						'rgba(255, 99, 132, 0.2)',
+  						'rgba(54, 162, 235, 0.2)',
+  						'rgba(255, 206, 86, 0.2)',
+  						'rgba(75, 192, 192, 0.2)',
+  						'rgba(153, 102, 255, 0.2)',
+  						'rgba(255, 159, 64, 0.2)'
+  					],
+  					borderColor: [
+  						'rgba(255, 99, 132, 1)',
+  						'rgba(54, 162, 235, 1)',
+  						'rgba(255, 206, 86, 1)',
+  						'rgba(75, 192, 192, 1)',
+  						'rgba(153, 102, 255, 1)',
+  						'rgba(255, 159, 64, 1)'
+  					],
+  					borderWidth: 2
+  		        }]
+  		    },
+  		    options: {
+  			    responsive: false,
+  		        scales: {
+  		            yAxes: [{
+  		                ticks: {
+  		                	min: 0,
+							max: 25,
+  		                    fontColor : 'rgba(12, 13, 13, 1)',
+  							fontSize : 14
+  		                }
+  		            }]
+  		        }
+  		    }
+  		});
+  	}//makeChart
+  	
+  	//관심지역 불러오기
+  	$.ajax({
+  		type : "POST",
+  		url : "/jaju/manager/getLocationInfo",
+  		dataType : "json",
+  		success : function(data) {
+  			var labels = [];
+  			var myData = [];
+
+  			//맵안에 list 였으니 for문으로 돌린다
+  			$.each(data.list, function(index, items) {
+  				console.log("관심지역도넛: most_Regist?"
+  						+ JSON.stringify(data));
+
+  				labels.push(items.most_Regist);//items.sale_category
+  				myData.push(items.count);//items.countCategory
+  			});
+  			var newLabels = labels.slice(-5);
+  			var newMyData = myData.slice(-5);
+
+  			ctx = $('#myChart3');
+  			makeChart(ctx, 'doughnut', newLabels, newMyData);
+
+  		}
+  	});// getLocationInfo ajax
+  });
+    </script>
 
 
 </body>

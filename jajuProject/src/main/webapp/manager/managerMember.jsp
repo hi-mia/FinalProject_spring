@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="/jaju/manager_css/managerMember.css" />
 </head>
 <body>
+<jsp:include page="/manager/managerHeader.jsp"/>
 
 <div style="width: 1280px; margin: auto;">
 

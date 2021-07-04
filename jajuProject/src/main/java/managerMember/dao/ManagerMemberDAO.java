@@ -32,4 +32,17 @@ public interface ManagerMemberDAO {
 
 	public ManagerMainDTO getSaleAvg();
 
+	public List<ManagerMainDTO> getLocationInfo();
+
+	/*==== MAINCHART COUNT(*) NUM FROM DB ====*/
+	//1:1
+	public int getManagerInquireCount();
+	//신고글
+	public int getManagerReportCount();
+	//신규 회원 가입 멤버 수 (당일) 
+	public int getManagerMemberCount();
+	//판매 게시글 수 (당일)
+	public int getManagerSaleReportCount();
+
+
 }
