@@ -7,10 +7,9 @@
 </head>
 <body>
 
+<jsp:include page="/manager/managerHeader.jsp"/>
 <div style="width: 1280px; margin: auto;">
-
 <jsp:include page="/manager/managerMenu.jsp"/>
-
 <div id="framecontent">
 
 <input type="hidden" name="pg" id="pg" value="${pg}">
@@ -237,9 +236,9 @@
 
            <div id="accountNotiLayer">
                <ul class="account_noti">
-                   <li>[가입일 최신순] 카테고리를 클릭하면 가입일 최신순,오래된순,매너온도 높은순서로 정렬이 가능합니다.</li>
-                   <li>회원을 체크한뒤 활동중지 버튼이나 강제탈퇴 버튼을 누르면 블랙리스트에 등록되며 로그인이 불가능합니다.</li>
-                   <li>활동중지는 블랙리스트 관리에서 활동중지 해제가 가능합니다. 강제탈퇴된 회원은 복구가 불가능합니다.</li>
+                   <li>마우스 포인터를 닉네임(계정) 위에 올리면 전체 메일 주소가 나타납니다.</li>
+                   <li>회원을 검색할 때, 전체 메일 주소를 입력해야만 검색 결과가 노출됩니다.</li>
+                   <li>회원이 대표 메일을 변경하면 카페 내 메일 주소도 함께 변경됩니다.</li>
                </ul>
            </div>
            
@@ -270,5 +269,12 @@
 	}
 }
 	</script>
+	
+<script type="text/javascript">
+$(document).ready(function(){
+   
+   $('#managerMember').addClass('on');
+});
+</script>
 </body>
 </html>

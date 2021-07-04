@@ -18,7 +18,7 @@ $(function(){
 			//$('#row').remove();
 			
 			if(JSON.stringify(data.list)=='[]' && data.myScrap_Paging != null){
-				//alert("찜한 상품이 없습니다.");
+				alert("찜한 상품이 없습니다.");
 				$('.delete_btn_div').remove();
 				
 				$('<tr/>').append($('<td/>',{
@@ -63,7 +63,7 @@ $(function(){
 					.append($('<img/>',{
 					src:'/jaju/storage/'+items.sale_image1,
 					style:'width:100%; height:105%; transform:scale(1.0);	transition: transform .5s; cursor:pointer; ',
-					class:'subject_'+items.sale_seq //글제목 부분
+					class:"img_"+items.scrap_seq,
 				})))
 				.append($('<li/>',{
 					text:items.sale_subject,
@@ -115,9 +115,7 @@ $(function(){
 					}
 				});*/
 			
-				$(document).on("click",".subject_"+items.sale_seq,function(){		
-					location.href="/jaju/saleboard/saleboardView?sale_seq="+items.sale_seq+"&pg=1";
-					});
+			
 				
 			});//each
 			

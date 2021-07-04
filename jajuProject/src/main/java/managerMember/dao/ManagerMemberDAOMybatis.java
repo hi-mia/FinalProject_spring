@@ -31,13 +31,7 @@ public class ManagerMemberDAOMybatis implements ManagerMemberDAO {
 	public void changeMemberState(Map<String, String[]> map) {
 		sqlSession.update("managerMemberSQL.changeMemberState", map);
 	}
-	
-	// 활동중지 해제  1->0로 변경
-	@Override
-	public void changeBlackMemberStateRollback(Map<String, String[]> map) {
-		sqlSession.update("managerMemberSQL.changeBlackMemberStateRollback", map);		
-	}
-	
+
 	// 강제탈퇴기능
 	@Override
 	public void managerMemberForm(Map<String, String[]> map) {

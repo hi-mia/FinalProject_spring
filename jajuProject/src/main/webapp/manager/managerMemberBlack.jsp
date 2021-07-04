@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="/jaju/manager_css/managerMemberBlack.css" />
 </head>
 <body>
-
+<jsp:include page="/manager/managerHeader.jsp"/>
 <div style="width: 1280px; margin: auto;">
 
 <jsp:include page="/manager/managerMenu.jsp"/>
@@ -167,10 +167,10 @@
 			</div> -->
 
            <div id="accountNotiLayer">
-               <ul class="account_noti" style="text-align: left;">
-                   <li>활동중지 카테고리를 클릭하면 활동중지 회원 목록과 강제탈퇴 회원 목록을 볼 수 있습니다.</li>
-                   <li>회원을 체크한뒤 활동중지해제 버튼을 누르면 활동중지가 해제되고 회원관리로 이동합니다.</li>
-                   <li>강제탈퇴된 회원은 복구가 불가능합니다.</li>
+               <ul class="account_noti">
+                   <li>마우스 포인터를 닉네임(계정) 위에 올리면 전체 메일 주소가 나타납니다.</li>
+                   <li>회원을 검색할 때, 전체 메일 주소를 입력해야만 검색 결과가 노출됩니다.</li>
+                   <li>회원이 대표 메일을 변경하면 카페 내 메일 주소도 함께 변경됩니다.</li>
                </ul>
            </div>
            <div id="articleSummaryLayer" class="layer_post" style="top: -10000px; left: -10000px; visibility: hidden;"></div>
@@ -200,5 +200,12 @@
 	}
 }
 	</script>
+	
+<script type="text/javascript">
+$(document).ready(function(){
+   
+   $('#managerMemberBlack').addClass('on');
+});
+</script>
 </body>
 </html>

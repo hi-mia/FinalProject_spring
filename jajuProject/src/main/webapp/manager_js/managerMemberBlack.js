@@ -9,17 +9,6 @@ $(function(){
 		data: {'pg':  $('#pg').val(), 'sortinSelect': $('#sortinSelect').val()},
 				//'pg': $('#pg').val()
 		success:function(data){
-			
-			if(JSON.stringify(data.list)=='[]'){
-				$('#memberListBody tr').remove();
-				 $('<tr/>').append($('<td/>',{
-	    			 	colspan:8,
-						align:'center',
-						text:'활동정지 된 회원이 없습니다.',
-						style:'bordercolor="#ededed"; width:860px; height:300px;'
-					})).appendTo($('#memberListBody'));
-			}else{
-			
 			$.each(data.list, function(index, items){
 				
 				//if문 돌려서, member_state 1 은 활동정지, 2는 강제탈퇴 로 변경해서 넣기 !!!
@@ -60,11 +49,10 @@ $(function(){
 					text:items.member_warning,
 					style:'text-align:center;'
 				})).append($('<td/>',{
-					class:'member_sell_span'+items.member_id,
-					text:'판매리스트 이동',
-					style:'cursor:pointer;'	
+					class:'member_sell_span',
+					text:'판매리스트 이동'	
 				})).appendTo($('#memberListBody'));
-			
+				
 				// 전체 선택 또는 해제
 				$('#all').click(function(){
 				   // alter($('#all').attr('checked'));//checked 속성이 없어서 undefind으로 나온다.
@@ -75,27 +63,10 @@ $(function(){
 				      $('input[name=check]').prop('checked',false);
 				   }
 				});
-				
-				$('.member_sell_span'+items.member_id).click(function(){
-		               
-					var popupWidth=540;
-		               var popupHeight=660;
-
-		               var popupX = (window.screen.width/2)-(popupWidth/2);
-		               // 만들 팝업창 width 크기의 1/2 만큼 보정값으로 빼주었음
-
-		               var popupY= (window.screen.height/2)-(popupHeight/2);
-		               // 만들 팝업창 height 크기의 1/2 만큼 보정값으로 빼주었음
-		               
-		               window.open("/jaju/manager/managerMemberHistory?id="+items.member_id, 
-		                        "managerMemberHistory", 
-		                        'status=no, scroll=no,  height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY); 
-		         });//member_sell span click
-				
 			});//each
-		}//else
+			
 			$('#memberPagingDiv').html(data.managerPagingBlack.pagingHTML);
-		
+
 		},error:function(err){
 			console.log("관리자-회원 쪽 에러발생"+err);
 		}		
@@ -103,17 +74,10 @@ $(function(){
 });
 //리스트에 따라 결과 가져오기
 $('#sortinSelect').change(function(){
-	/*
-	if($(this).val()=='delete_member'){
-		$("#again_member_id").hide();
-		$("#btnWithdraw").hide();
-	}else{
-		$("#again_member_id").show();
-		$("#btnWithdraw").show();
-	}*/
+	
 	//console.log($(this).val()); //value값 가져오기
 	
-	
+	$('#memberListBody tr').remove();
 	$.ajax({
 		url: '/jaju/manager/getManagerMemberBlack',
 		type:'post',
@@ -122,35 +86,18 @@ $('#sortinSelect').change(function(){
 				//'pg': $('#pg').val()
 		success:function(data){
 			
-			if(JSON.stringify(data.list)=='[]'){
-				if($('#sortinSelect').val()=='delete_member'){
-					$("#again_member_id").hide();
-					$("#btnWithdraw").hide();
-					$('#memberListBody tr').remove();
-					 $('<tr/>').append($('<td/>',{
-		    			 	colspan:8,
-							align:'center',
-							text:'강제탈퇴 된 회원이 없습니다.',
-							style:'bordercolor="#ededed"; width:860px; height:300px;'
-						})).appendTo($('#memberListBody'));
-				}else{
-					$("#again_member_id").show();
-					$("#btnWithdraw").show();
-					 //alert("찾는 내용이 없습니다.");
-					 $('#memberListBody tr').remove();
-					 $('<tr/>').append($('<td/>',{
-		    			 	colspan:8,
-							align:'center',
-							text:'활동정지 된 회원이 없습니다.',
-							style:'bordercolor="#ededed"; width:860px; height:300px;'
-						})).appendTo($('#memberListBody'));
-			    	 //$('#memberListBody tr').remove();
-				}
-				
-	    		
+			if(JSON.stringify(data.list)=='[]'){ 
+	    		 alert("찾는 내용이 없습니다.");
+		    	 $('#memberListBody tr').remove();
 
-	    		
-	    	}else{
+	    		 $('<tr/>').append($('<td/>',{
+	    			 	colspan:8,
+						align:'center',
+						text:'강제탈퇴 된 회원이 없습니다.',
+						style:'bordercolor="#ededed"; width:860px; height:300px;'
+					})).appendTo($('#memberListBody'));
+	    	}
+			else{
 				
 			$.each(data.list, function(index, items){
 				//console.log(JSON.stringify(data));
@@ -189,9 +136,8 @@ $('#sortinSelect').change(function(){
 					text:items.member_warning,
 					style:'text-align:center;'
 				})).append($('<td/>',{
-					class:'member_sell_span'+items.member_id,
-					text:'판매리스트 이동',
-					style:'cursor:pointer;'	
+					class:'member_sell_span',
+					text:'판매리스트 이동'	
 				})).appendTo($('#memberListBody'));
 				
 				// 전체 선택 또는 해제
@@ -204,23 +150,6 @@ $('#sortinSelect').change(function(){
 				      $('input[name=check]').prop('checked',false);
 				   }
 				});
-				
-				$('.member_sell_span'+items.member_id).click(function(){
-		               
-					var popupWidth=540;
-		               var popupHeight=660;
-
-		               var popupX = (window.screen.width/2)-(popupWidth/2);
-		               // 만들 팝업창 width 크기의 1/2 만큼 보정값으로 빼주었음
-
-		               var popupY= (window.screen.height/2)-(popupHeight/2);
-		               // 만들 팝업창 height 크기의 1/2 만큼 보정값으로 빼주었음
-		               
-		               window.open("/jaju/manager/managerMemberHistory?id="+items.member_id, 
-		                        "managerMemberHistory", 
-		                        'status=no, scroll=no,  height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY); 
-		         });//member_sell span click	
-				
 			});//each
 			}//else (each문 밖에 위치)
 			$('#memberPagingDiv').html(data.managerPagingBlack.pagingHTML);
@@ -244,8 +173,8 @@ $('#btnWithdraw').click(function(){
 			alert("활동 중지를 해지할 아이디를 선택 하세요");
 		}
 		else {
-			if(confirm(checkboxValues+"의 아이디의 활동중지상태를 해제 하시겠습니까?")){
-				$("#managerMemberBlackForm").attr("action", "/jaju/manager/changeBlackMemberStateRollback");
+			if(confirm(checkboxValues+"의 아이디를 활동 중지로 변경 하시겠습니까?")){
+				$("#managerMemberBlackForm").attr("action", "/jaju/manager/changeBlackMemberState");
 				$('#managerMemberBlackForm').submit();
 				alert('변경이 완료 되었습니다.');
 				//location.reload();

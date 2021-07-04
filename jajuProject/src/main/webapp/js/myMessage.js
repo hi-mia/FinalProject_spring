@@ -64,7 +64,7 @@ $(document).ready(function() {
 						text:items.message_subject,
 						id : 'subjectA',
 						class : 'subject_'+items.message_seq,
-						style:"width: 200px; cursor:pointer;"
+						style:"width: 200px;"
 						
 					})).append($('<td/>',{
 						align:'center',

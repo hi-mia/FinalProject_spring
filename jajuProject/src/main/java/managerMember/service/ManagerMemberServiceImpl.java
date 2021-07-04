@@ -48,15 +48,7 @@ public class ManagerMemberServiceImpl implements ManagerMemberService {
 		map.put("array", check);
 		managerMemberDAO.changeMemberState(map);
 	}
-	
-	//블랙리스트 활동정지 해제
-	@Override
-	public void changeBlackMemberStateRollback(String[] check) {
-		Map<String, String[]> map = new HashMap<String, String[]>();
-		map.put("array", check);
-		managerMemberDAO.changeBlackMemberStateRollback(map);	
-	}
-	
+
 	@Override
 	public List<MemberDTO> getSearchMemberInfo(Map<String, String> map) {
 		// 1페이지당 10개씩

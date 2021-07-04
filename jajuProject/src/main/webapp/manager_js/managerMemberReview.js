@@ -34,44 +34,23 @@ $(function(){
 				
 	    	  else {
 	    		  $.each(data.list, function(index, items){
-	                /*  $('<div/>').append($('<div/>',{
-	                      align:'left',
+	                  $('<div/>').append($('<div/>',{
+	                      align:'center',
 	                      style:'margin-right:40px; cursor: pointer; height:15px; padding:10px;',
 	                      id:'subject_' 
 	                }).append($('<a/>',{
 	                   text:' 제 목: '+items.review_subject+' ',
-	                   class:'subject_'+items.review_seq //글제목 부분
+	                   class:'subject_'+items.review_seq, //글제목 부분
+	                   style:'cursor: pointer;'
 	                }).append($('<span/>',{
-	                         align:'left',
+	                         align:'center',
 	                         style:'margin-left:40px;   cursor: pointer;',
 	                         id:'reviewDate' ,
 	                         text:' 작성일: '+items.review_date
-	                   })))).appendTo($('#historyDiv1'));*/
-	                 
-	    			  //historyTable
-					$('<tr/>').append($('<td/>').append($('<span/>',{
-		                   text:' 제 목: '+items.review_subject+' ',
-		                   style:'cursor: pointer;',
-		                   align:'left',
-		                   class:'subject_'+items.review_seq //글제목 부분
-		                }))).append($('<td/>').append($('<span/>',{
-	                         align:'left',
-	                         style:'margin-left:100px;',
-	                         id:'reviewDate' ,
-	                         text:' 작성일: '+items.review_date
-	                   }))).appendTo($('#historyTable'));
-	                  
-	                  
+	                   })))).appendTo($('#historyDiv1'));
+					
 	    			 //페이징처리
 	    			 $('#memberReviewListPageDiv').html(data.getMyProfileReviewListPage.pagingHTML); 
-	    		  
-	    			// $('.subject_'+items.review_seq).click(function(){
-	    				 $(document).on("click",".subject_"+items.review_seq,function(){		
-	    					
-	    					 window.opener.location.href="/jaju/reviewboard/reviewboardView?review_seq="+items.review_seq+"&pg=1";
-	    					
-	    					});
-	    		  
 	    		  });//each
 	       	  }//else
 	      },error:function(err){

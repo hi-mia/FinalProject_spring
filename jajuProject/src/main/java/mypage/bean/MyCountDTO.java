@@ -10,5 +10,5 @@ public class MyCountDTO {
 	private String saleCount;
 	private String buyCount;
 	private String reviewCount;
-	private String buyCountAll;
+	
 }

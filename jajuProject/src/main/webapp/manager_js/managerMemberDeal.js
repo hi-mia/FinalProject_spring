@@ -24,25 +24,20 @@ $(function(){
 					})).appendTo($('#historyDiv4'));
 				}
 				
-			 else {
+	    	  else {
 	    		  $.each(data.list, function(index, items){
-	    			  $('<tr/>').append($('<td/>').append($('<a/>',{
-		                   text:' 제 목: '+items.sale_subject+' ',
-		                   style:'cursor: pointer;',
-		                   class:'subject_'+items.sale_seq //글제목 부분
-		                }))).append($('<td/>').append($('<span/>',{
-	                         align:'left',
-	                         style:'margin-left:100px;',
-	                         id:'dealDate',
-	                         text:' 작성일: '+items.sale_date
-	                   }))).appendTo($('#historyTable'));
+	    			 $('<div/>').append($('<div/>',{
+							align:'center',
+							style:'cursor: pointer',
+							id:'subject_' 
+					}).append($('<a/>',{
+						text:items.sale_subject,
+						class:'subject_'+items.sale_seq //글제목 부분
+					}))).appendTo($('#historyDiv4'));
 					
 					
 	    			 //페이징처리
 	    			 $('#memberDealListPageDiv').html(data.myDealPaging.pagingHTML); 
-	    			 $(document).on("click",".subject_"+items.sale_seq,function(){		
-	    				 window.opener.location.href="/jaju/saleboard/saleboardView?sale_seq="+items.sale_seq+"&pg=1";
-	    				 });
 	    		  });//each
 	    		  		
 	    		  		

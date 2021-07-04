@@ -54,7 +54,7 @@ body {
 	font-weight: 400;
 	line-height: 1.5;
 	color: #607080;
-	background-color: #f2f7ff;
+	background-color: #fcfcfc;
 	-webkit-text-size-adjust: 100%;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -153,9 +153,6 @@ address {
 	line-height: inherit
 }
 
-ol, ul {
-	padding-left: 2rem
-}
 
 dl, ol, ul {
 	margin-top: 0;
@@ -207,10 +204,10 @@ sup {
 	top: -.5em
 }
 
-a {
+/* a {
 	color: #435ebe;
 	text-decoration: underline
-}
+} */
 
 a:hover {
 	color: #364b98
@@ -1050,7 +1047,7 @@ progress {
 	}
 	.col-md-8 {
 		flex: 0 0 auto;
-		width: 66.6666666667%
+		width: 66.6666666667%;
 	}
 	.col-md-9 {
 		flex: 0 0 auto;
@@ -4212,7 +4209,7 @@ textarea.form-control-lg {
 
 .card-body {
 	flex: 1 1 auto;
-	padding: 1rem
+	/* padding: 1rem */
 }
 
 .card-title {
@@ -7031,11 +7028,11 @@ opacity
 	padding-top: 1rem !important;
 	padding-bottom: 1rem !important
 }
-
+/* 
 .py-4 {
 	padding-top: 1.5rem !important;
 	padding-bottom: 1.5rem !important
-}
+} */
 
 .py-5 {
 	padding-top: 3rem !important;

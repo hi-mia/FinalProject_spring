@@ -61,15 +61,6 @@
 	</foreach>
 </update>
 
-<!-- 선택한 회원 활동중지해제, 상태 1->0으로 변경  -->
-<update id="changeBlackMemberStateRollback" parameterType="java.util.Map" >
-	update jajumember set member_state='0' where member_id in
-	<foreach collection="array" item="data" open="(" close=")" separator=",">
-		#{data}
-	<!-- ${array[i]} -->
-	</foreach>
-</update>
-
 <!-- 검색 결과 가져오기. 닉네임, 이메일,  -->
 <select id="getSearchMemberInfo" parameterType="java.util.Map" resultType="member">
 	

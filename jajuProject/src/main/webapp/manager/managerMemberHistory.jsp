@@ -65,7 +65,7 @@
 	
 		<div id="historyDiv">
 				
-				<div id="historyInfo" style='height:20px; margin-top:100px; display: table-cell; vertical-align: middle;' >
+				<div id="historyInfo" style='height:20px; display: table-cell; vertical-align: middle;' >
 					클릭하여 세부 내역을 확인하세요.
 				</div>
 		</div>

@@ -66,17 +66,14 @@ $(function(){
 	    		  $.each(data.list, function(index, items){
 	    			 $('<tr/>').append($('<td/>',{
 							align:'center',
-							style:'cursor: pointer; text-align-last: left;',
+							style:'cursor: pointer',
 							id:'subject_' 
 					}).append($('<a/>',{
-						text:' 제 목: '+items.review_subject+' ',
-						style:"margin-right: 200px;",
+						text:items.review_subject,
 						class:'subject_'+items.review_seq //글제목 부분
 					}))).appendTo($('#saleContentTd'));
 					
-	    			 $(document).on("click",".subject_"+items.review_seq,function(){			    					
-	    				 window.opener.location.href="/jaju/reviewboard/reviewboardView?review_seq="+items.review_seq+"&pg=1";    					
-	    				 });
+					
 	    			 //페이징처리
 	    			 $('#getMyProfileReviewListPagingDiv').html(data.getMyProfileReviewListPage.pagingHTML); 
 	    		  });//each

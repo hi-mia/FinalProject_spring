@@ -13,9 +13,7 @@
 <input type="hidden" id="pg" name="pg" value="${pg}">
 <jsp:include page="/manager/managerMemberHistory.jsp" />
 
-<div style="margin-top: 100px;">
-		<table id="historyTable" style="text-align-last: left;"></table>
-		</div>
+<div id="historyDiv3"></div>
 		<div style="margin: 0px; text-align: center;"
 			id="memberBuyListPageDiv"></div>
 <script type="text/javascript"

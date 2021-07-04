@@ -617,15 +617,15 @@ ul.list_menu {
     text-indent: -9999px;
     border: 1px solid #ddd;
 }
-/* #historyDiv1,#historyDiv2,#historyDiv3,#historyDiv4{
+#historyDiv1,#historyDiv2,#historyDiv3,#historyDiv4{
     margin-top: 100px;
-    height: 180px;
-    display: inline-block;
-   vertical-align: baseline;
-} */
+    /*height: 180px;*/
+    display: grid;
+   /* vertical-align: baseline; */
+}
 #subject_{
 	margin-right:40px; 
 	cursor: pointer; 
 	height:15px; 
-	padding:10px;	
+	padding:10px;
 }
