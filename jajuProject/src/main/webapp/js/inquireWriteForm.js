@@ -29,7 +29,7 @@ $('#inquireWritBtn').click(function(){
 		$('#inquiry_contentsDiv').css('color','red');
 		$('#inquiry_contentsDiv').css('font-size','10pt');
 		$('#inquiry_contentsDiv').css('font-weight','bold');
-	}
+	}  
 	else{
 		var formData = new FormData($('#fm')[0])
 		$.ajax({
