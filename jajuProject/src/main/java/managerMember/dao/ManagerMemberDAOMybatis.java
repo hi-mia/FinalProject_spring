@@ -75,4 +75,32 @@ public class ManagerMemberDAOMybatis implements ManagerMemberDAO {
 		return sqlSession.selectOne("managerMemberSQL.getSaleAvg");
 	}
 
+	@Override
+	public List<ManagerMainDTO> getLocationInfo() {
+		return sqlSession.selectList("managerMemberSQL.getLocationInfo");
+	}
+	
+	/*==== MAINCHART COUNT(*) NUM FROM DB ====*/
+	@Override
+	public int getManagerInquireCount() {
+		return sqlSession.selectOne("managerMemberSQL.getManagerInquireCount");
+	}
+
+	@Override
+	public int getManagerReportCount() {
+		return  sqlSession.selectOne("managerMemberSQL.getManagerReportCount");
+	}
+
+	@Override
+	public int getManagerMemberCount() {
+		return sqlSession.selectOne("managerMemberSQL.getManagerMemberCount");
+	}
+
+	@Override
+	public int getManagerSaleReportCount() {
+		return sqlSession.selectOne("managerMemberSQL.getManagerSaleReportCount");
+	}
+
+
+
 }

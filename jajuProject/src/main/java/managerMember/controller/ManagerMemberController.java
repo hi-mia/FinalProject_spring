@@ -1,8 +1,10 @@
 package managerMember.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.collections4.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +26,14 @@ public class ManagerMemberController {
 	@Autowired
 	private ManagerMemberService managerMemberService;
 	
-
+	@RequestMapping(value = "managerMainChart", method = RequestMethod.GET)
+	public ModelAndView managerMainChart(@RequestParam(required = false, defaultValue = "1") String pg) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg",pg);
+		mav.setViewName("/manager/managerMainChart");
+		return mav;
+	}
+	
 	@RequestMapping(value = "managerMember", method = RequestMethod.GET)
 	public ModelAndView managerMember(@RequestParam(required = false, defaultValue = "1") String pg) {
 		ModelAndView mav = new ModelAndView();
@@ -143,7 +152,6 @@ public class ManagerMemberController {
 		
 		List<ManagerMainDTO> list = managerMemberService.getMemberCategory();
 		
-		System.out.println("차트 카테고리 리스트"+list);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
 		mav.setViewName("jsonView");
@@ -157,9 +165,55 @@ public class ManagerMemberController {
 		
 		ManagerMainDTO managerMainDTO = managerMemberService.getSaleAvg();
 		
-		System.out.println("차트 카테고리 리스트"+managerMainDTO);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("managerMainDTO", managerMainDTO);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	//자주마켓 회원 관심지역 등록 best 5 
+	@RequestMapping(value = "/getLocationInfo", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView getLocationInfo(@RequestParam Map<String, String> map,
+										@RequestParam(required = false, defaultValue = "1") String pg) {
+		
+		List<ManagerMainDTO> list = managerMemberService.getLocationInfo();
+		
+		System.out.println("관심지역 베스트5 리스트"+list);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", list);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	
+	//mainChart의 count수 가져오기
+	@RequestMapping(value = "/getManagerMainCount", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView getManagerMainCount() {
+		//신규 1:1문의수
+		int inquire_db = managerMemberService.getManagerInquireCount();
+		//신고 게시글 처리중 수
+		int report_db = managerMemberService.getManagerReportCount();
+		//당일 신규 가입자 수
+		int newMember_db = managerMemberService.getManagerMemberCount();
+		//당일 판매 게시글 등록 수 불러오기 
+		int saleReport_db = managerMemberService.getManagerSaleReportCount();
+		
+		/*
+		 * Map<String, String> mapData = new HashMap<String, String>();
+		 * mapData.put("inquire_db", inquire_db+""); mapData.put("report_db",
+		 * report_db+""); mapData.put("newMember_db", newMember_db+"");
+		 * mapData.put("saleReport_db", saleReport_db+"");
+		 */
+		
+		System.out.println("db에서 불러온 COUNT NUM = "+inquire_db+","+report_db+","+newMember_db+","+saleReport_db);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("inquire_db",inquire_db+"");
+		mav.addObject("report_db",report_db+"");
+		mav.addObject("newMember_db",newMember_db+"");
+		mav.addObject("saleReport_db",saleReport_db+"");
+		
 		mav.setViewName("jsonView");
 		return mav;
 	}
