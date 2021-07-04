@@ -87,4 +87,9 @@ public class MemberServiceImpl implements MemberService {
 			return "non_blackList";
 		}
 	}
+
+	@Override
+	public void retire(String member_id) {
+		memberDAO.retire(member_id);
+	}
 }

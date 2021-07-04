@@ -57,4 +57,8 @@
  	<select id="isBlackList" parameterType="String" resultType="member">
  		select * from jajumember where member_email=#{member_email} and member_state='2'
  	</select>
+ 	
+ 	<update id="retire" parameterType="String">
+ 		update jajumember set member_state='탈퇴' where member_id=#{member_id}
+ 	</update>
  </mapper>

@@ -1,0 +1,310 @@
+@charset "UTF-8";
+
+@font-face {
+     font-family: 'S-CoreDream-4Regular';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+
+#daumContent {
+    width: 978px;
+    overflow: hidden;
+    margin: 0 auto;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #333;
+}
+
+#mArticle {
+    min-height: 574px;
+}
+
+.dimmed_layer {
+    position: fixed;
+    z-index: 9999999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .5;
+    filter: alpha(opacity=50);
+}
+
+.screen_out {
+    display: block;
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+.myinfo_intro {
+    width: 100%;
+    overflow: hidden;
+    height: 147px;
+}
+
+.bg_intro {
+    display: block;
+    overflow: hidden;
+    background: url(https://t1.daumcdn.net/id/member/2014/bg_tit_150917.gif) 0 0 no-repeat;
+}
+
+.myinfo_intro .bg_intro {
+    float: left;
+    width: 154px;
+    height: 147px;
+}
+
+.intro_out .bg_intro {
+    width: 130px;
+    background-position: -160px -600px;
+}
+
+.myinfo_intro .cont_intro {
+    float: left;
+    padding-top: 37px;
+}
+
+.intro_out .cont_intro {
+    padding-top: 53px;
+}
+
+.tit_comm {
+    display: block;
+    overflow: hidden;
+}
+
+.myinfo_intro .tit_comm {
+    height: 26px;
+    margin-bottom: 14px;
+}
+
+.intro_out .tit_termination {
+    width: 754px;
+    background-position: 0 -1615px;
+}
+
+.info_termination {
+    overflow: hidden;
+    width: 978px;
+    margin-top: -50px;
+}
+
+.wrap_btn {
+    width: 100%;
+    padding: 20px 0 70px;
+    overflow: hidden;
+    text-align: center;
+    margin-top: -50px;
+}
+
+.btn_comm {
+    display: inline-block;
+    overflow: hidden;
+    background: url(https://t1.daumcdn.net/id/member/2020/btn_comm_200720.gif) 0 0 no-repeat;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: top;
+}
+
+.userinfo_layer {
+    position: absolute;
+    left: 50%;
+    margin-left: -200px;
+    z-index: 9999999;
+}
+
+.userinfo_layer {
+    position: absolute;
+    left: 50%;
+    z-index: 9999999;
+}
+
+.inner_myinfo_layer {
+    width: 316px;
+    padding: 48px 40px;
+    border: 1px solid #444;
+    text-align: left;
+    letter-spacing: -1px;
+    background-color: #fff;
+}
+
+.inner_myinfo_layer .layer_body {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.check_password_wrap {
+    max-width: 880px;
+    margin: 70px auto 64px auto;
+}
+
+.check_password_wrap .margin-wrap {
+    margin: 0 20px;
+}
+
+.check_password_wrap h1 {
+    margin-bottom: 33px;
+    padding-bottom: 17px;
+    font-size: 16px;
+    border-bottom: 1px solid #b4b4b4;
+}
+
+.check_password_wrap .info {
+    font-size: 13px;
+    letter-spacing: -1px;
+    color: #777;
+}
+
+.check_password_wrap div.form-holder {
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 35px 0 20px 0;
+    margin: 30px 0;
+}
+
+.check_password_wrap div.form-holder .form-group label {
+    margin: auto 10px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 20px;
+    color: #222;
+    vertical-align: middle;
+}
+
+.check_password_wrap div.form-holder .form-group label {
+    float: left;
+    width: 25%;
+    text-align: right;
+    height: 50px;
+}
+
+.check_password_wrap div.form-holder .form-group div {
+    margin: auto 10px;
+    height: 50px;
+}
+
+.check_password_wrap div.form-holder .form-group div {
+    text-align: left;
+    float: left;
+    width: 60%;
+}
+
+.check_password_wrap div.form-holder .form-group .email {
+    font-size: 14px;
+    font-weight: bold;
+    color: #222;
+}
+
+.check_password_wrap div.form-holder .form-group:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.check_password_wrap div.form-holder .form-group label {
+    margin: auto 10px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 20px;
+    color: #222;
+    vertical-align: middle;
+}
+
+.check_password_wrap div.form-holder .form-group input#password {
+    width: 80%;
+}
+
+.check_password_wrap div.form-holder .form-group input {
+    max-width: 100%;
+}
+
+input[type=text], input[type=password] {
+    margin: 0;
+    color: #444;
+    vertical-align: middle;
+    padding: 10px;
+    font-size: 13px;
+    line-height: 17px;
+    height: 17px;
+    font-weight: normal;
+    border-radius: 5px;
+    outline: 0;
+    border: 1px solid #ccc;
+}
+
+.btn_group {
+    text-align: center;
+}
+
+.check_password_wrap #check_password.btn {
+    width: 82px;
+}
+
+a.btn_check {
+    border: 1px solid #aaa;
+    display: inline-block;
+    border-radius: 5px;
+    outline: 0;
+    text-align: center;
+    color: #555;
+    letter-spacing: -1px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 24px;
+    background-color: #fdfdfd;
+}
+
+.form-group {
+    margin-bottom: 0px;
+}
+
+.wrap_btn .btn_retire {
+    margin-top: 10px;
+    border: 1px solid #064acb;
+    background-color: #fff;
+}
+
+.btn_type1, .btn_type2 {
+    display: inline-table;
+    overflow: hidden;
+    width: 150px;
+    border-radius: 3px;
+    font-size: 0;
+    text-align: center;
+}
+
+.btn_type1 {
+    border: 1px solid #064acb;
+    background-color: #064acb;
+}
+
+.btn_type1 .txt_type {
+    color: #fff;
+}
+
+.btn_type2 .txt_type {
+    color: #064acb;
+}
+
+.btn_type1 .txt_type, .btn_type2 .txt_type {
+    display: inline-block;
+    height: 100%;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 51px;
+    text-align: center;
+}

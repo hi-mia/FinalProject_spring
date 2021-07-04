@@ -70,6 +70,10 @@ $('#loginBtn').click(function(){
 			success: function(data){
 				if(data == 'jajuadmin'){
 					location.href="/jaju/manager/index";
+				}else if(data == 'blacklist'){
+					alert('이용이 정지된 회원입니다.\n자세한 사항은 문의 바랍니다.')
+				}else if(data == 'retire'){
+					alert('탈퇴된 회원입니다.\n자세한 사항은 문의 바랍니다.')
 				}else if(data != ''){
 					location.href="/jaju/"
 				}else {

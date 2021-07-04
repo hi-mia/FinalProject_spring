@@ -42,10 +42,16 @@ public class MemberController {
 		MemberDTO memberDTO = memberService.login(map);
 		
 		if(memberDTO != null) {
-			session.setAttribute("memId", memberDTO.getMember_id());
-			model.addAttribute("memId", session.getAttribute("memId"));
-
-			return memberDTO.getMember_id();
+			if(memberDTO.getMember_state().equals("2")) {
+				return "blacklist";
+			}else if(memberDTO.getMember_state().equals("탈퇴")) {
+				return "retire";
+			}else {
+				session.setAttribute("memId", memberDTO.getMember_id());
+				model.addAttribute("memId", session.getAttribute("memId"));
+	
+				return memberDTO.getMember_id();
+			}
 		}else {
 			return "";
 		}
@@ -178,8 +184,30 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/retireForm", method=RequestMethod.GET)
-	public String retire(Model model) {
+	public String retireForm(Model model) {
 		model.addAttribute("display", "/member/retireForm.jsp");
+		
+		return "/index";
+	}
+
+	@RequestMapping(value="/retireCheck", method=RequestMethod.GET)
+	public String retireCheck(Model model) {
+		model.addAttribute("display", "/member/retireCheck.jsp");
+		
+		return "/index";
+	}
+	
+	@RequestMapping(value="/retireChk", method=RequestMethod.POST)
+	@ResponseBody
+	public void retireChk(HttpSession session) {
+		memberService.retire((String) session.getAttribute("memId"));
+	}
+
+	@RequestMapping(value="/retire", method=RequestMethod.GET)
+	public String retire(Model model, HttpSession session) {
+		session.invalidate();
+		
+		model.addAttribute("display", "/member/retire.jsp");
 		
 		return "/index";
 	}

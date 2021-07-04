@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/jaju/css/retire.css" />
+<link rel="stylesheet" href="/jaju/css/retireForm.css" />
 </head>
 <body>
 <div id="daumWrap" class="">
@@ -21,7 +21,7 @@
               <h3 class="tit_comm tit_outagree">회원탈퇴에 앞서 유의사항 및 안내를 반드시 읽고 진행해 주세요!</h3>
             </div>
           </div>
-          <form action="/withdraw.daum?action=agree-check" method="post">
+          <form>
 
             <div class="info_agree">
 
@@ -64,7 +64,7 @@
             </div>
             <div class="wrap_btn">
               <a href="/jaju/" class="btn_type2 btn_retire"><span class="txt_type">탈퇴 취소</span></a>
-              <button type="button" class="btn_type1"><span class="txt_type">다음 단계</span></button>
+              <button type="button" class="btn_type1" id="nextBtn"><span class="txt_type">다음 단계</span></button>
             </div>
           </form>
 
@@ -93,4 +93,5 @@
 </div>
 </body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/jaju/js/retireForm.js"></script>
 </html>
