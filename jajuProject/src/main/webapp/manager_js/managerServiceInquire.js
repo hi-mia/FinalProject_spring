@@ -50,6 +50,8 @@ $(function(){
 	            	text: items.inquiry_state,
 	            	class: 'state',
 				})).appendTo($('#tbl_admin'))
+				 //페이징 처리
+					
 				
 				$('.subject'+items.inquiry_seq).click(function(){
 					//alert(items.inquiry_seq);
