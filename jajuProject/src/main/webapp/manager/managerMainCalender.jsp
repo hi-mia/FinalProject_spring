@@ -5,230 +5,313 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+html, body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+  float: none;
+}
+
+/* ======== Calendar ======== */
+.my-calendar {
+  display: inline-block;
+  width: 700px;
+  margin-left:80px;
+  margin: 60px 200px;
+  padding: 20px 20px 10px;
+  text-align: center;
+  font-weight: 800;
+  border: 1px solid #ddd;
+  cursor: default;
+}
+.my-calendar .clicked-date {
+  border-radius: 25px;
+  margin-top: 36px;
+  float: left;
+  width: 42%;
+  padding: 46px 0 26px;
+  background: #ddd;
+}
+.my-calendar .calendar-box {
+  float: right;
+  width: 58%;
+  padding-left: 30px;
+}
+
+.clicked-date .cal-day {
+  font-size: 24px;
+}
+.clicked-date .cal-date {
+  font-size: 130px;
+}
+
+.ctr-box {
+  padding: 0 16px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.ctr-box .btn-cal {
+  position: relative;
+  float: left;
+  width: 25px;
+  height: 25px;
+  margin-top: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+.ctr-box .btn-cal:after {
+  content: '<';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 25px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.ctr-box .btn-cal.next {
+  float: right;
+}
+.ctr-box .btn-cal.next:after {
+  content: '>';
+}
+
+.cal-table {
+  width: 100%;
+}
+.cal-table th {
+  width: 14.2857%;
+  padding-bottom: 5px;
+  font-size: 16px;
+  font-weight: 900;
+}
+.cal-table td {
+  padding: 3px 0;
+  height: 50px;
+  font-size: 15px;
+  vertical-align: middle;
+}
+.cal-table td.day {
+  position: relative;
+  cursor: pointer;
+}
+.cal-table td.today {
+  background: #ffd255;
+  border-radius: 50%;
+  color: #fff;
+}
+.cal-table td.day-active {
+  background: #ff8585;
+  border-radius: 50%;
+  color: #fff;
+}
+.cal-table td.has-event:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background: #FFC107;
+}
+</style>
 </head>
 <body>
-	<div class="daterangepicker ltr show-ranges opensleft show-calendar"
-		style="top: 239px; right: 34.25px; left: auto; display: block;">
-		<div class="ranges">
-			<ul>
-				<li data-range-key="Today">Today</li>
-				<li data-range-key="Yesterday">Yesterday</li>
-				<li data-range-key="Last 7 Days">Last 7 Days</li>
-				<li data-range-key="Last 30 Days">Last 30 Days</li>
-				<li data-range-key="This Month">This Month</li>
-				<li data-range-key="Last Month">Last Month</li>
-				<li data-range-key="Custom" class="active">Custom</li>
-			</ul>
-		</div>
-		<div class="drp-calendar left">
-			<div class="calendar-table">
-				<table class="table-condensed">
-					<thead>
-						<tr>
-							<th></th>
-							<th class="prev available"><span></span></th>
-							<th colspan="5" class="month"><select class="monthselect"><option
-										value="0">January</option>
-									<option value="1">February</option>
-									<option value="2">March</option>
-									<option value="3">April</option>
-									<option value="4">May</option>
-									<option value="5">June</option>
-									<option value="6">July</option>
-									<option value="7">August</option>
-									<option value="8">September</option>
-									<option value="9">October</option>
-									<option value="10" selected="selected">November</option>
-									<option value="11">December</option></select><select class="yearselect"><option
-										value="2012">2012</option>
-									<option value="2013">2013</option>
-									<option value="2014">2014</option>
-									<option value="2015" selected="selected">2015</option></select></th>
-							<th></th>
-						</tr>
-						<tr>
-							<th class="week">W</th>
-							<th>Mo</th>
-							<th>Tu</th>
-							<th>We</th>
-							<th>Th</th>
-							<th>Fr</th>
-							<th>Sa</th>
-							<th>Su</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="week">44</td>
-							<td class="off available" data-title="r0c0">26</td>
-							<td class="off available" data-title="r0c1">27</td>
-							<td class="off available" data-title="r0c2">28</td>
-							<td class="off available" data-title="r0c3">29</td>
-							<td class="off available" data-title="r0c4">30</td>
-							<td class="weekend off available" data-title="r0c5">31</td>
-							<td class="weekend available" data-title="r0c6">1</td>
-						</tr>
-						<tr>
-							<td class="week">45</td>
-							<td class="available" data-title="r1c0">2</td>
-							<td class="available" data-title="r1c1">3</td>
-							<td class="available" data-title="r1c2">4</td>
-							<td class="available" data-title="r1c3">5</td>
-							<td class="available" data-title="r1c4">6</td>
-							<td class="weekend available" data-title="r1c5">7</td>
-							<td class="weekend available" data-title="r1c6">8</td>
-						</tr>
-						<tr>
-							<td class="week">46</td>
-							<td class="available" data-title="r2c0">9</td>
-							<td class="available" data-title="r2c1">10</td>
-							<td class="available" data-title="r2c2">11</td>
-							<td class="available" data-title="r2c3">12</td>
-							<td class="available" data-title="r2c4">13</td>
-							<td class="weekend available" data-title="r2c5">14</td>
-							<td class="weekend available" data-title="r2c6">15</td>
-						</tr>
-						<tr>
-							<td class="week">47</td>
-							<td class="available" data-title="r3c0">16</td>
-							<td class="available" data-title="r3c1">17</td>
-							<td class="available" data-title="r3c2">18</td>
-							<td class="available" data-title="r3c3">19</td>
-							<td class="available" data-title="r3c4">20</td>
-							<td class="weekend available" data-title="r3c5">21</td>
-							<td class="weekend available" data-title="r3c6">22</td>
-						</tr>
-						<tr>
-							<td class="week">48</td>
-							<td class="available" data-title="r4c0">23</td>
-							<td class="available" data-title="r4c1">24</td>
-							<td class="available" data-title="r4c2">25</td>
-							<td class="available" data-title="r4c3">26</td>
-							<td class="available" data-title="r4c4">27</td>
-							<td class="weekend available" data-title="r4c5">28</td>
-							<td class="weekend available" data-title="r4c6">29</td>
-						</tr>
-						<tr>
-							<td class="week">49</td>
-							<td class="available" data-title="r5c0">30</td>
-							<td class="off available" data-title="r5c1">1</td>
-							<td class="off available" data-title="r5c2">2</td>
-							<td class="off available" data-title="r5c3">3</td>
-							<td class="off available" data-title="r5c4">4</td>
-							<td class="weekend off available" data-title="r5c5">5</td>
-							<td class="weekend off available" data-title="r5c6">6</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="calendar-time" style="display: none;"></div>
-		</div>
-		<div class="drp-calendar right">
-			<div class="calendar-table">
-				<table class="table-condensed">
-					<thead>
-						<tr>
-							<th></th>
-							<th></th>
-							<th colspan="5" class="month"><select class="monthselect"><option
-										value="0">January</option>
-									<option value="1">February</option>
-									<option value="2">March</option>
-									<option value="3">April</option>
-									<option value="4">May</option>
-									<option value="5">June</option>
-									<option value="6">July</option>
-									<option value="7">August</option>
-									<option value="8">September</option>
-									<option value="9">October</option>
-									<option value="10">November</option>
-									<option value="11" selected="selected">December</option></select><select
-								class="yearselect"></select></th>
-							<th></th>
-						</tr>
-						<tr>
-							<th class="week">W</th>
-							<th>Mo</th>
-							<th>Tu</th>
-							<th>We</th>
-							<th>Th</th>
-							<th>Fr</th>
-							<th>Sa</th>
-							<th>Su</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="week">49</td>
-							<td class="off available" data-title="r0c0">30</td>
-							<td class="available" data-title="r0c1">1</td>
-							<td class="available" data-title="r0c2">2</td>
-							<td class="available" data-title="r0c3">3</td>
-							<td class="available" data-title="r0c4">4</td>
-							<td class="weekend available" data-title="r0c5">5</td>
-							<td class="weekend available" data-title="r0c6">6</td>
-						</tr>
-						<tr>
-							<td class="week">50</td>
-							<td class="available" data-title="r1c0">7</td>
-							<td class="available" data-title="r1c1">8</td>
-							<td class="available" data-title="r1c2">9</td>
-							<td class="available" data-title="r1c3">10</td>
-							<td class="available" data-title="r1c4">11</td>
-							<td class="weekend available" data-title="r1c5">12</td>
-							<td class="weekend available" data-title="r1c6">13</td>
-						</tr>
-						<tr>
-							<td class="week">51</td>
-							<td class="available" data-title="r2c0">14</td>
-							<td class="available" data-title="r2c1">15</td>
-							<td class="available" data-title="r2c2">16</td>
-							<td class="available" data-title="r2c3">17</td>
-							<td class="available" data-title="r2c4">18</td>
-							<td class="weekend available" data-title="r2c5">19</td>
-							<td class="weekend available" data-title="r2c6">20</td>
-						</tr>
-						<tr>
-							<td class="week">52</td>
-							<td class="available" data-title="r3c0">21</td>
-							<td class="available" data-title="r3c1">22</td>
-							<td class="available" data-title="r3c2">23</td>
-							<td class="available" data-title="r3c3">24</td>
-							<td class="available" data-title="r3c4">25</td>
-							<td class="weekend available" data-title="r3c5">26</td>
-							<td class="weekend available" data-title="r3c6">27</td>
-						</tr>
-						<tr>
-							<td class="week">1</td>
-							<td class="available" data-title="r4c0">28</td>
-							<td class="available" data-title="r4c1">29</td>
-							<td class="available" data-title="r4c2">30</td>
-							<td class="active end-date available" data-title="r4c3">31</td>
-							<td class="off off disabled" data-title="r4c4">1</td>
-							<td class="weekend off off disabled" data-title="r4c5">2</td>
-							<td class="weekend off off disabled" data-title="r4c6">3</td>
-						</tr>
-						<tr>
-							<td class="week">2</td>
-							<td class="off off disabled" data-title="r5c0">4</td>
-							<td class="off off disabled" data-title="r5c1">5</td>
-							<td class="off off disabled" data-title="r5c2">6</td>
-							<td class="off off disabled" data-title="r5c3">7</td>
-							<td class="off off disabled" data-title="r5c4">8</td>
-							<td class="weekend off off disabled" data-title="r5c5">9</td>
-							<td class="weekend off off disabled" data-title="r5c6">10</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="calendar-time" style="display: none;"></div>
-		</div>
-		<div class="drp-buttons">
-			<span class="drp-selected">06/03/2021 - 12/31/2015</span>
-			<button class="cancelBtn btn btn-default btn-small" type="button">Clear</button>
-			<button class="applyBtn btn btn-default btn-small btn-primary"
-				disabled="disabled" type="button">Submit</button>
-		</div>
+
+
+	<div>
+		<jsp:include page="/manager/managerHeader.jsp" />
 	</div>
+	
+<div style="width: 1300px; margin: 0 auto;">
+
+		<div>
+			<jsp:include page="/manager/managerMenu.jsp" />
+		</div>
+
+<div class="container">
+  <div class="my-calendar clearfix">
+    <div class="clicked-date">
+      <div class="cal-day"></div>
+      <div class="cal-date"></div>
+    </div>
+    <div class="calendar-box">
+      <div class="ctr-box clearfix">
+        <button type="button" title="prev" class="btn-cal prev">
+        </button>
+        <span class="cal-month"></span>
+        <span class="cal-year"></span>
+        <button type="button" title="next" class="btn-cal next">
+        </button>
+      </div>
+      <table class="cal-table">
+        <thead>
+          <tr>
+            <th>일</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th>토</th>
+          </tr>
+        </thead>
+        <tbody class="cal-body"></tbody>
+      </table>
+    </div>
+  </div>
+  <!-- // .my-calendar -->
+</div>
+</div>
+<script type="text/javascript">
+//================================
+//START YOUR APP HERE
+//================================
+const init = {
+monList: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+dayList: ['일', '월', '화', '수', '목', '금', '토'],
+today: new Date(),
+monForChange: new Date().getMonth(),
+activeDate: new Date(),
+getFirstDay: (yy, mm) => new Date(yy, mm, 1),
+getLastDay: (yy, mm) => new Date(yy, mm + 1, 0),
+nextMonth: function () {
+ let d = new Date();
+ d.setDate(1);
+ d.setMonth(++this.monForChange);
+ this.activeDate = d;
+ return d;
+},
+prevMonth: function () {
+ let d = new Date();
+ d.setDate(1);
+ d.setMonth(--this.monForChange);
+ this.activeDate = d;
+ return d;
+},
+addZero: (num) => (num < 10) ? '0' + num : num,
+activeDTag: null,
+getIndex: function (node) {
+ let index = 0;
+ while (node = node.previousElementSibling) {
+   index++;
+ }
+ return index;
+}
+};
+
+const $calBody = document.querySelector('.cal-body');
+const $btnNext = document.querySelector('.btn-cal.next');
+const $btnPrev = document.querySelector('.btn-cal.prev');
+
+/**
+* @param {number} date
+* @param {number} dayIn
+*/
+function loadDate (date, dayIn) {
+document.querySelector('.cal-date').textContent = date;
+document.querySelector('.cal-day').textContent = init.dayList[dayIn];
+}
+
+/**
+* @param {date} fullDate
+*/
+function loadYYMM (fullDate) {
+let yy = fullDate.getFullYear();
+let mm = fullDate.getMonth();
+let firstDay = init.getFirstDay(yy, mm);
+let lastDay = init.getLastDay(yy, mm);
+let markToday;  // for marking today date
+
+if (mm === init.today.getMonth() && yy === init.today.getFullYear()) {
+ markToday = init.today.getDate();
+}
+
+document.querySelector('.cal-month').textContent = init.monList[mm];
+document.querySelector('.cal-year').textContent = yy;
+
+let trtd = '';
+let startCount;
+let countDay = 0;
+for (let i = 0; i < 6; i++) {
+ trtd += '<tr>';
+ for (let j = 0; j < 7; j++) {
+   if (i === 0 && !startCount && j === firstDay.getDay()) {
+     startCount = 1;
+   }
+   if (!startCount) {
+     trtd += '<td>'
+   } else {
+     let fullDate = yy + '.' + init.addZero(mm + 1) + '.' + init.addZero(countDay + 1);
+     trtd += '<td class="day';
+     trtd += (markToday && markToday === countDay + 1) ? ' today" ' : '"';
+     trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
+   }
+   trtd += (startCount) ? ++countDay : '';
+   if (countDay === lastDay.getDate()) { 
+     startCount = 0; 
+   }
+   trtd += '</td>';
+ }
+ trtd += '</tr>';
+}
+$calBody.innerHTML = trtd;
+}
+
+/**
+* @param {string} val
+*/
+function createNewList (val) {
+let id = new Date().getTime() + '';
+let yy = init.activeDate.getFullYear();
+let mm = init.activeDate.getMonth() + 1;
+let dd = init.activeDate.getDate();
+const $target = $calBody.querySelector(`.day[data-date="${dd}"]`);
+
+let date = yy + '.' + init.addZero(mm) + '.' + init.addZero(dd);
+
+let eventData = {};
+eventData['date'] = date;
+eventData['memo'] = val;
+eventData['complete'] = false;
+eventData['id'] = id;
+init.event.push(eventData);
+$todoList.appendChild(createLi(id, val, date));
+}
+
+loadYYMM(init.today);
+loadDate(init.today.getDate(), init.today.getDay());
+
+$btnNext.addEventListener('click', () => loadYYMM(init.nextMonth()));
+$btnPrev.addEventListener('click', () => loadYYMM(init.prevMonth()));
+
+$calBody.addEventListener('click', (e) => {
+if (e.target.classList.contains('day')) {
+ if (init.activeDTag) {
+   init.activeDTag.classList.remove('day-active');
+ }
+ let day = Number(e.target.textContent);
+ loadDate(day, e.target.cellIndex);
+ e.target.classList.add('day-active');
+ init.activeDTag = e.target;
+ init.activeDate.setDate(day);
+ reloadTodo();
+}
+});
+</script>
 </body>
 </html>

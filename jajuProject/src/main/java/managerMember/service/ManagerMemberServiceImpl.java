@@ -154,6 +154,29 @@ public class ManagerMemberServiceImpl implements ManagerMemberService {
 		return managerMemberDAO.getManagerSaleReportCount();
 	}
 
+	@Override
+	public int getPrevInquireCount() {
+		return managerMemberDAO.getPrevInquireCount();
+	}
+
+	@Override
+	public int getPrevReportCount() {
+		return managerMemberDAO.getPrevReportCount();
+
+	}
+
+	@Override
+	public int getPrevMemberCount() {
+		return managerMemberDAO.getPrevMemberCount();
+
+	}
+
+	@Override
+	public int getPrevSaleReportCount() {
+		return managerMemberDAO.getPrevSaleReportCount();
+
+	}
+
 
 
 }

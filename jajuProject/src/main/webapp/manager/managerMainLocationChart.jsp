@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>지역차트</title>
+
 <style type="text/css">
 .card {
 	width: 970px !important;
