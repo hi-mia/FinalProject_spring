@@ -48,7 +48,7 @@ public class ManagerMemberController {
 	
 	public ModelAndView getManagerMember(@RequestParam Map<String, String> map,
 			@RequestParam(required = false, defaultValue = "1") String pg) {
-		System.out.println("관리자 리스트 가져오는 곳 맵 : " + map);
+		//System.out.println("관리자 리스트 가져오는 곳 맵 : " + map);
 
 		List<MemberDTO> list = managerMemberService.getManagerMember(map);// pg넘겨서 페이징 처리해서 회원 리스트 가져오기
 
@@ -68,7 +68,7 @@ public class ManagerMemberController {
 	// check 안에는 id값이 담겨있음.
 	public ModelAndView changeMemberState(String[] check,
 			@RequestParam(required = false, defaultValue = "1") String pg) {
-		System.out.println("check = " + check[0]);
+		//System.out.println("check = " + check[0]);
 		managerMemberService.changeMemberState(check);
 		return new ModelAndView("redirect:/manager/managerMember");
 	}
@@ -78,7 +78,7 @@ public class ManagerMemberController {
 	// check 안에는 id값이 담겨있음.
 	public ModelAndView changeBlackMemberStateRollback(String[] check,
 		@RequestParam(required = false, defaultValue = "1") String pg) {
-		System.out.println("check = " + check[0]);
+		//System.out.println("check = " + check[0]);
 		managerMemberService.changeBlackMemberStateRollback(check);
 		return new ModelAndView("redirect:/manager/managerMemberBlack");
 		}
@@ -86,7 +86,7 @@ public class ManagerMemberController {
 	// 강제탈퇴
 	@RequestMapping(value = "deleteMemberId", method = RequestMethod.POST)
 	public ModelAndView deleteMemberId(String[] check) {
-		System.out.println("check = " + check[0]);
+		//System.out.println("check = " + check[0]);
 		managerMemberService.deleteMemberId(check);
 		return new ModelAndView("redirect:/manager/managerMember");
 	}
@@ -126,7 +126,7 @@ public class ManagerMemberController {
 	@ResponseBody
 	public ModelAndView getManagerMemberBlack(@RequestParam Map<String, String> map,
 		@RequestParam(required = false, defaultValue = "1") String pg) {
-		System.out.println("블랙리스트 맵 : " + map);
+		//System.out.println("블랙리스트 맵 : " + map);
 
 		List<MemberDTO> list = managerMemberService.getManagerMemberBlack(map);// pg넘겨서 페이징 처리해서 회원 리스트 가져오기
 
@@ -148,7 +148,7 @@ public class ManagerMemberController {
 	// check 안에는 id값이 담겨있음.
 	public ModelAndView changeBlackMemberState(String[] check,
 			@RequestParam(required = false, defaultValue = "1") String pg) {
-		System.out.println("check = " + check[0]);
+		//System.out.println("check = " + check[0]);
 		//managerMemberService.changeBlackMemberState(check); ---> 이거 해결하기~ 
 		return new ModelAndView("redirect:/manager/managerMemberBlack");
 	}
@@ -189,7 +189,7 @@ public class ManagerMemberController {
 		
 		List<ManagerMainDTO> list = managerMemberService.getLocationInfo();
 		
-		System.out.println("관심지역 베스트5 리스트"+list);
+		//System.out.println("관심지역 베스트5 리스트"+list);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
 		mav.setViewName("jsonView");
@@ -217,7 +217,7 @@ public class ManagerMemberController {
 		 * mapData.put("saleReport_db", saleReport_db+"");
 		 */
 		
-		System.out.println("db에서 불러온 COUNT NUM = "+inquire_db+","+report_db+","+newMember_db+","+saleReport_db);
+		//System.out.println("db에서 불러온 COUNT NUM = "+inquire_db+","+report_db+","+newMember_db+","+saleReport_db);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("inquire_db",inquire_db+"");
@@ -248,7 +248,7 @@ public class ManagerMemberController {
 		 * mapData.put("saleReport_db", saleReport_db+"");
 		 */
 		
-		System.out.println("db에서 불러온 COUNT NUM = "+inquirePrevCount+","+reportPrevCount+","+newMemberPrevCount+","+saleReportPrevCount);
+		//System.out.println("db에서 불러온 COUNT NUM = "+inquirePrevCount+","+reportPrevCount+","+newMemberPrevCount+","+saleReportPrevCount);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("inquire_db",inquirePrevCount+"");
@@ -259,6 +259,34 @@ public class ManagerMemberController {
 		return mav;
 	}
 	
+	
+	@RequestMapping(value = "/getDatePickerInfo", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView getDatePickerInfo(@RequestParam Map<String, String> map) {
+		System.out.println("map, date의 값 넘어와야 함 "+map);
+	
+		//신규 1:1문의수
+		int inquirePickerCount = managerMemberService.getInquirePickerCount(map);
+		//신고 게시글 처리중 수
+		int reportPickerCount = managerMemberService.getReportPickerCount(map);
+		//당일 신규 가입자 수
+		int newMemberPickerCount = managerMemberService.getNewMemberPickerCount(map);
+		//당일 판매 게시글 등록 수 불러오기 
+		int saleReportPickerCount = managerMemberService.getSaleReportPickerCount(map);
+		
+		
+		System.out.println("db에서 불러온 COUNT NUM = "+inquirePickerCount+","+reportPickerCount+","+newMemberPickerCount+","+saleReportPickerCount);
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("inquirePickerCount",inquirePickerCount+"");
+		mav.addObject("reportPickerCount",reportPickerCount+"");
+		mav.addObject("newMemberPickerCount",newMemberPickerCount+"");
+		mav.addObject("saleReportPickerCount",saleReportPickerCount+"");
+		mav.setViewName("jsonView");
+		
+		return mav;
+	}
 	
 	
 	

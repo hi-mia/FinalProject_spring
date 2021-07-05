@@ -213,6 +213,18 @@
 	select count(*) from sale_board where to_char(sale_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-MM-dd')
 </select>
 
-
+<!-- ====MAINCHART DATEPICKER COUNT(*) NUMBER==== 달력선택날짜  -->
+<select id="getInquirePickerCount" parameterType="java.util.Map" resultType="int">
+	select count(*) from inquiryboard where inquiry_state='처리중' and to_char(logtime, 'yyyy-mm-dd') = #{date}
+</select>
+<select id="getReportPickerCount" parameterType="java.util.Map"  resultType="int">
+	select count(*) from memberreport where report_state='처리중' and to_char(logtime, 'yyyy-mm-dd') = #{date}
+</select>
+<select id="getNewMemberPickerCount" parameterType="java.util.Map" resultType="int">
+	select count(*) from jajumember where to_char(member_date,'yyyy-mm-dd') = #{date}
+</select>
+<select id="getSaleReportPickerCount" parameterType="java.util.Map" resultType="int">
+	select count(*) from sale_board where to_char(sale_date,'yyyy-mm-dd') = #{date}
+</select>
 
 </mapper>

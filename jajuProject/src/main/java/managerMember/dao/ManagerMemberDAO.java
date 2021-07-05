@@ -53,5 +53,14 @@ public interface ManagerMemberDAO {
 
 	public int getPrevSaleReportCount();
 
+	//datePicker 달력 선택 날짜 
+	public int getInquirePickerCount(Map<String, String> map);
+
+	public int getReportPickerCount(Map<String, String> map);
+
+	public int getNewMemberPickerCount(Map<String, String> map);
+
+	public int getSaleReportPickerCount(Map<String, String> map);
+
 
 }

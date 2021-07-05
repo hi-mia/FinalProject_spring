@@ -8,7 +8,7 @@
 <body>
 <jsp:include page="/manager/managerHeader.jsp"/>
 
-<div style="width: 1280px; margin: auto;">
+<div style="width: 1080px; margin: auto;">
 
 <jsp:include page="/manager/managerMenu.jsp"/>
 
@@ -192,9 +192,9 @@
 			location.href="managerMemberBlack?pg="+pg;
 			//$('#sortinSelect').trigger('change');		
 		} else{
-			$('#searchPg').val(pg);
-			alert($('#searchPg').val())
-			$('#search-text_Btn').trigger('click','research');
+			$('input[name=pg]').val(pg);
+			$('#search-text_Btn').trigger('click');
+			$('input[name=pg]').val(1);
 			//location.href = 'boardSearch?pg='+pg+'&select='+$('#select option:selected').val() +'&keyword='+$('#keyword').val();
 			//encodeURIComponent('${keyword}');
 			//$('#searchPg').val(1);

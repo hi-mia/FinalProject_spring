@@ -126,6 +126,26 @@ public class ManagerMemberDAOMybatis implements ManagerMemberDAO {
 	public int getPrevSaleReportCount() {
 		return sqlSession.selectOne("managerMemberSQL.getPrevSaleReportCount");
 	}
+	//datePicker 달력 선택 날짜 
+	@Override
+	public int getInquirePickerCount(Map<String, String> map) {
+		return sqlSession.selectOne("managerMemberSQL.getInquirePickerCount",map);
+	}
+
+	@Override
+	public int getReportPickerCount(Map<String, String> map) {
+		return sqlSession.selectOne("managerMemberSQL.getReportPickerCount",map);
+	}
+
+	@Override
+	public int getNewMemberPickerCount(Map<String, String> map) {
+		return sqlSession.selectOne("managerMemberSQL.getNewMemberPickerCount",map);
+	}
+
+	@Override
+	public int getSaleReportPickerCount(Map<String, String> map) {
+		return sqlSession.selectOne("managerMemberSQL.getSaleReportPickerCount",map);
+	}
 
 
 
