@@ -5,14 +5,13 @@
 <link rel="stylesheet" href="/jaju/manager_css/managerFreeboardView.css" />
 <jsp:include page="/manager/managerHeader.jsp"/>
 
-<div class="total">
+<div class="total" style="width: 1080px; margin: auto;">
 <jsp:include page="/manager/managerMenu.jsp"/>
 <input type="hidden" id="board_seq" value="${board_seq }">
 <input type="hidden" id="pg" value="${param.pg }"/>
 <div id="wrap">
-<div id="container" style="float:left; margin-top:50px; margin-left:40px; width:800px;">
+<div id="container" style="float:left;  margin-left:40px; width:800px;">
 
-	<h1 class="tit" style="margin-left: 7px;">자유게시판</h1>
 
 <div id="main" style="margin-top: -80px;">
 <div id="content">

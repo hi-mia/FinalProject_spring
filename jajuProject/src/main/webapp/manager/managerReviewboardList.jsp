@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
+
 <link rel="stylesheet" href="/jaju/manager_css/managerBoard.css" />
-</head>
-<body>
+<jsp:include page="/manager/managerHeader.jsp"/>
+
 <div style="width: 1080px; margin: auto;">
 <jsp:include page="/manager/managerMenu.jsp"/>
 <div id="content" class="cont_post post_spam">
@@ -36,11 +34,12 @@
       </div>
       <div class="option_list article_option_list">
          <div class="info_option">
-            <span class="txt_total">전체 게시글 <span id="totalNum" class="num_total"></span></span>
+         <br><br>
+         <span class="txt_total" style="margin-left: -190px;">전체 게시글 <span id="totalNum" class="num_total"></span></span>
          </div>
       </div>
 
-      <div class="set_list" id="listControlBar" style="width:840px">
+      <div class="set_list" id="listControlBar" style="width:800px">
          <div class="bundle_set">
             <div class="txt_choice">
                <div class="check_admin check-all">
