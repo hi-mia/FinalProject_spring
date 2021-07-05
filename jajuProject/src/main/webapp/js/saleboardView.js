@@ -33,7 +33,12 @@ $(function(){
 //			});
 			
 			//ajax 써서 거래 가능 지역 가져오기
-			
+			if(member_id == data.saleboardDTO.member_id){
+				$('#memberreportA').hide();
+			}else{
+				$('#memberModifyA').hide();
+				$('#saleboardDeleteBtn').hide();			
+			}
 			
 			
 			$.ajax({

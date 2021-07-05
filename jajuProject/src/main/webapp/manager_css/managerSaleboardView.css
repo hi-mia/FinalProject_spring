@@ -205,3 +205,61 @@ h1.tit{
    border: white;
    margin: 0;
 }
+
+.prevPaging {
+    background-image: url(/jaju/jajuImage/icon-pagination-prev.webp);
+}
+.nextPaging {
+    background-image: url(/jaju/jajuImage/icon-pagination-next.webp);
+}
+.prevPaging, .nextPaging {
+   border-radius: 3px;
+    color: silver;
+    cursor: pointer;
+   display: inline-block;
+   border: 1px solid #a7a7a7;
+    width: 28px;
+   height: 28px;
+    line-height: 27px;
+    margin: 7px 1px 0;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    text-indent: -9999px;
+}
+.currentPaging:hover, .thisPaging:hover {
+   background: #f7f7f7;
+}
+.thisPaging{
+   border-radius: 3px;
+    border: 1px solid #a7a7a7;
+    font-weight: 700;
+    color: #a7a7a7;
+    width: 28px;
+   height: 28px;
+    font-size: 12px;
+    line-height: 28px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 7px 1px 0;
+    vertical-align: middle;
+}
+.currentPaging{
+   border-radius: 3px;
+    border: 1px solid #ff9398;
+    font-weight: 700;
+    color: #ed3e49;
+    width: 28px;
+   height: 28px;
+    font-size: 12px;
+    line-height: 28px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 7px 1px 0;
+    vertical-align: middle;
+}
+
+#linkA:hover {
+	font-weight: bold;
+}
+
