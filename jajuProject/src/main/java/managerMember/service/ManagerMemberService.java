@@ -45,5 +45,14 @@ public interface ManagerMemberService {
 	//당일 판매 게시글 수 
 	public int getManagerSaleReportCount();
 
+	//어제 날짜 1:1
+	public int getPrevInquireCount();
+	//어제 날짜
+	public int getPrevReportCount();
+	//어제 날짜 
+	public int getPrevMemberCount();
+	//어제 날짜
+	public int getPrevSaleReportCount();
+
 
 }

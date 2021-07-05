@@ -5,22 +5,43 @@
 <head>
 <meta charset="UTF-8">
 <title>상단 수 표시</title>
-
+<!-- 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> -->
+<!-- // jQuery UI CSS파일  -->
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+<!-- // jQuery 기본 js파일 -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<!-- // jQuery UI 라이브러리 js파일 -->
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 </head>
 <body>
 
 <div class="date">
-	<a class="triangle_go">
+	<a class="triangle_go" id="prev_btn">
 		<img class="triangle" src="/jaju/jajuImage/trianglePrev.png" alt="triangle">
 	</a>
-	<div class="avatar avatar-xl">
+	<div class="avatar avatar-xl" >
 		<img class="calendar" src="/jaju/jajuImage/calendar.png" alt="calendar">
 	</div>	
-	<h5 class="font-bold">2021.07.03</h5>
-	<a class="triangle_back">
+	<h5 class="font-bold" id="today_calender"></h5>
+	<a class="triangle_back" id="next_btn">
 		<img class="triangle" src="/jaju/jajuImage/triangleNext.png" alt="triangle">
 	</a>
-</div>				
+<!-- 	<p id="search_date">조회 날짜:
+	  <input type="text" id="datepicker1">	~  <input type="text" id="datepicker2">
+	</p> 
+	<input type="text" id="testDatepicker">-->
+</div>	
+	
+	<div align="center">
+		<input type="text" id="testDatepicker">
+<!-- 	
+		<input type="text" class="selector" placeholder="조회 날짜를 선택하세요."/>
+		<a class="input-button" title="toggle" data-toggle>
+		<i class="icon-calendar"></i></a> -->
+	</div>			
 				
 	<section class="row" style="margin-top: -25px;">
 		<div class="col-12 col-lg-9" >
@@ -38,7 +59,7 @@
 						</div>
 						<div class="col-md-8">
 							<h6 class="text-muted font-semibold" style="font-size: 26px; padding-left:13px; padding-top: 5px;">1:1 문의</h6>
-							<h6 class="font-extrabold mb-0">200</h6>
+							<h6 class="font-extrabold mb-0" id="inquire_count"></h6>
 						</div>
 					</div>
 				</div>
@@ -56,7 +77,7 @@
 						</div>
 						<div class="col-md-8">
 							<h6 class="text-muted font-semibold" style="font-size: 23px;">신고 게시판</h6>
-							<h6 class="font-extrabold mb-0">200</h6>
+							<h6 class="font-extrabold mb-0" id="report_count"></h6>
 
 						</div>
 					</div>
@@ -75,7 +96,7 @@
 						</div>
 						<div class="col-md-8">
 							<h6 class="text-muted font-semibold" style="font-size: 20px;">신규 가입회원</h6>
-							<h6 class="font-extrabold mb-0">200</h6>
+							<h6 class="font-extrabold mb-0" id="newMember_count"></h6>
 
 						</div>
 					</div>
@@ -94,7 +115,7 @@
 						</div>
 						<div class="col-md-8">
 							<h6 class="text-muted font-semibold" style="font-size: 23px;">판매 게시글</h6>
-							<h6 class="font-extrabold mb-0">1000</h6>
+							<h6 class="font-extrabold mb-0" id="newSaleboard_count"></h6>
 
 						</div>
 					</div>
@@ -113,13 +134,28 @@
 
 	</section>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>	
+<script type="text/javascript">
+$(".selector").flatpickr({ 
+dateFormat: "Y-m-d",
+minDate:"today",
+maxDate: new Date().fp_incr(30)
+});
+</script>
+
 
 <script type="text/javascript">
 
 $(function(){
 	//창이 열리자마자 할일 : css color blue 로 변경
 	//신규 1:1문의수 inquire_count , 신고 게시글 처리중 수 report_count, 당일 신규 가입자 수 newSaleboard_count, 당일 판매 게시글 등록 수 불러오기  newSaleboard_count
+	var now = new Date();	// 현재 날짜 및 시간
+	var year = now.getFullYear();	// 연도
+	var month = now.getMonth()+1;
+	var date = now.getDate();
+	
+	$('#today_calender').html(year+"."+month+"."+date);
+	$('#next_btn').hide();
+	//$('#search_date').hide();
 	
 	$.ajax({
 		url:'/jaju/manager/getManagerMainCount',
@@ -139,6 +175,52 @@ $(function(){
 		}
 	});//ajax
 });
+
+//script구문 내부에 해당 메소드를 입력합니다.
+$(function() {
+    $( "#testDatepicker" ).datepicker({
+    });
+});
+
+function getDays() {
+    var start = new Date($('.selector').val());
+   // var end   = new Date($('#to1').val());
+   // days  = (end - start) / 1000 / 60 / 60 / 24;
+   days  = start/ 1000 / 60 / 60 / 24;
+   alert(start); 
+}
+
+//앞으로 가는 버튼 누르면 !
+$('#prev_btn').click(function(){
+	getDays();
+	$.ajax({
+		url:'/jaju/manager/getManagerPrevCount',
+		type:'post',
+		dataType:'json',
+		success:function(data){
+			
+			console.log("PrevCount 에 대한 모든정보" + JSON.stringify(data));
+			//만약 모든 정보 가져오는 걸 성공했다면 html로 하나씩 넣어주기. 
+			
+			$('#inquire_count').html(data.inquire_db+'건');
+			$('#report_count').html(data.report_db+'건');
+			$('#newMember_count').html(data.newMember_db+'건');
+			$('#newSaleboard_count').html(data.saleReport_db+'건');
+
+			$('#prev_btn').hide();
+			$('#next_btn').show();
+
+		},error:function(err){
+			console.log("mainChartJSP에 오류 발생" + err);
+		}
+	});//ajax
+});
+
+$('.calendar').click(function(){
+	$('#search_date').show();
+	$( "#datepicker1" ).datepicker();
+});
 </script>
+
 </body>
 </html>

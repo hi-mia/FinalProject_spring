@@ -44,7 +44,7 @@
 					<span class="stat_collect_dt">2021.07.01. 16:08 기준</span>
 				</div>
 
-				<div class="box_stat" id="statBox">
+		<div class="box_stat" id="statBox">
 			<div class="stat">
 				<span class="stat_title">1:1 문의<br> 신규게시글 수</span>
 				<!--[if gt IE 7]><!-->
@@ -299,7 +299,7 @@
 				url : "/jaju/manager/getSaleAvg",
 				dataType : "json",
 				success : function(data) {
-
+					//consoloe.log(JSON.stringify(data));
 					var labels = [];
 					var myData = [];
 					/*

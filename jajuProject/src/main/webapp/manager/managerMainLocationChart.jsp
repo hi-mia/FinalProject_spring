@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>지역차트</title>
+
 <style type="text/css">
 .card {
 	width: 1000px !important;
@@ -14,6 +15,7 @@
 	
 }
 .chart_js{
+
 	width: 550px;
 	height:550px;
 	display: inline-block;
