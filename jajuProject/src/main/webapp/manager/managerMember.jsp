@@ -271,9 +271,7 @@
 			/* $('#searchPg').val(pg);
 			alert($('#searchPg').val())
 			$('#search-text_Btn').trigger('click','research'); */
-			//location.href = 'boardSearch?pg='+pg+'&select='+$('#select option:selected').val() +'&keyword='+$('#keyword').val();
-			//encodeURIComponent('${keyword}');
-			//$('#searchPg').val(1);
+
 	}
 }
 	</script>

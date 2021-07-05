@@ -101,7 +101,7 @@
 							<th class="saleboardModifyTd">배송 방법</th>
 							<td class="saleboardModifyTd">
 								<div class="sale_method" id="sale_method"></div>
-								<div id="sale_conditionDiv"></div>
+								<div id="sale_directDiv"></div>
 								<div id="sale_deliveryDiv"></div>
 								<div id="sale_onlineTranDiv"></div>
 							</td>

@@ -313,7 +313,33 @@ public class MypageServiceImpl implements MypageService {
 		return mySalePaging;
 	}
 
+	@Override
+	public List<SaleboardDTO> mySaleRecodeSearchList(Map<String, String> map) {
+		// 1페이지당 5개씩
+				int endNum = Integer.parseInt(map.get("pg")) * 5;
+				int startNum = endNum - 4;
 
+			
+				map.put("startNum", startNum+"");
+				map.put("endNum", endNum+"");
+				//System.out.println("START" + startNum);
+				//System.out.println("END" + endNum);
+
+				return mypageDAO.mySaleRecodeSearchList(map);
+	}
+
+	@Override
+	public MySalePaging mySaleSearchPaging(Map<String, String> map) {
+		int totalA = mypageDAO.getTotalASaleSearch(map); // 총글수
+
+		mySalePaging.setCurrentPage(Integer.parseInt(map.get("pg")));
+		mySalePaging.setPageBlock(3);
+		mySalePaging.setPageSize(5);
+		mySalePaging.setTotalA(totalA);
+		mySalePaging.makePagingHTML();
+
+		return mySalePaging;
+	}
 	// 쪽지 리스트 페이징처리
 	/*@Override
 	public MyRecodePaging getMyMessageListPage(String pg) {
@@ -543,4 +569,6 @@ public class MypageServiceImpl implements MypageService {
 
 			return myRecodePaging;
 		}
+
+		
 }

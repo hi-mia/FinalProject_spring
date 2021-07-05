@@ -63,9 +63,9 @@ public interface MypageService {
 	//찜목록 삭제
 	public void deleteMyScrap(String[] check);
 
-	
+	//Sale,Buy,Deal게시판 List
 	public List<SaleboardDTO> mySaleRecodeList(Map<String, String> map);
-
+	//Sale,Buy,Deal게시판 List 페이징처리
 	public MySalePaging mySalePaging(Map<String, String> map);
 
 	public List<SaleboardDTO> myBuyRecodeList(Map<String, String> map);
@@ -75,7 +75,13 @@ public interface MypageService {
 	public List<SaleboardDTO> myDealRecodeList(Map<String, String> map);
 
 	public MyDealPaging myDealPaging(Map<String, String> map);
-
+	//Sale,Buy,Deal게시판 List 검색
+	public List<SaleboardDTO> mySaleRecodeSearchList(Map<String, String> map);
+	//Sale,Buy,Deal게시판 List 페이징처리 검색
+	public MySalePaging mySaleSearchPaging(Map<String, String> map);
+	
+	
+	
 	/*public MypagePaging myScrapPaging(String pg);*/
 	
 	//팔로우 페이징 처리
@@ -138,5 +144,7 @@ public interface MypageService {
 	//프로필 후기 내역
 		public List<ReviewboardDTO> getMyProfileReviewList(Map<String, String> map);
 		public MyRecodePaging getMyProfileReviewListPage(Map<String, String> map);
+	
+	
 
 }

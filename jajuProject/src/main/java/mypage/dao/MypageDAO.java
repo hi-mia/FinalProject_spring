@@ -58,9 +58,9 @@ public interface MypageDAO {
 	public MessageDTO myMessageView(Map<String, String> map);
 
 	//recode
-	
+	//Sale,Buy,Deal 리스트
 	public List<SaleboardDTO> mySaleRecodeList(Map<String, String> map);
-
+	//Sale,Buy,Deal 리스트 페이징처리
 	public int getTotalASale(String id);
 
 	public List<SaleboardDTO> myBuyRecodeList(Map<String, String> map);
@@ -70,7 +70,12 @@ public interface MypageDAO {
 	public List<SaleboardDTO> myDealRecodeList(Map<String, String> map);
 
 	public int getTotalADeal(String id);
-
+	//Sale,Buy,Deal  리스트 검색
+	public List<SaleboardDTO> mySaleRecodeSearchList(Map<String, String> map);
+	//Sale,Buy,Deal  리스트 검색 페이징 처리
+	public int getTotalASaleSearch(Map<String, String> map);
+	
+	
 	public List<MyCountDTO> mysaleStateCount(Map<String, String> map);
 
 	public String getMemberName(String id);
@@ -122,6 +127,8 @@ public interface MypageDAO {
 	public List<ReviewboardDTO> getMyProfileReviewList(Map<String, String> map);
 
 	public int getMyProfileReviewListPagetotalA(String id);
+
+
 
 
 

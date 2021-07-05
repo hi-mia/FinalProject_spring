@@ -254,6 +254,50 @@ select count(*) as count from message where message_reader=#{id} and message_cha
 	select count(*) as count from sale_board where member_id=#{id} and (sale_state='판매중' or sale_state='예약중')
 </select>
 
+<!--Search 판매내역 목록 검색 --><!--#{id}  -->
+<select id="mySaleRecodeSearchList" parameterType="java.util.Map" resultType="saleboard">
+
+		<if test='searchMode == "subject" '>
+		<![CDATA[
+			select * from 
+			(select rownum rn, tt.* from    
+ 			(select * from sale_board where member_id=#{id} and sale_subject like '%'||#{search-text}||'%' and sale_state='판매완료' order by sale_seq desc)tt)
+ 			where rn >= #{startNum} and rn <= #{endNum}
+		]]>
+	</if>
+	
+	<if test='searchMode == "content"'>
+		<![CDATA[
+			select * from 
+			(select rownum rn, tt.* from    
+ 			(select * from sale_board where member_id=#{id} and sale_content like '%'||#{search-text}||'%' and sale_state='판매완료' order by sale_seq desc)tt)
+ 			where rn >= #{startNum} and rn <= #{endNum}
+		]]>
+	</if>
+	
+	<if test='searchMode == "subject_content"'>
+		<![CDATA[
+			select * from 
+			(select rownum rn, tt.* from    
+ 			(select * from sale_board where member_id=#{id} and sale_state='판매완료' and (sale_subject like '%'||#{search-text}||'%' or sale_content like '%'||#{search-text}||'%') order by sale_seq desc)tt)
+ 			where rn >= #{startNum} and rn <= #{endNum}
+		]]>
+	</if>
+	</select>
+<!--Search 판매내역 목록 검색 paging --><!--#{id}  -->
+	<select id="getTotalASaleSearch" parameterType="String" resultType="int" > 
+		<if test='searchMode == "subject" '>
+			select count(*) from sale_board where member_id=#{id} and sale_subject like '%'||#{search-text}||'%' and sale_state='판매완료'
+		</if>	
+		
+		<if test='searchMode == "content"'>
+			select count(*) from sale_board where member_id=#{id} and sale_content like '%'||#{search-text}||'%' and sale_state='판매완료' 
+		</if>
+		
+		<if test='searchMode == "subject_content"'>
+			select count(*) from sale_board where member_id=#{id} and sale_state='판매완료' and (sale_subject like '%'||#{search-text}||'%' or sale_content like '%'||#{search-text}||'%')
+		</if>
+	</select>
 
 <!-- mypage의 상단 count num값 가져오기 -->
 <select id="getMemberName" parameterType="String" resultType="String">

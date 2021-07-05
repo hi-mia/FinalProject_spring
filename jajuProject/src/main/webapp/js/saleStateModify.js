@@ -51,13 +51,13 @@ $(function(){
 
 			var howTrade;
 			if(data.saleboardDTO.sale_direct == 'on') {
-				$('#sale_method').html("직거래");
+				$('#sale_directDiv').html("직거래");
 			}
 			if(data.saleboardDTO.sale_delivery == 'on') {
-				$('#sale_method').html("택배 거래");
+				$('#sale_deliveryDiv').html("택배 거래");
 			}
 			if(data.saleboardDTO.sale_onlineTran == 'on') {
-				$('#sale_method').html("온라인 거래");
+				$('#sale_onlineTranDiv').html("온라인 거래");
 			}
 			$('#howTrade .desc').val(howTrade);
 			

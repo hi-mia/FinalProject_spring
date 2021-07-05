@@ -705,7 +705,34 @@ public class MypageController {
 
 		return mav;
 
+	}  
+	// ==============Sale & Buy & Deal RecodeList, Search검색======
+	@RequestMapping(value = "mySaleRecodeSearchList", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView mySaleRecodeSearchList(@RequestParam String id, @RequestParam String pg, @RequestParam Map<String, String> map) {
+		// System.out.println("pg가는지"+pg);
+		// 1페이지당 5개씩
+		map.put("id", id);
+		map.put("pg", pg);
+		System.out.println("검색확인11?"+id);
+		System.out.println("검색확인11.?"+pg);
+		
+		List<SaleboardDTO> list = mypageService.mySaleRecodeSearchList(map);
+		System.out.println("서비스인플Lsit"+map);
+		// 페이징처리
+		MySalePaging mySaleSearchPaging = mypageService.mySaleSearchPaging(map);
+		System.out.println("서비스인플Pageing"+map);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", list);
+		System.out.println("돌아온list"+list);
+		mav.addObject("mySaleSearchPaging", mySaleSearchPaging);
+		System.out.println("돌아온mySaleSearchPaging"+mySaleSearchPaging);
+		mav.setViewName("jsonView");
+
+		return mav;
+
 	}
+	
 
 	// =============== MYPAGE >> count(*) 이용해서 이름, 매너온도 ,찜목록수, 팔로우수, 쪽지 수
 	// 가져오기===============//
