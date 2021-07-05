@@ -72,22 +72,9 @@
 	</table>
 </div>
 
-<div id="pagingAreaPg" class="page_admin"></div>
-
-		<div id="pagingArea" class="page_admin">
-			
-				<a class="btn_page btn_prev page_disabled" style="height: 20px;">
-					<span class="ico_admin"></span>&nbsp;이전
-				</a>
-				
-				<ul class="bundle_page"><li class="on"><a>1</a></li></ul>
-				
-				<a class="btn_page btn_next page_disabled">다음&nbsp;
-					<span class="ico_admin"></span>
-				</a>
-			</div>
-		<div id="article-summary-layer" class="layer_post summary-layer"></div>
-	</div>
+<div class="layout-pagination">
+			<div class="pagediv"></div>
+		</div>
 </div>
 </form>
 </body>

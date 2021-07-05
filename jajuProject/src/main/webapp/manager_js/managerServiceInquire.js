@@ -51,6 +51,7 @@ $(function(){
 	            	class: 'state',
 				})).appendTo($('#tbl_admin'))
 				 //페이징 처리
+				 $('.pagediv').html(data.inquirePaging.pagingHTML);
 					
 				
 				$('.subject'+items.inquiry_seq).click(function(){
