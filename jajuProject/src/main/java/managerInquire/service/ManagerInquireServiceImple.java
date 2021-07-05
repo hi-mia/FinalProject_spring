@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.collections4.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +27,14 @@ public class ManagerInquireServiceImple implements ManagerInquireService {
 		map.put("endNum",endNum+"");
 		
 		return managerInquireDAO.getManagerInquire(map);
+	}
+
+	@Override
+	public void managerInquireDelete(String[] check) {
+		Map<String, String[]>map = new HashedMap<String, String[]>();
+		map.put("array", check);
+		
+		managerInquireDAO.managerInquireDelete(map);
+		
 	}
 }

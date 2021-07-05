@@ -23,4 +23,11 @@ public class ManagerInquireDAOMybatis implements ManagerInquireDAO {
 		public List<InquireDTO> getManagerInquire(Map<String, String> map) {
 			return sqlSession.selectList("managerInquireSQL.getManagerInquire", map);
 		}
+
+
+		@Override
+		public void managerInquireDelete(Map<String, String[]> map) {
+			sqlSession.delete("managerInquireSQL.managerInquireDelete",map);
+			
+		}
 }

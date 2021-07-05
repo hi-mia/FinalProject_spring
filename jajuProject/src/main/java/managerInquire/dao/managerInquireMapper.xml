@@ -12,6 +12,21 @@
 	where rn &gt;=#{startNum} and rn &lt;=#{endNum}
 </select>
  
+ <delete id="managerInquireDelete" parameterType="java.util.Map">
+		begin
+			delete inquiryboard where inquiry_seq in
+			<foreach collection="array" item="data" open="(" close=")" separator=",">
+				 #{data} 
+			<!-- ${array[i]} -->
+			</foreach>;
+			
+			delete inquiryboard where inquiry_ref in
+			<foreach collection="array" item="data" open="(" close=")" separator=",">
+				 #{data} 
+			<!-- ${array[i]} -->
+			</foreach>;
+		end;
+	</delete>
 
 
 

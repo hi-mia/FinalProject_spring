@@ -124,8 +124,11 @@ public class InquireController {
 	@RequestMapping(value = "inquireView", method=RequestMethod.GET)
 	public String inquireView(@RequestParam String seq, 
 								 @RequestParam String pg,
+								 @RequestParam (required=false, defaultValue="1") String inquiry_id,
 								 Model model) {
+		System.out.println(inquiry_id);
 		model.addAttribute("seq", seq);
+		model.addAttribute("inquiry_id", inquiry_id);
 		model.addAttribute("pg", pg);
 		model.addAttribute("display","/serviceCenter/inquireView.jsp");
 		return "/index";
@@ -136,9 +139,11 @@ public class InquireController {
 		@RequestMapping(value = "managerInquireView", method=RequestMethod.GET)
 		public ModelAndView managerInquireView(@RequestParam String seq, 
 									 @RequestParam String pg,
+									 @RequestParam (required=false, defaultValue="1") String inquiry_id,
 									 Model model) {
-			
+			System.out.println(inquiry_id);
 			ModelAndView mav = new ModelAndView();
+			mav.addObject("inquiry_id", inquiry_id);
 			mav.addObject("seq", seq);
 			mav.addObject("pg", pg);
 			mav.setViewName("/serviceCenter/inquireView");
@@ -290,17 +295,17 @@ public class InquireController {
 		
 	}
 	
-	//관리자 답글
-	@RequestMapping(value="inquireReplyForm", method=RequestMethod.GET)
-	public String inquireReplyForm(@RequestParam String seq, 
-								   @RequestParam String pg,
-								   Model model) {
-		//답글 - 원글페이지, 원글 밑
-		model.addAttribute("pseq",seq);//원글번호
-		model.addAttribute("pg",pg);//원글 페이지번호
-		model.addAttribute("display", "/serviceCenter/inquireReplyForm.jsp");
-		return "/index";
-	}
+//	//관리자 답글
+//	@RequestMapping(value="inquireReplyForm", method=RequestMethod.GET)
+//	public String inquireReplyForm(@RequestParam String seq, 
+//								   @RequestParam String pg,
+//								   Model model) {
+//		//답글 - 원글페이지, 원글 밑
+//		model.addAttribute("pseq",seq);//원글번호
+//		model.addAttribute("pg",pg);//원글 페이지번호
+//		model.addAttribute("display", "/serviceCenter/inquireReplyForm.jsp");
+//		return "/index";
+//	}
 	
 	@RequestMapping(value="inquireReply", method=RequestMethod.POST)
 	@ResponseBody

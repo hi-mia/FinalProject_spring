@@ -7,4 +7,6 @@ import inquire.bean.InquireDTO;
 public interface ManagerInquireService {
 	public List<InquireDTO> getManagerInquire(String pg);
 
+	public void managerInquireDelete(String[] check);
+
 }
