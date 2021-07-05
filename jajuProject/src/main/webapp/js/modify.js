@@ -1,4 +1,7 @@
 $(function(){
+	
+	$('#type3').addClass('on');
+	
 	$.ajax({
 		url: '/jaju/member/getMember',
 		type: 'post',
@@ -217,6 +220,7 @@ $('#btn_cert_confirm').click(function(){
 });
 
 $('#writeBtn').click(function(){
+	
 	$('#member_idDiv').empty();
 	$('#member_pwdDiv').empty();
 	$('#member_repwdDiv').empty();

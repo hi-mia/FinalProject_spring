@@ -1,6 +1,8 @@
 //초기 페이지 로딩 시 저장한 관심 키워드 불러오기.
 $(function(){
 	//alert($('#id').val());
+	$('#type1').addClass('on');
+	
 	$.ajax({
 		type:'post',
 		url:'/jaju/mypage/getKeywordList',
