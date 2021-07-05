@@ -90,7 +90,7 @@
 		<table width="100%">
 		<tbody>
 		
-		<tr>
+		<tr style="width: 800px;">
 		<td align="right" colspan="2">
 		<a href="/jaju/freeboard/freeboardModifyForm?board_seq=${param.board_seq }"><span class="bhs_button yb" style="float:none;">수정</span></a>
 		<span class="bhs_button yb" style="float:none; cursor:pointer; " id="freeboardDeleteBtn">삭제</span>
@@ -106,7 +106,7 @@
 		
 		
 <!-- 댓글 -->
-	<div id="commentDiv">
+	<div id="commentDiv" style="width: 800px;">
 		<table id="commentTable" >
 			<tr style="border-bottom: 1px solid #f5f5f5;">
 				<th width="200" style="padding-bottom: 10px;">번호</th>
@@ -122,10 +122,10 @@
 		
 		<table border="2" id=c cellspacing="0" cellpadding="10"
          bordercolor="#d6e6f2" align="center" frame="hsides" rules="rows"
-         width="1050" id="commentWriteTable">
-         <tr >
-            <td height="80" width="150" align="center">댓글: &nbsp; <span id="replySpan"></span>
-               <input type="text" placeholder="댓글을 입력하세요." size="100" id="commentText" class="commentInput">
+         width="1050" id="commentWriteTable" style="width: 800px;">
+         <tr>
+            <td height="80" width="150" align="left" style="width: 800px;">댓글: &nbsp; <span id="replySpan"></span>
+               <input type="text" placeholder="댓글을 입력하세요." size="73" id="commentText" class="commentInput">
                &nbsp;&nbsp;
                <input type="button" value="댓글 입력" class="commentInput" id="commentInputBtn" size="200" >
             </td>

@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
+
 <link rel="stylesheet" href="/jaju/manager_css/managerReviewboardView.css" />
+<jsp:include page="/manager/managerHeader.jsp"/>
+
+<div class="total" style="width: 1080px; margin: auto;">
 <jsp:include page="/manager/managerMenu.jsp"/>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 <input type="hidden" id="review_seq" value="${param.review_seq }">
 <input type="hidden" id="pg" value="${param.pg }"/>
 <input type="hidden" name="sale_seq" id="sale_seq" value="${param.sale_seq }">
@@ -158,6 +155,7 @@
 		</tbody>
 		</table>
 	</div>
+</div>
 </div>
 </div>
 </div>
