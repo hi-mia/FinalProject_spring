@@ -228,6 +228,38 @@ public class ManagerMemberController {
 		mav.setViewName("jsonView");
 		return mav;
 	}
+	//mainChart의 어제 날짜 count 가져오기  getManagerPrevCount
+	@RequestMapping(value = "/getManagerPrevCount", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView getManagerPrevCount() {
+		//신규 1:1문의수
+		int inquirePrevCount = managerMemberService.getPrevInquireCount();
+		//신고 게시글 처리중 수
+		int reportPrevCount = managerMemberService.getPrevReportCount();
+		//당일 신규 가입자 수
+		int newMemberPrevCount = managerMemberService.getPrevMemberCount();
+		//당일 판매 게시글 등록 수 불러오기 
+		int saleReportPrevCount = managerMemberService.getPrevSaleReportCount();
+		
+		/*
+		 * Map<String, String> mapData = new HashMap<String, String>();
+		 * mapData.put("inquire_db", inquire_db+""); mapData.put("report_db",
+		 * report_db+""); mapData.put("newMember_db", newMember_db+"");
+		 * mapData.put("saleReport_db", saleReport_db+"");
+		 */
+		
+		System.out.println("db에서 불러온 COUNT NUM = "+inquirePrevCount+","+reportPrevCount+","+newMemberPrevCount+","+saleReportPrevCount);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("inquire_db",inquirePrevCount+"");
+		mav.addObject("report_db",reportPrevCount+"");
+		mav.addObject("newMember_db",newMemberPrevCount+"");
+		mav.addObject("saleReport_db",saleReportPrevCount+"");
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	
 	
 	
 	//(관리자 확인용 프로필)

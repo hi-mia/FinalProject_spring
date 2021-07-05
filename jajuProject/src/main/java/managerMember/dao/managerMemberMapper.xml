@@ -131,7 +131,6 @@
 		select count(*) from jajumember where member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%'
 	</if>
 </select> 
-
 <!-- 블랙회원리스트 paging 처리 -->
 <select id="getMemberBlackTotalA" parameterType="String" resultType="int">
 	select count(*) from jajumember where member_state='1'
@@ -145,7 +144,8 @@
 		from sale_board group by sale_category order by count(*) desc)tt)
 		where rn &gt;='1' and rn &lt;='5'
 </select> 
-<!-- 차트  mapper 카테고리 -->
+
+<!-- 판매 게시글 수 차트 -->
 <select id="getSaleAvg" resultType="managerMember.bean.ManagerMainDTO">
 	SELECT
    (SELECT COUNT(*) from sale_board where to_char(sale_date,'yyyy-mm-dd') = to_char(sysdate-7,'yyyy-MM-dd')) as dd7,
@@ -157,45 +157,62 @@
    (SELECT COUNT(*) from sale_board where to_char(sale_date,'yyyy-mm-dd') = to_char(sysdate-1,'yyyy-MM-dd')) as dd1,
     (to_char(sysdate-7,'yyyy-MM-dd')) as d7,
     (to_char(sysdate-6,'yyyy-MM-dd')) as d6,
-    (to_char(sysdate-7,'yyyy-MM-dd')) as d5,
-    (to_char(sysdate-6,'yyyy-MM-dd')) as d4,
-    (to_char(sysdate-7,'yyyy-MM-dd')) as d3,
-    (to_char(sysdate-6,'yyyy-MM-dd')) as d2,
-    (to_char(sysdate-6,'yyyy-MM-dd')) as d1
+    (to_char(sysdate-5,'yyyy-MM-dd')) as d5,
+    (to_char(sysdate-4,'yyyy-MM-dd')) as d4,
+    (to_char(sysdate-3,'yyyy-MM-dd')) as d3,
+    (to_char(sysdate-2,'yyyy-MM-dd')) as d2,
+    (to_char(sysdate-1,'yyyy-MM-dd')) as d1
     FROM DUAL
 </select> 
+
 <!-- 관심지역 차트 -->
 <select id="getLocationInfo" resultType="managerMember.bean.ManagerMainDTO">
 		select * from 
     	(select rownum rn, tt.* from
     	(SELECT Most_Regist, COUNT(Most_Regist)as COUNT FROM (
 		select location2_addr1||''||location2_addr2 as Most_Regist from location
+		where location2_addr1||''||location2_addr2 is not null
 		UNION All
 		select location3_addr1||''||location3_addr2 as Most_Regist from location
+		where location3_addr1||''||location3_addr2 is not null
 		)group by Most_Regist order by COUNT(Most_Regist) desc)tt)
       	where rn &gt;='1' and rn &lt;='5'
 </select> 
 
 
-<!-- MAINCHART COUNT(*) NUMBER -->
+<!-- ====MAINCHART COUNT(*) NUMBER==== 오늘날짜-->
 <!-- 1:1문의 처리중 인 게시글 수 -->
 <select id="getManagerInquireCount" resultType="int">
-	select count(*) from inquiryboard where inquiry_state='처리중'
-</select>
+	select count(*) from inquiryboard where inquiry_state='처리중' and to_char(logtime, 'yyyy-mm-dd') = to_char(sysdate,'yyyy-MM-dd')
 <!-- 신고 게시판 처리중 인 게시글 수  -->
-<select id="getManagerReportCount" resultType="int">
-	select count(*) from memberreport where report_state='처리중'
 </select>
-
+<select id="getManagerReportCount" resultType="int">
+	select count(*) from memberreport where report_state='처리중' and to_char(logtime, 'yyyy-mm-dd') = to_char(sysdate,'yyyy-MM-dd')
+</select>
 <!-- 신고 회원 가입 멤버 수 (당일) -->
 <select id="getManagerMemberCount" resultType="int">
-	select count(*) from jajumember where member_date=sysdate
+	select count(*) from jajumember where to_char(member_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-MM-dd')
 </select>
-
 <!-- 판매 게시글 수 (당일) -->
 <select id="getManagerSaleReportCount" resultType="int">
-	select count(*) from sale_board where sale_date=sysdate
+	select count(*) from sale_board where to_char(sale_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-MM-dd')
 </select>
 
 
- </mapper>
+<!-- ====MAINCHART PREV COUNT(*) NUMBER==== 어제날짜  -->
+<select id="getPrevInquireCount" resultType="int">
+	select count(*) from inquiryboard where inquiry_state='처리중' and to_char(logtime, 'yyyy-mm-dd') = to_char(sysdate-1,'yyyy-MM-dd')
+</select>
+<select id="getPrevReportCount" resultType="int">
+	select count(*) from memberreport where report_state='처리중' and to_char(logtime, 'yyyy-mm-dd') = to_char(sysdate-1,'yyyy-MM-dd')
+</select>
+<select id="getPrevMemberCount" resultType="int">
+	select count(*) from jajumember where to_char(member_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-MM-dd')
+</select>
+<select id="getPrevSaleReportCount" resultType="int">
+	select count(*) from sale_board where to_char(sale_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-MM-dd')
+</select>
+
+
+
+</mapper>

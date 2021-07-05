@@ -44,5 +44,14 @@ public interface ManagerMemberDAO {
 	//판매 게시글 수 (당일)
 	public int getManagerSaleReportCount();
 
+	//어제날짜 
+	public int getPrevInquireCount();
+
+	public int getPrevReportCount();
+
+	public int getPrevMemberCount();
+
+	public int getPrevSaleReportCount();
+
 
 }

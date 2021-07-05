@@ -13,7 +13,8 @@
 	<li class="lnb_admin1" >
 		<strong><span class="ico_admin"></span> <span class="txt_lnb">운영/관리</span></strong>
 		<ul>
-			<li id="managerMainChart" style="text-align: left;"><a href="/jaju/manager/managerMainChart.jsp" class="link_lnb">통계</a></li>
+			<li id="managerMainChart" style="text-align: left;"><a href="/jaju/manager/managerMainChart.jsp" class="link_lnb">홈</a></li>
+			<li id="managerMainCalender" style="text-align: left;"><a href="/jaju/manager/managerMainCalender.jsp" class="link_lnb">통계</a></li>
 		</ul>
 	</li>
 	<li class="lnb_admin2">
