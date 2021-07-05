@@ -15,6 +15,8 @@ public interface ManagerReportService {
 
 	public ReportDTO getReport(String report_seq);
 
+	public void getShowList(String sale_seq);
+	
 	public List<ReportDTO> getReportSearchList(Map<String, String> map);
 	
 	public ReportPaging reportPaging(Map<String, String> map);
@@ -32,5 +34,6 @@ public interface ManagerReportService {
 	public void commentModify(CommentDTO commentDTO);
 
 	public void commentDelete(Map<String, String> map);
+
 
 }

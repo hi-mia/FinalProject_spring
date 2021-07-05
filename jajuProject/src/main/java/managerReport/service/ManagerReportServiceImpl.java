@@ -50,6 +50,12 @@ public class ManagerReportServiceImpl implements ManagerReportService {
 	}
 	
 	@Override
+	public void getShowList(String sale_seq) {
+		managerReportDAO.getShowList(sale_seq);
+		
+	}
+	
+	@Override
 	public List<ReportDTO> getReportSearchList(Map<String, String> map) {
 		int endNum = Integer.parseInt(map.get("pg"))*10;
 		int startNum = endNum-9;
@@ -116,6 +122,5 @@ public class ManagerReportServiceImpl implements ManagerReportService {
 		managerReportDAO.commentDelete(map);
 		
 	}
-
-
+	
 }

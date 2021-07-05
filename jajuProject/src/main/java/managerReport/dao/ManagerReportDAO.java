@@ -14,6 +14,8 @@ public interface ManagerReportDAO {
 
 	public ReportDTO getReport(String report_seq);
 	
+	public void getShowList(String sale_seq);
+	
 	public List<ReportDTO> getReportSearchList(Map<String, String> map);
 	
 	public int getTotalSearchA(Map<String, String> map);

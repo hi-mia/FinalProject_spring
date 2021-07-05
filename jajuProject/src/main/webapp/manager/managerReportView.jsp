@@ -8,6 +8,7 @@
 <div style="width: 1080px; margin: auto;">
 <form id="managerReportView" name="managerReportView">
 <jsp:include page="/manager/managerMenu.jsp"/>
+<input type="hidden" id="sale_seq" name="sale_seq">
 <input type="hidden" id="report_seq" name="report_seq" value="${report_seq}">
 <input type="hidden" id="comment_seq" name="comment_seq" value="${comment_seq}">
 <input type="hidden" id="pg" name="pg" value="${pg}">
@@ -106,15 +107,15 @@
 			<tbody>
 				<tr>
 					<td align="right">
+						<button onclick="javascript:show()'">
+							<span class="reportBtn hide" style="float:none;">보이기</span>
+						</button>
 						<a href="javascript:void(0)" onclick="mode(1)">
 							<span class="reportBtn delete" style="float:none;">삭제</span>
 						</a>
 						<a href="/jaju/manager/managerReportList">
 							<span class="reportBtn list" style="float:none;">목록</span>
 						</a>
-						<button onclick="javascript:hide(0)'">
-							<span class="reportBtn hide" style="float:none;">목록</span>
-						</button>
 					</td>
 				</tr>
 			</tbody>

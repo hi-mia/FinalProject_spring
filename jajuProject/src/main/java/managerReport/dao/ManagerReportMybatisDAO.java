@@ -33,6 +33,12 @@ public class ManagerReportMybatisDAO implements ManagerReportDAO {
 	}
 	
 	@Override
+	public void getShowList(String sale_seq) {
+		sqlSession.update("memberreportSQL.getShowList", Integer.parseInt(sale_seq));
+		
+	}
+	
+	@Override
 	public List<ReportDTO> getReportSearchList(Map<String, String> map) {
 		List<ReportDTO> list =  sqlSession.selectList("managerReportSQL.getReportSearchList", map);
 		return list;
@@ -78,6 +84,5 @@ public class ManagerReportMybatisDAO implements ManagerReportDAO {
 	public void commentDelete(Map<String, String> map) {
 		sqlSession.delete("managerReportSQL.commentDelete", map);
 	}
-
 
 }

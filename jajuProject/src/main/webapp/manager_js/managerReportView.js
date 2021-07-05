@@ -21,6 +21,10 @@ $(function(){
 			$('#contentSpan').text(data.reportDTO.report_content);
 			$('#sale_subjectSpan').text(data.reportDTO.sale_subject);
 			
+			
+			$('#sale_seq').val(data.reportDTO.sale_seq);
+		
+			
 			//신고 글 링크
 			$('#sale_subject').attr('herf', '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+reportDTO.sale_seq+'&pg=1');
 			
@@ -240,3 +244,22 @@ $(document).ready(function(){
 	 	}
 	});
 });
+
+//신고글 보이기
+function show(){
+	if(confirm("정말로 보이겠습니까?")){
+		$.ajax({
+			type: 'post',
+			url: '/jaju/manager/getShowList',
+			data: {'sale_seq': $('#sale_seq').val()},
+			
+			success: function(data){
+				
+			},
+			
+			error: function(err){
+		 		console.log(err);
+		 	}
+		});
+	}
+}
