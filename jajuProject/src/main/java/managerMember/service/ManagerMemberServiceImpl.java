@@ -177,6 +177,26 @@ public class ManagerMemberServiceImpl implements ManagerMemberService {
 
 	}
 
+	@Override
+	public int getInquirePickerCount(Map<String, String> map) {
+		return managerMemberDAO.getInquirePickerCount(map);
+	}
+
+	@Override
+	public int getReportPickerCount(Map<String, String> map) {
+		return managerMemberDAO.getReportPickerCount(map);
+	}
+
+	@Override
+	public int getNewMemberPickerCount(Map<String, String> map) {
+		return managerMemberDAO.getNewMemberPickerCount(map);	
+	}
+
+	@Override
+	public int getSaleReportPickerCount(Map<String, String> map) {
+		return managerMemberDAO.getSaleReportPickerCount(map);
+	}
+
 
 
 }

@@ -53,9 +53,16 @@
 <!-- select * from follow where member_id=#{id} order by follow_seq  -->
 <!--memberDTO를 이용하여 getter를 해야되다 보니 memberDTO의 변수값중 member_warning과 member_name을 이용하여 list로 보냄  -->	
 	select * from (select rownum rn, tt.* from(	
-	select f.follow_seq as member_warning, f.follow_id as member_name , f.member_id ,j.member_image, j.member_manner
-	from  jajumember j full outer join follow f on f.follow_id = j.member_id
-	where f.member_id=#{id} order by f.follow_seq desc
+	select f.follow_seq as member_warning, 
+			f.follow_id as member_name , 
+			f.member_id ,
+			j.member_image, 
+			j.member_manner
+	from  jajumember j 
+	full outer join 
+	follow f on f.follow_id = j.member_id
+	where f.member_id=#{id} 
+	order by f.follow_seq desc
 	)tt)where rn &gt;=#{startNum} and rn &lt;=#{endNum}
 </select>
 

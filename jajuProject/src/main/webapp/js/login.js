@@ -69,7 +69,7 @@ $('#loginBtn').click(function(){
 			dataType: 'text',
 			success: function(data){
 				if(data == 'jajuadmin'){
-					location.href="/jaju/manager/index";
+					location.href="/jaju/manager/managerMainChart";
 				}else if(data != ''){
 					location.href="/jaju/"
 				}else {

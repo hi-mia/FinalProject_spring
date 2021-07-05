@@ -35,13 +35,6 @@
 	<input type="text" id="testDatepicker">-->
 </div>	
 	
-	<div align="center">
-		<input type="text" id="testDatepicker">
-<!-- 	
-		<input type="text" class="selector" placeholder="조회 날짜를 선택하세요."/>
-		<a class="input-button" title="toggle" data-toggle>
-		<i class="icon-calendar"></i></a> -->
-	</div>			
 				
 	<section class="row" style="margin-top: -25px;">
 		<div class="col-12 col-lg-9" >
@@ -146,15 +139,30 @@ maxDate: new Date().fp_incr(30)
 <script type="text/javascript">
 
 $(function(){
+	getFristInfomation();
+});
+
+function getFristInfomation(){
 	//창이 열리자마자 할일 : css color blue 로 변경
 	//신규 1:1문의수 inquire_count , 신고 게시글 처리중 수 report_count, 당일 신규 가입자 수 newSaleboard_count, 당일 판매 게시글 등록 수 불러오기  newSaleboard_count
+	
 	var now = new Date();	// 현재 날짜 및 시간
 	var year = now.getFullYear();	// 연도
 	var month = now.getMonth()+1;
 	var date = now.getDate();
 	
+	
+	if(month<10){
+		month='0'+month;
+	}
+	if(date<10){
+		date='0'+date;
+	}
+	
 	$('#today_calender').html(year+"."+month+"."+date);
 	$('#next_btn').hide();
+	$('#prev_btn').show();
+
 	//$('#search_date').hide();
 	
 	$.ajax({
@@ -174,8 +182,7 @@ $(function(){
 			console.log("mainChartJSP에 오류 발생" + err);
 		}
 	});//ajax
-});
-
+}
 //script구문 내부에 해당 메소드를 입력합니다.
 $(function() {
     $( "#testDatepicker" ).datepicker({
@@ -192,7 +199,20 @@ function getDays() {
 
 //앞으로 가는 버튼 누르면 !
 $('#prev_btn').click(function(){
-	getDays();
+	
+	var now = new Date();	// 현재 날짜 및 시간
+	var year = now.getFullYear();	// 연도
+	var month = now.getMonth()+1;
+	var date = now.getDate()-1;
+	
+	if(month<10){
+		month='0'+month;
+	}
+	if(date<10){
+		date='0'+date;
+	}
+	$('#today_calender').html(year+"."+month+"."+date);
+
 	$.ajax({
 		url:'/jaju/manager/getManagerPrevCount',
 		type:'post',
@@ -214,6 +234,14 @@ $('#prev_btn').click(function(){
 			console.log("mainChartJSP에 오류 발생" + err);
 		}
 	});//ajax
+});
+$('#next_btn').click(function(){
+	
+	$('#next_btn').show();
+	$('#pre_btn').hide();
+	
+	getFristInfomation();
+	
 });
 
 $('.calendar').click(function(){

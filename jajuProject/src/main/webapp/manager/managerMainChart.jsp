@@ -31,82 +31,6 @@
 
 		<div style="margin-left: 250px;">
 
-			<div id="content" class="adm_home" style="display: none;">
-				<div class="date_info">
-					<div class="date_selector">
-						<a role="button" class="stat_btn prev_stat_btn" id="prevBtn">
-							<span class="sr_only">이전 날짜 버튼</span>
-						</a> <span id="date" class="stat_date">2021.07.01.</span> <a
-							role="button" class="stat_btn next_stat_btn end" id="nextBtn">
-							<span class="sr_only">다음 날짜 버튼</span>
-						</a>
-					</div>
-					<span class="stat_collect_dt">2021.07.01. 16:08 기준</span>
-				</div>
-
-		<div class="box_stat" id="statBox">
-			<div class="stat">
-				<span class="stat_title">1:1 문의<br> 신규게시글 수</span>
-				<!--[if gt IE 7]><!-->
-				<span class="ico_etc_tip" id="btn_tip_uv">
-					<span class="sr_only">1:1문의란?</span>
-					<span class="sr_only">자주마켓에 대한 고객님의 1:1 질문을 모두 볼 수 있는 게시판 입니다.</span>
-				</span>
-				<div class="tip_box" id="tip_uv" aria-hidden="true">
-					<div class="box_tooltip_title">1:1문의란?</div>
-					<div class="box_tooltip_contents">자주마켓에 대한 고객님의 1:1 질문을 모두 볼 수 있는 게시판 입니다.</div>
-
-						<!--<![endif]-->
-						<span class="stat_value" id="uvValue">1</span> <span
-							class="stat_increase" id="uvDelta"> <span
-							class="ico_increase up"><span class="sr_only">방문자수
-									증가</span></span> <span class="value_increase up">1</span>
-						</span>
-					</div>
-					<div class="stat">
-						<span class="stat_title">신고게시판<br> 신규게시글 수
-						</span>
-						<!--[if gt IE 7]><!-->
-						<span class="ico_etc_tip" id="btn_tip_pv"> <span
-							class="sr_only">신고글이란?</span> <span class="sr_only">자주마켓을
-								이용하는 고객님께서 .</span>
-						</span>
-						<div class="tip_box" id="tip_pv" aria-hidden="true">
-							<div class="box_tooltip_title">방문수란?</div>
-							<div class="box_tooltip_contents">카페 회원여부와 관계없이 PC와 모바일 웹,
-								앱을 통해 카페를 방문한 횟수입니다.</div>
-						</div>
-						<!--<![endif]-->
-						<a id="pvValue"
-							href="/_c21_/founder_stat_cafe?grpid=1Z5bV&amp;kind=VISIT"
-							class="stat_value">1</a> <span class="stat_increase" id="pvDelta">
-							<span class="ico_increase up"><span class="sr_only">방문수
-									증가</span></span> <span class="value_increase up">1</span>
-						</span>
-					</div>
-					<div class="stat">
-						<span class="stat_title">신규 가입자수<br>
-						<br></span> <a id="newMemberValue" class="stat_value"
-							href="/_c21_/founder_stat_cafe?grpid=1Z5bV&amp;kind=JOIN">0</a> <span
-							class="stat_increase" id="newMemberDelta"> <span
-							class="ico_increase"><span class="sr_only">가입자수
-									변동없음</span></span> <span class="value_increase"></span>
-						</span>
-					</div>
-					
-					<div class="stat last_child">
-						<span class="stat_title">일별 판매 게시글 수<br>
-						<br></span> <a id="newArticleValue" class="stat_value"
-							href="/_c21_/founder_stat_cafe?grpid=1Z5bV&amp;kind=WRITE_ARTICLE">0</a>
-						<span class="stat_increase" id="newArticleDelta"> <span
-							class="ico_increase"><span class="sr_only">새글수 변동없음</span></span>
-							<span class="value_increase"></span>
-						</span>
-					</div>
-				</div>
-			</div>
-</div>
-
 
 
 	<!-- 차트 -->
@@ -124,6 +48,7 @@
 	
 	<!-- 판매물품 등록 많은 지역 -->
 	<div class="drawLocationChart" style="margin-top: 30px;">
+		
 		<jsp:include page="/manager/managerMainLocationChart.jsp"/>
 	</div>
 	
@@ -329,7 +254,7 @@
 					});//var chart  */
 
 					var myChart = new Chart(ctx, {
-						type : 'bar',
+						type : 'line',
 						data : {
 							labels : [ data.managerMainDTO.d7,
 									data.managerMainDTO.d6,
