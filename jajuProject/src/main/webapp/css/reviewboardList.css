@@ -264,10 +264,7 @@ div {
     vertical-align: middle;
     font-size: 14px;
 }
-#total{
-	display: inline-block;
-	float: left;
-}
+
 .pagediv{
 	clear: both;
 }
@@ -296,10 +293,10 @@ div {
 	width: 800px;
 }
 #formTotal{
-	margin-top: 20px;
+	margin-top: 86px;
 	float: left;
 	display: inline-block;
-	margin-left: 40px;
+	margin-left: 85px;
 	width: 800px;
 }
 td a:hover{

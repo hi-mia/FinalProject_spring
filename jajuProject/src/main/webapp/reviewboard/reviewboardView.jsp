@@ -2,17 +2,15 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
 <link rel="stylesheet" href="/jaju/css/reviewboardView.css" />
-<jsp:include page="/freeboard/boardMenu.jsp"/>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+
 <input type="hidden" id="review_seq" value="${param.review_seq }">
 <input type="hidden" id="pg" value="${param.pg }"/>
 <input type="hidden" name="review_id" id="review_id" value="${sessionScope.memId }">
 <input type="hidden" name="sale_seq" id="sale_seq" value="${param.sale_seq }">
+
+<div id="total" style="width:1080px; margin: auto; ">
+<jsp:include page="/freeboard/boardMenu.jsp"/>
 
 <div id="wrap">
 <div id="pos_scroll"></div>
@@ -165,6 +163,9 @@
 </div>
 </div>
 </div>
+
+</div>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/js/reviewboardView.js"></script>
 <script src="/jaju/js/reviewboardDelete.js"></script>

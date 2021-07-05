@@ -201,7 +201,7 @@ ol, ul {
 	<!-- controller에서 넘어온 id/pg ,id는 임의로 만들어둔 변수명. 나중에 session값 처리-->
 	<input type="hidden" id="id" name="id" value="${memId}">
 	<input type="hidden" id="pg" name="pg" value="${param.pg}">
-
+<div id="total" style="width:1080px; margin: auto; ">
 <jsp:include page="/freeboard/boardMenu.jsp"/>
 
 	<div class="section_review">
@@ -229,7 +229,7 @@ ol, ul {
 
 	</div>
 
-
+</div>
 	<script type="text/javascript"
 		src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="/jaju/js/review_saleReport.js"></script>

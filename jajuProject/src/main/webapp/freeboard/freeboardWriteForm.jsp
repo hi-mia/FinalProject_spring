@@ -2,13 +2,16 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="/jaju/css/freeboardWriteForm.css" />
 
-<div id="freeboardDiv">
+<div id="total" style="width:1100px; margin:0 auto; ">
+
+<jsp:include page="/freeboard/boardMenu.jsp"/>
+<div id="freeboardDiv" style="width:800px; display:inline-block; float:left; margin-left:80px; margin-top: 80px;">
 <div class="head_aticle">
-<h2>글쓰기</h2>
+<h2 style="color:#333;">글쓰기</h2>
 </div>
 	
 <div class="xans-board-write">
-<form class="freeboardWriteForm" id="freeboardWriteForm" style="height: 100%; width:100%;">
+<form class="freeboardWriteForm" id="freeboardWriteForm">
 	<input type="hidden" name="mode" value="add_qna">
 	<input type="hidden" name="itemcd">
 	<input type="hidden" name="sno" value="0">
@@ -44,7 +47,7 @@
       <td width="50%">
          <input type="file" name="file[]" style="width:50%" class="linebg">
          <a href="javascript:add()">
-            <img src="../image/upadd.jpg" style="width:90px; height:25px;">
+            <img src="/jaju/jajuImage/upadd.jpg" style="width:90px; height:25px;">
          </a>
        </td>
    </tr>
@@ -74,24 +77,17 @@
 		</tr>
 	</tbody>
 </table>
-</table>
-
 <input type="hidden" name="board_id" id="board_id" value="${sessionScope.memId }">
 </form>
 </div>
 
 </div>
+</div>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/js/freeboardWrite.js"></script>
 <script type="text/javascript">
-/*
- * 
- $(document).ready(function(){
-		
-		$('#type3').addClass('on');
-	});
 
- */
 
 function add(){
     var table = document.getElementById('table');
@@ -106,7 +102,7 @@ function add(){
     oTd1      = oTr.insertCell(0);
     oTd1.style.textAlign = "center";
     oTd2      = oTr.insertCell(1);
-    tmpHTML = "<input type=file name='file[]' style='width:50%' class=line> <a href=\"javascript:del('"+"tr_"+(tr_num)+"')\"><img src='../image/upadd2.jpg' style='width:90px; height:25px;' align=absmiddle></a>";
+    tmpHTML = "<input type=file name='file[]' style='width:50%' class=line> <a href=\"javascript:del('"+"tr_"+(tr_num)+"')\"><img src='/jaju/jajuImage/upadd2.jpg' style='width:90px; height:25px;' align=absmiddle></a>";
     oTd2.innerHTML = tmpHTML;
     calcul();
 }

@@ -62,7 +62,7 @@ $(function(){
 				$('<tr/>').append($('<td/>',{
 					text : items.comment_seq
 				})).append($('<td/>',{
-					style : 'text-align: left;'
+					style : 'text-align: left; padding-top: 10px; padding-bottom: 7px;'
 					
 					}).append($('<a/>',{
 						text : items.comment_content,

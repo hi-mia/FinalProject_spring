@@ -51,7 +51,7 @@ h2 {
     display: block;
     overflow: hidden;
     padding: 15px 0 15px 20px;
-    font-size: 14px;\
+    font-size: 14px;
     line-height: 20px;
     letter-spacing: -.3px;
 }
@@ -117,6 +117,9 @@ ol, ul {
 }
 .page_aticle.aticle_type2 {
     padding-top: 65px;
+    display: inline-block;
+    width:170px;
+    float:left;
 }
 .page_aticle {
     width: 1050px;

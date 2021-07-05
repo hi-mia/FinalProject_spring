@@ -30,7 +30,7 @@ div {
 
 #freeboardDiv {
 	margin-top: 20px;
-	padding: 100px;
+	/* padding: 100px; */
 }
 
 
@@ -38,7 +38,7 @@ div {
 	margin-top: 20px;
 	float: left;
 	display: inline-block;
-	margin-left: 40px;
+/* 	margin-left: 40px; */
 	width: 800px;
 }
 .freeboardDiv {
