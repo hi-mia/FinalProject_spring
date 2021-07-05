@@ -8,6 +8,17 @@ $(function(){
 		success: function(data) {
 			//alert(JSON.stringify(data))
 			
+			 if(JSON.stringify(data.list)=='[]'){
+				 $('#reviewboardListTable tr').remove();
+					$('<tr/>').append($('<div/>',{
+						align:'center',
+						text:'등록된 게시물이 없습니다',
+						style:'height:500px; width:800px; line-height:500px;'
+					})).appendTo($('#reviewboardListTable'));
+				}
+			 
+			 else {
+			
 			$.each(data.list, function(index, items){
 				 $('<tr/>').append($('<td/>',{
 		               align:'center',
@@ -56,6 +67,7 @@ $(function(){
 
 		  //페이징 처리
 		$('#reviewboardpagingDiv').html(data.reviewboardPaging.pagingHTML);		
+			 }//else
 	}, 
 		error:function(err){
 		console.log(err);

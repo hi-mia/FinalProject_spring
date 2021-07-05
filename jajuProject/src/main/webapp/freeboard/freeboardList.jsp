@@ -70,14 +70,6 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/js/freeboardList.js"></script>
 <script type="text/javascript">
-/*
- * 
- $(document).ready(function(){
-		
-		$('#type2').addClass('on');
-	});
-
- */
 
 function freeboardPaging(pg){
 	var boardSearchText = document.getElementById('keyword').value;

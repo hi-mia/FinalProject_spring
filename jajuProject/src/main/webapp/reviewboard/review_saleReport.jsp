@@ -201,10 +201,10 @@ ol, ul {
 	<!-- controller에서 넘어온 id/pg ,id는 임의로 만들어둔 변수명. 나중에 session값 처리-->
 	<input type="hidden" id="id" name="id" value="${memId}">
 	<input type="hidden" id="pg" name="pg" value="${param.pg}">
-<div id="total" style="width:1080px; margin: auto; ">
+<div id="total" style="width:1080px; margin: auto;">
 <jsp:include page="/freeboard/boardMenu.jsp"/>
 
-	<div class="section_review">
+	<div class="section_review" style="margin-bottom: 120px;">
 
 		<div class="head_aticle">
 			<h2 class="tit">&emsp;구매 내역</h2>
