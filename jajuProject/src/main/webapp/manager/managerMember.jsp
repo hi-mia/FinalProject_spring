@@ -262,7 +262,7 @@
 			//$('#sortinSelect').trigger('change');		
 		} else{
 			$('#searchPg').val(pg);
-			alert($('#searchPg').val())
+			//alert($('#searchPg').val())
 			$('#search-text_Btn').trigger('click','research');
 			//location.href = 'boardSearch?pg='+pg+'&select='+$('#select option:selected').val() +'&keyword='+$('#keyword').val();
 			//encodeURIComponent('${keyword}');

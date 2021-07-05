@@ -191,7 +191,18 @@ public class MypageDAOMybatis implements MypageDAO {
 	public int getTotalADeal(String id) {
 		return sqlSession.selectOne("mypageSQL.getTotalADeal",id);
 	}
-
+	//Sale,Buy,Deal  리스트 검색
+	@Override
+	public List<SaleboardDTO> mySaleRecodeSearchList(Map<String, String> map) {
+		System.out.println("바티스11"+map);
+		return sqlSession.selectList("mypageSQL.mySaleRecodeSearchList", map);
+	}
+	//Sale,Buy,Deal  리스트 검색 페이징 처리
+	@Override
+	public int getTotalASaleSearch(Map<String, String> map) {
+		System.out.println("바티스11페이징"+map);
+		return sqlSession.selectOne("mypageSQL.getTotalASaleSearch",map);
+	} 
 	
 	// 판매게시판 쪽 스크랩
 	@Override
@@ -207,7 +218,7 @@ public class MypageDAOMybatis implements MypageDAO {
 	@Override
 	public void deleteMyScrapView(Map<String, String> map) {
 		sqlSession.delete("mypageSQL.deleteMyScrapView", map);
-
+		
 	}
 
 	
@@ -341,4 +352,6 @@ public class MypageDAOMybatis implements MypageDAO {
 	public int getMyProfileReviewListPagetotalA(String id) {
 		return sqlSession.selectOne("mypageSQL.getMyProfileReviewListPagetotalA",id);
 	}
+
+	
 }

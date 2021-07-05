@@ -84,7 +84,7 @@ function freeboardPaging(pg){
 		location.href = '/jaju/manager/managerFreeboardList?pg='+pg;
 	} else{
 		$('#searchPg').val(pg);
-		$('#boardSearchBtn').trigger('click');
+		$('#boardSearchBtn').trigger('click','research');
 		//location.href = 'boardSearch?pg='+pg+'&select='+$('#select option:selected').val() +'&keyword='+$('#keyword').val();
 		//encodeURIComponent('${keyword}');
 		$('#searchPg').val(1);

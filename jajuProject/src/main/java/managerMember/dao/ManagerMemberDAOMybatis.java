@@ -25,7 +25,7 @@ public class ManagerMemberDAOMybatis implements ManagerMemberDAO {
 	public List<MemberDTO> getManagerMember(Map<String, String> map) {
 		return sqlSession.selectList("managerMemberSQL.getManagerMember", map);
 	}
-
+	
 	// 활동중지 상태 0-> 1로 변경
 	@Override
 	public void changeMemberState(Map<String, String[]> map) {
