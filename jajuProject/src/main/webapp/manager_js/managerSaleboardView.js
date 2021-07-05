@@ -50,7 +50,7 @@ $(function(){
 			});
 			
 			$('#locationSpan').text(data.saleboardDTO.member_sido+ " "+ data.saleboardDTO.member_sigungu);
-			$('#linkSpan').html('<a href="/jaju/saleboard/saleboardView?sale_seq='+$('#sale_seq').val()+'&pg=1">' + '/jaju/saleboard/saleboardView?sale_seq='+$('#sale_seq').val()+'&pg=1</a>');
+			$('#linkSpan').html('<a id="linkA" href="/jaju/saleboard/saleboardView?sale_seq='+$('#sale_seq').val()+'&pg=1">' + '/jaju/saleboard/saleboardView?sale_seq='+$('#sale_seq').val()+'&pg=1</a>');
 			$('#contentSpan').text(data.saleboardDTO.sale_content);
 			
 			//댓글 불러오기
