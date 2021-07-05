@@ -219,6 +219,7 @@ html {
 	margin-left: 13%;
 	height: auto;
 	margin-bottom: 10px; */
+	margin-top: 93px;
 	width: 800px;
     display: inline-block;
     height: auto;
@@ -226,7 +227,7 @@ html {
     box-sizing: border-box;
     -webkit-box-flex: 1;
     flex: 1;
-    margin-left: 1.5%;
+    margin-left: 90px;
 }
 #change_state_btn:hover{
 	background-color: #f7faff;

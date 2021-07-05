@@ -2,10 +2,10 @@
     pageEncoding="UTF-8"%>
 
 <link rel="stylesheet" href="/jaju/css/reviewboardList.css" />
-<jsp:include page="/freeboard/boardMenu.jsp"/>
-
 <input type="hidden" name="id" value="reviewboard">
 
+<div id="total" style="width:1080px; margin: auto; ">
+<jsp:include page="/freeboard/boardMenu.jsp"/>
 <div id="formTotal">
 <div class="head_aticle" padding-left="10px">
 	<h2 class="tit">후기 게시판 </h2>
@@ -65,6 +65,7 @@
 	</table>
 	<br>
 
+</div>
 </div>
 </div>
 

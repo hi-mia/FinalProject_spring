@@ -2,13 +2,16 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="/jaju/css/reviewboardWriteForm.css" />
 
-<div id="reviewboardDiv">
+
+<div id="total" style="width:1080px; margin: auto; ">
+<jsp:include page="/freeboard/boardMenu.jsp"/>
+<div id="reviewboardDiv" style="width:800px; display:inline-block; float:left; margin-left:40px; margin-top: 70px;">
 <div class="head_aticle">
-<h2>후기 작성</h2>
+<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;후기 작성</h2>
 </div>
 	
 <div class="xans-board-write">
-<form class="reviewboardWriteForm" id="reviewboardWriteForm" style="height: 100%; width:100%;">
+<form class="reviewboardWriteForm" id="reviewboardWriteForm">
 	<input type="hidden" name="mode" value="add_qna">
 	<input type="hidden" name="itemcd">
 	<input type="hidden" name="sno" value="0">
@@ -106,6 +109,8 @@
 
 <input type="hidden" name="sale_subject" id="sale_subject" >
 </form>
+</div>
+
 </div>
 
 </div>

@@ -28,8 +28,21 @@ div {
     display: block;
 }
 #freeboardDiv {
+	margin-top: 40px;
+}
+
+.xans-board-write {
 	margin-top: 20px;
-	padding: 100px;
+	float: left;
+	display: inline-block;
+	width: 800px;
+}
+.freeboardDiv {
+	margin-top: 20px;
+	float: left;
+	display: inline-block;
+	margin-left: 40px;
+	width: 800px;
 }
 
 body, input, select, textarea, button {

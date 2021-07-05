@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="/jaju/css/reviewboardModifyForm.css" />
-
-<div id="reviewboardDiv">
+<div id="total" style="width:1080px; margin: auto; ">
+<jsp:include page="/freeboard/boardMenu.jsp"/>
+<div id="reviewboardDiv"  style="width:800px; display:inline-block; float:left; margin-left:40px; margin-top: 167px;">
 <div class="head_aticle">
 </div>
 	
@@ -41,8 +42,7 @@
 <tr>
 	<th class="reviewboardWriteTd">구매한 물건</th>
 	<td>
-		<span id="buy_product"></span>
-		<div id="buy_productDiv"></div>
+		<span id="sale_subjectSpan"></span>
 	</td>
 </tr>
 
@@ -122,6 +122,9 @@
 </div>
 
 </div>
+
+</div>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/js/reviewboardModify.js"></script>
 <script type="text/javascript">

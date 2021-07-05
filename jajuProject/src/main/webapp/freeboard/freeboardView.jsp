@@ -1,18 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
+
 <link rel="stylesheet" href="/jaju/css/freeboardView.css" />
+<div id="total" style="width:1080px; margin: auto; ">
 <jsp:include page="/freeboard/boardMenu.jsp"/>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+
 <input type="hidden" id="board_seq" value="${board_seq }">
 <input type="hidden" id="pg" value="${param.pg }"/>
 <input type="hidden" id="board_id" name= "board_id" value="${sessionScope.memId }"/>
-<div id="wrap">
+<div id="wrap"  style="width:800px; display:inline-block; float:left; margin-left:40px; margin-top: 118px;">
 <div id="pos_scroll"></div>
 <div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
 
@@ -90,7 +86,7 @@
 		<table width="100%">
 		<tbody>
 		
-		<tr style="width: 800px;">
+		<tr style="width:800px;">
 		<td align="right" colspan="2">
 		<a href="/jaju/freeboard/freeboardModifyForm?board_seq=${param.board_seq }"><span class="bhs_button yb" style="float:none;">수정</span></a>
 		<span class="bhs_button yb" style="float:none; cursor:pointer; " id="freeboardDeleteBtn">삭제</span>
@@ -102,32 +98,32 @@
 		</tr>
 		</tbody></table>
 		
-		<br><br><br>
+		<br><br><br><br>
 		
 		
 <!-- 댓글 -->
-	<div id="commentDiv" style="width: 800px;">
+	<div id="commentDiv" style="width:800px; margin-top:50px;">
 		<table id="commentTable" >
 			<tr style="border-bottom: 1px solid #f5f5f5;">
-				<th width="200" style="padding-bottom: 10px;">번호</th>
-				<th width="400" style="padding-bottom: 10px;">내용</th>
-				<th width="200" style="padding-bottom: 10px;">작성자</th>
-				<th width="200" style="padding-bottom: 10px;">작성일</th>
+				<th width="200" style="padding-bottom: 20px;">번호</th>
+				<th width="400" style="padding-bottom: 20px;">내용</th>
+				<th width="200" style="padding-bottom: 20px;">작성자</th>
+				<th width="200" style="padding-bottom: 20px;">작성일</th>
 			</tr>
 
 		</table>
-		<div id="pagingDiv" style="text-align: center; margin-bottom: 10px;">
+		<div id="pagingDiv" style="text-align: center; margin-top:20px; margin-bottom: 10px;">
 		
 		</div>
 		
 		<table border="2" id=c cellspacing="0" cellpadding="10"
          bordercolor="#d6e6f2" align="center" frame="hsides" rules="rows"
-         width="1050" id="commentWriteTable" style="width: 800px;">
-         <tr>
-            <td height="80" width="150" align="left" style="width: 800px;">댓글: &nbsp; <span id="replySpan"></span>
-               <input type="text" placeholder="댓글을 입력하세요." size="73" id="commentText" class="commentInput">
+         width="800" style="margin-top:40px;" id="commentWriteTable">
+         <tr >
+            <td height="80" width="80" align="center">댓글: &nbsp; <span id="replySpan"></span>
+               <input type="text" placeholder="댓글을 입력하세요." size="70" id="commentText" class="commentInput">
                &nbsp;&nbsp;
-               <input type="button" value="댓글 입력" class="commentInput" id="commentInputBtn" size="200" >
+               <input type="button" value="댓글 입력" class="commentInput" id="commentInputBtn" size="80" >
             </td>
          </tr>
       </table>
@@ -165,6 +161,7 @@
 		</tbody>
 		</table>
 	</div>
+</div>
 </div>
 </div>
 </div>

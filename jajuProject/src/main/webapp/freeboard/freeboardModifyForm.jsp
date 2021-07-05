@@ -1,22 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
+
 <link rel="stylesheet" href="/jaju/css/freeboardModifyForm.css" />
-
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-<div id="freeboardDiv">
+<div id="total" style="width:1100px; margin:0 auto; ">
+<jsp:include page="/freeboard/boardMenu.jsp"/>
+<div id="freeboardDiv" style="width:800px; display:inline-block; float:left; margin-left:80px;">
 <div class="head_aticle">
 <h2></h2>
 </div>
 	
-<div class="xans-board-write">
-<form class="freeboardModifyForm" id="freeboardModifyForm" name="freeboardModifyForm" style="height: 100%; width:100%;">
+<div class="xans-board-write" style="margin-top: 120px;">
+<form class="freeboardModifyForm" id="freeboardModifyForm" name="freeboardModifyForm">
 	<input type="hidden" name="board_seq" id="board_seq" value="${param.board_seq }">
 	<input type="hidden" name="mode" value="add_qna">
 	<input type="hidden" name="itemcd">
@@ -37,7 +31,7 @@
 <th class="freeboardModifyTd">내용</th>
 <td class="saleText" name="board_content" placeholder="내용을 입력해주세요." style="position: relative; width:100%;">
 
-<textarea name="board_content" id="board_content" style="width:70%; height:474px; resize: none;" class="editing_area" label="내용"></textarea>
+<textarea name="board_content" id="board_content" style="width:100%; height:474px; resize: none;" class="editing_area" label="내용"></textarea>
 <div id="board_contentDiv"></div>
 </td>
 </tr>
@@ -45,7 +39,7 @@
 <tr>
 <th class="freeboardModifyTd">이전 이미지</th>
 <td class="freeImg" name="img[]" style="position: relative; width:70%;">
-<table width="70%" cellpadding="0" cellspacing="0" border="0" style="border:solid 1px #f4f4f4; border-collapse:collapse;">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:solid 1px #f4f4f4; border-collapse:collapse;">
    <tbody id="imageTd">
 
    </tbody>
@@ -59,14 +53,14 @@
 <tr>
 <th class="input_txt">이미지</th>
 <td>
-<table width="70%" id="table" cellpadding="0" cellspacing="0" border="0" style="border:solid 1px #f4f4f4; border-collapse:collapse;">
+<table width="100%" id="table" cellpadding="0" cellspacing="0" border="0" style="border:solid 1px #f4f4f4; border-collapse:collapse;">
    <tbody>
    <tr id="tr_0">
       <td width="20" nowrap="" align="center">1</td>
       <td width="50%">
          <input type="file" name="file[]" style="width:50%" class="linebg">
          <a href="javascript:add()">
-            <img src="../image/upadd.jpg" style="width:90px; height:25px;">
+            <img src="/jaju/jajuImage/upadd.jpg" style="width:90px; height:25px;">
          </a>
        </td>
    </tr>
@@ -87,10 +81,10 @@
 </tr>
 </table>
 
-<table width="70%">
+<table width="100%">
 	<tbody>
 		<tr>
-			<td align="right" style="padding-top:5px; border:none;" id="avoidDbl">
+			<td align="right" style="padding-top:40px; border:none; padding-bottom:40px;" id="avoidDbl">
 				<input type="button" id="freeboardModifyBtn" class="bhs_button yb" value="글수정" style="float:none;">
 			</td> 
 		</tr>
@@ -100,6 +94,7 @@
 </form>
 </div>
 
+</div>
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/js/freeboardModify.js"></script>
@@ -117,7 +112,7 @@ function add(){
     oTd1      = oTr.insertCell(0);
     oTd1.style.textAlign = "center";
     oTd2      = oTr.insertCell(1);
-    tmpHTML = "<input type=file name='file[]' style='width:50%' class=line> <a href=\"javascript:del('"+"tr_"+(tr_num)+"')\"><img src='../image/upadd2.jpg' style='width:90px; height:25px;' align=absmiddle></a>";
+    tmpHTML = "<input type=file name='file[]' style='width:50%' class=line> <a href=\"javascript:del('"+"tr_"+(tr_num)+"')\"><img src='/jaju/jajuImage/upadd2.jpg' style='width:90px; height:25px;' align=absmiddle></a>";
     oTd2.innerHTML = tmpHTML;
     calcul();
 }

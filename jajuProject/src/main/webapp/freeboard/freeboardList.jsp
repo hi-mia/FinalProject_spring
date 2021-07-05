@@ -2,11 +2,12 @@
     pageEncoding="UTF-8"%>
 
 <link rel="stylesheet" href="/jaju/css/freeboardList.css" />
-<jsp:include page="/freeboard/boardMenu.jsp"/>
 
 <input type="hidden" name="id" value="freeboard">
 
-<div id="formTotal">
+<div id="total" style="width:1100px; margin:0 auto; ">
+<jsp:include page="/freeboard/boardMenu.jsp"/>
+<div id="formTotal" style="width:800px; display:inline-block; float:left; margin-left:80px; margin-top: 86px;">
 <div class="head_aticle" padding-left="10px">
 	<h2 class="tit">자유게시판 </h2>
 </div>
@@ -62,6 +63,7 @@
 	</table>
 	<br>
 
+</div>
 </div>
 </div>
 

@@ -29,7 +29,8 @@ $(function(){
 	$.ajax({
 		type: 'post',
 		url: '/jaju/reviewboard/getReviewboardView',
-		data: {'review_seq': $('#review_seq').val()},
+		data: {'review_seq': $('#review_seq').val(),
+			'sale_seq': $('#sale_seq').val()},
 		dataType: 'json',
 		success: function(data){
 			//alert(JSON.stringify(data)); //자료가 오긴 온다
@@ -37,6 +38,7 @@ $(function(){
 			$('#sale_seq').val(data.reviewboardDTO.sale_seq);
 			$('#review_subject').val(data.reviewboardDTO.review_subject);
 			$('#review_manner').val(data.reviewboardDTO.review_manner);
+			$('#sale_subjectSpan').text(data.reviewboardDTO.sale_subject);
 			$('#review_content').val(data.reviewboardDTO.review_content);
 			
 			let map = new Map();
