@@ -7,18 +7,18 @@
 <title>지역차트</title>
 <style type="text/css">
 .card {
-	width: 1000px !important;
+	width: 970px !important;
 	/*+*/
 	margin-left: 5px;
 	/*height: 300px!important;*/
 	
 }
 .chart_js{
-	width: 550px;
-	height:550px;
+	width: 920px;
+	height: 485px;
 	display: inline-block;
 	background-color: #fff;
-	    min-width: 0;
+	min-width: 0;
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
@@ -32,9 +32,9 @@
 </head>
 <body>
 
-	<div class="col-12 col-xl-4">
-		<div class="card">
-			<div class="card-header">
+	<div class="col-12 col-xl-4" style="width: 970px; height: 650px;">
+		<div class="card" style="width: 970px; height: 650px;">
+			<div class="card-header" style="width: 970px; height: 650px;">
 				<h4>관심지역 통계</h4>
 			</div>
 			<div class="card-body">
@@ -52,11 +52,11 @@
 
 						<!-- 여기 차트 들어갈 위치 -->
 						<div class="chart_js">
-							<canvas id="myChart3"  width="500" height="500" align="center"></canvas>
+							<canvas id="myChart3"  style="width:880px; height:445px; align:center; padding: 25px 30px 20px"></canvas>
 						</div>
 
 						<div class="resize-triggers">
-							<div class="expand-trigger">
+							<div class="expand-trigger" style="width: 970px; height: 30px;">
 								<div style="width: 248px; height: 96px;"></div>
 							</div>
 							<div class="contract-trigger"></div>

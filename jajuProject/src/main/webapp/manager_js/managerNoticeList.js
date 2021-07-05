@@ -1,6 +1,8 @@
 //신고글 뿌려지기
 $(function(){
 	//alert($('#pg').val());
+	 $('#managerNotice').addClass('on');
+	
 	$.ajax({
 		url: '/jaju/manager/getManagerNoticeList',
 		type:'post',
@@ -8,43 +10,49 @@ $(function(){
 		dataType:'json',
 		success:function(data){
 			//alert(JSON.stringify(data));
+			if(data.list.length != 0){
+				$('.no_data').hide();
+				
+				$.each(data.list, function(index, items){
+		            
+		        	$('<tr/>').append($('<td/>',{
+		        		align: 'center',
+		        		width: '40px',
+			        	}).append($('<input/>',{
+							type: 'checkbox',
+							name: 'check',
+							value: items.notice_seq,
+			        	}))
+		        	).append($('<td/>',{
+		        		width: '80px',
+		                align: 'center',
+		                text: items.notice_seq
+		            })).append($('<td/>',{
+		            	
+		            	}).append($('<a/>',{
+		            		href: '#',
+		            		width: '594px',
+		            		text: items.notice_subject,
+		            		class: 'subject'+items.notice_seq
+		            	}))
+		            ).append($('<td/>',{
+		            	width: '120px',
+		            	align: 'center',
+		            	text: items.logtime
+		            })).appendTo('.mangerNoticeTable');
+		        	
+		        	$('.subject'+items.notice_seq).click(function(){
+						location.href = '/jaju/manager/managerNoticeView?notice_seq='+items.notice_seq+'&pg='+$('#pg').val();
+					});
+		        	
+		        	//처리중 처리완료 색 변경
+		        	$("td.state:contains('처리중')").css({color:"red"});
+		        	$("td.state:contains('처리완료')").css({color:"blue"});
+		        }); //each
 			
-			$.each(data.list, function(index, items){
-	            
-	        	$('<tr/>').append($('<td/>',{
-	        		align: 'center',
-	        		width: '40px',
-		        	}).append($('<input/>',{
-						type: 'checkbox',
-						name: 'check',
-						value: items.notice_seq,
-		        	}))
-	        	).append($('<td/>',{
-	        		width: '80px',
-	                align: 'center',
-	                text: items.notice_seq
-	            })).append($('<td/>',{
-	            	
-	            	}).append($('<a/>',{
-	            		href: '#',
-	            		width: '594px',
-	            		text: items.notice_subject,
-	            		class: 'subject'+items.notice_seq
-	            	}))
-	            ).append($('<td/>',{
-	            	width: '120px',
-	            	align: 'center',
-	            	text: items.logtime
-	            })).appendTo('.mangerNoticeTable');
-	        	
-	        	$('.subject'+items.notice_seq).click(function(){
-					location.href = '/jaju/manager/managerNoticeView?notice_seq='+items.notice_seq+'&pg='+$('#pg').val();
-				});
-	        	
-	        	//처리중 처리완료 색 변경
-	        	$("td.state:contains('처리중')").css({color:"red"});
-	        	$("td.state:contains('처리완료')").css({color:"blue"});
-	        }); //each
+			}else if(data.list.length == 0){
+				$('.no_data').show();
+			}
 			
 			//페이징 처리
 	        $('#pagingArea').html(data.noticePaging.pagingHTML);

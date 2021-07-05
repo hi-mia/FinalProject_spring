@@ -1,6 +1,8 @@
 //똑같이 블랙리스트 append 즉 상태가 1인 사람들 불러오고, 여기서는 1을 0으로 바꾸기
 
 $(function(){
+	$('#managerMemberBlack').addClass('on');
+	
 //창이 열리자 마자 , (활동중지 회원) 정보 가져오기. 
 	$.ajax({
 		url: '/jaju/manager/getManagerMemberBlack',

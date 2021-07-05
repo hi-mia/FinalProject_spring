@@ -45,7 +45,7 @@
 	height:450px;
 	display: inline-block;
 	background-color: #fff;
-	    min-width: 0;
+	min-width: 0;
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
@@ -300,9 +300,6 @@ h6.text-muted.font-semibold, h6.font-extrabold.mb-0{
 	font-size: 25px;
 	margin-right: -10px;
 }
-div.card-body.px-3.py-4-5{
-	height: 150px;
-}
 h6.text-muted.font-semibold{
 	height: 48px;
 	padding-top: 10px;
@@ -372,4 +369,17 @@ img.new_board{
 }
 div#side{
 	margin-top: 150px;
+}
+div.col-6.col-lg-3.col-md-6, div.card, div.card-body.px-3.py-4-5{
+	margin-left: 2px;
+	width: 241px;
+	height: 150px;
+}
+
+div.card-body.px-3.py-4-5{
+	margin-left: 2px;
+	width: 236px;
+	height: 150px;
+	display: inline-block;
+	
 }

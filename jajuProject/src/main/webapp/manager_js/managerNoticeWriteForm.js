@@ -1,3 +1,7 @@
+$(function(){
+	 $('#managerNotice').addClass('on');
+});
+
 //글쓰기
 $('#noticeWriteBtn').click(function(){
 	$('#notice_subjectDiv').empty();

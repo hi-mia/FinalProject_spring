@@ -1,5 +1,8 @@
 //수정할 글 불러오기
 $(function(){
+	
+	$('#type4').addClass('on');
+	
 	$('.image1Name').hide();
 	$('.image2Name').hide();
 	$('.image3Name').hide();

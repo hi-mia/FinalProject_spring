@@ -1213,7 +1213,7 @@ progress {
 	.col-lg-9 {
 		flex: 0 0 auto;
 		/*width: 75%;*/
-		   /*+*/ height: 300px;
+		   /*+*/ /* height: 300px; */
 		    	   margin-top: 50px;
    					 margin-left: 80px;
 	}
@@ -4179,6 +4179,7 @@ textarea.form-control-lg {
 	background-clip: border-box;
 	border: 1px solid rgba(0, 0, 0, .125);
 	border-radius: .7rem;
+	margin-left: -1px;
 }
 
 .card>hr {

@@ -8,6 +8,8 @@
 //신고누적 횟수 5이상은 블랙리스트등록
 
 $(function(){
+	$('#managerMember').addClass('on');
+	
 //창이 열리자 마자 , 모든 회원 정보 가져오기. 
 	$.ajax({
 		url: '/jaju/manager/getManagerMember',

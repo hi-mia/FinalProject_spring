@@ -818,3 +818,7 @@ input[type="checkbox" i] {
     padding: initial;
     border: initial;
 }
+td.no_article {
+    text-align: center;
+    padding: 92px 0;
+}

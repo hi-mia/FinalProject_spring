@@ -46,7 +46,7 @@
 		</div>
 		<div class="col-6 col-lg-3 col-md-6">
 			<div class="card">
-				<div class="card-body px-3 py-4-5" style="padding-bottom: 0">
+				<div class="card-body px-3 py-4-5">
 					<div class="row">
 						<div class="col-md-4">
 							<div class="stats-icon blue">
@@ -103,13 +103,13 @@
 		</div>
 	</div>
 			
-					<div class="resize-triggers">
-						<div class="expand-trigger">
-							<div style="width: 272px; height: 256px;"></div>
-						</div>
-						<div class="contract-trigger"></div>
-					</div>
-				</div>
+		<div class="resize-triggers">
+			<div class="expand-trigger" style="width: 970px; height: 30px;">
+				<div style="width: 272px; height: 10px;"></div>
+			</div>
+			<div class="contract-trigger"></div>
+		</div>
+	</div>
 
 	</section>
 

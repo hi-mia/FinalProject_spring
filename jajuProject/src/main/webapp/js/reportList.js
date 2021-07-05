@@ -1,5 +1,8 @@
 //목록 
 $(document).ready(function(){
+	
+	$('#type4').addClass('on');
+	
 	$.ajax({
 		type: 'post',
 		url: '/jaju/serviceCenter/getReportList',

@@ -70,7 +70,10 @@
                <td align="center">작성일</td>
                <td align="center">처리상태</td>
 			</tr> -->
-	
+			<tr class="no_data">
+				<td colspan="19" class="no_article">신고 내역이 없습니다.</td>
+			</tr>
+		
 	</table>
 </div>
 
@@ -81,9 +84,3 @@
 </div>
 <script type = "text/javascript" src = "http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/manager_js/managerReportList.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-	
-	$('#managerServiceReport').addClass('on');
-});
-</script>

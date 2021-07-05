@@ -3,6 +3,8 @@ $(function(){
 	//alert($('#report_seq').val());
 	//alert($('#comment_seq').val());
 	
+	$('#managerReport').addClass('on');
+	
 	$.ajax({
 		type: 'post',
 		url: '/jaju/manager/getReport',

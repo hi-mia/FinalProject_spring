@@ -1,6 +1,9 @@
 //목록
 //alert($('#pg').val());
 $(document).ready(function(){
+	
+	$('#type1').addClass('on');
+	
 	$.ajax({
 		type: 'post',
 		url: '/jaju/serviceCenter/getNoticeList',

@@ -93,7 +93,7 @@
 									변동없음</span></span> <span class="value_increase"></span>
 						</span>
 					</div>
-
+					
 					<div class="stat last_child">
 						<span class="stat_title">일별 판매 게시글 수<br>
 						<br></span> <a id="newArticleValue" class="stat_value"
@@ -114,7 +114,7 @@
 		<!-- <h1>게시물데이터그래프화</h1> -->
 		
 		<div class="google_chart" id="chart_div"></div>
-		<div class="chart_js">
+		<div class="chart_js" style="width: 485px; height:485px;">
 			<canvas id="myChart"  width="400" height="400" ></canvas>
 			<!-- <canvas id="myChart2"  width="400" height="400" align="center"></canvas>
 			<canvas id="myChart3"  width="400" height="200" align="center"></canvas>
@@ -123,7 +123,7 @@
 	</div><!-- 차트 -->
 	
 	<!-- 판매물품 등록 많은 지역 -->
-	<div class="drawLocationChart">
+	<div class="drawLocationChart" style="margin-top: 30px;">
 		<jsp:include page="/manager/managerMainLocationChart.jsp"/>
 	</div>
 	
@@ -189,8 +189,8 @@
 						// Set chart options
 						var options = {
 							'title' : '판매게시물 등록 카테고리 현황',
-							'width' : 500,
-							'height' : 500
+							'width' : 485,
+							'height' : 485
 						};
 						// Instantiate and draw our chart, passing in some options.
 						var chart = new google.visualization.PieChart(document

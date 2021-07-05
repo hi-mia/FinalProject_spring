@@ -1,5 +1,8 @@
 //글쓰기에 신고아이디, 신고글 뿌리기
 $(function(){
+	
+	$('#type4').addClass('on');
+	
 	$('#sale_id').val($('#sale_id2').val());
 	$.ajax({
 		type: 'post',

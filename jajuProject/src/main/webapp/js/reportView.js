@@ -2,6 +2,8 @@
 $(function(){
 	//alert($('#report_seq').val());
 	//alert($('#comment_seq').val());
+	$('#type4').addClass('on');
+	
 	
 	$.ajax({
 		type: 'post',

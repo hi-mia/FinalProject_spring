@@ -69,7 +69,10 @@
                <td><a>제목 </a></td>
                <td align="center">작성일</td>
 			</tr> -->
-	
+			
+			<tr class="no_data">
+				<td colspan="19" class="no_article">공지 글이 없습니다.</td>
+			</tr>
 	</table>
 </div>
 
@@ -80,10 +83,4 @@
 </div>
 <script type = "text/javascript" src = "http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/manager_js/managerNoticeList.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-   
-   $('#managerServiceNotice').addClass('on');
-});
-</script>
 </html>

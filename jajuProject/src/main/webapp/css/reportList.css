@@ -13,9 +13,6 @@ a:link{
 	color: #333;
 	text-decoration: none;
 }
-.xans-board-listheader th{
-	boader-bottom: 1px solid #e6e6e6;
-}
 .prevPaging{
 	background-image: url(/jaju/jajuImage/icon-pagination-prev.webp);
 }
@@ -132,17 +129,20 @@ body {
 html, body {
     height: 100%;
 }
-.xans-board-listheader {
-    border-top: 2px solid #47597e;
-    font-size: 14px;
-    line-height: 140%;
-}
 .reportListTable{
 	font-size: 14px;
     line-height: 140%;
 }
 .reportListTable td{
 	border-bottom: 1px solid #e6e6e6;
+}
+.xans-board-listheader {
+    border-top: 2px solid #47597e;
+    font-size: 14px;
+    line-height: 140%;
+}
+.xans-board-listheader th{
+	boader-bottom: 1px solid #e6e6e6;
 }
 .xans-board-listheader th, .reportListTable td {
     padding: 20px 0;

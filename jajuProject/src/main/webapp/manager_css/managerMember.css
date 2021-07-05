@@ -134,6 +134,13 @@ body#cafeAdmin #wrap {
     display: block;
     clear: both;
 }
+.btn_type2:hover {
+    background: #fff3f4;
+    text-decoration: none;
+}
+div#listControlBar2.set_list{
+	border-bottom: 1px solid #e4e4e4;
+}
 #content .cont_tit {
     float: left;
     border: 0;

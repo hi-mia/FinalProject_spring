@@ -1,5 +1,8 @@
 //veiw에 한사람 글 불러오기
 $(function(){
+	
+	 $('#managerNotice').addClass('on');
+	
 	$.ajax({
 		type: 'post',
 		url: '/jaju/manager/getNotice',
