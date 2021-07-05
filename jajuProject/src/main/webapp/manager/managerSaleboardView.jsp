@@ -81,7 +81,7 @@
 			
 			<tbody>
 			<tr>
-			<td class="board_view_content" style="word-wrap:break-word;word-break:break-all; width: 80%" id="contents_924" valign="top">
+			<td class="board_view_content" style="word-wrap:break-word;word-break:break-all; width: 75.5%" id="contents_924" valign="top">
 			<div style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; margin: 0px;">
 			<font color="#222222" face="Font" style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; margin: 0px;">
 				<pre class="viewPre"><span id="contentSpan"></span></pre>
@@ -102,7 +102,7 @@
 		<tbody><tr>
 		<td align="center" style="padding-top:10px;">
 		
-		<table width="100%">
+		<table width="550px;">
 		<tbody>
 		
 		<tr>
@@ -123,14 +123,14 @@
 	<div id="commentDiv">
 		<table id="commentTable" >
 			<tr style="border-bottom: 1px solid #f5f5f5;">
-				<th width="200" style="padding-bottom: 10px;">번호</th>
-				<th width="400" style="padding-bottom: 10px;">내용</th>
-				<th width="200" style="padding-bottom: 10px;">작성자</th>
-				<th width="200" style="padding-bottom: 10px;">작성일</th>
+				<th width="160" style="padding-bottom: 10px;">번호</th>
+				<th width="320" style="padding-bottom: 10px;">내용</th>
+				<th width="160" style="padding-bottom: 10px;">작성자</th>
+				<th width="160" style="padding-bottom: 10px;">작성일</th>
 			</tr>
 
 		</table>
-		<div id="pagingDiv" style="text-align: center; margin-bottom: 10px;">
+		<div id="pagingDiv" style="text-align: center; margin-bottom: 10px; width: 800px;">
 		
 		</div>
 		

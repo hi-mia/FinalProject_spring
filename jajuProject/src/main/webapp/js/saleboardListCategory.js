@@ -10,7 +10,11 @@ $(function(){
 			success: function(data){
 				//alert(JSON.stringify(data));
 				
-				
+				if(data.list.length != 0){
+					$('#noneDiv').css('display', 'none')
+				} else{
+					$('#noneDiv').css('display', 'block')
+				}
 				
 				$.each(data.list, function(index,items){
 					
@@ -87,7 +91,11 @@ $(function(){
 						dataType: 'json',
 						success: function(data){
 							//alert(JSON.stringify(data));
-							
+							if(data.list.length != 0){
+								$('#noneDiv').css('display', 'none')
+							} else{
+								$('#noneDiv').css('display', 'block')
+							}
 						$.each(data.list, function(index,items){
 							//alert(items.member_sigungu);
 							
@@ -161,7 +169,11 @@ $('#searchBtn').click(function(event,str){
 					//alert(JSON.stringify(data));
 					//alert($('#searchPg').val());
 					$('.inner_listgoods .list li').remove();
-					
+					if(data.list.length != 0){
+						$('#noneDiv').css('display', 'none')
+					} else{
+						$('#noneDiv').css('display', 'block')
+					}
 					$.each(data.list, function(index,items){
 						
 						$('<li/>').append($('<div/>',{
@@ -241,6 +253,11 @@ $('#searchBtn').click(function(event,str){
 							success: function(data){
 								$('.inner_listgoods .list li').remove();
 								//alert($('#searchPg').val());
+								if(data.list.length != 0){
+									$('#noneDiv').css('display', 'none')
+								} else{
+									$('#noneDiv').css('display', 'block')
+								}
 								$.each(data.list, function(index,items){
 									
 									$('<li/>').append($('<div/>',{
@@ -321,7 +338,11 @@ $('#sortinSelect').change(function(){
 				success: function(data){
 					//alert(JSON.stringify(data));
 					$('.inner_listgoods .list li').remove();
-					
+					if(data.list.length != 0){
+						$('#noneDiv').css('display', 'none')
+					} else{
+						$('#noneDiv').css('display', 'block')
+					}
 					$.each(data.list, function(index,items){
 						
 						$('<li/>').append($('<div/>',{
@@ -404,6 +425,11 @@ $('#sortinSelect').change(function(){
 								success: function(data){
 									//alert(JSON.stringify(data));
 									$('.inner_listgoods .list li').remove();
+									if(data.list.length != 0){
+										$('#noneDiv').css('display', 'none')
+									} else{
+										$('#noneDiv').css('display', 'block')
+									}
 									$.each(data.list, function(index,items){
 										//alert(items.member_sigungu);
 										

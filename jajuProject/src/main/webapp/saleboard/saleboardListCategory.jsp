@@ -42,6 +42,8 @@
 			
 		</div>
 		
+		<div id="noneDiv" style="padding: 300px; text-align: center; display: block;"><strong>등록된 상품이 없습니다</strong></div>
+		
 		<div style="position:relative; margin-top: -125px; margin-bottom: 170px;">
          <div style="position:absolute;right:0;top:60px;">
             <a href="/jaju/saleboard/saleboardWriteForm">
