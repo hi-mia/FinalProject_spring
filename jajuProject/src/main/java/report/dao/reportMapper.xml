@@ -11,21 +11,25 @@
 	
 	<!-- 글쓰기 -->
  	<insert id="reportWrite" parameterType="report">
- 		insert into memberreport values (#{sale_seq},
-	 							   #{sale_id}, 							
-	 							   seq_memberreport.nextval,
-	 							   #{report_id},
-	 							   #{report_name},
-	 							   #{reportType},
-	 							   #{report_tal},
-	 							   #{report_subject},
-	 							   #{report_content},
-	 							   #{report_image1},
-	 							   #{report_image2},
-	 							   #{report_image3},
-	 							   #{report_state},
-	 							   sysdate)
- 	</insert>
+	 	begin
+	 		insert into memberreport values (#{sale_seq},
+		 							   #{sale_id}, 							
+		 							   seq_memberreport.nextval,
+		 							   #{report_id},
+		 							   #{report_name},
+		 							   #{reportType},
+		 							   #{report_tal},
+		 							   #{report_subject},
+		 							   #{report_content},
+		 							   #{report_image1},
+		 							   #{report_image2},
+		 							   #{report_image3},
+		 							   #{report_state},
+		 							   sysdate);
+		 							   
+		 	update sale_board set sale_hide = 'off' where sale_seq = ${sale_seq};
+		 end;
+	 	</insert>
  	
  	<!-- 목록 --><!-- 페이징 처리 -->
 <!--  	<select id="getReportList" parameterType="java.util.Map" resultType="report">

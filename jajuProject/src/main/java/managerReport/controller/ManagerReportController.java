@@ -76,6 +76,13 @@ public class ManagerReportController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/getShowList", method=RequestMethod.POST)
+	@ResponseBody
+	public void getShowList(@RequestParam String sale_seq) {
+		
+		managerReportService.getShowList(sale_seq);
+	}
+	
 	@RequestMapping(value="/getReportSearchList", method=RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView getReportSearchList(@RequestParam Map<String, String> map) {

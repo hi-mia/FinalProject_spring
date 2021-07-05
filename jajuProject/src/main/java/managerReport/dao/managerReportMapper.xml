@@ -41,6 +41,11 @@
 		
 	</delete>
 	
+	<!-- 신고글 보이기 -->
+	<update id="getShowList" parameterType="int">
+		update sale_board set sale_hide = 'on' where sale_seq = ${sale_seq};
+	</update>
+	
 	
 	
 	
