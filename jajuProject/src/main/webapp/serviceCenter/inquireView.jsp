@@ -8,7 +8,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-
+<c:if test="${memId == 'jajuadmin' }">
+<jsp:include page="/manager/managerHeader.jsp"/>
+</c:if>
 <form name = "inquireView" id = "inquireView">
 <input type="hidden" name="seq" id = "inquiry_seq" value= "${seq}">
 <input type="hidden" name="pg" value="${pg}">
@@ -17,13 +19,12 @@
 <jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 </c:if>
 <c:if test="${memId == 'jajuadmin' }">
-<jsp:include page="/manager/managerHeader.jsp"/>
 <jsp:include page="/manager/managerMenu.jsp"/>
 </c:if>
 
 <div id="wrap">
 <div id="pos_scroll"></div>
-<div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
+<div id="container" style="float:left; margin-left:40px; /* margin-top:-50px; */ width:800px;">
 
 <div class="tit_page" style="width:800px; align:center;">
 	<h3 class="tit" >1:1 문의</h3>

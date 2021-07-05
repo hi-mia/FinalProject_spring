@@ -1,6 +1,7 @@
 package managerInquire.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import inquire.bean.InquireDTO;
+import inquire.bean.InquirePaging;
 import managerInquire.service.ManagerInquireService;
 @Controller
 @RequestMapping(value = "/manager")
@@ -36,14 +38,17 @@ public class ManagerInquireController {
 	public ModelAndView getManagerInquire(@RequestParam(required = false, defaultValue = "1") String pg,
 										  @RequestParam String inquiry_id,
 										  HttpSession session) {
+		
 		List<InquireDTO>list = managerInquireService.getManagerInquire(pg);
+		
+		InquirePaging inquirePaging = managerInquireService.managerinquirePaging(pg);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg", pg);
 		mav.addObject("list", list);
 		mav.addObject("inquiry_id", inquiry_id);
+		mav.addObject("inquirePaging", inquirePaging);
 		mav.setViewName("jsonView");
-		//mav.addObject("managerPaging", managerPaging);
 		
 		return mav;
 		
@@ -57,7 +62,6 @@ public class ManagerInquireController {
 		mav.addObject("pseq",seq);//원글번호
 		mav.addObject("pg",pg);//원글 페이지번호
 		mav.setViewName("/manager/managerInquireReplyForm");
-		System.out.println(mav);
 		return mav;
 	}
 
@@ -67,4 +71,22 @@ public class ManagerInquireController {
 		managerInquireService.managerInquireDelete(check);
 		return new ModelAndView("redirect:/manager/managerServiceInquire");
 	}
+	
+	@RequestMapping(value = "getInquireSearchList", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView getInquireSearchList(@RequestParam Map<String, String>map) {
+		
+		List<InquireDTO>list = managerInquireService.getInquireSearchList(map);
+		
+		InquirePaging inquirePaging = managerInquireService.managerinquirePaging(map);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg", map.get("pg"));
+		mav.addObject("list", list);
+		mav.addObject("inquirePaging", inquirePaging);
+		mav.setViewName("jsonView");
+		
+		return mav;
+		
+}
 }

@@ -11,4 +11,12 @@ public interface ManagerInquireDAO {
 
 	public void managerInquireDelete(Map<String, String[]> map);
 
+	public int getTotalA();
+
+	public List<InquireDTO> getInquireSearchList(Map<String, String> map);
+
+	public int getTotalSearchA(Map<String, String> map);
+
+	
+
 }

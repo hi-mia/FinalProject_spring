@@ -6,8 +6,9 @@
 <link rel="stylesheet" href="/jaju/manager_css/managerServiceInquire.css" />
 </head>
 <body>
+<jsp:include page="/manager/managerHeader.jsp"/>
 <form id = "managerInquireDelete" method="get" action="managerInquireDelete">
-<div class="total" style="display:flex; justify-content: center;">
+<div class="total">
 <jsp:include page="/manager/managerMenu.jsp"/>
 <div id="content" class="cont_post post_spam">
 <input type = "hidden" name = "pg" id = "pg" value="${pg }">
@@ -27,8 +28,8 @@
 			</div>
 			
 			<div class="search_input">
-				<input id="search-text" maxlength="20" size="25" class="tf_search textbox_default" title="검색어">
-				<button type="button" class="btn_admin btn_search button-search">
+				<input id="search-text" id = "keyword" maxlength="20" size="25" class="tf_search textbox_default" title="검색어">
+				<button type="button" id = "managerServiceInquireBtn" class="btn_admin btn_search button-search">
 					<span class="ico_admin">검색</span>
 				</button>
 			</div>
@@ -38,7 +39,7 @@
 		
 	</div>
 
-	<div class="set_list" id="listControlBar" style="width: 840px; height: 50px; background: #FAFAFA; border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4;">
+	<div class="set_list" id="listControlBar" style="width: 800px; height: 50px; background: #FAFAFA; border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4;">
 		<div class="bundle_set">
 		
 		</div>
@@ -72,9 +73,10 @@
 	</table>
 </div>
 
-<div class="layout-pagination">
-			<div class="pagediv"></div>
-		</div>
+<div id="pagingArea" class="page_admin">
+<!-- <span class="paging currentPaging" onclick="inquirePaging">1</span> -->
+</div>
+
 </div>
 </form>
 </body>
