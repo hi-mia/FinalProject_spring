@@ -105,6 +105,13 @@ $(function(){
 });
 //리스트에 따라 결과 가져오기
 $('#sortinSelect').change(function(){
+	
+	if($('#sortinSelect').val()=='delete_member'){
+		$('#btnWithdraw').hide();
+	}
+	if($('#sortinSelect').val()=='break_member'){
+		$('#btnWithdraw').show();
+	}
 	/*
 	if($(this).val()=='delete_member'){
 		$("#again_member_id").hide();

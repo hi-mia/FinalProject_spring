@@ -61,7 +61,7 @@
 		<div class="logo_image">
 		<h1 class="logo">
 			<a href="/jaju/"> 
-				<img src="/jaju/logo/final_logo.png" />
+				<img src="/jaju/logo/jaju_final_logo.png" />
 			</a>
 		</h1>
 		</div>

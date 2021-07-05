@@ -146,7 +146,7 @@
   			var newMyData = myData.slice(-5);
 
   			ctx = $('#myChart3');
-  			makeChart(ctx, 'doughnut', newLabels, newMyData);
+  			makeChart(ctx, 'bar', newLabels, newMyData);
 
   		}
   	});// getLocationInfo ajax

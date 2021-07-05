@@ -54,5 +54,14 @@ public interface ManagerMemberService {
 	//어제 날짜
 	public int getPrevSaleReportCount();
 
+	//datepicker지정날짜 가져오기	
+	public int getInquirePickerCount(Map<String, String> map);
+
+	public int getReportPickerCount(Map<String, String> map);
+
+	public int getNewMemberPickerCount(Map<String, String> map);
+
+	public int getSaleReportPickerCount(Map<String, String> map);
+	
 
 }
