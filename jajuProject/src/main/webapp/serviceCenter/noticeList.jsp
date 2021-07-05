@@ -12,7 +12,7 @@
 <input type="hidden" id="notice_seq" name="notice_seq" value="${notice_seq}">
 <input type="hidden" id="pg" value="${pg}">
 
-<div id="formTotal">
+<div id="formTotal" style="min-height: 550px;">
 <div class="head_aticle" padding-left="10px">
 	<h2 class="tit">공지사항 </h2>
 </div>

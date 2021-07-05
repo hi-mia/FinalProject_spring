@@ -12,7 +12,7 @@
 <input type="hidden" id="report_id" name="report_id" value="${sessionScope.memId}">
 <div style="width: 1050px; margin: auto;" >
 <div id="total">
-	<div class="page_section section_qna">
+	<div class="page_section section_qna" style="min-height: 550px;">
 		<div class="head_aticle">
 			<h2 class="tit">신고 게시판</h2>
 		</div>
