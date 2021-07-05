@@ -214,3 +214,6 @@ a:-webkit-any-link {
 ul{
 	text-align: left;
 }
+html{
+	min-height: 1200px;
+}
