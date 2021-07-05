@@ -75,7 +75,7 @@ public class ManagerInquireController {
 	@RequestMapping(value = "getInquireSearchList", method = RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView getInquireSearchList(@RequestParam Map<String, String>map) {
-		
+
 		List<InquireDTO>list = managerInquireService.getInquireSearchList(map);
 		
 		InquirePaging inquirePaging = managerInquireService.managerinquirePaging(map);

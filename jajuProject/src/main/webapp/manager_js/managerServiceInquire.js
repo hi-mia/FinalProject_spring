@@ -94,8 +94,8 @@ function inquirePaging(pg){
 
 // 검색
 $('#managerServiceInquireBtn').click(function(){
-	alert("asdsad");
-	if($('#keyword').val() == ''){
+	
+	if($('input[name=keyword]').val() == ''){
 		   alert("검색어를 입력하세요")
 	   }else{
 		   $('.tbl_admin tr:gt(0)').remove();
@@ -105,13 +105,11 @@ $('#managerServiceInquireBtn').click(function(){
 			   url : '/jaju/manager/getInquireSearchList',
 			   data : {'pg':$('input[name=pg]').val(),
 				   	  'itemcd':$('#itemcd').val(),
-				   	  'keyword':$('#keyword').val()},
+				   	  'keyword':$('input[name=keyword]').val()},
 			   dataType : 'json',
 			   success : function(data){
-				   if(data.list.length == 0){
-					   alert("검색어가 없습니다.");
-					   location.href = '/jaju/manager/managerServiceInquire'
-				   }else{
+				// alert(JSON.stringify(data))
+				 
 					   $.each(data.list, function(index, items){
 						   $('<tr/>').append($('<td/>',{
 								align: 'center'
@@ -162,7 +160,7 @@ $('#managerServiceInquireBtn').click(function(){
 				        	$("td.state:contains('처리완료')").css({color:"blue"});
 				        }); // each
 					   
-				   }
+				  
 			   },
 			   error : function(err){
 				   console.log(err);  
@@ -172,10 +170,10 @@ $('#managerServiceInquireBtn').click(function(){
 });
 
 //페이징 이동
-function reportPaging(pg){
-	var keyword = document.getElementById('keyword').value;
+function inquirePaging(pg){
+	var keyword = $('input[name=keyword]').val();
 	
-	if(keyword==''){//keyword가 없을 때
+	if(keyword== ''){//keyword가 없을 때
 		location.href = "/jaju/manager/managerServiceInquire?pg="+pg;	
 	}else{
 		
