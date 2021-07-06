@@ -90,7 +90,7 @@
 	<if test='searchMode == "member_id_email"'>
 		select * from 
 		(select rownum rn, tt.* from
-		(select * from jajumember where  member_state='0' and member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%' order by member_date desc)tt)
+		(select * from jajumember where  member_state='0' and (member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%') order by member_date desc)tt)
 		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
 	</if>
 </select>
