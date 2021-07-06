@@ -1,8 +1,7 @@
 $(function(){
 	
-	
-	$.ajax({
-		
+
+	$.ajax({		
 		type:'post',
 		url: '/jaju/freeboard/getFreeboardView', //한 사람거 가져와서 getBoard 가져옴
 		data: {'board_seq': $('#board_seq').val()},
@@ -10,7 +9,7 @@ $(function(){
 		success:function(data){
 			//console.log(data);
 			//alert('abc')
-			
+		
 			$('#subjectSpan').text(data.freeboardDTO.board_subject);
 			$('#idSpan').text(data.freeboardDTO.board_id);
 			$('#dateSpan').text(data.freeboardDTO.logtime);
@@ -34,12 +33,21 @@ $(function(){
 					}));
 				}
 			}
+		
+			var board_id = $("#board_id").val();
 			
 			//로그인 한다면
-			//if(data.memId == data.boardDTO.id)
-			//	$('#boardViewSpan').show();
-			//else
-			//	$('#boardViewSpan').hide();
+			//alert(board_id);
+			if(board_id == data.freeboardDTO.board_id) {
+				$('#boardModify').show(); 
+			    $('#boardDelete').show(); 
+			}
+			else {
+				$('#boardModify').hide(); 
+			    $('#boardDelete').hide();	   
+			}
+			 
+
 		},
 		error: function(err){
 			console.log(err);

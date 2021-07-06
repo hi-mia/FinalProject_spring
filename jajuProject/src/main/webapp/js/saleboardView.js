@@ -1,7 +1,5 @@
 $(function(){
 	
-	
-		
 	$.ajax({
 		type: 'post',
 		url: '/jaju/saleboard/getSaleboardView',
