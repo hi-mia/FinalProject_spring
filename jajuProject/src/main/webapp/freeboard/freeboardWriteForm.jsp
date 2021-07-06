@@ -2,14 +2,14 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="/jaju/css/freeboardWriteForm.css" />
 
-<div id="total" style="width:1100px; margin:0 auto; ">
+<div id="total" style="width:1100px; margin:0 auto;">
 
 <jsp:include page="/freeboard/boardMenu.jsp"/>
 <div id="freeboardDiv" style="width:800px; display:inline-block; float:left; margin-left:80px; margin-top: 80px;">
 <div class="head_aticle">
 <h2 style="color:#333;">글쓰기</h2>
 </div>
-	
+
 <div class="xans-board-write">
 <form class="freeboardWriteForm" id="freeboardWriteForm">
 	<input type="hidden" name="mode" value="add_qna">
@@ -35,7 +35,6 @@
 <div id="board_contentDiv"></div>
 </td>
 </tr>
-
 
 <tr>
 <th class="input_txt">이미지</th>
@@ -68,12 +67,12 @@
 </tr>
 </table>
 
-<table width="70%">
+<table width="100%">
 	<tbody>
-		<tr>
-			<td align="right" style="padding-top:5px; border:none;" id="avoidDbl">
+		<tr style="width:800px;">
+			<td align="right" style="padding-top:30px; padding-bottom:40px; border:none;" id="avoidDbl">
 				<input type="button" id="freeboardWriteBtn" class="bhs_button yb" value="글등록" style="float:none;">
-			</td> 
+			</td>
 		</tr>
 	</tbody>
 </table>

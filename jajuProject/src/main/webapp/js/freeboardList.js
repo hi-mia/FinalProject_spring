@@ -7,6 +7,18 @@ $(function(){
 		dataType: 'json',
 		success: function(data){
 			//console.log(JSON.stringify(data));
+			
+			 if(JSON.stringify(data.list)=='[]'){
+				 $('#freeboardListTable tr').remove();
+					$('<tr/>').append($('<div/>',{
+						align:'center',
+						text:'등록된 게시물이 없습니다',
+						style:'height:500px; width:800px; line-height:500px;'
+					})).appendTo($('#freeboardListTable'));
+				}
+				
+			 else {
+		
 		
 			  $.each(data.list, function(index, items){
 		            $('<tr/>').append($('<td/>',{
@@ -46,7 +58,8 @@ $(function(){
 		         });
 
 			  //페이징 처리
-			$('#freeboardpagingDiv').html(data.freeboardPaging.pagingHTML);		   
+			$('#freeboardpagingDiv').html(data.freeboardPaging.pagingHTML);
+			 }//else
 		}, 
 			error:function(err){
 			console.log(err);

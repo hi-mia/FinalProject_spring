@@ -13,17 +13,16 @@ $(function(){
 		success: function(data){
 			//console.log(JSON.stringify(data));
 			
-//			if(JSON.stringify(data.list)=='[]' && data.myRecodePaging2 != null){
-//				
-//				$('.title').remove();
-//				
-//				$('<tr/>',{style:'height:250px;'}).append($('<td/>',{
-//					align:'center',
-//					text:'구매한 내역이 없습니다.',
-//					style:'height:250px;'
-//				})).appendTo($('#myBuyRecordTable'));
-//			}
-//			else{
+			if(JSON.stringify(data.list)=='[]'){
+				
+				
+				$('<tr/>').append($('<div/>',{
+					align:'center',
+					text:'		구매한 내역이 없습니다.',
+					style:'height:500px; width:845px; line-height:500px;'
+				})).appendTo($('#myBuyRecordTable'));
+			}
+			else{
 			
 			$.each(data.list, function(index, items){
 				
@@ -52,7 +51,7 @@ $(function(){
 			
 			//페이징처리
 			$('#myBuyRecodePagingDiv').html(data.reviewboardPaging.pagingHTML);
-//		}//else
+		}//else
 	
 		},
 		error: function(err){

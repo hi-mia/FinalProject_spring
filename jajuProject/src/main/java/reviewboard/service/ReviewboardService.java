@@ -19,9 +19,9 @@ public interface ReviewboardService {
 
 	public ReviewboardDTO getReviewboardView(int reivew_seq);
 
-	public List<ReviewboardDTO> getReviewboardList(String pg);
+	public List<ReviewboardDTO> getReviewboardList(Map<String, String> map);
 
-	public ReviewboardPaging reviewboardPaging(String pg);
+	public ReviewboardPaging reviewboardPaging(int pg);
 
 	public List<ReviewboardDTO> getReviewboardSearchList(Map<String, String> map);
 

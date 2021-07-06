@@ -44,18 +44,18 @@
 					
 	</div>
 <br>
-			<div class="search" align="right">
+			<div class="search" align="right" style="margin-bottom:50px;">
 			
 				<select name="searchOption" id="searchOption" width="100px" align="absmiddle">
 					<option value="review_subject">&nbsp;&nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;</option>
 					<option value="review_content">&nbsp;&nbsp;&nbsp;&nbsp;내용&nbsp;&nbsp;&nbsp;&nbsp;</option>
-					<option value="review_id">&nbsp;&nbsp;&nbsp;&nbsp;작성자&nbsp;&nbsp;&nbsp;&nbsp;</option>
 				</select>	
 				<input type="text" name="keyword" id="keyword" required="" align="absmiddle">
 				
 				<input type="image" src="/jaju/jajuImage/search.png" id="reviewboardSearchBtn" align="absmiddle">
 
 			</div>			
+			<input type="hidden" id="id" name="id" value="${memId}">
 			<input type="hidden" name="pg" id="pg" value="${param.pg }">
 			<input type="hidden" name="searchPg" id="searchPg" value="1">	
 		</form>
