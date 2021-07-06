@@ -19,7 +19,7 @@
 <form id="reportModifyForm" name="reportModifyForm" style="height: 100%;">
 <input type="hidden" id="pg" name="pg" value="${pg}">
 <input type="hidden" id="report_seq" name="report_seq" value="${report_seq}">
-<input type="text" id="sale_seq" name="sale_seq" value="${param.sale_seq}">
+<input type="hidden" id="sale_seq" name="sale_seq" value="${param.sale_seq}">
 <table id="table_after" class="boardWrite2" width="100%">
 <colgroup><col width="14%" align="right"></colgroup>
 <tbody>

@@ -10,6 +10,7 @@
 </head>
 
 <form id="reportViewForm" name="reportViewForm">
+<input type="hidden" id="sale_seq" name="sale_seq">
 <input type="hidden" id="report_seq" name="report_seq" value="${report_seq}">
 <input type="hidden" id="pg" name="pg" value="${pg}">
 <div style="width: 1050px; margin: auto;" >
@@ -65,7 +66,11 @@
 				
 				<tr>
 					<th scope="row" style="border-top: none; border-bottom: 1px solid #f4f4f4;">신고글 제목</th>
-					<td style="border-top: none; border-bottom: 1px solid #f4f4f4;"><span id="sale_subjectSpan"></span></td>
+					<td style="border-top: none; border-bottom: 1px solid #f4f4f4;">
+						<a id="sale_subject" href="#">
+							<span id="sale_subjectSpan"></span>
+						</a>
+					</td>
 				</tr>
 				
 			</tbody>

@@ -32,7 +32,7 @@ $(function(){
 		            	align: 'center',
 		            	text: items.reportType
 		            })).append($('<td/>',{
-		            	
+		            	width: '274px',
 		            	}).append($('<a/>',{
 		            		href: '#',
 		            		width: '274px',
@@ -108,6 +108,8 @@ $('.reportSearch').click(function(){
 	 if($('#keyword').val() == ''){
 		   alert("검색어를 입력하세요")
 	   }else{
+		   $('#searchHidden').val($('#keyword').val());
+		   
 		   $('.mangerReportTable tr:gt(0)').remove();
 		   
 		   $.ajax({
@@ -141,10 +143,9 @@ $('.reportSearch').click(function(){
 				            	align: 'center',
 				            	text: items.reportType
 				            })).append($('<td/>',{
-				            	
+				            	width: '274px',
 				            	}).append($('<a/>',{
 				            		href: '#',
-				            		width: '274px',
 				            		text: items.report_subject,
 				            		class: 'subject'+items.report_seq
 				            	}))
@@ -186,12 +187,13 @@ $('.reportSearch').click(function(){
 function reportPaging(pg){
 	var keyword = document.getElementById('keyword').value;
 	
-	if(keyword==''){//keyword가 없을 때
+	if($('#searchHidden').val() ==''){//keyword가 없을 때
 		location.href = "/jaju/manager/managerReportList?pg="+pg;	
 	}else{
 		
 		$('input[name=pg]').val(pg);
 		
+		$('#keyword').val($('#searchHidden').val())
 		$('.reportSearch').trigger('click');
 		
 		$('input[name=pg]').val(1);

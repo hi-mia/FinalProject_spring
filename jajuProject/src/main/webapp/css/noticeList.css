@@ -307,7 +307,7 @@ select {
 
 
 td.td1{
-	width: 50px;
+	width: 80px;
 	text-align: center;
 	color:#333;
 }
@@ -317,25 +317,27 @@ td.td2 a{
 	color: #333;
 }
 td.td2 a:hover{
+	width: 570px;
 	font-weight: bold;
 	text-decoration: none;
 	color: #333;
 }
 td.td3{
-	width: 100;
+	width: 150px;
 	text-align: center;
 	color:#333;
 }
 
 th.th1{
-	width: 50px;
+	width: 80px;
 	align: center;
 }
 th.th2{
+	width: 570px;
 	align: center;
 }
 th.th3{
-	width: 100px;
+	width: 150px;
 	align: center;
 }
 td a:hover{
@@ -345,6 +347,16 @@ td a:hover{
 }
 #noticeListTable td{
 	border-bottom: 1px solid #e6e6e6;
+	position: relative;
+    height: 43px;
+    font-size: 13px;
+    color: #000;
+    border-top: 1px solid #efefef;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+    word-wrap: normal;
 }
 .xans-board-listheader.jh{
 	width: 100%;

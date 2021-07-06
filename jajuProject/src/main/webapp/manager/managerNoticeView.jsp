@@ -18,7 +18,7 @@
 </div>
 
 <div id="main">
-<div id="content">
+<div id="content"">
 
 <div id="qnb" class="quick-navigation" style="top: 70px;"></div>
 <div class="layout-wrapper">

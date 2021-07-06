@@ -272,3 +272,6 @@ li {
 .xans-board-listheader{
 	font-size: 14px;
 }
+#sale_subject:hover{
+	font-weight: bold;
+}

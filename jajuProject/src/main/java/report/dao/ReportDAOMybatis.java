@@ -28,7 +28,7 @@ public class ReportDAOMybatis implements ReportDAO {
 	public void reportWrite(ReportDTO reportDTO) {
 		sqlSession.insert("memberreportSQL.reportWrite", reportDTO);
 		//System.out.println("2");
-		System.out.println(reportDTO);
+		//System.out.println(reportDTO);
 	}
 
 	@Override

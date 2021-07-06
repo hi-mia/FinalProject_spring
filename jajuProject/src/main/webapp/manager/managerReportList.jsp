@@ -9,6 +9,7 @@
 <jsp:include page="/manager/managerMenu.jsp"/>
 <form id="managerReportList" name="managerReportList">
 <div id="content" class="cont_post post_spam">
+<input type="hidden" id="searchHidden" name="searchHidden">
 <input type="hidden" id="pg" name="pg" value="${pg}">	
 <%-- <input type="hidden" id="report_seq" name="report_seq" value="${report_seq}"> --%>
 	<div class="wrap_tit">
@@ -49,7 +50,7 @@
 	</div>
 
 	<div id="admin_listview">
-		<table class="mangerReportTable" style="font-size: 13px">
+		<table class="mangerReportTable" style="font-size: 13px; width: 840px; table-layout: fixed;">
 		<thead>
 			<tr>
 			   <th class="" style="width:40px;"><input type="checkbox" id="all" onclick="checkAll()"></th>
