@@ -5,7 +5,7 @@
 
 <div id="total" style="width:1080px; margin: auto; ">
 <jsp:include page="/freeboard/boardMenu.jsp"/>
-<div id="reviewboardDiv" style="width:800px; display:inline-block; float:left; margin-left:40px; margin-top: 70px;">
+<div id="reviewboardDiv" style="width:800px; display:inline-block; float:left; margin-left:40px; margin-top: 80px;">
 <div class="head_aticle">
 <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;후기 작성</h2>
 </div>

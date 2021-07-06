@@ -55,8 +55,15 @@ $(function(){
 		success: function(data){
 			//alert(JSON.stringify(data));
 			
-			$('#commentTable tr:gt(0)').remove();
-			
+			 if(JSON.stringify(data.list)=='[]'){
+				 $('#commentTable tr').remove();
+				 
+					$('<tr/>').append($('<div/>',{
+						align:'center',
+						style:'height:10px; width:800px;'
+					})).appendTo($('#commentTable'));
+				}
+			 else {	
 			$.each(data.list, function(index,items){
 				
 				$('<tr/>').append($('<td/>',{
@@ -131,7 +138,7 @@ $(function(){
 					));
 					
 			});
-			
+			 }//else
 			
 			
 		},error: function(err){
