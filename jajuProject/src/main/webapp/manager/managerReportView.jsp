@@ -66,7 +66,9 @@
 				<tr>
 					<th scope="row" style="border-bottom: 1px solid #f4f4f4;">신고글 제목</th>
 					<td style="border-top: none; border-bottom: 1px solid #f4f4f4;">
-						<a id="sale_subject" href=""><span id="sale_subjectSpan"></span></a>
+						<a id="sale_subject" href="#">
+							<span id="sale_subjectSpan"></span>
+						</a>
 					</td>
 				</tr>
 			</tbody>
@@ -107,7 +109,7 @@
 			<tbody>
 				<tr>
 					<td align="right">
-						<button onclick="javascript:show()'">
+						<button onclick="javascript:show()'" style="border: none;"> 
 							<span class="reportBtn hide" style="float:none;">보이기</span>
 						</button>
 						<a href="javascript:void(0)" onclick="mode(1)">

@@ -107,7 +107,6 @@ public class ReportServiceImpl implements ReportService {
 		
 	}
 
-
 	@Override
 	public void commentDelete(Map<String, String> map) {
 		reportDAO.commentDelete(map);
