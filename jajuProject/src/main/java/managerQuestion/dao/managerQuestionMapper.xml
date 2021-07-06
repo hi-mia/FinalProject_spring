@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="managerQuestionSQL">
+ 
+ 	<insert id="managerQuestionWrite" parameterType="question">
+		insert into question values(seq_question.nextval,
+				 					#{question_subject},
+				 					#{question_content},
+				 					#{questionType},
+				 					#{question_image1},
+				 					#{question_image2},
+				 					#{question_image3})
+	</insert>
+	
+	<!-- 목록 --><!-- 페이징 처리 -->
+ 	<select id="getManagerQuestionList" parameterType="java.util.Map" resultType="question">
+ 		select * from
+ 		(select rownum rn, tt.* from
+ 		(select * from question order by question_seq desc)tt
+ 		)where rn &gt;= #{startNum} and rn &lt;= #{endNum}
+ 	</select>
+ 	 
+ 	<!-- 총 글수 -->
+ 	<select id="getTotalA" resultType="int">
+ 		select count(*) from question
+ 	</select>
+ 
+ </mapper>

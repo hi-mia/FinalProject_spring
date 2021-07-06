@@ -12,8 +12,9 @@
 </head>
 <body>
 <jsp:include page="/manager/managerHeader.jsp"/>
+<div style="width:1080px; margin : 0 auto;" >
 <jsp:include page="/manager/managerMenu.jsp"/>
-<div class="page_section section_qna">
+<div class="page_section section_qna" style = "margin-left :40px; margin-top :50px;">
 <div class="head_aticle">
 <h2 class="tit">1:1문의 관리자 답변</h2>
 </div>
@@ -60,13 +61,13 @@
 </div>
 
 </div>
-
+</div>
 </body>
 <script type = "text/javascript" src = "http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/manager_js/managerInquireReplyForm.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#type3').addClass('on');
+	$('#managerServiceInquire').addClass('on');
 });
 </script>
 

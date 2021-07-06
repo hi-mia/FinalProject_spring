@@ -75,6 +75,7 @@
 	<context:component-scan base-package="managerNotice.controller"/>
 	<context:component-scan base-package="managerReport.controller"/>
 	<context:component-scan base-package="managerInquire.controller"/>
+	<context:component-scan base-package="managerQuestion.controller"/>
 	<context:component-scan base-package="managerSaleboard.controller"/>
 	<context:component-scan base-package="main.controller" />
 </beans:beans>

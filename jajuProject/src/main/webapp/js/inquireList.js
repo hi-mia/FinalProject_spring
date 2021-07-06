@@ -72,7 +72,7 @@ $(function(){
 			}else if(data.list.length == 0){
 				$('.no_data').show();
 			}
-			 //페이징 처리  도망가자
+			 //페이징 처리 
 	        $('.pagediv').html(data.inquirePaging.pagingHTML);
 		},
 		error : function(err){

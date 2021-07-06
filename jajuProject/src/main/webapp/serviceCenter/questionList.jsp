@@ -49,13 +49,13 @@
 					<div class="pagediv"></div>
 				</div>
 				
-		<div style="position: relative; float:left; margin-left: 100px;">
+		<!-- <div style="position: relative; float:left; margin-left: 100px;">
 			<div style="position: absolute; right: 0; top: 15px;">
 				<a href="/jaju/serviceCenter/questionWriteForm">
 					<span class="bhs_buttonsm yb" style="float: none;">글쓰기</span>
 				</a>
 			</div>
-		</div>
+		</div> -->
 		
 		<table class="xans-board-search xans-board-search2">
 			<tbody>
