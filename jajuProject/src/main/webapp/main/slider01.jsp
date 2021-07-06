@@ -230,15 +230,15 @@ p {
 
 <!-- 제이쿼리 불러오기 -->
 <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <!-- Slick 불러오기 -->
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-<link rel="stylesheet"
+<!-- <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
 <link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"> -->
 </head>
 <body>
 	<div class="slideWrap">
@@ -256,111 +256,123 @@ p {
 
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img src="/jaju/jajuImage/applewatch01.jpg">
+						<img id="img0" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject">제목</div>
+						<div class="item_subject" id="subject0"></div>
 						<div class="item_price_div">
-							<div class="item_price">가격</div>
+							<div class="item_price" id="price0"></div>
 						</div>
 					</div>
 				</div>
 
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img src="/jaju/jajuImage/sunglass.jpg">
+						<img id="img1" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject">제목</div>
+						<div class="item_subject" id="subject1"></div>
 						<div class="item_price_div">
-							<div class="item_price">가격</div>
+							<div class="item_price" id="price1"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item-wrap">
+					<div class="item_image_div">
+						<img id="img2" src="">
+					</div>
+					<div class="item_detail">
+						<div class="item_subject" id="subject2"></div>
+						<div class="item_price_div">
+							<div class="item_price" id="price2"></div>
 						</div>
 					</div>
 				</div>
 				
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img src="/jaju/jajuImage/tumbler.jfif">
+						<img id="img3" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject">제목</div>
+						<div class="item_subject" id="subject3"></div>
 						<div class="item_price_div">
-							<div class="item_price">가격</div>
+							<div class="item_price" id="price3"></div>
 						</div>
 					</div>
-				</div>		
+				</div>
 						
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img src="/jaju/jajuImage/hat.jpg">
+						<img id="img4" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject">제목</div>
+						<div class="item_subject" id="subject4"></div>
 						<div class="item_price_div">
-							<div class="item_price">가격</div>
+							<div class="item_price" id="price4"></div>
 						</div>
 					</div>
-				</div>	
+				</div>
 							
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img src="/jaju/jajuImage/kakao.jpg">
+						<img id="img5" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject">제목</div>
+						<div class="item_subject" id="subject5"></div>
 						<div class="item_price_div">
-							<div class="item_price">가격</div>
+							<div class="item_price" id="price5"></div>
 						</div>
 					</div>
-				</div>		
+				</div>	
 						
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img src="/jaju/jajuImage/chair.jpg">
+						<img id="img6" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject">제목</div>
+						<div class="item_subject" id="subject6"></div>
 						<div class="item_price_div">
-							<div class="item_price">가격</div>
+							<div class="item_price" id="price6">가격</div>
 						</div>
 					</div>
-				</div>		
+				</div>
 						
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img src="/jaju/jajuImage/radio.jpg">
+						<img id="img7" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject">제목</div>
+						<div class="item_subject" id="subject7"></div>
 						<div class="item_price_div">
-							<div class="item_price">가격</div>
+							<div class="item_price" id="price7"></div>
 						</div>
 					</div>
-				</div>		
+				</div>
 						
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img src="/jaju/jajuImage/chair.jpg">
+						<img id="img8" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject">제목</div>
+						<div class="item_subject" id="subject8"></div>
 						<div class="item_price_div">
-							<div class="item_price">가격</div>
+							<div class="item_price" id="price8"></div>
 						</div>
 					</div>
-				</div>		
+				</div>
 						
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img src="/jaju/jajuImage/radio.jpg">
+						<img id="img9" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject">제목</div>
+						<div class="item_subject" id="subject9"></div>
 						<div class="item_price_div">
-							<div class="item_price">가격</div>
+							<div class="item_price" id="price9"></div>
 						</div>
 					</div>
-				</div>		
+				</div>
 
 
 			</div>
@@ -411,11 +423,11 @@ p {
 								infinite : true, //무한 반복 옵션     
 								slidesToShow : 5, // 한 화면에 보여질 컨텐츠 개수
 								slidesToScroll : 1, //스크롤 한번에 움직일 컨텐츠 개수
-								speed : 100, // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
+								speed : 500, // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
 								arrows : true, // 옆으로 이동하는 화살표 표시 여부
 								dots : true, // 스크롤바 아래 점으로 페이지네이션 여부
 								autoplay : true, // 자동 스크롤 사용 여부
-								autoplaySpeed : 10000, // 자동 스크롤 시 다음으로 넘어가는데 걸리는 시간 (ms)
+								autoplaySpeed : 3000, // 자동 스크롤 시 다음으로 넘어가는데 걸리는 시간 (ms)
 								pauseOnHover : true, // 슬라이드 이동    시 마우스 호버하면 슬라이더 멈추게 설정
 								vertical : false, // 세로 방향 슬라이드 옵션
 								prevArrow : "<button type='button' class='slick-prev'>Previous</button>", // 이전 화살표 모양 설정
@@ -428,13 +440,13 @@ p {
 									breakpoint : 960, //화면 사이즈 960px
 									settings : {
 										//위에 옵션이 디폴트 , 여기에 추가하면 그걸로 변경
-										slidesToShow : 3
+										slidesToShow : 5
 									}
 								}, {
 									breakpoint : 768, //화면 사이즈 768px
 									settings : {
 										//위에 옵션이 디폴트 , 여기에 추가하면 그걸로 변경
-										slidesToShow : 2
+										slidesToShow : 5
 									}
 								} ]
 							});
@@ -443,4 +455,5 @@ p {
 
 
 </body>
+<script type="text/javascript" src="/jaju/js/slider01.js"></script>
 </html>
