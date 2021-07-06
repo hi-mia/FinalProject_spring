@@ -16,10 +16,12 @@ $('#sendBtn').click(function(){
          type: 'post',
          url: '/jaju/mypage/writeMyMessage',
          data: $('#myMessageFormForm').serialize(),
+         async: false,
          success: function(data){
             
             alert('메세지가 보내졌습니다');
-            location.href='/jaju/mypage/myMessage?pg=1';
+            //location.href='/jaju/mypage/myMessage?pg=1';
+            window.close();
             
          },error: function(err){
             console.log(err);

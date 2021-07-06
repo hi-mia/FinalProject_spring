@@ -20,7 +20,7 @@
 	<input type="hidden" name="itemcd">
 	<input type="hidden" name="sno" value="0">
 	<input type="hidden" id="member_id" name= "member_id" value="${sessionScope.memId }"/>
-<table class="saleboardWriteTable" id="saleboardWriteTable" style="width:100%;">
+<table class="saleboardWriteTable" id="saleboardWriteTable" style="width:100%; margin-left: 100px;">
 <colgroup><col width="14%" align="right"></colgroup>
 <tbody>
 
@@ -135,7 +135,7 @@
       <td width="50%">
          <input type="file" name="file" id="file" class="file" style="width:50%" class="linebg">
          <a href="javascript:add()">
-            <img src="../image/upadd.jpg" class="addImage" style="width:90px; height:25px;">
+            <img src="/jaju/jajuImage/upadd.jpg" class="addImage" style="width:90px; height:25px;">
          </a>
        </td>
    </tr>
@@ -145,7 +145,7 @@
       <td width="50%">
          <input type="file" name="file" id="file" class="file" style="width:50%" class="linebg">
          <a href="javascript:add()">
-            <img src="../image/upadd.jpg" class="addImage" style="width:90px; height:25px;">
+            <img src="/jaju/jajuImage/upadd.jpg" class="addImage" style="width:90px; height:25px;">
          </a>
          <div id="sale_imageDiv"></div>
        </td>
@@ -169,6 +169,7 @@
 	<tbody>
 		<tr>
 			<td align="right" style="padding-top:5px; border:none;" id="avoidDbl">
+				<input type="button" id="saleboardListBtn" class="bhs_button yb" value="목록" style="float:none;">
 				<input type="button" id="saleboardWriteBtn" class="bhs_button yb" value="판매글등록" style="float:none;">
 			</td>
 		</tr>
@@ -215,7 +216,7 @@ function add(){
     oTd1      = oTr.insertCell(0);
     oTd1.style.textAlign = "center";
     oTd2      = oTr.insertCell(1);
-    tmpHTML = "<input type=file name='file' style='width:50%' class=file> <a href=\"javascript:del('"+"tr_"+(tr_num)+"')\"><img src='../image/upadd2.jpg' style='width:90px; height:25px;' align=absmiddle></a>";
+    tmpHTML = "<input type=file name='file' style='width:50%' class=file> <a href=\"javascript:del('"+"tr_"+(tr_num)+"')\"><img src='/jaju/jajuImage/upadd2.jpg' style='width:90px; height:25px;' align=absmiddle></a>";
     oTd2.innerHTML = tmpHTML;
     calcul();
 }

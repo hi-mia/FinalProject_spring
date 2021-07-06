@@ -79,3 +79,7 @@ $('#saleboardWriteBtn').click(function(){
 	});
 	}
 });
+
+$('#saleboardListBtn').click(function(){
+	location.href = '/jaju/saleboard/saleboardList?pg=1&sortinSelect=sale_date';
+});
