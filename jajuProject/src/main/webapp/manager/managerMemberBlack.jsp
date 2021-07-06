@@ -147,7 +147,7 @@
 	</form>
 
 
-	<div class="set_list" id="listControlBar2" style="background: #FAFAFA;height: 40px;">
+	<div class="set_list" id="listControlBar2" style="background: #FAFAFA;height: 30px;">
 	</div>
 
 
@@ -179,6 +179,7 @@
 	</div>
 </div>
 <input type="hidden" id="searchPg" value="1">
+<input type="hidden" id="sortinSelected" value="${param.sortinSelect }">
 
 
 	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>	
@@ -189,7 +190,7 @@
 	function managerPaging(pg){
 		var keyword = document.getElementById('search-text').value;
 		if(keyword == ''){
-			location.href="managerMemberBlack?pg="+pg;
+			location.href="managerMemberBlack?pg="+pg+'&sortinSelect='+$('#sortinSelect').val();
 			//$('#sortinSelect').trigger('change');		
 		} else{
 			$('input[name=pg]').val(pg);

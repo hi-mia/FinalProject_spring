@@ -27,7 +27,11 @@ public interface ManagerMemberService {
 	public ManagerPaging managerSearchPaging(Map<String, String> map);
 	//블랙리스트 회원 리스트 페이징 처리하기
 	public ManagerPaging managerPagingBlack(Map<String, String> map);
-
+	//블랙리스트 회원 검색(search) 리스트 페이징
+	public ManagerPaging managerSearchBlackPaging(Map<String, String> map);
+	//블랙리스트 회원 검색(search) 리스트
+	public List<MemberDTO> getSearchManagerMemberBlack(Map<String, String> map);
+	
 	//차트 - 키워드 , 키워드 개수 
 	public List<ManagerMainDTO> getMemberCategory();
 
@@ -63,8 +67,10 @@ public interface ManagerMemberService {
 
 	public int getSaleReportPickerCount(Map<String, String> map);
 
+
 	//date 달력 선택 날짜 가져오기
 	public List<String> getCalenderInfo(Map<String, String> map);
+
 	
 
 }

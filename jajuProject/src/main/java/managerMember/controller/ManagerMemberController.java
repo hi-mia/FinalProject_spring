@@ -141,7 +141,7 @@ public class ManagerMemberController {
 		mav.addObject("managerPagingBlack", managerPagingBlack);
 		return mav;
 	}
-
+	
 	//changeBlackMemberState 에 대한 변경 컨트롤러 작성하기
 	// 활동정지해제~ black-> 일반으로
 	@RequestMapping(value = "changeBlackMemberState", method = RequestMethod.POST)
@@ -153,7 +153,26 @@ public class ManagerMemberController {
 		return new ModelAndView("redirect:/manager/managerMemberBlack");
 	}
 	
-	
+	// 검색(아이디,이메일,아디+이멜) 검색 후 결과출력
+		@RequestMapping(value = "getSearchManagerMemberBlack", method = RequestMethod.POST)
+		@ResponseBody
+		public ModelAndView getSearchManagerMemberBlack(@RequestParam Map<String, String> map,
+				@RequestParam(required = false, defaultValue = "1") String pg) {
+			//System.out.println("getSearchMemberInfo : " + map);
+
+			List<MemberDTO> list = managerMemberService.getSearchManagerMemberBlack(map);// pg넘겨서 페이징 처리해서 회원 Black리스트 가져오기
+			
+			ManagerPaging managerSearchBlackPaging = managerMemberService.managerSearchBlackPaging(map);
+
+			//System.out.println("getSearchMemberInfo= " + list);
+
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("pg", pg);
+			mav.addObject("list", list);
+			mav.setViewName("jsonView");
+			mav.addObject("managerSearchBlackPaging", managerSearchBlackPaging);
+			return mav;
+		}
 	/*------- 차트 구현을 위한 controller --------*/
 	//카테고리
 	@RequestMapping(value = "/getMemberCategory", method = RequestMethod.POST)
