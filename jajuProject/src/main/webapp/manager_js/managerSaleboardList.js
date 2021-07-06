@@ -198,6 +198,8 @@ $('#categoryOption').change(function(){
 
 $('#managerBoardSearchBtn').click(function(){
 	
+	$('#searchTextHidden').val($('#keyword').val());
+	
 	if($('#keyword').val() == ''){
 		alert('검색어를 입력해 주세요');
 	} else{

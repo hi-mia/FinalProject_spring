@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="/jaju/manager_css/managerBoard.css" />
 </head>
 <body>
+<jsp:include page="/manager/managerHeader.jsp"/>
 <div style="width: 1080px; margin: auto;">
 <jsp:include page="/manager/managerMenu.jsp"/>
 <div id="content" class="cont_post post_spam">
@@ -111,7 +112,7 @@
 
 </div>
 
-
+<input type="hidden" id="searchTextHidden"/>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/manager_js/managerSaleboardList.js"></script>
@@ -123,13 +124,15 @@ $(document).ready(function(){
 
 
 function saleboardPaging(pg){
-	var boardSearchText = document.getElementById('keyword').value;
+	//var boardSearchText = document.getElementById('keyword').value;
 	
-	if(boardSearchText == ''){
+	//if(boardSearchText == ''){
+	if($('#searchTextHidden').val() == ''){
 		//location.href = '/jaju/freeboard/freeboardList?pg='+pg;
 		location.href="/jaju/managerSaleboard/managerSaleboardList?pg="+pg+'&sale_category='+$('#categoryOption').val();
 	} else{
 		$('#searchPg').val(pg);
+		$('#keyword').val($('#searchTextHidden').val());
 		$('#managerBoardSearchBtn').trigger('click');
 		//location.href = 'boardSearch?pg='+pg+'&select='+$('#select option:selected').val() +'&keyword='+$('#keyword').val();
 		//encodeURIComponent('${keyword}');

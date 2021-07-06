@@ -2,6 +2,7 @@ $(function(){
 	$("#sortinSelect").val($('#sortinSelected').val()).prop("selected", true);
 	//alert($('#sale_category').val())
 	if($('#memId').val() == ''){
+		$('#writeA').hide();
 		$.ajax({
 			type: 'post',
 			url: '/jaju/saleboard/getSaleboardListCategory',
@@ -158,6 +159,7 @@ $('#searchBtn').click(function(event,str){
 		alert("검색어를 입력해 주세요");
 		$('#searchText').focus();
 	} else{
+		$('#searchHidden').val($('#searchText').val());
 		if($('#memId').val() == ''){
 			$.ajax({
 				type: 'post',

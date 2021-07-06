@@ -403,7 +403,7 @@ $('.txt_type').click(function(){
 
 	 var popupY= (window.screen.height/2)-(popupHeight/2);
 	 // 만들 팝업창 height 크기의 1/2 만큼 보정값으로 빼주었음
-	 if($('#member_id .tit').text()==member_id){
+	 if($('#member_id .tit').text()== $('#memId').val()){
 	      alert("본인의 판매글입니다.");
 	      return false;
 	   }else{

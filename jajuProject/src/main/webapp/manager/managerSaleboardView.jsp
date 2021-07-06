@@ -4,19 +4,22 @@
 <html>
 <head>
 <link rel="stylesheet" href="/jaju/manager_css/managerSaleboardView.css" />
-<jsp:include page="/manager/managerMenu.jsp"/>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="/manager/managerHeader.jsp"/>
+<div style="width: 1080px; margin: auto;">
 
+<jsp:include page="/manager/managerMenu.jsp"/>
 <input type="hidden" id="sale_seq" value="${param.sale_seq}">
 <input type="hidden" id="pg" value="${param.pg }"/>
 <input type="hidden" id="sale_category" value="${param.sale_category }"/>
 
 <div id="wrap">
 <div id="pos_scroll"></div>
-<div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
+<div id="container" style="float:left; margin-left:40px; margin-top:-140px; width:800px;">
 
 <div class="tit_page" style="width:800px; align:center;">
 	<h1 class="tit"></h1>
@@ -180,6 +183,7 @@
 </div>
 </div>
 
+</div>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/manager_js/managerSaleboardView.js"></script>

@@ -417,7 +417,7 @@ input[type="submit" i] {
 }
 .saleboardWriteForm input[type=checkbox]:checked+.ico {
    	
-    background: url("/jaju/image/checked.jpg") no-repeat 50% 50%;
+    background: url("/jaju/jajuImage/checked.jpg") no-repeat 50% 50%;
     background-size: 24px 24px;
 }
 .saleboardWriteForm input[type=checkbox] {

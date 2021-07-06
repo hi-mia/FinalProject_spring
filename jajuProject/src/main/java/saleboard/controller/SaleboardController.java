@@ -134,6 +134,10 @@ public class SaleboardController {
 
 			String memId = (String) session.getAttribute("memId");
 			int sw = 0;
+			if(memId.equals("jajuadmin")) {
+				sw = 1; 
+			}
+			
 			Cookie[] cookie = request.getCookies();
 			for (Cookie coo : cookie) {
 				if(coo.getName().equals(memId) && coo.getValue().equals(sale_seq+"")) {

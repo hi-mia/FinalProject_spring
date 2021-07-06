@@ -22,7 +22,7 @@
 			
 			
 			<input type="text" name="searchText" id="searchText" value="" required="">
-			<input type="image" src="/jaju/image/search.webp" align="absmiddle" width="30" height="30" id="searchBtn">
+			<input type="image" src="/jaju/jajuImage/search.png" align="absmiddle" width="30" height="30" id="searchBtn">
 		</div>
 
 		<!-- 리스트 -->
@@ -46,7 +46,7 @@
 		
 		<div style="position:relative; margin-top: -125px; margin-bottom: 170px;">
          <div style="position:absolute;right:0;top:60px;">
-            <a href="/jaju/saleboard/saleboardWriteForm">
+            <a id="writeA" href="/jaju/saleboard/saleboardWriteForm">
                <span class="bhs_buttonsm yb" style="float:none;">판매물품등록</span>
             </a>
          </div>
@@ -58,6 +58,7 @@
 <input type="hidden" id="memId" value="${sessionScope.memId }"/>
 <input type="hidden" id="sortinSelected" value="${param.sortinSelect }"/>
 <input type="hidden" id="sale_category" value="${param.sale_category}"/>
+<input type="hidden" id="searchHidden" />
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/js/saleboardListCategory.js"></script>
@@ -68,13 +69,14 @@ $('.item').click(function(){
 function saleboardPaging(pg){
 	var searchText = document.getElementById('searchText').value;
 	
-	if(searchText == ''){
+	if($('#searchHidden').val() == ''){
 		location.href = '/jaju/saleboard/saleboardListCategory?pg='+pg+'&sortinSelect='+$('#sortinSelect').val()+'&sale_category='+ $('#sale_category').val();
 		//$('#sortinSelect').trigger('change');		
 	} else{
 		
 		$('#searchPg').val(pg);
 		//alert($('#searchPg').val())
+		$('#searchText').val($('#searchHidden').val());
 		$('#searchBtn').trigger('click','research');
 		//location.href = 'boardSearch?pg='+pg+'&select='+$('#select option:selected').val() +'&keyword='+$('#keyword').val();
 		//encodeURIComponent('${keyword}');
