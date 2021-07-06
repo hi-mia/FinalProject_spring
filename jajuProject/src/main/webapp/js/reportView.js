@@ -20,6 +20,14 @@ $(function(){
 			$('#contentSpan').text(data.reportDTO.report_content);
 			$('#sale_subjectSpan').text(data.reportDTO.sale_subject);
 			
+			
+			$('#sale_seq').val(data.reportDTO.sale_seq);
+		
+			
+			//신고 글 링크
+			$('#sale_subject').attr('href', '/jaju/saleboard/saleboardView?sale_seq='+data.reportDTO.sale_seq+'&pg=1');
+			
+			
 			if(data.reportDTO.report_image1 != null){
 				$('#imageSpan1').attr('src','/jaju/storage/'+data.reportDTO.report_image1);
 				$('#imageSpan1').css({'width': '150px', 'height': '150px'});

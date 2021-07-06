@@ -135,6 +135,16 @@ html, body {
 }
 .reportListTable td{
 	border-bottom: 1px solid #e6e6e6;
+	position: relative;
+    height: 43px;
+    font-size: 13px;
+    color: #000;
+    border-top: 1px solid #efefef;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+    word-wrap: normal;
 }
 .xans-board-listheader {
     border-top: 2px solid #47597e;
