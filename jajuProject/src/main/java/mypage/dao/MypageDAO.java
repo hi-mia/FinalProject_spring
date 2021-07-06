@@ -70,11 +70,18 @@ public interface MypageDAO {
 	public List<SaleboardDTO> myDealRecodeList(Map<String, String> map);
 
 	public int getTotalADeal(String id);
-	//Sale,Buy,Deal  리스트 검색
+	//Sale  리스트 검색
 	public List<SaleboardDTO> mySaleRecodeSearchList(Map<String, String> map);
-	//Sale,Buy,Deal  리스트 검색 페이징 처리
+	//Sale  리스트 검색 페이징 처리
 	public int getTotalASaleSearch(Map<String, String> map);
-	
+	//Buy  리스트 검색
+	public List<SaleboardDTO> myBuyRecodeSearchList(Map<String, String> map);
+	//Buy  리스트 검색 페이징 처리
+	public int getTotalABuySearch(Map<String, String> map);
+	//Deal  리스트 검색
+	public List<SaleboardDTO> myDealRecodeSearchList(Map<String, String> map);
+	//Deal  리스트 검색 페이징 처리
+	public int getTotalADealSearch(Map<String, String> map);
 	
 	public List<MyCountDTO> mysaleStateCount(Map<String, String> map);
 

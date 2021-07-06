@@ -393,7 +393,36 @@ public class MypageServiceImpl implements MypageService {
 
 		return myBuyPaging;
 	}
+	//buy 검색
+	@Override
+	public List<SaleboardDTO> myBuyRecodeSearchList(Map<String, String> map) {
+		// 1페이지당 5개씩
+				int endNum = Integer.parseInt(map.get("pg")) * 5;
+				int startNum = endNum - 4;
 
+			
+				map.put("startNum", startNum+"");
+				map.put("endNum", endNum+"");
+				//System.out.println("START" + startNum);
+				//System.out.println("END" + endNum);
+
+				return mypageDAO.myBuyRecodeSearchList(map);
+	}
+
+	@Override
+	public MyBuyPaging myBuySearchPaging(Map<String, String> map) {
+		int totalA = mypageDAO.getTotalABuySearch(map); // 총글수
+
+		myBuyPaging.setCurrentPage(Integer.parseInt(map.get("pg")));
+		myBuyPaging.setPageBlock(3);
+		myBuyPaging.setPageSize(5);
+		myBuyPaging.setTotalA(totalA);
+		myBuyPaging.makePagingHTML();
+
+		return myBuyPaging;
+	}
+	
+	
 	@Override
 	public List<SaleboardDTO> myDealRecodeList(Map<String, String> map) {
 		// 1페이지당 5개씩
@@ -422,7 +451,36 @@ public class MypageServiceImpl implements MypageService {
 
 		return myDealPaging;
 	}
+	
+	//Deal 검색
+	@Override
+	public List<SaleboardDTO> myDealRecodeSearchList(Map<String, String> map) {
+		// 1페이지당 5개씩
+				int endNum = Integer.parseInt(map.get("pg")) * 5;
+				int startNum = endNum - 4;
 
+				
+				map.put("startNum", startNum+"");
+				map.put("endNum", endNum+"");
+				//System.out.println("START" + startNum);
+				//System.out.println("END" + endNum);
+
+				return mypageDAO.myDealRecodeSearchList(map);
+	}
+
+	@Override
+	public MyDealPaging myDealSearchPaging(Map<String, String> map) {
+		int totalA = mypageDAO.getTotalADealSearch(map); // 총글수
+
+		myDealPaging.setCurrentPage(Integer.parseInt(map.get("pg")));
+		myDealPaging.setPageBlock(3);
+		myDealPaging.setPageSize(5);
+		myDealPaging.setTotalA(totalA);
+		myDealPaging.makePagingHTML();
+
+		return myDealPaging;
+	}
+	
 	@Override
 	public List<MyCountDTO> mysaleStateCount(Map<String, String> map, HttpSession session) {
 		// map.put("id", (String)session.getAttribute("memId"));

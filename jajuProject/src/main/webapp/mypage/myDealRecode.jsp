@@ -349,7 +349,7 @@ select {
 		<div style="margin: 25px; width: 700px; text-align: center;"
 			id="myDealRecodePagingDiv"></div>
 	</div>
-
+	<input type="hidden" id="searchPg" value="1">
 
 	<script type="text/javascript"
 		src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -373,7 +373,23 @@ select {
 			 "saleStateModifyForm", 
 			 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY); } 
  
+	
+	function myDealPaging(pg){
+		
+		//location.href="mySaleRecode?pg="+pg;
 
+		var keyword = document.getElementById('search-text').value;
+	if(keyword == ''){
+		location.href="myDealRecode?pg="+pg;
+	}else{
+		$('#searchPg').val(pg);
+		//alert($('#searchPg').val())
+		$('#search-text_Btn').trigger('click','research');
+		
+		//$('#searchPg').val(1);
+		
+	}
+}
  </script>
 </body>
 </html>

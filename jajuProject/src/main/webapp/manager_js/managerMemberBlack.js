@@ -2,6 +2,7 @@
 
 $(function(){
 	$('#managerMemberBlack').addClass('on');
+	$('#memberListBody tr').remove();
 	
 //창이 열리자 마자 , (활동중지 회원) 정보 가져오기. 
 	$.ajax({
@@ -12,8 +13,8 @@ $(function(){
 				//'pg': $('#pg').val()
 		success:function(data){
 			
+			
 			if(JSON.stringify(data.list)=='[]'){
-				$('#memberListBody tr').remove();
 				 $('<tr/>').append($('<td/>',{
 	    			 	colspan:8,
 						align:'center',
@@ -105,7 +106,7 @@ $(function(){
 });
 //리스트에 따라 결과 가져오기
 $('#sortinSelect').change(function(){
-	
+	$('#memberListBody tr').remove();
 	if($('#sortinSelect').val()=='delete_member'){
 		$('#btnWithdraw').hide();
 	}
