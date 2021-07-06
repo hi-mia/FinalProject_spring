@@ -78,6 +78,13 @@ a:link{
     background-color: #47597e;
     border: 1px solid #47597e;
 }
+.no_data{
+	padding: 150px 0 148px;
+	border-top: 1px solid #e6e6e6;
+	border-bottom: 1px solid #e6e6e6;
+	font-size: 14px; color: #4c4c4c;
+	text-align: center;
+}
 div, th, td, li, dt, dd, p {
     word-break: break-all;
 }

@@ -8,7 +8,7 @@
 <jsp:include page="/freeboard/boardMenu.jsp"/>
 <div id="formTotal">
 <div class="head_aticle" padding-left="10px">
-	<h2 class="tit">후기 게시판 </h2>
+	<h2 class="tit" style="color: #333;">후기 게시판 </h2>
 </div>
 <br>
 <div id="totalDiv">
