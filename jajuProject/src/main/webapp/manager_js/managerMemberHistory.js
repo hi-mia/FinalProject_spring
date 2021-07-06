@@ -86,7 +86,7 @@ $(function(){
 					class: 'info',
 					id: 'saleBtn',
 					text: sale_text, 
-					style:'font-weight:bold; font-weight: 700; font-size:17px;color: #47597e;'   //style="margin-top: 0px;"
+					style:'font-weight:bold; font-weight: 700; font-size:17px;color: #47597e; margin-top: 30px;'   //style="margin-top: 0px;"
 				}));
 				$('#buy').append($('<span/>',{
 					class: 'info',

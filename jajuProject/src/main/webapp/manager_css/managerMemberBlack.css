@@ -1272,7 +1272,93 @@ caption {
     padding-bottom: 0px!important;
     color: #777;
 }
+
+
 /*페이징 처리 css*/
+#currentPaging {
+	/*minji/
+	display: inline-block;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #ddd;
+    border-left: 1;
+    vertical-align: top;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    line-height: 34px;*/
+	border-radius: 3px;
+    border: 1px solid #ff9398;
+    font-weight: 700;
+    color: #ed3e49;
+    width: 28px;
+	height: 28px;
+	font-size: 11px;
+    line-height: 27px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 7px 1px 0;
+    vertical-align: middle;
+}
+#paging {
+	/*mj
+	display: inline-block;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #ddd;
+    border-left: 1;
+    vertical-align: top;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    line-height: 34px;*/
+    	border-radius: 3px;
+    border: 1px solid #a7a7a7;
+    font-weight: 700;
+    color: #a7a7a7;
+    width: 28px;
+	height: 28px;
+	font-size: 11px;
+    line-height: 27px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 7px 1px 0;
+    vertical-align: middle;
+}
+#currentPaging:hover, #paging:hover {
+   background: #f7f7f7;
+}
+#prev_paging,#next_paging{
+	border-radius: 3px;
+    color: silver;
+    cursor: pointer;
+	display: inline-block;
+	border: 1px solid #a7a7a7;
+    width: 28px;
+	height: 28px;
+    font-size: 11px;
+    line-height: 27px;
+    margin: 7px 1px 0;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    text-indent: -9999px;
+}
+#prev_paging{
+	background-image: url(/jaju/jajuImage/icon-pagination-prev.webp);
+}
+#next_paging{
+	background-image: url(/jaju/jajuImage/icon-pagination-next.webp);
+}
+#pagingArea{
+	border-top: 1px solid #e4e4e4;
+}
+#pagingAreaPg{
+	background: #FAFAFA;
+	height: 50px;
+	border-top: 1px solid #efefef;
+}
+/*페이징 처리 css
 #currentPaging {
 	display: inline-block;
     width: 34px;
@@ -1328,4 +1414,4 @@ caption {
     background-position: 50% 50%;
     text-indent: -9999px;
     border: 1px solid #ddd;
-}
+}*/

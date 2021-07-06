@@ -20,7 +20,7 @@
 	<li class="lnb_admin2">
 		<strong><span class="ico_admin"></span> <span class="txt_lnb">회원 관리</span></strong>
 		<ul>
-			<li id="managerMember" style="text-align: left;"><a href="/jaju/manager/managerMember" class="link_lnb">회원 관리</a></li>
+			<li id="managerMember" style="text-align: left;"><a href="/jaju/manager/managerMember?sortinSelect=member_date_desc" class="link_lnb">회원 관리</a></li>
 			<li id="managerMemberBlack" style="text-align: left;"><a href="/jaju/manager/managerMemberBlack" class="link_lnb">블랙리스트 관리</a></li>
 		</ul>
 	</li>

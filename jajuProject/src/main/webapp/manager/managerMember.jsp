@@ -15,6 +15,9 @@
 <div id="framecontent">
 
 <input type="hidden" name="pg" id="pg" value="${pg}">
+<input type="hidden" id="sortinSelected" value="${param.sortinSelect}">
+<input type="hidden" id="sortinSelectHidden" value="${sortinSelect}">
+
 
 	<div id="content" class="cont_post member_admin">
 	
@@ -186,7 +189,7 @@
 
 	</form>
 	
-			<div class="set_list" id="listControlBar2" style="background: #FAFAFA;height: 40px;">
+			<div class="set_list" id="listControlBar2" style="background: #FAFAFA;height: 30px;">
 				<!-- 
 				<div class="bundle_set">
 					<div class="txt_choice">
@@ -257,9 +260,11 @@
 	<script type="text/javascript">
 
 	function managerPaging(pg){
+
 		var keyword = document.getElementById('search-text').value;
+		
 		if(keyword == ''){
-			location.href="/jaju/manager/managerMember?pg="+pg;
+			location.href="/jaju/manager/managerMember?pg="+pg+'&sortinSelect='+$('#sortinSelect').val();
 			//$('#sortinSelect').trigger('change');		
 		} else{
 			$('input[name=pg]').val(pg);

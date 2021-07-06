@@ -1,4 +1,5 @@
 $(function(){
+	
 	$("#sortinSelect").val($('#sortinSelected').val()).prop("selected", true);
 	
 	if($('#memId').val() == ''){

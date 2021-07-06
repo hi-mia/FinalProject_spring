@@ -225,7 +225,8 @@ p {
 
 .slick-slider .slick-arrow.slick-hidden {
 	display: none
-} */
+}
+ */
 </style>
 
 <!-- 제이쿼리 불러오기 -->

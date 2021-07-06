@@ -168,8 +168,8 @@
 	 
 	  function messageMove(){
 	 //팝업 창 가운데 띄워주기
-	 var popupWidth=500;
-	 var popupHeight=500;
+	 var popupWidth=520;
+	 var popupHeight=520;
 
 	 var popupX = (window.screen.width/2)-(popupWidth/2);
 	 // 만들 팝업창 width 크기의 1/2 만큼 보정값으로 빼주었음

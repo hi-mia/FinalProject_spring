@@ -35,9 +35,11 @@ public class ManagerMemberController {
 	}
 	
 	@RequestMapping(value = "managerMember", method = RequestMethod.GET)
-	public ModelAndView managerMember(@RequestParam(required = false, defaultValue = "1") String pg) {
+	public ModelAndView managerMember(@RequestParam(required = false, defaultValue = "1") String pg,
+			@RequestParam(required = false, defaultValue = "member_date_desc") String sortinSelectHidden) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg",pg);
+		mav.addObject("sortinSelectHidden",sortinSelectHidden);
 		mav.setViewName("/manager/managerMember");
 		return mav;
 	}

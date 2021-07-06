@@ -49,7 +49,7 @@
 		
 		<div class="chart_js" style="width: 485px; height:485px;">
 				<h5 style="text-align: center; class="mb-0 ms-3">판매게시판 일별(7일) 게시물</h5>
-			<canvas id="myChart" style="display:inline-block; " width="400" height="400" ></canvas>
+			<canvas id="myChart" style="display:inline-block; " width="400" height="422" ></canvas>
 		</div>
 	</div><!-- 차트 -->
 	

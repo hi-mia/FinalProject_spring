@@ -9,8 +9,7 @@
 * {
     letter-spacing: -.05em;
     /*color: #4c4c4c;*/
-    font-size: 15px;
-    max-width: 100%;
+      max-width: 100%;
     font-family: 'S-CoreDream-4Regular';
    -webkit-text-size-adjust: 100%;
 }
@@ -18,7 +17,6 @@ html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
-
 .wrap {
 	border: 1px solid #cccccc;
 	display: inline-block;
@@ -325,11 +323,12 @@ ol, ul {
 /*header 다시 css 6월 24일 height추가*/
 .mypage_top {
     width: 100%;
-    height: 200px;
     padding: 30px 0;
     margin-bottom: 30px;
-    margin-top: 30px;
+    /*margin-top: 30px;*/
     background-color: #f7f7f7;
+    /*+*/height:272px;
+    border-radius: 20px;
 }
 .screen_out {
     overflow: hidden;
@@ -353,9 +352,11 @@ ol, ul {
 }
 .mypage_top .inner_mypagetop {
     overflow: hidden;
-    width: 100%;
+    /*width: 100%;*/
+    width:510px;
     display: flex;
     align-items: stretch;
+    border-radius: 20px;
 }
 .mypage_top .grade_user {
     /*width: 362px;*/
@@ -471,7 +472,7 @@ ol, ul {
 }
 .mypage_top .list_mypage .link_wrap {
     flex-grow: 1;
-    width: 168px;
+    /*width: 168px;*/
     background-color: #fff;
     padding: 30px 30px 30px 30px;
     display: flex;

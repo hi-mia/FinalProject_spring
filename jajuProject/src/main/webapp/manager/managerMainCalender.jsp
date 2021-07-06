@@ -727,10 +727,7 @@ function getFormatDate(date){
     day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
     return  year + '-' + month + '-' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
 }
-
-
 $('.cal-body').click(function (){
-
 	var calyear = $('.cal-year').text();
 	var calmonth = $('.cal-month').text();
 	var dayactive = $('.day-active').text();
@@ -784,14 +781,13 @@ $('.cal-body').click(function (){
 	else{
 		alert("다시 선택해주세요.")
 	}
-	
 });
 
 
 //$( "#testDatepicker" ).datepicker( "getDate" );
 $('#testDatepicker').change(function (){
     var date = $('#testDatepicker').val();
-    //alert("date???" + date);
+    alert("date???" + date);
     
     $.ajax({
     	url:'/jaju/manager/getDatePickerInfo',
@@ -801,7 +797,9 @@ $('#testDatepicker').change(function (){
     	success:function(data){
     		$('#ui-datepicker-div').hide();
     		//console.log("datepicker 결과물  : " +JSON.stringify(data));
-    		
+    		$('.stat_collect_dt').html(date+" 기준");
+			$('.stat_date').html(date+" 기준");
+				
 			$('#inquire_span').html(data.inquirePickerCount+'건');
 			$('#report_span').html(data.reportPickerCount+'건');
 			$('#newMember_span').html(data.newMemberPickerCount+'건');

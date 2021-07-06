@@ -9,7 +9,8 @@
 
 $(function(){
 	$('#managerMember').addClass('on');
-	
+	$("#sortinSelect").val($('#sortinSelected').val()).prop("selected", true);
+
 //창이 열리자 마자 , 모든 회원 정보 가져오기. 
 	$.ajax({
 		url: '/jaju/manager/getManagerMember',
@@ -116,6 +117,8 @@ $('#btnDeactivate').click(function(){
 				$("#managerMemberForm").attr("action", "/jaju/manager/changeMemberState");
 				$('#managerMemberForm').submit();
 				alert('변경이 완료 되었습니다.');
+				location.href="/jaju/manager/managerMember?sortinSelect=member_date_desc";
+
 				//location.reload();
 			}else{
 				alert('변경에 실패했습니다. 다시 선택해주세요.');
@@ -140,7 +143,7 @@ $('#btnWithdraw').click(function(){
 				$("#managerMemberForm").attr("action", "/jaju/manager/deleteMemberId");
 				$('#managerMemberForm').submit();
 				alert('삭제 완료 되었습니다.');
-				//location.reload();
+				location.href="/jaju/manager/managerMember?sortinSelect=member_date_desc";
 			}else{
 				alert('삭제에 실패했습니다. 다시 선택해주세요.');
 			}
