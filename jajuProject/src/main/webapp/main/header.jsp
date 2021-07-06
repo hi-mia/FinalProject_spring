@@ -23,17 +23,19 @@
 			</div>
 
 			<ul class="member_items">
+			
+				<c:if test="${memId == 'jajuadmin'}">
+					<li class="sign_up_item"><a href="/jaju/manager/managerMainChart">관리자</a></li>
+				</c:if>
+				
 				<c:if test="${memId == null}">
-					<li class="sign_up_item"><a href="/jaju/member/writeForm">회원가입</a>
-					</li>
-					<li class="sign_in_item"><a href="/jaju/member/loginForm">로그인</a>
-					</li>
+					<li class="sign_up_item"><a href="/jaju/member/writeForm">회원가입</a></li>
+					<li class="sign_in_item"><a href="/jaju/member/loginForm">로그인</a></li>
 				</c:if>
 
 				<c:if test="${memId != null}">
 					<li class="sign_up_item"><a href="/jaju/mypage/myKeywordForm">마이페이지</a></li>
-					<li class="sign_in_item"><a href="javascript: logout()">로그아웃</a>
-					</li>
+					<li class="sign_in_item"><a href="javascript: logout()">로그아웃</a></li>
 				</c:if>
 
 				<li class="map_item"><a href="/jaju/mypage/myLocationForm">지도</a></li>
@@ -51,6 +53,7 @@
 
 						<c:if test="${memId != null}">
 							<li><a href="/jaju/serviceCenter/inquireList">1:1 문의</a></li>
+							<li><a href="/jaju/serviceCenter/reportList">신고 게시판</a></li>
 							<li><a href="/jaju/mypage/myKeywordForm">마이페이지</a></li>
 						</c:if>
 					</ul>
