@@ -62,6 +62,9 @@ public interface ManagerMemberService {
 	public int getNewMemberPickerCount(Map<String, String> map);
 
 	public int getSaleReportPickerCount(Map<String, String> map);
+
+	//date 달력 선택 날짜 가져오기
+	public List<String> getCalenderInfo(Map<String, String> map);
 	
 
 }

@@ -523,7 +523,7 @@ div.avatar.avatar-xl > img.calendar{
 				<a role="button" class="stat_btn prev_stat_btn" id="prevBtn">
 					<span class="sr_only">이전 날짜 버튼</span>
 				</a>
-				<span id="date" class="stat_date"></span>
+				<span id="date" class="stat_date" style="user-select: none;"></span>
 				<a role="button" class="stat_btn next_stat_btn end" id="nextBtn">
 					<span class="sr_only">다음 날짜 버튼</span>
 				</a>
@@ -544,8 +544,10 @@ div.avatar.avatar-xl > img.calendar{
 					</div>
 						
 					<div class="stat">
-						<span class="stat_title">신규 가입자수<br><br><br></span>
+						<span class="stat_title">신규 <br>가입자수<br><br></span>
+						<br>
 							<span class="value_increase" id="newMember_span">0</span>
+							
 					</div>
 			
 					<div class="stat">
@@ -561,9 +563,7 @@ div.avatar.avatar-xl > img.calendar{
 
 
 <script type="text/javascript">
-//================================
-//START YOUR APP HERE
-//================================
+//달력생성소스
 const init = {
 monList: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
 dayList: ['일', '월', '화', '수', '목', '금', '토'],
@@ -600,34 +600,22 @@ getIndex: function (node) {
 const $calBody = document.querySelector('.cal-body');
 const $btnNext = document.querySelector('.btn-cal.next');
 const $btnPrev = document.querySelector('.btn-cal.prev');
-
-/**
-* @param {number} date
-* @param {number} dayIn
-*/
 function loadDate (date, dayIn) {
 document.querySelector('.cal-date').textContent = date;
 document.querySelector('.cal-day').textContent = init.dayList[dayIn];
-
 }
 
-/**
-* @param {date} fullDate
-*/
 function loadYYMM (fullDate) {
 let yy = fullDate.getFullYear();
 let mm = fullDate.getMonth();
 let firstDay = init.getFirstDay(yy, mm);
 let lastDay = init.getLastDay(yy, mm);
 let markToday;  // for marking today date
-
 if (mm === init.today.getMonth() && yy === init.today.getFullYear()) {
  markToday = init.today.getDate();
 }
-
 document.querySelector('.cal-month').textContent = init.monList[mm];
 document.querySelector('.cal-year').textContent = yy;
-
 let trtd = '';
 let startCount;
 let countDay = 0;
@@ -655,10 +643,6 @@ for (let i = 0; i < 6; i++) {
 }
 $calBody.innerHTML = trtd;
 }
-
-/**
-* @param {string} val
-*/
 function createNewList (val) {
 let id = new Date().getTime() + '';
 let yy = init.activeDate.getFullYear();
@@ -705,19 +689,109 @@ $(function(){
 	var month = now.getMonth()+1;
 	var date = now.getDate();
 	
-	$('.cal-day').html(month+"월");
-
-	$('.cal-date').html(date);
-
-	$('.stat_collect_dt').html(year+"."+month+"."+date+"기준");
+	if(month<10){
+		month='0'+month;
+	}
+	if(date<10){
+		date='0'+date;
+	}
 	
-	$('.stat_date').html(year+"."+month+"."+date+"기준");
+	$('.cal-day').html(month+"월");
+	$('.cal-date').html(date);
+	$('.stat_collect_dt').html(year+"."+month+"."+date+" 기준");
+	$('.stat_date').html(year+"."+month+"."+date+" 기준");
+	
+	$.ajax({
+		url:'/jaju/manager/getManagerMainCount',
+		type:'post',
+		dataType:'json',
+		success:function(data){
+			console.log("mainChart에 대한 모든정보" + JSON.stringify(data));
+			//만약 모든 정보 가져오는 걸 성공했다면 html로 하나씩 넣어주기. 
+			
+			$('#inquire_span').html(data.inquire_db+'건');
+			$('#report_span').html(data.report_db+'건');
+			$('#newMember_span').html(data.newMember_db+'건');
+			$('#saleBoard_span').html(data.saleReport_db+'건');
 
+		},error:function(err){
+			console.log("mainChartJSP에 오류 발생" + err);
+		}
+	});//ajax
 });
+function getFormatDate(date){
+    var year = date.getFullYear();              //yyyy
+    var month = (1 + date.getMonth());          //M
+    month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+    var day = date.getDate();                   //d
+    day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+    return  year + '-' + month + '-' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+}
+
+
+$('.cal-body').click(function (){
+
+	var calyear = $('.cal-year').text();
+	var calmonth = $('.cal-month').text();
+	var dayactive = $('.day-active').text();
+	var calmonthMinus = calmonth.substring(0,1); 
+	//alert("cal-year/cal-month/day-active : "+calyear+calmonthMinus+dayactive);
+	
+	if(calmonthMinus<10){
+		calmonthMinus='0'+calmonthMinus;
+	}
+	if(dayactive<10){
+		dayactive='0'+dayactive;
+	}
+	
+	var date = new Date(calyear,calmonthMinus-1,dayactive);
+	date= getFormatDate(date);
+	alert(date);
+	
+	if(confirm(date+" 일자로 조회하시겠습니까?")){
+	
+	$.ajax({
+    	url:'/jaju/manager/getCalenderInfo',
+    	data: {'date': date },
+    	type:'post',
+    	dataType:'json',
+    	success:function(data){
+    		//alert("getCalenderInfo 결과물  : " +JSON.stringify(data));
+    		//console.log("datepicker 결과물  : " +JSON.stringify(data));
+			$.each(data.list, function(index, items){
+				//console.log(JSON.stringify(data.list[0]));
+				
+				$('.cal-table td.today').css('background', '#fff');
+				$('.cal-table td.today').css('color', '#000000');
+				
+
+				$('.stat_collect_dt').html(date+" 기준");
+				$('.stat_date').html(date+" 기준");
+				
+				$('#inquire_span').html(data.list[0]+'건');
+				$('#report_span').html(data.list[1]+'건');
+				$('#newMember_span').html(data.list[2]+'건');
+				$('#saleBoard_span').html(data.list[3]+'건');
+				
+			});//each
+
+    		
+    	},error:function(err){
+    		console.log("managerCalender 에러발생" + err)	
+    	}
+    });
+	}
+	else{
+		alert("다시 선택해주세요.")
+	}
+	
+});
+
+
 //$( "#testDatepicker" ).datepicker( "getDate" );
 $('#testDatepicker').change(function (){
     var date = $('#testDatepicker').val();
-    alert("date???" + date);
+    //alert("date???" + date);
     
     $.ajax({
     	url:'/jaju/manager/getDatePickerInfo',
@@ -725,14 +799,13 @@ $('#testDatepicker').change(function (){
     	type:'post',
     	dataType:'json',
     	success:function(data){
-    		console.log("datepicker 결과물  : " +JSON.stringify(data));
+    		$('#ui-datepicker-div').hide();
+    		//console.log("datepicker 결과물  : " +JSON.stringify(data));
     		
-
 			$('#inquire_span').html(data.inquirePickerCount+'건');
 			$('#report_span').html(data.reportPickerCount+'건');
 			$('#newMember_span').html(data.newMemberPickerCount+'건');
 			$('#saleBoard_span').html(data.saleReportPickerCount+'건');
-			
 			
     	},error:function(err){
     		console.log("managerCalender 에러발생" + err)	
@@ -740,7 +813,7 @@ $('#testDatepicker').change(function (){
     	
     });
     var arr = date.split('-'); 
-	alert("arr"+arr);
+	//alert("arr"+arr);
 });
 </script>
 

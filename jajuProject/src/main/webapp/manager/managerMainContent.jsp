@@ -29,10 +29,6 @@
 	<a class="triangle_back" id="next_btn">
 		<img class="triangle" src="/jaju/jajuImage/triangleNext.png" alt="triangle">
 	</a>
-<!-- 	<p id="search_date">조회 날짜:
-	  <input type="text" id="datepicker1">	~  <input type="text" id="datepicker2">
-	</p> 
-	<input type="text" id="testDatepicker">-->
 </div>	
 	
 				
