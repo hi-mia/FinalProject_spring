@@ -610,7 +610,7 @@ thead {
 }
 tr {
     display: table-row;
-    vertical-align: inherit;
+    /* vertical-align: inherit; */
     border-color: inherit;
 }
 .tbl_admin th {

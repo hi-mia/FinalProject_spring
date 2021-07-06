@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<jsp:include page="/manager/managerHeader.jsp"/>
 <link rel="stylesheet" href="/jaju/css/serviceMenu.css" /> 
 <link rel="stylesheet" href="/jaju/css/inquireWriteForm.css" />    
 
@@ -10,6 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="/manager/managerMenu.jsp"/>
 <div style="width: 1050px; margin: auto;" >
 
 <div class="page_section section_qna">
