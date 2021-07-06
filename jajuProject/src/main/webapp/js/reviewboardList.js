@@ -3,7 +3,10 @@ $(function(){
 	$.ajax({
 		type: 'post',
 		url: '/jaju/reviewboard/getReviewboardList',
-		data: 'pg='+$('#pg').val(),
+		data: 	{
+			'pg':$('#pg').val(),
+			'id':$('#id').val()
+		}, 
 		dataType: 'json',
 		success: function(data) {
 			//alert(JSON.stringify(data))

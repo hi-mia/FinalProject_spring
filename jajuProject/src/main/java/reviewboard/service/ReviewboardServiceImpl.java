@@ -115,24 +115,25 @@ public class ReviewboardServiceImpl implements ReviewboardService {
 	}
 
 	@Override
-	public List<ReviewboardDTO> getReviewboardList(String pg) {
+	public List<ReviewboardDTO> getReviewboardList(Map<String, String> map) {
+		
+		int pg = Integer.parseInt(map.get("pg"));
 		
 		//1페이지당 10개씩
-		int endNum = Integer.parseInt(pg)*10;
+		int endNum = pg*10;
 		int startNum = endNum-9;
 		
-		Map<String, String> map = new HashMap<String, String>();
 		map.put("startNum", startNum+"");
-		map.put("endNum", endNum+"");
+		map.put("endNum", endNum +"");
 		
 		return reviewboardDAO.getReviewboardList(map);
 	}
 
 	@Override
-	public ReviewboardPaging reviewboardPaging(String pg) {
+	public ReviewboardPaging reviewboardPaging(int pg) {
 		int totalA = reviewboardDAO.getTotalA();
 		
-		reviewboardPaging.setCurrentPage(Integer.parseInt(pg));
+		reviewboardPaging.setCurrentPage(pg);
 		reviewboardPaging.setPageBlock(5);
 		reviewboardPaging.setPageSize(10);
 		reviewboardPaging.setTotalA(totalA);
@@ -204,6 +205,7 @@ public class ReviewboardServiceImpl implements ReviewboardService {
 	public ReviewboardDTO getPage(int review_seq) {
 		return reviewboardDAO.getPage(review_seq);
 	}
+
 
 
 }

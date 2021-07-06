@@ -56,6 +56,7 @@
 				<input type="image" src="/jaju/jajuImage/search.png" id="reviewboardSearchBtn" align="absmiddle">
 
 			</div>			
+			<input type="hidden" id="id" name="id" value="${memId}">
 			<input type="hidden" name="pg" id="pg" value="${param.pg }">
 			<input type="hidden" name="searchPg" id="searchPg" value="1">	
 		</form>
