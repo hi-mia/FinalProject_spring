@@ -11,7 +11,7 @@
 </head>
 <body>
 <div style="width: 1050px; margin: auto;" >
-<jsp:include page="/serviceCenter/serviceMenu.jsp"/>
+
 <div class="page_section section_qna">
 <div class="head_aticle">
 <h2 class="tit">자주 하는 질문 글쓰기</h2>
@@ -94,7 +94,7 @@
 </div>
 </body>
 <script type = "text/javascript" src = "http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/jaju/js/questionWriteForm.js"></script>
+<script src="/jaju/manager_js/managerQuestionWriteForm.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
