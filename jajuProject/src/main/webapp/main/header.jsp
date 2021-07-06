@@ -32,16 +32,13 @@
 
 				<c:if test="${memId != null}">
 					<li class="sign_up_item"><a href="/jaju/mypage/myKeywordForm">마이페이지</a></li>
-					<li class="sign_in_item"><a href="javascript: logout()">로그아웃</a>
-					</li>
+					<li class="sign_in_item"><a href="javascript: logout()">로그아웃</a></li>
+					<li class="map_item"><a href="/jaju/mypage/myLocationForm">지도</a></li>
 				</c:if>
-
-				<li class="map_item"><a href="/jaju/mypage/myLocationForm">지도</a></li>
-
 
 				<li class="service_center_item">
 					
-					<a href="/jaju/serviceCenter/noticeList">고객센터</a>
+					<a class="service_center" href="/jaju/serviceCenter/noticeList">고객센터</a>
 					<button type="button" class="service_center_icon"></button>
 					
 					<ul class="service_center_detail">

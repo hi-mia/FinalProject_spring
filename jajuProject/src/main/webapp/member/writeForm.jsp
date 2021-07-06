@@ -424,33 +424,7 @@
 </div></div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<!-- <script>
-                var serviceView = new Vue({
-                  el: '#serviceView',
-                  data: {
-                    pageUrl : campaginUrl + 'pc/service/agreement.html',
-                    storagetObj : null,
-                    eventStart : false, // 딱 한번만실행
-                  },
-                  methods: {
-                    update:function(){
-                      var $self = this;
-                      $.ajax({
-                        url : $self.pageUrl
-                      }).done(function(result){
-                        $('#serviceView').html(result);
-                        $self.storagetObj = JSON.parse(sessionStorage.getItem("agreement"));
-                        if(!$self.eventStart){
-                          $self.eventStart = true;
-                          $self.pageUrl = campaginUrl + 'pc/service/' + $self.storagetObj[$self.storagetObj.length-1].name + '.html'
-                          $self.update();
-                        }
-                      });
-                    }
-                  }
-                });
-                serviceView.update();
-              </script> -->
+ 
 <button type="button" class="btn_ok">확인</button>
 <button type="button" class="btn_close"><span class="screen_out">레이어 닫기</span></button>
 </div>

@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+@font-face {
+     font-family: 'S-CoreDream-4Regular';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+
+#daumContent {
+    width: 978px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+#mArticle {
+    min-height: 574px;
+}
+
+.screen_out {
+    display: block;
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+.ico_comm {
+    display: inline-block;
+    overflow: hidden;
+    background: url(https://t1.daumcdn.net/id/member/2014/ico_comm_150107.png) 0 0 no-repeat;
+    text-indent: -9999px;
+    vertical-align: top;
+}
+
+.tit_comm {
+    display: block;
+    overflow: hidden;
+    background: url(https://t1.daumcdn.net/id/member/2020/tit_comm_200716.png) 0 0 no-repeat;
+    text-indent: -9999px;
+}
+
+.intro_out .tit_outend {
+    width: 334px;
+    height: 28px;
+    margin: 28px auto 52px;
+    background-position: 0 -1715px;
+}
+
+.intro_out .ico_comm {
+    display: block;
+    width: 87px;
+    height: 87px;
+    margin: 59px auto 0;
+    background-position: 0 -950px;
+} 
+
+.info_out {
+    padding: 46px 0;
+    overflow: hidden;
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+    background-color: #fbfbfb;
+    text-align: center;
+}
+
+.info_out .desc_done {
+    padding-bottom: 30px;
+    color: #666;
+}
+
+.info_out .txt_done {
+    display: block;
+    padding-bottom: 6px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1b1b1b;
+    font-style: normal;
+}
+
+.wrap_btn .btn_retire {
+    margin-top: 10px;
+    border: 1px solid #064acb;
+    background-color: #064acb;
+}
+
+.btn_type2 {
+    display: inline-table;
+    overflow: hidden;
+    width: 150px;
+    border-radius: 3px;
+    font-size: 0;
+    text-align: center;
+}
+
+.btn_type2 .txt_type {
+    color: #fff;
+}
+
+.btn_type2 .txt_type {
+    display: inline-block;
+    height: 100%;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 51px;
+    text-align: center;
+}
