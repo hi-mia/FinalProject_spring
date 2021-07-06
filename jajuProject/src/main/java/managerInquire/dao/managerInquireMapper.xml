@@ -45,7 +45,7 @@
 	
 	<!-- 검색한 총글수 -->
 	<select id="getTotalSearchA" parameterType="java.util.Map" resultType="int">
-		select count(*) from inquiryboard where inquiry_subject like '%'||#{keyword}||'%'
+		select count(*) from inquiryboard where ${itemcd} like '%'||#{keyword}||'%'
 	</select>
 
 

@@ -50,7 +50,7 @@ public class InquireDAOMybatis implements InquireDAO {
 	}
 	@Override
 	public int getIdTotalA(String inquiry_id) {
-		return sqlSession.selectOne("memberreportSQL.getIdTotalA", inquiry_id);
+		return sqlSession.selectOne("inquireSQL.getIdTotalA", inquiry_id);
 	}
 
 	@Override

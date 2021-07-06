@@ -102,13 +102,12 @@ public class InquireController {
 		//세션
 		String memId = (String) session.getAttribute("memId");
 				
-		
+		System.out.println(pg);
 		List<InquireDTO>list = inquireService.getInquireList(pg, inquiry_id);
 		
 		//페이징 처리
 		InquirePaging inquirePaging = inquireService.inquirePaging(pg, inquiry_id);
-		list.size();
-		
+
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg",pg);
@@ -126,7 +125,6 @@ public class InquireController {
 								 @RequestParam String pg,
 								 @RequestParam (required=false, defaultValue="1") String inquiry_id,
 								 Model model) {
-		System.out.println(inquiry_id);
 		model.addAttribute("seq", seq);
 		model.addAttribute("inquiry_id", inquiry_id);
 		model.addAttribute("pg", pg);
