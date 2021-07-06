@@ -8,7 +8,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -108,6 +107,15 @@ public class ManagerQuestionController {
 		mav.addObject("questionPaging", questionPaging);
 		
 		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	@RequestMapping(value="/managerQuestionView", method=RequestMethod.GET)
+	public ModelAndView managerQuestionView(@RequestParam(required = false, defaultValue = "1") String pg) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg", pg);
+		mav.setViewName("/manager/managerQuestionView");
+		
 		return mav;
 	}
 }
