@@ -332,10 +332,28 @@ select {
 			id="myBuyRecodePagingDiv"></div>
 
 	</div>
-
+	<input type="hidden" id="searchPg" value="1">
 
 	<script type="text/javascript"
 		src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="/jaju/js/myBuyRecode.js"></script>
+	<script>
+	function myBuyPaging(pg){
+		
+		//location.href="mySaleRecode?pg="+pg;
+
+		var keyword = document.getElementById('search-text').value;
+	if(keyword == ''){
+		location.href="myBuyRecode?pg="+pg;
+	}else{
+		$('#searchPg').val(pg);
+		//alert($('#searchPg').val())
+		$('#search-text_Btn').trigger('click','research');
+		
+		//$('#searchPg').val(1);
+		
+	}
+}
+	</script>
 </body>
 </html>

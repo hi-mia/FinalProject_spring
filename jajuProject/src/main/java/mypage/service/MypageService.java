@@ -75,13 +75,18 @@ public interface MypageService {
 	public List<SaleboardDTO> myDealRecodeList(Map<String, String> map);
 
 	public MyDealPaging myDealPaging(Map<String, String> map);
-	//Sale,Buy,Deal게시판 List 검색
+	//Sale게시판 List 검색
 	public List<SaleboardDTO> mySaleRecodeSearchList(Map<String, String> map);
-	//Sale,Buy,Deal게시판 List 페이징처리 검색
+	//Sale게시판 List 페이징처리 검색
 	public MySalePaging mySaleSearchPaging(Map<String, String> map);
-	
-	
-	
+	//Buy게시판 List 검색
+	public List<SaleboardDTO> myBuyRecodeSearchList(Map<String, String> map);
+	//Buy게시판 List 페이징처리 검색
+	public MyBuyPaging myBuySearchPaging(Map<String, String> map);
+	//Deal게시판 List 검색
+	public List<SaleboardDTO> myDealRecodeSearchList(Map<String, String> map);
+	//Deal게시판 List 페이징처리 검색
+	public MyDealPaging myDealSearchPaging(Map<String, String> map);
 	/*public MypagePaging myScrapPaging(String pg);*/
 	
 	//팔로우 페이징 처리

@@ -337,12 +337,12 @@ select {
 			id="mySaleRecodePagingDiv"></div>
 	</div>
 
+	<input type="hidden" id="searchPg" value="1">
 
 	<script type="text/javascript"
 		src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="/jaju/js/mySaleRecode.js"></script>
 	
-	<input type="hidden" id="searchPg" value="1">
 	
 	<script type="text/javascript">
 	function mySalePaging(pg){

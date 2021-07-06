@@ -733,7 +733,52 @@ public class MypageController {
 
 	}
 	
+	@RequestMapping(value = "myBuyRecodeSearchList", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView myBuyRecodeSearchList(@RequestParam String id, @RequestParam String pg, @RequestParam Map<String, String> map) {
+		// System.out.println("pg가는지"+pg);
+		// 1페이지당 5개씩
+		map.put("id", id);
+		map.put("pg", pg);
+		
+		List<SaleboardDTO> list = mypageService.myBuyRecodeSearchList(map);
+		// 페이징처리
+		MyBuyPaging myBuySearchPaging = mypageService.myBuySearchPaging(map);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", list);
+		mav.addObject("myBuySearchPaging", myBuySearchPaging);
+		System.out.println("retrun했나"+list);
+		System.out.println("retrun했나2"+myBuySearchPaging);
+		
+		mav.setViewName("jsonView");
 
+		return mav;
+
+	}
+	
+	@RequestMapping(value = "myDealRecodeSearchList", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView myDealRecodeSearchList(@RequestParam String id, @RequestParam String pg, @RequestParam Map<String, String> map) {
+		// System.out.println("pg가는지"+pg);
+		// 1페이지당 5개씩
+		map.put("id", id);
+		map.put("pg", pg);
+	
+		List<SaleboardDTO> list = mypageService.myDealRecodeSearchList(map);
+		// 페이징처리
+		MyDealPaging myDealSearchPaging = mypageService.myDealSearchPaging(map);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", list);
+		
+		mav.addObject("myDealSearchPaging", myDealSearchPaging);
+		
+		mav.setViewName("jsonView");
+
+		return mav;
+
+	}
+	
 	// =============== MYPAGE >> count(*) 이용해서 이름, 매너온도 ,찜목록수, 팔로우수, 쪽지 수
 	// 가져오기===============//
 	// 로그인 한 유저 이름
