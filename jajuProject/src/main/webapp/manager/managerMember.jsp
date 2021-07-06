@@ -221,7 +221,7 @@
 			</div>
 			
 			
-			<div style="text-align: center;" id="memberPagingDiv"></div>
+			<div style="text-align: center;" id="memberPagingDiv" ></div>
 
 			<!-- <div id="pagingArea" class="page_admin">
 				<a class="btn_page btn_prev page_disabled">

@@ -263,7 +263,7 @@ public class ManagerMemberController {
 	@RequestMapping(value = "/getDatePickerInfo", method = RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView getDatePickerInfo(@RequestParam Map<String, String> map) {
-		System.out.println("map, date의 값 넘어와야 함 "+map);
+		System.out.println("map, getDatePickerInfo date의 값 넘어와야 함 "+map);
 	
 		//신규 1:1문의수
 		int inquirePickerCount = managerMemberService.getInquirePickerCount(map);
@@ -273,12 +273,8 @@ public class ManagerMemberController {
 		int newMemberPickerCount = managerMemberService.getNewMemberPickerCount(map);
 		//당일 판매 게시글 등록 수 불러오기 
 		int saleReportPickerCount = managerMemberService.getSaleReportPickerCount(map);
-		
-		
 		System.out.println("db에서 불러온 COUNT NUM = "+inquirePickerCount+","+reportPickerCount+","+newMemberPickerCount+","+saleReportPickerCount);
-		
 		ModelAndView mav = new ModelAndView();
-		
 		mav.addObject("inquirePickerCount",inquirePickerCount+"");
 		mav.addObject("reportPickerCount",reportPickerCount+"");
 		mav.addObject("newMemberPickerCount",newMemberPickerCount+"");
@@ -288,6 +284,20 @@ public class ManagerMemberController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/getCalenderInfo", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView getCalenderInfo(@RequestParam Map<String, String> map) {
+		System.out.println("map, getCalenderInfo date의 값 넘어와야 함 "+map);
+		
+		List<String> list = managerMemberService.getCalenderInfo(map);
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("list",list);
+		mav.setViewName("jsonView");
+		
+		return mav;
+	}
 	
 	
 	//(관리자 확인용 프로필)

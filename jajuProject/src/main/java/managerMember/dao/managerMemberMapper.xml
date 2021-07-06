@@ -76,21 +76,21 @@
 	<if test='searchMode == "member_id" '>
 		select * from 
 		(select rownum rn, tt.* from
-		(select * from jajumember where member_id like '%'||#{search-text}||'%' and member_id !='jajuadmin' order by member_date desc)tt)
+		(select * from jajumember where member_id like '%'||#{search-text}||'%' and member_state='0' order by member_date desc)tt)
 		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
 	</if>
 	
 	<if test='searchMode == "member_email"'>
 		select * from 
 		(select rownum rn, tt.* from
-		(select * from jajumember where member_email like '%'||#{search-text}||'%' and member_id !='jajuadmin' order by member_date asc)tt)
+		(select * from jajumember where member_email like '%'||#{search-text}||'%' and  member_state='0' order by member_date desc)tt)
 		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
 	</if>
 	
 	<if test='searchMode == "member_id_email"'>
 		select * from 
 		(select rownum rn, tt.* from
-		(select * from jajumember where member_id !='jajuadmin' and member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%' order by member_date desc)tt)
+		(select * from jajumember where  member_state='0' and member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%' order by member_date desc)tt)
 		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
 	</if>
 </select>
@@ -122,15 +122,16 @@
 <!-- 검색 paging 처리  -->
 <select id="getSearchTotalA" parameterType="String" resultType="int">
 	<if test='searchMode == "member_id" '>
-		select count(*) from jajumember where member_id like '%'||#{search-text}||'%'
+		select count(*) from jajumember where member_id like '%'||#{search-text}||'%' and member_state='0'
 	</if>	
 	<if test='searchMode == "member_email"'>
-		select count(*) from jajumember where member_email like '%'||#{search-text}||'%' 
+		select count(*) from jajumember where member_email like '%'||#{search-text}||'%' and member_state='0'
 	</if>
 	<if test='searchMode == "member_id_email"'>
-		select count(*) from jajumember where member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%'
+		select count(*) from jajumember where member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%' and member_state='0'
 	</if>
 </select> 
+
 <!-- 블랙회원리스트 paging 처리 -->
 <select id="getMemberBlackTotalA" parameterType="String" resultType="int">
 	select count(*) from jajumember where member_state='1'
@@ -224,6 +225,17 @@
 	select count(*) from jajumember where to_char(member_date,'yyyy-mm-dd') = #{date}
 </select>
 <select id="getSaleReportPickerCount" parameterType="java.util.Map" resultType="int">
+	select count(*) from sale_board where to_char(sale_date,'yyyy-mm-dd') = #{date}
+</select>
+
+<!--  ====  달력 페이지 카운트 넘버 가져오기 ==== -->
+<select id="getCalenderInfo" parameterType="java.util.Map" resultType="int">
+	select count(*) as count from inquiryboard where inquiry_state='처리중' and to_char(logtime, 'yyyy-mm-dd') = #{date}
+	union all
+	select count(*) from memberreport where report_state='처리중' and to_char(logtime, 'yyyy-mm-dd') = #{date}
+	union all
+	select count(*) from jajumember where to_char(member_date,'yyyy-mm-dd') = #{date}
+	union all
 	select count(*) from sale_board where to_char(sale_date,'yyyy-mm-dd') = #{date}
 </select>
 

@@ -146,6 +146,11 @@ public class ManagerMemberDAOMybatis implements ManagerMemberDAO {
 	public int getSaleReportPickerCount(Map<String, String> map) {
 		return sqlSession.selectOne("managerMemberSQL.getSaleReportPickerCount",map);
 	}
+	//큰 달력 선택 날 하루 
+	@Override
+	public List<String> getCalenderInfo(Map<String, String> map) {
+		return sqlSession.selectList("managerMemberSQL.getCalenderInfo",map);
+	}
 
 
 

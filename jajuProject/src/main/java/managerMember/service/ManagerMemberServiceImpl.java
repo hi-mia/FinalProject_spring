@@ -197,6 +197,11 @@ public class ManagerMemberServiceImpl implements ManagerMemberService {
 		return managerMemberDAO.getSaleReportPickerCount(map);
 	}
 
+	@Override
+	public List<String> getCalenderInfo(Map<String, String> map) {
+		return managerMemberDAO.getCalenderInfo(map);
+	}
+
 
 
 }

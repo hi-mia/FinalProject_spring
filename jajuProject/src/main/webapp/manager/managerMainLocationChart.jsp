@@ -7,6 +7,16 @@
 <title>지역차트</title>
 
 <style type="text/css">
+
+@font-face {
+     font-family: 'S-CoreDream-4Regular';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+*{
+	font-family: 'S-CoreDream-4Regular';
+}
 .card {
 	width: 970px !important;
 	/*+*/
@@ -36,16 +46,15 @@
 	<div class="col-12 col-xl-4" style="width: 970px; height: 650px;">
 		<div class="card" style="width: 970px; height: 650px;">
 			<div class="card-header" style="width: 970px; height: 650px;">
-				<h4>관심지역 통계</h4>
+				<h2 align="center">관심지역 통계</h2>
 			</div>
 			<div class="card-body">
 				<div class="row">
-					<div class="col-6">
-						<div class="d-flex align-items-center"  style="height: 60px;">
+					<div class="col-6" style="display: none;">
+						<div class="d-flex align-items-center">
 							<svg class="bi text-primary" width="32" height="32" fill="blue" style="width: 10px">
                                   <use xlink:href="assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill"></use>
                            		</svg>
-							<h5 class="mb-0 ms-3">관심 지역 등록 BEST5<br></h5>
 						</div>
 					</div>
 
@@ -53,7 +62,7 @@
 
 						<!-- 여기 차트 들어갈 위치 -->
 						<div class="chart_js">
-							<canvas id="myChart3"  style="width:880px; height:445px; align:center; padding: 25px 30px 20px"></canvas>
+							<canvas id="myChart3"  style="width:880px; height:445px; align:center; padding: 25px 30px 20px; font-family:'S-CoreDream-4Regular';" ></canvas>
 						</div>
 
 						<div class="resize-triggers">
@@ -81,7 +90,9 @@
   //선 여러개로 표현하기 
   //이건 막대 그래프 (일주일 단위, 하루 판매 개수 가져오기 )
   $(function() {
+
   	function makeChart(ctx, type, labels, data) {
+  		
   		var myChart = new Chart(ctx, {
   		    type: type,
   		    data: {
@@ -110,14 +121,40 @@
   		        }]
   		    },
   		    options: {
-  			    responsive: false,
+  		    	responsive : false,
+  		    	tooltips: {
+  		          mode: 'index',
+  		          bodySpacing: 5,
+  		          bodyFontFamily: 'Noto sans',
+  		          bodyFontSize: 20
+  		        },
+				legend: {
+					display:true,
+					labels: {
+						fontColor: "#333",
+						fontSize: 25,
+						fontFamily:'S-CoreDream-4Regular',
+						fontStyle:'bold'
+					}
+				},
   		        scales: {
+  		        	xAxes: [{ 
+  		        		ticks: { 
+	        			min: 0,
+						max: 10,
+  		        		fontColor: 'rgba(12, 13, 13, 1)', 
+  		        		fontFamily:'S-CoreDream-4Regular',
+  		        		fontSize: 18
+  		        		} 
+  		        	}],
+
   		            yAxes: [{
   		                ticks: {
   		                	min: 0,
 							max: 25,
   		                    fontColor : 'rgba(12, 13, 13, 1)',
-  							fontSize : 14
+  		                  	fontFamily:'S-CoreDream-4Regular',
+  							fontSize : 18
   		                }
   		            }]
   		        }
@@ -146,7 +183,7 @@
   			var newMyData = myData.slice(-5);
 
   			ctx = $('#myChart3');
-  			makeChart(ctx, 'bar', newLabels, newMyData);
+  			makeChart(ctx, 'horizontalBar', newLabels, newMyData);
 
   		}
   	});// getLocationInfo ajax
