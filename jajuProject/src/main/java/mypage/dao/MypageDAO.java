@@ -65,7 +65,7 @@ public interface MypageDAO {
 
 	public List<SaleboardDTO> myBuyRecodeList(Map<String, String> map);
 
-	public int getTotalABuy(String id);
+	public int getTotalABuy(Map<String, String> map);
 
 	public List<SaleboardDTO> myDealRecodeList(Map<String, String> map);
 

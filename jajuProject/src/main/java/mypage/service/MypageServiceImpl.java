@@ -383,7 +383,7 @@ public class MypageServiceImpl implements MypageService {
 
 	@Override
 	public MyBuyPaging myBuyPaging(Map<String, String> map) {
-		int totalA = mypageDAO.getTotalABuy(map.get("id")); // 총글수
+		int totalA = mypageDAO.getTotalABuy(map); // 총글수
 
 		myBuyPaging.setCurrentPage(Integer.parseInt(map.get("pg")));
 		myBuyPaging.setPageBlock(3);

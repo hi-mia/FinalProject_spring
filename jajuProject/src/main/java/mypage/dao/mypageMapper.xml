@@ -231,45 +231,40 @@ select count(*) as count from message where message_reader=#{id} and message_cha
 			select count(*) as count from sale_board where member_id=#{id} and sale_state='판매완료'
 	</select>
 	
-<!-- 구매내역 목록 -->	
+<!-- 구매내역 목록 -->    
 <select id="myBuyRecodeList" parameterType="java.util.Map" resultType="saleboard">
-	
-	<if test='id != "jajuadmin" '>
-	<![CDATA[
-		select * from 
-		(select rownum rn, tt.* from 
- 		(select * from sale_board where sale_buyer=#{id} and sale_state='판매완료' order by sale_seq desc)tt)
- 		where rn >= #{startNum} and rn <= #{endNum}
-	]]>
-	</if>
-	
-	<if test='id == "jajuadmin" '>
-	<![CDATA[
-		select * from 
-		(select rownum rn, tt.* from 
- 		(select * from sale_board where sale_buyer=#{id} and sale_state='판매완료' and sale_hide='on' order by sale_seq desc)tt)
- 		where rn >= #{startNum} and rn <= #{endNum}
-	]]>
-	</if>
+    <if test='memId != id '>
+    <![CDATA[
+        select * from 
+        (select rownum rn, tt.* from 
+         (select * from sale_board where sale_buyer=#{id} and sale_state='판매완료' order by sale_seq desc)tt)
+         where rn >= #{startNum} and rn <= #{endNum}
+    ]]>
+    </if>
+    <if test='memId == id '>
+    <![CDATA[
+        select * from 
+        (select rownum rn, tt.* from 
+         (select * from sale_board where sale_buyer=#{id} and sale_state='판매완료' and sale_hide='on' order by sale_seq desc)tt)
+         where rn >= #{startNum} and rn <= #{endNum}
+    ]]>
+    </if>
+    
 </select>
-	
+    
 <!-- 구매내역 paging  --> <!--#{id}  -->
-<select id="getTotalABuy" parameterType="String"  resultType="int" >
-	
-	<if test='id != "jajuadmin" '>
-	select count(*) as count from sale_board where sale_buyer=#{id} and sale_state='판매완료'
-	</if>
-	
-		
-	<if test='id == "jajuadmin" '>
-	select count(*) as count from sale_board where sale_buyer=#{id} and sale_state='판매완료' and sale_hide='on'
-	</if>
-	
-
+<select id="getTotalABuy" parameterType="java.util.Map"  resultType="int" >
+    <if test='memId != id '>
+    select count(*) as count from sale_board where sale_buyer=#{id} and sale_state='판매완료'
+    </if>
+    <if test='memId == id '>
+    select count(*) as count from sale_board where sale_buyer=#{id} and sale_state='판매완료' and sale_hide='on'
+    </if>
+    
 </select>
 
-<!-- 판매중(+예약중) 내역 목록 -->	
-<select id="myDealRecodeList" parameterType="java.util.Map" resultType="saleboard">
+	<!-- 판매중(+예약중) 내역 목록 -->	
+	<select id="myDealRecodeList" parameterType="java.util.Map" resultType="saleboard">
 		<![CDATA[
 			select * from 
 			(select rownum rn, tt.* from 
@@ -278,40 +273,40 @@ select count(*) as count from message where message_reader=#{id} and message_cha
 		]]>
 	</select>
 	
-<!-- 판매중(+예약중)내역 paging  --> <!--#{id}  -->
-<select id="getTotalADeal" parameterType="String" resultType="int" >
-	select count(*) as count from sale_board where member_id=#{id} and (sale_state='판매중' or sale_state='예약중')
-</select>
+	<!-- 판매중(+예약중)내역 paging  --> <!--#{id}  -->
+	<select id="getTotalADeal" parameterType="String" resultType="int" >
+		select count(*) as count from sale_board where member_id=#{id} and (sale_state='판매중' or sale_state='예약중')
+	</select>
 
-<!--Search 판매내역 목록 검색 --><!--#{id}  -->
-<select id="mySaleRecodeSearchList" parameterType="java.util.Map" resultType="saleboard">
-
-		<if test='searchMode == "subject" '>
-		<![CDATA[
-			select * from 
-			(select rownum rn, tt.* from    
- 			(select * from sale_board where member_id=#{id} and sale_subject like '%'||#{search-text}||'%' and sale_state='판매완료' order by sale_seq desc)tt)
- 			where rn >= #{startNum} and rn <= #{endNum}
-		]]>
-	</if>
+	<!--Search 판매내역 목록 검색 --><!--#{id}  -->
+	<select id="mySaleRecodeSearchList" parameterType="java.util.Map" resultType="saleboard">
 	
-	<if test='searchMode == "content"'>
-		<![CDATA[
-			select * from 
-			(select rownum rn, tt.* from    
- 			(select * from sale_board where member_id=#{id} and sale_content like '%'||#{search-text}||'%' and sale_state='판매완료' order by sale_seq desc)tt)
- 			where rn >= #{startNum} and rn <= #{endNum}
-		]]>
-	</if>
-	
-	<if test='searchMode == "subject_content"'>
-		<![CDATA[
-			select * from 
-			(select rownum rn, tt.* from    
- 			(select * from sale_board where member_id=#{id} and sale_state='판매완료' and (sale_subject like '%'||#{search-text}||'%' or sale_content like '%'||#{search-text}||'%') order by sale_seq desc)tt)
- 			where rn >= #{startNum} and rn <= #{endNum}
-		]]>
-	</if>
+			<if test='searchMode == "subject" '>
+			<![CDATA[
+				select * from 
+				(select rownum rn, tt.* from    
+	 			(select * from sale_board where member_id=#{id} and sale_subject like '%'||#{search-text}||'%' and sale_state='판매완료' order by sale_seq desc)tt)
+	 			where rn >= #{startNum} and rn <= #{endNum}
+			]]>
+		</if>
+		
+		<if test='searchMode == "content"'>
+			<![CDATA[
+				select * from 
+				(select rownum rn, tt.* from    
+	 			(select * from sale_board where member_id=#{id} and sale_content like '%'||#{search-text}||'%' and sale_state='판매완료' order by sale_seq desc)tt)
+	 			where rn >= #{startNum} and rn <= #{endNum}
+			]]>
+		</if>
+		
+		<if test='searchMode == "subject_content"'>
+			<![CDATA[
+				select * from 
+				(select rownum rn, tt.* from    
+	 			(select * from sale_board where member_id=#{id} and sale_state='판매완료' and (sale_subject like '%'||#{search-text}||'%' or sale_content like '%'||#{search-text}||'%') order by sale_seq desc)tt)
+	 			where rn >= #{startNum} and rn <= #{endNum}
+			]]>
+		</if>
 	</select>
 <!--Search 판매내역 목록 검색 paging --><!--#{id}  -->
 	<select id="getTotalASaleSearch" parameterType="String" resultType="int" > 
@@ -517,4 +512,3 @@ select count(*) as count from message where message_reader=#{id} and message_cha
 </select>
 
 </mapper>
- 

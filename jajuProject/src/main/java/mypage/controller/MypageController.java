@@ -661,14 +661,12 @@ public class MypageController {
 	@RequestMapping(value = "myBuyRecodeList", method = RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView myBuyRecodeList(@RequestParam String id, @RequestParam String pg, @RequestParam Map<String, String> map, HttpSession session) {
-		// System.out.println("pg가는지"+pg);
-		// 1페이지당 5개씩
-		//String id = (String) session.getAttribute("memId");
+
+		String memId = (String) session.getAttribute("memId");
+		map.put("memId", memId);
 		map.put("id", id);
 		map.put("pg", pg);
-		
-		//System.out.println("확인22?"+id);
-		//System.out.println("확인22.?"+pg);
+
 		
 		List<SaleboardDTO> list = mypageService.myBuyRecodeList(map);
 		// System.out.println("pg가는지2"+pg);

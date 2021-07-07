@@ -178,8 +178,8 @@ public class MypageDAOMybatis implements MypageDAO {
 	}
 
 	@Override
-	public int getTotalABuy(String id) {
-		return sqlSession.selectOne("mypageSQL.getTotalABuy",id);
+	public int getTotalABuy(Map<String, String> map) {
+		return sqlSession.selectOne("mypageSQL.getTotalABuy",map);
 	}
 
 	@Override
