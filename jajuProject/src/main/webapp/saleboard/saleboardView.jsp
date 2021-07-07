@@ -52,7 +52,7 @@
 					<p class="goods_price">
 						<span class="position"><span class="dc">
 								<!----> <span class="dc_price">10<span class="won">원</span></span><br>
-								<span id="sale_nego"></span>
+								<span id="sale_nego" style="font-size: 12pt;"></span>
 						</span></span>
 						
 					</p>

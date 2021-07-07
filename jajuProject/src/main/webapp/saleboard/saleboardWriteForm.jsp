@@ -40,11 +40,9 @@
 		 	<td class="saleboardWriteTd" colspan="2">
 		 		<input class="saleboard_input" type="text" 
     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" style="width:30%;" name="sale_price" id="sale_price" placeholder="가격을 입력해주세요.">
-				 <label class="">  	
-				  	&nbsp;&nbsp; 
-				  	<input type="checkbox" name="sale_nego" id="sale_nego">
+				<label class="">  	
+				  	가격제안허용<input type="checkbox" name="sale_nego" id="sale_nego">
 		  			<span class="ico"></span>
-				  	가격제안허용
 		  		</label>
 		  		<div id="sale_priceDiv"></div>
 			</td>

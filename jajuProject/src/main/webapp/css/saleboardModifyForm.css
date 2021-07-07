@@ -9,13 +9,6 @@
 *{
 	font-family: 'S-CoreDream-4Regular';
 }
-
-#saleboardDiv {
-	margin-top: 20px;
-	padding: 100px;
-}
-
-
 #content {
     min-width: 1050px;
     padding-bottom: 120px;
@@ -34,6 +27,11 @@ div, th, td, li, dt, dd, p {
 div {
     display: block;
 }
+#saleboardDiv {
+	margin-top: 20px;
+	padding: 100px;
+}
+
 body, input, select, textarea, button {
     line-height: 1;
     letter-spacing: -.05em;
@@ -41,13 +39,14 @@ body, input, select, textarea, button {
     max-width: 100%;
     
 }
-input{
-    display: inline-block;
-}
 
 .xans-board-modify *{
 	font-size: 12px;
 	
+}
+
+input{
+    display: inline-block;
 }
 
 
@@ -114,7 +113,7 @@ input {
     -webkit-rtl-ordering: logical;
     border-radius: 2px;
 }
-.xans-board-modify .boardmodify2 {
+.xans-board-modify .boardWrite2 {
     table-layout: fixed;
     border-top: 2px solid #333;
     line-height: 180%;
@@ -158,7 +157,7 @@ tr {
     font-weight: 400;
     vertical-align: middle;
 }
-.boardmodify2 th {
+.boardWrite2 th {
     background: ##f7faff;
 }
 th {
@@ -250,7 +249,7 @@ body {
     display: block;
     margin: 8px;
 }
-.xans-board-modify .boardmodify2 input[type=text].read_only {
+.xans-board-modify .boardWrite2 input[type=text].read_only {
     color: #949296;
 }
 .xans-board-modify table input[type=text], .xans-board-modify table input[type=password], .xans-board-modify table textarea {
@@ -261,10 +260,10 @@ body {
 .xans-board-modify table input[type=text], .xans-board-modify table input[type=password] {
     padding: 3px;
 }
-.boardmodify2 .smalle {
+.boardWrite2 .smalle {
     position: relative;
 }
-.boardmodify2 .smalle input[type=checkbox] {
+.boardWrite2 .smalle input[type=checkbox] {
     position: relative;
     right: 2px;
     vertical-align: middle;
@@ -362,21 +361,21 @@ input[type="submit" i] {
 
 
 
-.saleboardmodifyForm .sale_state, .saleboardmodifyForm .sale_category ,  .saleboardmodifyForm .fileInfo {
+.saleboardModifyForm .sale_state, .saleboardModifyForm .sale_category ,  .saleboardModifyForm .fileInfo {
     border: 1px solid #47597e;
     background-color: #fff;
     color: #47597e;
     font-family: 'S-CoreDream-4Regular';
 }
-.saleboardmodifyForm .saleText{
+.saleboardModifyForm .saleText{
 	font-family: 'S-CoreDream-4Regular';
 }
 
-.saleboardmodifyForm input[type=radio]:checked+.ico {
+.saleboardModifyForm input[type=radio]:checked+.ico {
     border: 1px solid #47597e;
     background-color: #47597e;
 }
- .saleboardmodifyForm input[type=radio]+.ico {
+ .saleboardModifyForm input[type=radio]+.ico {
     display: inline-block;
     position: relative;
     width: 22px;
@@ -387,7 +386,7 @@ input[type="submit" i] {
     border-radius: 100%;
     vertical-align: -7px;
 } 
-.saleboardmodifyForm input[type=radio]:checked+.ico:after {
+.saleboardModifyForm input[type=radio]:checked+.ico:after {
     content: "";
     position: absolute;
     left: 50%;
@@ -398,14 +397,14 @@ input[type="submit" i] {
     border-radius: 100%;
     background-color: #fff;
 }
-.saleboardmodifyForm input[type=radio] {
+.saleboardModifyForm input[type=radio] {
     position: absolute;
     z-index: -1;
     opacity: 0;
 }
 /**/
 
-.saleboardmodifyForm input[type=checkbox]+.ico {
+.saleboardModifyForm input[type=checkbox]+.ico {
     display: inline-block;
     position: relative;
     width: 24px;
@@ -416,12 +415,12 @@ input[type="submit" i] {
     background-size: 24px 24px;
     vertical-align: -7px;
 }
-.saleboardmodifyForm input[type=checkbox]:checked+.ico {
+.saleboardModifyForm input[type=checkbox]:checked+.ico {
    	
-    background: url("/jaju/image/checked.jpg") no-repeat 50% 50%;
+    background: url("/jaju/jajuImage/checked.jpg") no-repeat 50% 50%;
     background-size: 24px 24px;
 }
-.saleboardmodifyForm input[type=checkbox] {
+.saleboardModifyForm input[type=checkbox] {
     position: absolute;
     z-index: -1;
     opacity: 0;
