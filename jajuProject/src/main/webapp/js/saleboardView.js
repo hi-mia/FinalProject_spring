@@ -9,7 +9,7 @@ $(function(){
 			//alert(JSON.stringify(data));
 			
 			$('.goods_name .name').html(data.saleboardDTO.sale_subject);
-			$('.dc .dc_price').html(data.saleboardDTO.sale_price+"원");
+			$('.dc .dc_price').html(data.saleboardDTO.sale_price.toLocaleString()+"원");
 			if(data.saleboardDTO.sale_nego == 'on'){
 				$('#sale_nego').text('네고가능');				
 			}

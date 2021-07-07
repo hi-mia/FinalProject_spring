@@ -41,7 +41,7 @@ $(function(){
 						class: 'cost'
 					}).append($('<span/>',{
 						class:"price",
-						text: items.sale_price+'원'
+						text: items.sale_price.toLocaleString()+'원'
 					})))
 					)).appendTo($('.inner_listgoods  .list'));
 					
@@ -147,7 +147,7 @@ $(function(){
 												class: 'cost'
 											}).append($('<span/>',{
 												class:"price",
-												text: items.sale_price+'원'
+												text: items.sale_price.toLocaleString()+'원'
 											})))
 											)).appendTo($('.inner_listgoods  .list'));
 											
@@ -229,7 +229,7 @@ $('#searchBtn').click(function(event,str){
 							class: 'cost'
 						}).append($('<span/>',{
 							class:"price",
-							text: items.sale_price+'원'
+							text: items.sale_price.toLocaleString()+'원'
 						})))
 						)).appendTo($('.inner_listgoods  .list'));
 						
@@ -336,7 +336,7 @@ $('#searchBtn').click(function(event,str){
 													class: 'cost'
 												}).append($('<span/>',{
 													class:"price",
-													text: items.sale_price+'원'
+													text: items.sale_price.toLocaleString()+'원'
 												})))
 												)).appendTo($('.inner_listgoods  .list'));
 												
@@ -426,7 +426,7 @@ $('#sortinSelect').change(function(){
 							class: 'cost'
 						}).append($('<span/>',{
 							class:"price",
-							text: items.sale_price+'원'
+							text: items.sale_price.toLocaleString()+'원'
 						})))
 						)).appendTo($('.inner_listgoods  .list'));
 						
@@ -531,7 +531,7 @@ $('#sortinSelect').change(function(){
 													class: 'cost'
 												}).append($('<span/>',{
 													class:"price",
-													text: items.sale_price+'원'
+													text: items.sale_price.toLocaleString()+'원'
 												})))
 												)).appendTo($('.inner_listgoods  .list'));
 												
