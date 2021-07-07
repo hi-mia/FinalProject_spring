@@ -57,6 +57,27 @@ $(function(){
 				}
 			});
 			
+			$.ajax({
+				type: 'post',
+				url: '/jaju/mypage/getMyFollow',
+				async: false,
+				data:{
+					'member_id': member_id, 
+					'follow_id': data.saleboardDTO.member_id
+				},
+				dataType: 'text',
+				success: function(data){
+					//alert("data???????"+data)
+					if(data=='exist'){
+						$('.txt_type_follow').text("팔로잉 중");
+						//alert("민지야getMyFollow성공해따아");
+					}
+					
+				},error: function(err){
+					alert("팔로잉 불러오기 에러");
+					console.log(err);
+				}
+			});
 			
 			$('#member_sido .desc').text(data.saleboardDTO.member_sido+" "+data.saleboardDTO.member_sigungu);
 			
