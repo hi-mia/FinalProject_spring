@@ -6,7 +6,7 @@
  	<select id="popularity" resultType="saleboard">
 		select * from (
 	 		select rownum rn ,tt.*from(
-	 		select * from sale_board order by sale_hit desc)tt)
+	 		select * from sale_board where sale_state in ('판매중', '예약중') and sale_hide = 'on' order by sale_hit desc)tt)
 	 		<![CDATA[where rn >= 1 and rn <=10]]>
  	</select>
  </mapper>

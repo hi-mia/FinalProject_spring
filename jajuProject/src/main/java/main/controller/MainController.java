@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,6 +26,16 @@ public class MainController {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
+		mav.setViewName("jsonView");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/recommend", method=RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView recommend(@RequestParam String category) {
+		System.out.println(category);
+		ModelAndView mav = new ModelAndView();
 		mav.setViewName("jsonView");
 		
 		return mav;
