@@ -76,19 +76,19 @@
   	<th class="saleboardWriteTd" align="left">상품 상태</th>
  	<td class="saleboardWriteTd">
 		<label class="">	 	
-  		새상품<input type="radio" name="sale_condition" id="sale_condition" value="새상품">
+  		새상품<input type="radio" name="sale_condition" id="new" value="새상품">
   			<span class="ico"></span>
   		</label>
   		<label class="">
-  		거의 새것<input type="radio" name="sale_condition" id="sale_condition" value="거의 새것">
+  		거의 새것<input type="radio" name="sale_condition" id="almostNew" value="거의 새것">
   			<span class="ico"></span>
   		</label>
   		<label class="">
-  		사용감있음<input type="radio" name="sale_condition" id="sale_condition" value="사용감있음">
+  		사용감있음<input type="radio" name="sale_condition" id="used" value="사용감있음">
   			<span class="ico"></span>
   		</label>
   		<label class="">
-  		사용감많음<input type="radio" name="sale_condition" id="sale_condition" value="사용감많음">
+  		사용감많음<input type="radio" name="sale_condition" id="veryused" value="사용감많음">
   			<span class="ico"></span>
   		</label>
   			<div id="sale_conditionDiv"></div>
