@@ -8,7 +8,7 @@
 <body>
 <jsp:include page="/manager/managerHeader.jsp"/>
 <form id = "managerInquireDelete" method="get" action="managerInquireDelete">
-<div class="total">
+<div class="total" style="display:flex; justify-content: center;">
 <jsp:include page="/manager/managerMenu.jsp"/>
 <div id="content" class="cont_post post_spam">
 <input type = "hidden" name = "pg" id = "pg" value="${pg }">
@@ -72,7 +72,7 @@
 	
 	</table>
 </div>
-
+</div>
 <div id="pagingArea" class="page_admin">
 <!-- <span class="paging currentPaging" onclick="inquirePaging">1</span> -->
 </div>
