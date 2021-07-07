@@ -49,7 +49,7 @@ public class ManagerMemberController {
 	@ResponseBody
 	
 	public ModelAndView getManagerMember(@RequestParam Map<String, String> map,
-			@RequestParam(required = false, defaultValue = "1") String pg) {
+											@RequestParam(required = false, defaultValue = "1") String pg) {
 		//System.out.println("관리자 리스트 가져오는 곳 맵 : " + map);
 
 		List<MemberDTO> list = managerMemberService.getManagerMember(map);// pg넘겨서 페이징 처리해서 회원 리스트 가져오기
@@ -72,7 +72,7 @@ public class ManagerMemberController {
 			@RequestParam(required = false, defaultValue = "1") String pg) {
 		//System.out.println("check = " + check[0]);
 		managerMemberService.changeMemberState(check);
-		return new ModelAndView("redirect:/manager/managerMember");
+		return new ModelAndView("redirect:/manager/managerMember?sortinSelect=member_date_desc");
 	}
 	
 	// 활동정지해제
@@ -90,7 +90,7 @@ public class ManagerMemberController {
 	public ModelAndView deleteMemberId(String[] check) {
 		//System.out.println("check = " + check[0]);
 		managerMemberService.deleteMemberId(check);
-		return new ModelAndView("redirect:/manager/managerMember");
+		return new ModelAndView("redirect:/manager/managerMember?sortinSelect=member_date_desc");
 	}
 
 	// 검색(아이디,이메일,아디+이멜) 검색 후 결과출력

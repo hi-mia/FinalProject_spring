@@ -277,7 +277,6 @@
 					var newLabels = labels.slice(-5);
 					var newMyData = myData.slice(-5);
 					 */
-
 					// Chart.js 막대그래프 그리기
 					var ctx = $('#myChart');
 
@@ -331,7 +330,7 @@
 								yAxes : [ {
 									ticks : {
 										min: 0,
-										max: 10,
+										max: 50,
 										fontColor : 'rgba(12, 13, 13, 1)',
 										fontFamily:'S-CoreDream-4Regular',
 										fontSize : 18

@@ -14,6 +14,8 @@ $(function(){
 			
 			console.log(JSON.stringify(data));
 			
+			//data.list.length != 0
+			
 			 if(JSON.stringify(data.list)=='[]'){
 				 	$('.title').remove();
 		            $('<tr/>').append($('<td/>',{

@@ -208,10 +208,10 @@
 	select count(*) from memberreport where report_state='처리중' and to_char(logtime, 'yyyy-mm-dd') = to_char(sysdate-1,'yyyy-MM-dd')
 </select>
 <select id="getPrevMemberCount" resultType="int">
-	select count(*) from jajumember where to_char(member_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-MM-dd')
+	select count(*) from jajumember where to_char(member_date,'yyyy-mm-dd') = to_char(sysdate-1,'yyyy-MM-dd')
 </select>
 <select id="getPrevSaleReportCount" resultType="int">
-	select count(*) from sale_board where to_char(sale_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-MM-dd')
+	select count(*) from sale_board where to_char(sale_date,'yyyy-mm-dd') = to_char(sysdate-1,'yyyy-MM-dd')
 </select>
 
 <!-- ====MAINCHART DATEPICKER COUNT(*) NUMBER==== 달력선택날짜  -->

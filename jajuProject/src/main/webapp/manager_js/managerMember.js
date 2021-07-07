@@ -92,9 +92,7 @@ $(function(){
 		         });//member_sell span click
 				
 			});//each
-			
 			$('#memberPagingDiv').html(data.managerPaging.pagingHTML);
-			
 		},error:function(err){
 			console.log("관리자-회원 쪽 에러발생"+err);
 		}		
@@ -106,7 +104,7 @@ $('#btnDeactivate').click(function(){
 	var checkboxValues = [];
 		$("input[name='check']:checked").each(function(i) {
 		checkboxValues.push($(this).val());
-	 });
+	});
 	var count = $('input[name=check]:checked').length;
 		//유효성검사
 		if(count==0){
@@ -117,8 +115,7 @@ $('#btnDeactivate').click(function(){
 				$("#managerMemberForm").attr("action", "/jaju/manager/changeMemberState");
 				$('#managerMemberForm').submit();
 				alert('변경이 완료 되었습니다.');
-				location.href="/jaju/manager/managerMember?sortinSelect=member_date_desc";
-
+				//location.href="/jaju/manager/managerMember?sortinSelect=member_date_desc";
 				//location.reload();
 			}else{
 				alert('변경에 실패했습니다. 다시 선택해주세요.');
@@ -143,7 +140,7 @@ $('#btnWithdraw').click(function(){
 				$("#managerMemberForm").attr("action", "/jaju/manager/deleteMemberId");
 				$('#managerMemberForm').submit();
 				alert('삭제 완료 되었습니다.');
-				location.href="/jaju/manager/managerMember?sortinSelect=member_date_desc";
+				//location.href="/jaju/manager/managerMember?sortinSelect=member_date_desc";
 			}else{
 				alert('삭제에 실패했습니다. 다시 선택해주세요.');
 			}
@@ -245,7 +242,9 @@ $('#search-text_Btn').click(function(){
 	if($('#search-text').val() == ""){
 		alert("검색어를 입력해 주세요");
 		$('#search-text').focus();
-	}else{
+	}
+	else{
+		alert("$('#sortinSelect').val()"+$('#sortinSelect').val());
 		$.ajax({
 			type: 'post',
 			url: '/jaju/manager/getSearchMemberInfo',
@@ -258,7 +257,7 @@ $('#search-text_Btn').click(function(){
 			success: function(data){
 				
 				if(JSON.stringify(data.list)=='[]'){ 
-		    		 alert("찾는 내용이 없습니다.");
+		    		alert("찾는 내용이 없습니다.");
 		    		$('#memberListBody tr').remove();
 
 		    		 $('<tr/>').append($('<td/>',{
