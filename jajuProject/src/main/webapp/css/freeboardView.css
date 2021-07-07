@@ -200,3 +200,102 @@ h1.tit{
    border: white;
    margin: 0;
 }
+
+#commentDiv {
+	width: 800px;
+	margin: 0 auto;
+	padding-top: 20px;
+	border-top: 1px solid #47597e;
+	padding-bottom: 20px;
+	font-size: 12pt;
+	margin-top: 50px;
+}
+
+#commentTable th {
+	font-size: 17pt;
+	text-align: center;
+}
+
+#commentTable td {
+	font-size: 12pt;
+	padding: 8pt;
+	text-align: center;
+}
+
+#boardViewReplyTable {
+	margin-left: 20px;
+}
+
+.commentInput {
+	padding: 5px;
+	margin: 0px;
+}
+
+#commentText {
+	border: 1px solid #333333;
+	border-radius: 8px;
+}
+
+.prevPaging{
+	background-image: url(/jaju/jajuImage/icon-pagination-prev.webp);
+}
+.nextPaging{
+	background-image: url(/jaju/jajuImage/icon-pagination-next.webp);
+}
+.firstPaging{
+	background-image: url(/jaju/jajuImage/icon-pagination-first.webp);
+}
+.lastPaging{
+	background-image: url(/jaju/jajuImage/icon-pagination-last.webp);
+}
+.prevPaging, .nextPaging, .firstPaging, .lastPaging{
+	background-repeat: no-repeat;
+    background-position: 50% 50%;
+    text-indent: -9999px;
+}
+.paging{
+	display: inline-block;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #ddd;
+    border-left: 0;
+    vertical-align: top;
+    margin-top: 20px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.paging:first-child {
+	border-left: 1px solid #ddd;
+}
+.currentPaging, .thisPaging:hover, .currentPaging:hover{
+    background-color: #f2f2f2;
+    color: #47597e;
+    font-size: 12px;
+}
+.currentPaging, .thisPaging{
+    font-weight: 700;
+    color: #333;
+    line-height: 34px;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.viewPre{
+   white-space: pre-line;
+   word-break: break-all;
+   background: white;
+   font-size: 14px;
+   color: #333;
+   border: white;
+   margin: 0;
+}
+
+#commentInputBtn:hover {
+	color: white;
+	background-color: #47597e;
+}
+
+#commentInputBtn {
+	background-color: #617aad;
+    color: white;
+}
