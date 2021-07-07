@@ -164,6 +164,12 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/manager_js/managerReviewboardView.js"></script>
 <script src="/jaju/manager_js/managerReviewboardDelete.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$('#managerReviewboard').addClass('on');
+});
+</script>
 </body>
 </body>
 </html>

@@ -1,6 +1,5 @@
 $(function(){
 	
-
 	$.ajax({		
 		type:'post',
 		url: '/jaju/freeboard/getFreeboardView', //한 사람거 가져와서 getBoard 가져옴
