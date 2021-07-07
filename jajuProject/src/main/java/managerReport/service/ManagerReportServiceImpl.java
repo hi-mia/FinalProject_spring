@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import managerReport.dao.ManagerReportDAO;
+import member.bean.MemberDTO;
 import report.bean.CommentDTO;
 import report.bean.ReportDTO;
 import report.bean.ReportPaging;
@@ -96,8 +97,13 @@ public class ManagerReportServiceImpl implements ManagerReportService {
 	}
 	
 	@Override
-	public void commentWrite(Map<String, String> map) {
-		managerReportDAO.commentWrite(map);
+	public void commentWriteShow(Map<String, String> map) {
+		managerReportDAO.commentWriteShow(map);
+		
+	}
+	@Override
+	public void commentWriteHide(Map<String, String> map) {
+		managerReportDAO.commentWriteHide(map);
 		
 	}
 
@@ -122,5 +128,5 @@ public class ManagerReportServiceImpl implements ManagerReportService {
 		managerReportDAO.commentDelete(map);
 		
 	}
-	
+
 }

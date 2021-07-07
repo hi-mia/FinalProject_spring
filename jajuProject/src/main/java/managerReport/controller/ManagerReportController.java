@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import managerReport.service.ManagerReportService;
+import member.bean.MemberDTO;
 import report.bean.CommentDTO;
 import report.bean.ReportDTO;
 import report.bean.ReportPaging;
@@ -120,13 +121,19 @@ public class ManagerReportController {
 	
 	//댓글 시작
 	
-	@RequestMapping(value="/commentWrite", method=RequestMethod.POST)
+	@RequestMapping(value="/commentWriteShow", method=RequestMethod.POST)
 	@ResponseBody
-	public void commentWrite(@RequestParam Map<String, String> map) {
+	public void commentWriteShow(@RequestParam Map<String, String> map) {
 		
-		//System.out.println(map);
-		managerReportService.commentWrite(map);// seq값이랑 DTO 값
+		managerReportService.commentWriteShow(map);
 	}
+	@RequestMapping(value="/commentWriteHide", method=RequestMethod.POST)
+	@ResponseBody
+	public void commentWriteHide(@RequestParam Map<String, String> map) {
+		System.out.println(map);
+		managerReportService.commentWriteHide(map);
+	}
+	
 	
 	@RequestMapping(value="/getCommentList", method=RequestMethod.POST)
 	@ResponseBody

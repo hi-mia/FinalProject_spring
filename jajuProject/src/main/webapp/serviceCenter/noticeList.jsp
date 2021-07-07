@@ -26,10 +26,11 @@
 			</tr>
 			
 		</thead>
-
-	<tbody>
-	
-</tbody>
+		
+		<tr class="no_data">
+			<td colspan="19" class="no_article" style="margin-bottom: 57px;">공지 글이 없습니다.</td>
+			
+		</tr>
 </table>
 </div>
 <div style="padding: 1px; border-top: 1px solid #e6e6e6"></div>
