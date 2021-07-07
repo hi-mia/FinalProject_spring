@@ -1,0 +1,377 @@
+@charset "UTF-8";
+
+@font-face {
+     font-family: 'S-CoreDream-4Regular';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+
+#daumWrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#daumContent {
+    width: 978px;
+    overflow: hidden;
+    margin: 0 auto;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #333;
+}
+
+#mArticle {
+    min-height: 574px;
+}
+
+.dimmed_layer {
+    position: fixed;
+    z-index: 9999999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .5;
+    filter: alpha(opacity=50);
+}
+
+.dimmed_layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    opacity: .5;
+}
+
+.dimmed_layer {
+    position: fixed;
+    z-index: 9999999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .5;
+    filter: alpha(opacity=50);
+}
+
+.screen_out {
+    display: block;
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+.myinfo_intro {
+    width: 100%;
+    overflow: hidden;
+    height: 147px;
+}
+
+.intro_out .bg_intro {
+    width: 130px;
+    background-position: -160px -600px;
+}
+
+.myinfo_intro .bg_intro {
+    float: left;
+    width: 154px;
+    height: 147px;
+}
+
+.bg_intro {
+    display: block;
+    overflow: hidden;
+    background: url('/jaju/jajuImage/bg_tit_150917.gif') 0 0 no-repeat;
+}
+
+.intro_out .cont_intro {
+    padding-top: 53px;
+}
+
+.myinfo_intro .cont_intro {
+    float: left;
+    padding-top: 37px;
+}
+
+.intro_out .tit_outagree {
+    width: 622px;
+    background-position: 0 -1565px;
+}
+
+.myinfo_intro .tit_comm {
+    height: 26px;
+    margin-bottom: 14px;
+}
+
+.tit_comm {
+    display: block;
+    overflow: hidden;
+    background: url(https://t1.daumcdn.net/id/member/2020/tit_comm_200716.png) 0 0 no-repeat;
+    text-indent: -9999px;
+}
+
+.info_agree {
+    padding: 42px 50px 29px;
+    overflow: hidden;
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+    background-color: #fbfbfb;
+}
+
+.info_agree .info_user {
+    position: relative;
+    width: 793px;
+    margin-bottom: 20px;
+    padding: 27px 37px 40px 45px;
+    overflow: hidden;
+    border: 1px solid #dfdfdf;
+    background-color: #fff;
+    color: #444;
+}
+
+.info_user .tit_agree {
+    display: block;
+    margin-right: 30px;
+    padding-bottom: 13px;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -1px;
+}
+
+.info_user .txt_agree {
+	font-size: 12px;
+    line-height: 22px;
+}
+
+.info_user .emph_g {
+    color: #f56a4f;
+}
+
+address, caption, cite, code, dfn, em, var {
+    font-style: normal;
+    font-weight: 400;
+}
+
+.info_agree .check_notice {
+    position: absolute;
+    top: 32px;
+    right: 37px;
+}
+
+.check_notice {
+    position: relative;
+    overflow: hidden;
+}
+
+.info_agree .tf_check {
+    width: 30px;
+    height: 30px;
+}
+
+.check_notice .tf_check {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border: 0;
+    opacity: .01;
+    vertical-align: middle;
+}
+
+.check_notice .tf_check:checked+.lab_check .ico_comm {
+    background-position: 0 -325px;
+}
+
+.info_agree .check_notice .tf_check:checked+.lab_check .ico_comm {
+    background-position: 0 -750px;
+}
+
+.info_agree .check_on .lab_check {
+    font-weight: 400;
+    color: #5a95ed;
+}
+
+.check_notice .tf_check:checked+.lab_check {
+    font-weight: 700;
+}
+
+.check_notice .lab_check {
+    display: inline-block;
+    padding-left: 26px;
+    cursor: pointer;
+}
+
+.info_agree .lab_check {
+    display: block;
+    font-size: 12px;
+    line-height: 1.5;
+    width: 30px;
+    padding: 35px 0 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.lab_check .ico_comm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-position: 0 -300px;
+}
+
+.info_agree .ico_check {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-position: 0 -700px;
+}
+
+.ico_comm {
+    display: inline-block;
+    overflow: hidden;
+    background: url('/jaju/jajuImage/ico_comm_150107.png') 0 0 no-repeat;
+    text-indent: -9999px;
+    vertical-align: top;
+}
+
+.wrap_btn {
+    width: 100%;
+    padding: 20px 0 70px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.wrap_btn .btn_cancel {
+    width: 93px;
+    height: 46px;
+    margin-right: 2px;
+    background-position: -100px -360px;
+}
+
+.btn_comm {
+    display: inline-block;
+    overflow: hidden;
+    background: url(https://t1.daumcdn.net/id/member/2020/btn_comm_200720.gif) 0 0 no-repeat;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: top;
+}
+
+.wrap_btn .btn_next {
+    width: 97px;
+    height: 46px;
+    font-size: 0;
+    text-indent: 0;
+    line-height: 0;
+    background-position: -320px -150px;
+}
+
+.userinfo_layer {
+    position: absolute;
+    left: 50%;
+    z-index: 9999999;
+}
+
+.userinfo_layer {
+    position: absolute;
+    left: 50%;
+    margin-left: -200px;
+    z-index: 9999999;
+}
+
+.inner_myinfo_layer {
+    width: 325px;
+    padding: 48px 40px;
+    border: 1px solid #444;
+    text-align: left;
+    letter-spacing: -1px;
+    background-color: #fff;
+}
+
+.inner_myinfo_layer .layer_body {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.inner_myinfo_layer .tit_layer {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.inner_myinfo_layer .btn_process {
+    width: 100%;
+    margin-top: 18px;
+    text-align: center;
+}
+
+.inner_myinfo_layer .btn_process .btn_comm {
+    height: 38px;
+}
+
+.inner_myinfo_layer .btn_ok {
+    width: 64px;
+    background-position: -420px 0;
+}
+
+.inner_myinfo_layer .btn_close {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 7px;
+    width: 18px;
+    height: 18px;
+    background-position: 1px -585px;
+    text-indent: -9999px;
+    cursor: pointer;
+}
+
+.btn_type1 {
+    border: 1px solid #064acb;
+    background-color: #064acb;
+}
+
+.wrap_btn .btn_retire {
+    margin-top: 10px;
+    border: 1px solid #064acb;
+    background-color: #fff;
+}
+
+.btn_type1, .btn_type2 {
+    display: inline-table;
+    overflow: hidden;
+    width: 150px;
+    border-radius: 3px;
+    font-size: 0;
+    text-align: center;
+}
+
+.btn_type1 .txt_type, .btn_type2 .txt_type {
+    display: inline-block;
+    height: 100%;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 51px;
+    text-align: center;
+}
+
+.btn_type1 .txt_type {
+    color: #fff;
+}
+
+.btn_type2 .txt_type {
+    color: #064acb;
+}

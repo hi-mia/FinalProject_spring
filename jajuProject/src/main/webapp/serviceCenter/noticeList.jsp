@@ -24,9 +24,11 @@
 				<th class="th2" style="width: '570px';">제목</th>
 				<th class="th3" style="width: '150px'; align: 'center';">작성일</th>
 			</tr>
+			
 		</thead>
-	<tbody>
 
+	<tbody>
+	
 </tbody>
 </table>
 </div>

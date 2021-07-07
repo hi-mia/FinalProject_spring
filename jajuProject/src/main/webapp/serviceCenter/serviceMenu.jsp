@@ -5,14 +5,7 @@
 <head>
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 <link rel="stylesheet" href="/jaju/css/serviceMenu.css" />
-<style type="text/css">
-#snb .list_menu li .type{
-	background: #fafafa url(https://res.kurly.com/pc/ico/2008/ico_arrow_6x11_on.svg) no-repeat 174px 52%;
-    background-size: 6px 11px;
-    font-weight: 700;
-    color: #47597e;
-}
-</style>
+
 </head>
 <body>
 

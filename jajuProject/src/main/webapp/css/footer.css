@@ -55,6 +55,11 @@ div#footer:before {
     display: block;
     clear: both;
 }
+ul.list > li > a:hover, ul.list > li > a:visited{
+	font-weight: bold;
+	color: #333333;
+}
+
 .link_sns a:link{color:#333333; text-decoration-line: none;}
 .link_sns a:visited{color:#333333; text-decoration-line: none;}
 .link_sns a:hover{color:#333333; text-decoration-line: none;}

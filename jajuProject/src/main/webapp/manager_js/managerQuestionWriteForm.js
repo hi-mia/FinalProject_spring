@@ -24,14 +24,14 @@ $('#questionWriteBtn').click(function(){
 		var formData = new FormData($('#questionWriteForm')[0]);
 		$.ajax({
 			type: 'post',
-		 	url: '/jaju/serviceCenter/questionWrite',
+		 	url: '/jaju/manager/managerQuestionWrite',
 		 	enctype: 'multipart/form-data',
 			processData: false,
 			contentType: false,
 		 	data: formData,
 		 	success: function(){
 		 			alert('글 작성이 완료되었습니다');
-		 			location.href='/jaju/serviceCenter/questionList?pg=1'
+		 			location.href='/jaju/manager/managerServiceQuestion?pg=1'
 		 	},
 		 	error: function(err){
 		 		console.log(err);
