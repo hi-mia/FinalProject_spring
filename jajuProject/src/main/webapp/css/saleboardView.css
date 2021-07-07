@@ -319,7 +319,7 @@ button, input, optgroup, select, textarea {
 	margin: 0;
 }
 
-.btn_type_follow, .btn_type_message,.btn_type_scrap {
+.btn_type_follow, .btn_type_message,.btn_type_scrap { /*배경색*/
 	border: 1px solid #617aad;
 	background-color: #617aad;
 	margin-right: 3px;

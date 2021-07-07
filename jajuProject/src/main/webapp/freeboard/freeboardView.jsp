@@ -114,12 +114,12 @@
 		
 		</div>
 		
-		<table border="2" id=c cellspacing="0" cellpadding="10"
+		<table border="2" id="" cellspacing="0" cellpadding="10"
          bordercolor="#47597e" align="center" frame="hsides" rules="rows"
          width="800" style="margin-top:40px; border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff;" id="commentWriteTable">
          <tr>
-            <td height="80" width="80" align="left">댓글: &nbsp; <span id="replySpan"></span>
-               <input type="text" placeholder="댓글을 입력하세요." size="70" id="commentText" class="commentInput">
+            <td height="80" width="80" align="left"><span id="replySpan"></span>
+               <input type="text" placeholder="댓글을 입력하세요." size="76" id="commentText" class="commentInput">
                &nbsp;&nbsp;
                <input type="button" value="댓글 입력" class="commentInput" id="commentInputBtn" size="80" >
             </td>

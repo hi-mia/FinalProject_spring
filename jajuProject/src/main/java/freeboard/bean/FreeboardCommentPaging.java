@@ -24,19 +24,19 @@ public class FreeboardCommentPaging {
 		if(endPage > totalP) endPage = totalP;
 		
 		if(startPage > pageBlock) {
-			pagingHTML.append("<span id='paging' onclick='freeboardCommentPaging("+(startPage-1)+")'><strong>[이전]</strong></span>");
+			pagingHTML.append("<span id='paging' class='paging prevPaging' onclick='freeboardCommentPaging("+(startPage-1)+")'></span>");
 		}
 		
 		for(int i=startPage; i<=endPage; i++) {
 			if(i == currentPage) {
-				pagingHTML.append("<span id='currentPaging' onclick='freeboardCommentPaging("+ i +")'><strong>"+i+"</strong></span>");
+				pagingHTML.append("<span id='currentPaging' class='paging currentPaging' onclick='freeboardCommentPaging("+ i +")'><strong>"+i+"</strong></span>");
 			} else {
-				pagingHTML.append("<span id='paging' onclick='freeboardCommentPaging("+ i +")'><strong>"+i+"<strong></span>");
+				pagingHTML.append("<span id='paging' class='paging thisPaging' onclick='freeboardCommentPaging("+ i +")'><strong>"+i+"<strong></span>");
 			}
 		}
 		
 		if(endPage < totalP) { 
-			pagingHTML.append("<span id='paging' onclick='freeboardCommentPaging("+(endPage+1)+")'><strong>[다음]</strong></span>");
+			pagingHTML.append("<span id='paging' class='paging nextPaging' onclick='freeboardCommentPaging("+(endPage+1)+")'></span>");
 		}
 		
 	}
