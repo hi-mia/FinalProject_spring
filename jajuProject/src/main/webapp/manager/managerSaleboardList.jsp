@@ -59,7 +59,7 @@
          </div>
       </div>
 
-      <div class="set_list" id="listControlBar" style="width:840px">
+      <div class="set_list" id="listControlBar" style="width:800px">
          <div class="bundle_set">
             <div class="txt_choice">
                <div class="check_admin check-all">

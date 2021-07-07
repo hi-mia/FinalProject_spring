@@ -120,7 +120,7 @@ $(function(){
 				width: '50px',
 				height: '50px',
 				id : "profilImg",
-				style: 'cursor: pointer; width : 50px; height: 50px;'
+				style: /*'cursor: pointer;*/ 'width : 50px; height: 50px;'
 			}));
 			$('#member_id .desc').html('&nbsp;'+data.saleboardDTO.member_manner+'°C');
 			if(data.saleboardDTO.member_manner < 30){
@@ -196,19 +196,21 @@ $(function(){
 				}
 				
 				if(items.member_id == $('#memId').val()){
-					$('.trLast'+items.comment_seq).append($('<img>',{
+					$('.trLast'+items.comment_seq).after($('<td/>',{
+						width: '100px'
+					}).append($('<img>',{
 						src: '/jaju/jajuImage/delete.png',
 						id: 'commentDeleteBtn',
-						style: 'cursor: pointer; float: right;',
+						style: 'cursor: pointer; float: right; border: 1px solid #00000033; margin-right: 10px;',
 						width: '20px',
 						height: '20px'
 					})).append($('<img>',{
 						src: '/jaju/jajuImage/modify.png',
 						id: 'commentModifyBtn',
-						style: 'cursor: pointer; float: right;',
+						style: 'cursor: pointer; float: right; border: 1px solid #00000033; margin-right: 10px;',
 						width: '20px',
 						height: '20px'
-					}));
+					})));
 				}
 			}); //each
 			
@@ -441,7 +443,7 @@ $('#commentInputBtn').click(function(){
 $(document).on('click', '#commentModifyBtn', function(){
 	$('#reCommentModifyTr').remove();
 	$('#reCommentTr').remove();
-	var comment_seq = $(this).parent().prev().prev().prev().text();
+	var comment_seq = $(this).parent().prev().prev().prev().prev().text();
 	//alert(comment_seq);
 	
 	$.ajax({
@@ -538,7 +540,7 @@ $('#memberreportA').click(function(){
 	
 });
 
-$(document).on('click','#profilImg',function(){
+/*$(document).on('click','#profilImg',function(){
 //$('#profilImg').click(function(){
 
 	var popupWidth=500;
@@ -550,15 +552,14 @@ $(document).on('click','#profilImg',function(){
 	 var popupY= (window.screen.height/2)-(popupHeight/2);
 	 // 만들 팝업창 height 크기의 1/2 만큼 보정값으로 빼주었음
 
-/* 	 window.open("/jaju/mypage/myMessage", 
+ 	 window.open("/jaju/mypage/myMessage", 
 			 "my_Message", 
-			 "width=500 height=500 left=500 top=700 scrollbars=yes");  */
+			 "width=500 height=500 left=500 top=700 scrollbars=yes");  
 	
-	window.open("/jaju/mypage/mypageChangeImg?id="+$('#member_id .tit').text(), 
+	window.open("/jaju/mypage/MypageChangeImg?id="+$('#member_id .tit').text(), 
 			 "mypageChangeImg", 
 			 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY); 	
-
-});
+});*/
 
 
 

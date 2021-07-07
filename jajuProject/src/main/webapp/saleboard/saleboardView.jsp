@@ -127,7 +127,7 @@
 			
 	</div>
 	<div id="contentDiv" >
-		<pre><span id="contentSpan" >머리가 안돌아가~~ 내 머리는 어디에 있는 거지? 내 머리 위에 있는 건 맞는 건가?
+		<pre class="viewPre" style="min-height: 300px;"><span id="contentSpan" >머리가 안돌아가~~ 내 머리는 어디에 있는 거지? 내 머리 위에 있는 건 맞는 건가?
 아아 내 목위에 있는건 대가리가 아니라 장식품이구나~~~~
 크아아아아아아아아아아아아아앙아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ
 ㄴㅇ마러나ㅣㅁ어라sdkjdksajflksdafㄴㅇ미ㅏ러니마어라ㅣㄴㅇ멀
@@ -162,6 +162,7 @@ s린ㅇ머핮ㅂ다덩ㅊ'ㄴㅇ
 				<th width="400" style="padding-bottom: 10px;">내용</th>
 				<th width="200" style="padding-bottom: 10px;">작성자</th>
 				<th width="200" style="padding-bottom: 10px;">작성일</th>
+				<th width="100"/>
 			</tr>
 			<tr>
 				<td >18</td>
@@ -180,14 +181,14 @@ s린ㅇ머핮ㅂ다덩ㅊ'ㄴㅇ
 		
 		</div>
 		
-		<table border="2" id=c cellspacing="0" cellpadding="10"
-         bordercolor="#d6e6f2" align="center" frame="hsides" rules="rows"
-         width="1050" id="commentWriteTable">
+		<table border="1" id=c cellspacing="0" cellpadding="10"
+         bordercolor="#47597e" align="center" frame="hsides" rules="rows"
+         width="1050" id="commentWriteTable" style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff;">
          <tr >
             <td height="80" width="150" align="left">댓글: &nbsp; <span id="replySpan"></span>
                <input type="text" placeholder="댓글을 입력하세요." size="110" id="commentText" class="commentInput">
                &nbsp;&nbsp;
-               <input type="button" value="댓글 입력" class="commentInput" id="commentInputBtn" size="200" >
+               <input type="button" value="댓글 입력" class="commentInput" id="commentInputBtn" size="200">
             </td>
          </tr>
       </table>
@@ -200,9 +201,10 @@ s린ㅇ머핮ㅂ다덩ㅊ'ㄴㅇ
 	<input type="hidden" id="pg" value="${param.pg }"/>
 	<input type="hidden" id="memId" value="${sessionScope.memId }">
 	
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js" ></script>
 <script src="/jaju/js/saleboardView.js"></script>	
 <script src="/jaju/js/saleboardDelete.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js" ></script>
 <script type="text/javascript">
 function saleboardCommentPaging(pg){
 	$.ajax({
@@ -214,6 +216,8 @@ function saleboardCommentPaging(pg){
 			//alert(JSON.stringify(data));
 			
 			$('#commentTable tr:gt(0)').remove();
+			
+$('#commentTable tr:gt(0)').remove();
 			
 			$.each(data.list, function(index,items){
 				
@@ -230,7 +234,7 @@ function saleboardCommentPaging(pg){
 				).append($('<td/>',{
 					text : items.member_id
 				})).append($('<td/>',{
-					class: 'trLast',
+					class: 'trLast'+items.comment_seq,
 					text : items.logtime
 				})).appendTo($('#commentTable'));
 				
@@ -244,24 +248,54 @@ function saleboardCommentPaging(pg){
 				}
 				
 				if(items.member_id == $('#memId').val()){
-					$('.trLast'+items.comment_seq).append($('<img>',{
+					$('.trLast'+items.comment_seq).after($('<td/>',{
+						width: '100px',
+					}).append($('<img>',{
 						src: '/jaju/jajuImage/delete.png',
 						id: 'commentDeleteBtn',
-						style: 'cursor: pointer; float: right;',
+						style: 'cursor: pointer; float: right; border: 1px solid #00000033; margin-right: 10px;',
 						width: '20px',
 						height: '20px'
 					})).append($('<img>',{
 						src: '/jaju/jajuImage/modify.png',
 						id: 'commentModifyBtn',
-						style: 'cursor: pointer; float: right;',
+						style: 'cursor: pointer; float: right; border: 1px solid #00000033; margin-right: 10px;',
 						width: '20px',
 						height: '20px'
-					}));
+					})));
 				}
 			}); //each
 			
 			
 			$('#pagingDiv').html(data.saleboardCommentPaging.pagingHTML);
+			
+			$(document).on('click', '#subjectA', function(){
+					
+					$('#reCommentTr').remove();
+					$('#reCommentModifyTr').remove();
+				
+					$(this).parent().parent().after($('<tr/>',{
+						id: 'reCommentTr'
+					}).append($('<td/>',{
+						style: 'background-color: #f5f5f5;'
+					})).append($('<td/>',{
+						colspan: 3,
+						text: 're: ',
+						style: 'background-color: #f5f5f5; text-align: left;'
+					}).append($('<input/>',{
+						type: 'text',
+						id: 'reCommentText',
+						width: '55%'
+					})).append($('<input/>',{
+						type: 'button',
+						id: 'reCommentBtn',
+						value: '   답글달기'
+					}))
+					));
+					
+			});
+			
+			
 			
 		},error: function(err){
 			alert("댓글 불러오기 에러");
