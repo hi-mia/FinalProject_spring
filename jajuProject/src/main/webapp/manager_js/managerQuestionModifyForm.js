@@ -3,7 +3,7 @@ $(function(){
 	$('.image1Name').hide();
 	$('.image2Name').hide();
 	$('.image3Name').hide();
-	alert($('input[name=question_seq]').val());
+	//alert($('input[name=question_seq]').val());
 	var formData = new FormData($('#managerQuestionModifyForm')[0])
 	$.ajax({
 		type : 'post',
@@ -11,7 +11,7 @@ $(function(){
 		data : 'seq='+$('input[name=question_seq]').val(),
 		dataType : 'json',
 		success : function(data){
-			alert(JSON.stringify(data));
+			//alert(JSON.stringify(data));
 			
 			$('#questionType').val(data.questionDTO.questionType).prop('select', true);
 			$('#question_subject').val(data.questionDTO.question_subject);
