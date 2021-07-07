@@ -137,6 +137,7 @@ li {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     word-wrap: break-word;
+    padding: 10px;
 }
 #goodsList .list_goods .cost .price {
     font-weight: 800;
@@ -164,6 +165,7 @@ input[name=searchText]{
     color: #202020;
     height: 30px;
     width: 200px;	
+    vertical-align: middle;
 	
 }
 .selectBox {

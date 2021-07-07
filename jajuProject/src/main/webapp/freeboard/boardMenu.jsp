@@ -19,22 +19,22 @@
 	<div class="inner_snb">
 		<ul class="list_menu">
 			<li id="type1">
-				<a id="type" class="type1" href="#"><strong>자유 게시판</strong></a>
+				<a id="type" style="padding-left: 0; font-weight: bold;" class="type1" href="#">자유 게시판</a>
 			</li>
 			<li id="type2">
-				<a id="type" class="type2" href="/jaju/freeboard/freeboardList?pg=1">목록보기</a>
+				<a id="type" style="padding-left: 0;" class="type2" href="/jaju/freeboard/freeboardList?pg=1">목록보기</a>
 			</li>
 			<li id="type3">
-				<a id="type" class="type3" href="/jaju/freeboard/freeboardWriteForm">글쓰기</a>
+				<a id="type" style="padding-left: 0;" class="type3" href="/jaju/freeboard/freeboardWriteForm">글쓰기</a>
 			</li>
 			<li id="type4">
-				<a id="type" class="type4" href="#"><strong>후기 게시판</strong></a>
+				<a id="type" style="padding-left: 0; font-weight: bold;" class="type4" href="#">후기 게시판</a>
 			</li>
 			<li id="type5">
-				<a id="type" class="type5" href="/jaju/reviewboard/reviewboardList?pg=1">목록보기</a> <!-- pg값 주기 -->
+				<a id="type" style="padding-left: 0;" class="type5" href="/jaju/reviewboard/reviewboardList?pg=1">목록보기</a> <!-- pg값 주기 -->
 			</li>
 			<li id="type6">
-				<a id="type" class="type6" href="/jaju/reviewboard/review_saleReport?pg=1">글쓰기</a>
+				<a id="type" style="padding-left: 0;" class="type6" href="/jaju/reviewboard/review_saleReport?pg=1">글쓰기</a>
 			</li>
 		</ul>
 	</div>

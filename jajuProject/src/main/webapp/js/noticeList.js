@@ -11,7 +11,7 @@ $(document).ready(function(){
 		dataType: 'json',
 		success: function(data){
 			//alert(JSON.stringify(data));
-			
+		
 			$.each(data.list, function(index, items){
 				$('<tr/>').append($('<td/>',{
 					width: '80px',
@@ -38,6 +38,7 @@ $(document).ready(function(){
 				}); 
 			
 			});//each
+			
 			
 			//페이징 처리
 	        $('.pagediv').html(data.noticePaging.pagingHTML);

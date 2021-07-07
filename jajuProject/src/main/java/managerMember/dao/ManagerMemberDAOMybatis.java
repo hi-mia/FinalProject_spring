@@ -60,17 +60,17 @@ public class ManagerMemberDAOMybatis implements ManagerMemberDAO {
 	public int getMemberTotalA() {
 		return sqlSession.selectOne("managerMemberSQL.getMemberTotalA");
 	}
-
+	
 	@Override
 	public int getSearchTotalA(Map<String, String> map) {
 		return sqlSession.selectOne("managerMemberSQL.getSearchTotalA", map);
 	}
-
+	
 	@Override
-	public int getMemberBlackTotalA() {
-		return sqlSession.selectOne("managerMemberSQL.getMemberBlackTotalA");
+	public int getMemberBlackTotalA(Map<String, String> map) {
+		return sqlSession.selectOne("managerMemberSQL.getMemberBlackTotalA",map);
 	}
-
+	
 	@Override
 	public List<ManagerMainDTO> getMemberCategory() {
 		return sqlSession.selectList("managerMemberSQL.getMemberCategory");
@@ -85,7 +85,15 @@ public class ManagerMemberDAOMybatis implements ManagerMemberDAO {
 	public List<ManagerMainDTO> getLocationInfo() {
 		return sqlSession.selectList("managerMemberSQL.getLocationInfo");
 	}
-	
+	@Override
+	public int getBlackSearchTotalA(Map<String, String> map) {
+		return sqlSession.selectOne("managerMemberSQL.getBlackSearchTotalA", map);
+	}
+
+	@Override
+	public List<MemberDTO> getSearchManagerMemberBlack(Map<String, String> map) {
+		return sqlSession.selectList("managerMemberSQL.getSearchManagerMemberBlack", map);
+	}
 	/*==== MAINCHART COUNT(*) NUM FROM DB ====*/
 	@Override
 	public int getManagerInquireCount() {
@@ -151,6 +159,8 @@ public class ManagerMemberDAOMybatis implements ManagerMemberDAO {
 	public List<String> getCalenderInfo(Map<String, String> map) {
 		return sqlSession.selectList("managerMemberSQL.getCalenderInfo",map);
 	}
+
+	
 
 
 

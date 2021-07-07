@@ -164,6 +164,7 @@ input[name=searchText]{
     color: #202020;
     height: 30px;
     width: 200px;	
+    vertical-align: middle;
 	
 }
 .selectBox {
