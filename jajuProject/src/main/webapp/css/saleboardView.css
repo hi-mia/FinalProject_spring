@@ -95,12 +95,11 @@ img, video, canvas {
 	width: 560px;
 	margin-top: 19px;
 	padding-bottom: 19px;
-	border-top: 1px solid #47597e;
+	border-top: 1px solid #b1bbd07a;
 }
 
 #sectionView {
 	height: 600px;
-	border: 2px solid;
 	width: 1050px;
 	margin-top: 50px;
 }
@@ -163,13 +162,6 @@ p {
 	padding-top: 4px;
 }
 
-#sectionView .goods_info {
-	float: right;
-	width: 560px;
-	margin-top: 19px;
-	padding-bottom: 19px;
-	border-top: 1px solid #47597e;
-}
 
 #sectionView .goods_info .list {
 	overflow: hidden;
@@ -376,7 +368,7 @@ button, input, optgroup, select, textarea {
 #imageDiv {
 	width: 1050px;
 	margin: 0 auto;
-	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 #imageDiv img {
@@ -411,7 +403,6 @@ pre {
 
 #commentTable th {
 	font-size: 17pt;
-	font-style: oblique;
 	text-align: center;
 }
 
@@ -470,60 +461,69 @@ pre {
 	border-radius: 8px;
 }
 
-.prevPaging {
-    background-image: url(/jaju/jajuImage/icon-pagination-prev.webp);
+.prevPaging{
+	background-image: url(/jaju/jajuImage/icon-pagination-prev.webp);
 }
-.nextPaging {
-    background-image: url(/jaju/jajuImage/icon-pagination-next.webp);
+.nextPaging{
+	background-image: url(/jaju/jajuImage/icon-pagination-next.webp);
 }
-.prevPaging, .nextPaging {
-   border-radius: 3px;
-    color: silver;
-    cursor: pointer;
-   display: inline-block;
-   border: 1px solid #a7a7a7;
-    width: 28px;
-   height: 28px;
-    line-height: 27px;
-    margin: 7px 1px 0;
-    vertical-align: middle;
-    background-repeat: no-repeat;
+.firstPaging{
+	background-image: url(/jaju/jajuImage/icon-pagination-first.webp);
+}
+.lastPaging{
+	background-image: url(/jaju/jajuImage/icon-pagination-last.webp);
+}
+.prevPaging, .nextPaging, .firstPaging, .lastPaging{
+	background-repeat: no-repeat;
     background-position: 50% 50%;
     text-indent: -9999px;
 }
-.currentPaging:hover, .thisPaging:hover {
-   background: #f7f7f7;
-}
-.thisPaging{
-   border-radius: 3px;
-    border: 1px solid #a7a7a7;
-    font-weight: 700;
-    color: #a7a7a7;
-    width: 28px;
-   height: 28px;
+.paging{
+	display: inline-block;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #ddd;
+    border-left: 0;
+    vertical-align: top;
+    margin-top: 20px;
     font-size: 12px;
-    line-height: 28px;
     cursor: pointer;
-    display: inline-block;
-    margin: 7px 1px 0;
-    vertical-align: middle;
 }
-.currentPaging{
-   border-radius: 3px;
-    border: 1px solid #ff9398;
-    font-weight: 700;
-    color: #ed3e49;
-    width: 28px;
-   height: 28px;
+.paging:first-child {
+	border-left: 1px solid #ddd;
+}
+.currentPaging, .thisPaging:hover, .currentPaging:hover{
+    background-color: #f2f2f2;
+    color: #47597e;
     font-size: 12px;
-    line-height: 28px;
-    cursor: pointer;
-    display: inline-block;
-    margin: 7px 1px 0;
-    vertical-align: middle;
+}
+.currentPaging, .thisPaging{
+    font-weight: 700;
+    color: #333;
+    line-height: 34px;
+    margin-top: 20px;
+    font-size: 12px;
 }
 
+.viewPre{
+   white-space: pre-line;
+   word-break: break-all;
+   background: white;
+   font-size: 14px;
+   color: #333;
+   border: white;
+   margin: 0;
+}
 
+#commentInputBtn:hover {
+	color: white;
+	background-color: #47597e;
+}
+
+#commentInputBtn {
+	background-color: #617aad;
+    color: white;
+}
 
 /*추가한 css*/
 /*댓글창*/

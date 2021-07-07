@@ -125,7 +125,18 @@
 	 
 	 <!-- 삭제 -->
 	<delete id="saleboardDelete" parameterType="int">
-	 	delete sale_board where sale_seq=#{sale_seq}
+		begin
+		 	delete sale_board where sale_seq=#{sale_seq};
+		 	
+		 	delete sale_board_comment where sale_seq=#{sale_seq};
+		 	
+		 	delete scrap where sale_seq=#{sale_seq};
+		 	
+		 	delete memberreport where sale_seq=#{sale_seq};
+		 	
+		 	delete message where sale_seq=#{sale_seq};
+		 	
+		 end;
 	</delete>
 	
 	

@@ -133,7 +133,7 @@
    <tr id="tr_0">
       <td width="20" nowrap="" align="center">1</td>
       <td width="50%">
-         <input type="file" name="file" id="file" class="file" style="width:50%" class="linebg">
+         <input type="file" name="file" id="file" class="file" style="width:50%; display: inline-block;" class="linebg">
          <a href="javascript:add()">
             <img src="/jaju/jajuImage/upadd.jpg" class="addImage" style="width:90px; height:25px;">
          </a>
@@ -144,9 +144,6 @@
       <td width="20" nowrap="" align="center">2</td>
       <td width="50%">
          <input type="file" name="file" id="file" class="file" style="width:50%" class="linebg">
-         <a href="javascript:add()">
-            <img src="/jaju/jajuImage/upadd.jpg" class="addImage" style="width:90px; height:25px;">
-         </a>
          <div id="sale_imageDiv"></div>
        </td>
    </tr>
