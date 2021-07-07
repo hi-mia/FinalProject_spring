@@ -75,7 +75,13 @@ public interface SaleboardService {
 
 	public void salebuyerConfirmation(Map<String, String> map);
 
-//	public List<SaleboardDTO> getSaleboardListFavorite(Map<String, String> map);
-//
-//	public SaleboardPaging saleboardPagingFavorite(int pg);
+	public List<SaleboardDTO> getSaleboardListFavorite(Map<String, String> map);
+
+	public SaleboardPaging saleboardPagingFavorite(Map<String, String> map);
+
+	public List<SaleboardDTO> getSearchSaleboardListFavorite(Map<String, String> map);
+
+	public SaleboardPaging searchSaleboardPagingFavorite(Map<String, String> map);
+
+	
 }

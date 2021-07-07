@@ -52,7 +52,7 @@
 	<th class="saleboardModifyTd" align="left" >카테고리</th>
  	<td class="saleboardModifyTd">
  		<select class="sale_category" name="sale_category" id="sale_category">
-		<option value="*">전체</option>
+		<option value="*">선택해 주세요</option>
             <option value="digital">디지털/가전</option>
             <option value="life">생활</option>
             <option value="instant_food">가공식품</option>

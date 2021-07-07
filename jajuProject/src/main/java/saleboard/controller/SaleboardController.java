@@ -527,35 +527,51 @@ public class SaleboardController {
 			saleboardService.salebuyerConfirmation(map);
 		}
 		
-//		@RequestMapping(value="saleboardListFavorite", method=RequestMethod.GET)
-//		public String saleboardListFavorite(Model model) {
-//			
-//			
-//			model.addAttribute("display","/saleboard/saleboardListFavorite.jsp");
-//			return "/index";
-//		}
-//		
-//		@RequestMapping(value="getSaleboardListFavorite", method=RequestMethod.POST)
-//		@ResponseBody
-//		public ModelAndView getSaleboardListFavorite(@RequestParam Map<String, String> map) {
-//			
-//			ModelAndView mav = new ModelAndView();
-//			
-//			
-//			List<SaleboardDTO> list = saleboardService.getSaleboardListFavorite(map);
-//			
-//			int pg = Integer.parseInt(map.get("pg"));
-//			
-//			SaleboardPaging saleboardPaging = saleboardService.saleboardPagingFavorite(pg);
-//			
-//			mav.addObject("saleboardPaging", saleboardPaging);
-//			
-//			mav.addObject("list", list);
-//			mav.setViewName("jsonView");
-//			
-//			return mav;
-//		}
+		@RequestMapping(value="saleboardListFavorite", method=RequestMethod.GET)
+		public String saleboardListFavorite(Model model) {
+			
+			
+			model.addAttribute("display","/saleboard/saleboardListFavorite.jsp");
+			return "/index";
+		}
 		
+		@RequestMapping(value="getSaleboardListFavorite", method=RequestMethod.POST)
+		@ResponseBody
+		public ModelAndView getSaleboardListFavorite(@RequestParam Map<String, String> map) {
+			
+			ModelAndView mav = new ModelAndView();
+			
+			
+			List<SaleboardDTO> list = saleboardService.getSaleboardListFavorite(map);
+			
+			
+			
+			SaleboardPaging saleboardPaging = saleboardService.saleboardPagingFavorite(map);
+			
+			mav.addObject("saleboardPaging", saleboardPaging);
+			
+			mav.addObject("list", list);
+			mav.setViewName("jsonView");
+			
+			return mav;
+		}
+		
+		@RequestMapping(value = "getSearchSaleboardListFavorite", method = RequestMethod.POST)
+		@ResponseBody
+		public ModelAndView getSearchSaleboardListFavorite(@RequestParam Map<String, String> map) {
+
+			ModelAndView mav = new ModelAndView();
+
+			List<SaleboardDTO> list = saleboardService.getSearchSaleboardListFavorite(map);
+
+			SaleboardPaging saleboardPaging = saleboardService.searchSaleboardPagingFavorite(map);
+
+			mav.addObject("saleboardPaging", saleboardPaging);
+			mav.addObject("list", list);
+			mav.setViewName("jsonView");
+
+			return mav;
+		}
 		
 		
 		

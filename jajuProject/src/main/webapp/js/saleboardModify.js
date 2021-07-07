@@ -125,7 +125,7 @@ $('#saleboardModifyBtn').click(function(){
         $('#sale_priceDiv').css('font-size', '10pt');
         $('#sale_priceDiv').css('font-weight', 'bold');
 	}
-	else if($('#sale_category').val() == ''){
+	else if($('#sale_category').val() == '*'){
 		$('#sale_categoryDiv').text('카테고리를 선택해주세요');
 		$('#sale_categoryDiv').css('color', 'red');
         $('#sale_categoryDiv').css('font-size', '10pt');
