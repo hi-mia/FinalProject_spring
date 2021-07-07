@@ -135,7 +135,7 @@ select count(*) as count from message where message_reader=#{id} and message_cha
  	(select * from scrap sc  
     full outer join sale_board sa
     on sa.sale_seq = sc.sale_seq
-    where sc.member_id=#{id} and sale_hide is null order by scrap_seq desc)tt)
+    where sc.member_id=#{id} and sale_hide = 'on' order by scrap_seq desc)tt)
     where rn &gt;=#{startNum} and rn &lt;=#{endNum}
  	<!-- scrap_seq,member_id,scrap_date,sale_seq,sale_state, sale_subject,sale_image1
  	 	select * from sale 
