@@ -115,6 +115,8 @@
 
 				<li class="new-product-category">
 					<a	href="/jaju/saleboard/saleboardList?pg=1&sortinSelect=sale_date">판매게시글</a></li>
+				<li class="new-product-category">
+					<a	href="/jaju/saleboard/saleboardListFavorite?pg=1&sortinSelect=sale_date">MyFavorite</a></li>
 				<li class="cheap-product-category  header_a_li">
 					<a href="/jaju/freeboard/freeboardList?pg=1"	class="button">자유게시판</a></li>
 			</ul>

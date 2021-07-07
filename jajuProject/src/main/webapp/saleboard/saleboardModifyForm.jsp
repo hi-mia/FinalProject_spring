@@ -97,15 +97,15 @@
  	<th class="saleboardModifyTd" align="left" >배송 방법</th>
  	<td class="saleboardModifyTd">
  			<label class="">  	
-		  	직거래<input type="checkbox" id="sale_direct" name="howDelivery">
+		  	직거래<input type="checkbox" id="sale_direct" name="sale_direct">
   			<span class="ico"></span>
   		</label>
   		<label class="">  	
-		  	택배거래<input type="checkbox" id="sale_delivery" name="howDelivery">
+		  	택배거래<input type="checkbox" id="sale_delivery" name="sale_delivery">
   			<span class="ico"></span>
   		</label>
   		<label class="">  	
-		  	온라인거래<input type="checkbox" id="sale_onlineTran" name="howDelivery">
+		  	온라인거래<input type="checkbox" id="sale_onlineTran" name="sale_onlineTran">
   			<span class="ico"></span>
   		</label>
   			<div id="sale_directDiv"></div>
