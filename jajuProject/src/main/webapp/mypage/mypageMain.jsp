@@ -123,17 +123,18 @@
 			<div class="inner_snb">
 				<ul class="list_menu">
 					<li id="type1" style="text-align: left;">
-						<a href="/jaju/mypage/myKeywordForm" onclick="">관심 키워드 등록</a>
+						<a href="/jaju/mypage/myKeywordForm" class="myKeyword" onclick="">관심 키워드 등록</a>
 					</li>
 					<li id="type2" style="text-align: left;">
-						<a href="/jaju/mypage/myLocationForm" onclick="">관심 지역 등록</a>
-					</li>
-					<li id="type3" style="text-align: left;">
-						<a href="/jaju/member/modifyForm">회원 정보 수정</a>
+						<a href="/jaju/mypage/myLocationForm" class="myLocation" onclick="">관심 지역 등록</a>
 					</li>
 					<li id="type4" style="text-align: left;">
-						<a href="/jaju/serviceCenter/reportList" onclick="">1:1 문의 내역</a>
+						<a href="/jaju/serviceCenter/reportList" class="inquireList" onclick="">1:1 문의 내역</a>
 					</li>
+					<li id="type3" style="text-align: left;">
+						<a href="/jaju/member/modifyForm" class="modify">회원 정보 수정</a>
+					</li>
+					<li><a href="/jaju/member/retireForm" class="retire">회원 탈퇴</a></li>
 				</ul>
 			</div>
 			<a href="/jaju/serviceCenter/reportWriteForm" class="link_inquire" style="margin-bottom: 50px;">
@@ -146,7 +147,7 @@
  
  
  
-	<script>
+<script>
  
 
 	  /*
@@ -166,7 +167,7 @@
 		}
  */
 	 
-	  function messageMove(){
+function messageMove(){
 	 //팝업 창 가운데 띄워주기
 	 var popupWidth=500;
 	 var popupHeight=500;
@@ -185,8 +186,7 @@
  
 
  </script>
-	<script type="text/javascript"
-		src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="/jaju/js/mypageMain.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/jaju/js/mypageMain.js"></script>
 </body>
 </html>

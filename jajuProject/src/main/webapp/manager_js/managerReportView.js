@@ -2,16 +2,22 @@
 $(function(){
 	//alert($('#report_seq').val());
 	//alert($('#comment_seq').val());
+	$('#type4').addClass('on');
 	
-	$('#managerReport').addClass('on');
 	
 	$.ajax({
 		type: 'post',
-		url: '/jaju/manager/getReport',
+		url: '/jaju/serviceCenter/getReport',
 		data: {'report_seq' : $('#report_seq').val()},
 		dataType: 'json',
 		success: function(data){
 			//alert(JSON.stringify(data));
+			
+			
+			$('#sale_seq').val(data.reportDTO.sale_seq);
+		
+			//신고 글 링크
+			$('#sale_subject').attr('href', '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+data.reportDTO.sale_seq+'&pg=1&sale_category=*');
 			
 			
 			$('#subjectSpan').text(data.reportDTO.report_subject);
@@ -20,14 +26,6 @@ $(function(){
 			$('#dateSpan').text(data.reportDTO.logtime);
 			$('#contentSpan').text(data.reportDTO.report_content);
 			$('#sale_subjectSpan').text(data.reportDTO.sale_subject);
-			
-			
-			$('#sale_seq').val(data.reportDTO.sale_seq);
-		
-			
-			//신고 글 링크
-			$('#sale_subject').attr('herf', '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+reportDTO.sale_seq+'&pg=1');
-			
 			
 			if(data.reportDTO.report_image1 != null){
 				$('#imageSpan1').attr('src','/jaju/storage/'+data.reportDTO.report_image1);

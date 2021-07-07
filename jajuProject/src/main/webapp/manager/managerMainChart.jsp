@@ -35,14 +35,21 @@
 
 	<!-- 차트 -->
 	<div class="drawChart"> 
-		<!-- <h1>게시물데이터그래프화</h1> -->
 		
-		<div class="google_chart" id="chart_div"></div>
+		<!-- <h1>구글 /chart.js</h1> -->
+		
+		 <div class="google_chart" id="chart_div">
+			<h5 style="text-align: center; class="mb-0 ms-3">판매게시판 등록 카테고리 현황</h5>
+		</div>
+		<!--
+		<div class="chart_js_category" style="width: 485px; height:485px;">
+			<h5 style="text-align: center; class="mb-0 ms-3">판매게시판 등록 카테고리 현황</h5>
+			<canvas id="myChart2" style="display:inline-block; " width="400" height="400" ></canvas>
+		</div> -->
+		
 		<div class="chart_js" style="width: 485px; height:485px;">
-			<canvas id="myChart"  width="400" height="400" ></canvas>
-			<!-- <canvas id="myChart2"  width="400" height="400" align="center"></canvas>
-			<canvas id="myChart3"  width="400" height="200" align="center"></canvas>
-			<canvas id="myChart4"  width="400" height="200" align="center"></canvas> -->
+				<h5 style="text-align: center; class="mb-0 ms-3">판매게시판 일별(7일) 게시물</h5>
+			<canvas id="myChart" style="display:inline-block; " width="400" height="400" ></canvas>
 		</div>
 	</div><!-- 차트 -->
 	
@@ -93,6 +100,7 @@
 					type : "POST",
 					url : "/jaju/manager/getMemberCategory",
 					dataType : "json",
+					async: false,
 					success : function(data1) {
 
 						$.each(data1.list, function(index, items) {
@@ -113,13 +121,33 @@
 
 						// Set chart options
 						var options = {
-							'title' : '판매게시물 등록 카테고리 현황',
+							'title' : '              판매게시물 등록 카테고리 현황',
+							fontSize: 20,
+							titlePosition: 'out',
 							'width' : 485,
-							'height' : 485
+							'height' : 485,
+							legend : { position: "bottom"},
+							pointSize : 5,
+							isStacked: false,
+				            tooltip:{textStyle : {fontSize:12}, showColorCode : true},
+				            animation: { //차트가 뿌려질때 실행될 애니메이션 효과
+				            startup: true,
+				            duration: 1000,
+				            easing: 'linear' 
+				            },
+				            annotations: {
+				            textStyle: {
+				            fontSize: 15,
+				            bold: true,
+				            italic: true,
+				            color: '#871b47',
+				            auraColor: '#d799ae',
+				            opacity: 0.8
+				               }
+				            }
 						};
 						// Instantiate and draw our chart, passing in some options.
-						var chart = new google.visualization.PieChart(document
-								.getElementById('chart_div'));
+						var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
 						chart.draw(data, options);
 						window.addEventListener('resize', drawChart, false);
 						google.charts.setOnLoadCallback();
@@ -134,10 +162,7 @@
 			function randomColor(labels) {
 				var colors = [];
 				for (let i = 0; i < labels.length; i++) {
-					colors
-							.push("#"
-									+ Math.round(Math.random() * 0xffffff)
-											.toString(16));
+					colors.push("#"	+ Math.round(Math.random() * 0xffffff).toString(16));
 				}
 				return colors;
 			}
@@ -166,17 +191,30 @@
 							borderWidth : 2
 						} ]
 					},
-					options : {
-						responsive : false,
-						scales : {
-							yAxes : [ {
-								ticks : {
-									min: 0,
-									max: 25,
+					options: {
+						responsive: false,
+						legend: {
+							labels: {
+								
+								fontColor: "#333",
+								fontSize: 15,
+							}
+						},
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero: true,
+									stepSize : 2,
+									fontColor : "rgba(251, 203, 9, 1)",
+									fontSize : 14,
+								}
+							}],
+							xAxes: [{
+								ticks:{
 									fontColor : 'rgba(12, 13, 13, 1)',
 									fontSize : 14
 								}
-							} ]
+							}]
 						}
 					}
 				});
@@ -186,6 +224,7 @@
 				type : "POST",
 				url : "/jaju/manager/getMemberCategory",
 				dataType : "json",
+				async: false,
 				success : function(data) {
 
 					console.log(JSON.stringify(data));
@@ -207,14 +246,14 @@
 
 					// Chart.js 선그래프 그리기
 					ctx = $('#myChart2');
-					makeChart(ctx, 'line', newLabels, newMyData);
+					makeChart(ctx, 'doughnut', newLabels, newMyData);
 
 					// Chart.js 원그래프 그리기
 					//ctx = $('#myChart3');
 					//makeChart(ctx, 'pie', newLabels, newMyData);
 
-					ctx = $('#myChart4');
-					makeChart(ctx, 'doughnut', newLabels, newMyData);
+					//ctx = $('#myChart4');
+					//makeChart(ctx, 'doughnut', newLabels, newMyData);
 				}
 			});//getMemberCategory ajax
 
@@ -223,6 +262,7 @@
 				type : "POST",
 				url : "/jaju/manager/getSaleAvg",
 				dataType : "json",
+				async: false,
 				success : function(data) {
 					//consoloe.log(JSON.stringify(data));
 					var labels = [];
@@ -240,18 +280,6 @@
 
 					// Chart.js 막대그래프 그리기
 					var ctx = $('#myChart');
-					/* var chart = new Chart(ctx, 
-							{ // type : 'bar' = 막대차트를 의미합니다. 
-								type: 'bar', // 
-								data: { labels: [data.managerMainDTO.dd7,data.managerMainDTO.dd6,data.managerMainDTO.dd5,data.managerMainDTO.dd4,data.managerMainDTO.dd3,data.managerMainDTO.dd2,data.managerMainDTO.dd1], 
-									
-										datasets: [{ 
-										label: '판매수량', 
-										backgroundColor: 'rgb(255, 99, 132)', 
-										borderColor: 'rgb(255, 99, 132)', 
-										data: [data.managerMainDTO.d7,data.managerMainDTO.d6,data.managerMainDTO.d5,data.managerMainDTO.d4,data.managerMainDTO.d3,data.managerMainDTO.d2,data.managerMainDTO.d1]}] 
-					}, 
-					});//var chart  */
 
 					var myChart = new Chart(ctx, {
 						type : 'line',
@@ -289,13 +317,24 @@
 						},
 						options : {
 							responsive : false,
+							
+							legend: {
+								display:true,
+								labels: {
+									fontColor: "#333",
+									fontFamily:'S-CoreDream-4Regular',
+									fontSize: 15									
+								}
+							},
+
 							scales : {
 								yAxes : [ {
 									ticks : {
 										min: 0,
 										max: 10,
 										fontColor : 'rgba(12, 13, 13, 1)',
-										fontSize : 14
+										fontFamily:'S-CoreDream-4Regular',
+										fontSize : 18
 									}
 								} ]
 							}

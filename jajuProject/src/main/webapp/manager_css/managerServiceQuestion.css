@@ -334,6 +334,70 @@ button {
     line-height: 28px;
     color: #000;
 }
+.btn_admin, .btn_admin:hover, .btn_admin_open, .btn_admin_open:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+.btn_type1:hover {
+    background: #ebf6ff;
+    text-decoration: none;
+}
+.btn_type2:hover {
+    background: #fff3f4;
+    text-decoration: none;
+}
+.btn_admin, .btn_admin_open {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    background: rgba(0,0,0,0);
+    white-space: nowrap;
+    letter-spacing: -.5px;
+}
+.btn_type7_1 {
+    overflow: visible;
+    width: auto;
+    font-size: 14px;
+    height: 33px;
+    padding: 0 10px;
+    border-radius: 3px;
+    border: 1px solid #b0b4b9;
+    font-size: 14px;
+    line-height: 40px;
+    background: #fff;
+}
+.btn_admin .write {
+    width: 18px;
+    height: 18px;
+    margin-top: 8px;
+    background-position: -61px -341px;
+}
+.btn_type7_1:hover {
+    border: 1px solid #b0b4b9;
+    background: #f2f2f3;
+}
+
+button {
+    appearance: auto;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    font: 400 13.3333px Arial;
+    border-radius: 2px;
+}
+
 .set_list .txt_choice .check_admin {
     margin: 5px 16px 0 0;
 }
@@ -546,7 +610,7 @@ thead {
 }
 tr {
     display: table-row;
-    vertical-align: inherit;
+    /* vertical-align: inherit; */
     border-color: inherit;
 }
 .tbl_admin th {

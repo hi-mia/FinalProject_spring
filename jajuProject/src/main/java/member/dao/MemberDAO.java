@@ -13,4 +13,5 @@ public interface MemberDAO {
 	public MemberDTO getPwd(Map<String, String> map);
 	public void modify(MemberDTO memberDTO);
 	public MemberDTO isBlackList(String member_email);
+	public void retire(String member_id);
 }

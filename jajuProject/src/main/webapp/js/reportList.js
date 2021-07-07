@@ -25,11 +25,11 @@ $(document).ready(function(){
 		            //console.log(data);
 		            
 		        	$('<tr/>').append($('<td/>',{
-		        		width: '8%',
+		        		width: '65px',
 		                align: 'center',
 		                text: items.report_seq
 		            })).append($('<td/>',{
-		            	width: '20%',
+		            	width: '156px',
 		            	align: 'center',
 		            	text: items.reportType
 		            })).append($('<td/>',{
@@ -40,15 +40,15 @@ $(document).ready(function(){
 		            		class: 'subject'+items.report_seq
 		            	}))
 		            ).append($('<td/>',{
-		            	width: '12%',
+		            	width: '93px',
 		                align: 'center',
 		                text: items.report_id
 		            })).append($('<td/>',{
-		            	width: '12%',
+		            	width: '93px',
 		            	align: 'center',
 		            	text: items.logtime
 		            })).append($('<td/>',{
-		            	width: '12%',
+		            	width: '93px',
 		            	align: 'center',
 		            	text: items.report_state,
 		            	class: 'state',

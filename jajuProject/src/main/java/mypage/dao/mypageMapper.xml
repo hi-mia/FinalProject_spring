@@ -130,10 +130,13 @@ select count(*) as count from message where message_reader=#{id} and message_cha
 <!-- 찜목록 불러오기, 원글은 어떻게 가져올 것이냐? -->
 <select id="getMyScrapList" parameterType="java.util.Map" resultType="mypageScrap">
 <!-- select * from scrap where member_id=#{id} order by seq_scrap -->
- 	select * from (select rownum rn, tt.* from(select * from scrap sc  
-            full outer join sale_board sa
-            on sa.sale_seq = sc.sale_seq
-            where sc.member_id=#{id} and sale_hide = 'on' order by scrap_seq desc)tt)where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+ 	select * from 
+ 	(select rownum rn, tt.* from
+ 	(select * from scrap sc  
+    full outer join sale_board sa
+    on sa.sale_seq = sc.sale_seq
+    where sc.member_id=#{id} and sale_hide is null order by scrap_seq desc)tt)
+    where rn &gt;=#{startNum} and rn &lt;=#{endNum}
  	<!-- scrap_seq,member_id,scrap_date,sale_seq,sale_state, sale_subject,sale_image1
  	 	select * from sale 
 	 	union all
@@ -462,8 +465,10 @@ select count(*) as count from message where message_reader=#{id} and message_cha
 
 <!-- saleboard 쪽 팔로잉 처리 -->
 <insert id="writeMyFollow" parameterType="java.util.Map">
-	insert into follow(follow_seq,member_id,member_manner,follow_id) 
-	select seq_follow.nextval, #{member_id}, member_manner, #{follow_id} from jajumember
+	insert into follow
+	(follow_seq,member_id,member_manner,follow_id) 
+	select seq_follow.nextval, #{member_id}, member_manner, #{follow_id} 
+	from jajumember
 	where member_id=#{member_id}
 </insert>
 

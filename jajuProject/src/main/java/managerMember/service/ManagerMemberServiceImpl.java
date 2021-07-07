@@ -108,7 +108,7 @@ public class ManagerMemberServiceImpl implements ManagerMemberService {
 
 	@Override
 	public ManagerPaging managerPagingBlack(Map<String, String> map) {
-		int memberBlackCount = managerMemberDAO.getMemberBlackTotalA();
+		int memberBlackCount = managerMemberDAO.getMemberBlackTotalA(map);
 		// System.out.println(memberCount);
 		managerPaging.setCurrentPage(Integer.parseInt(map.get("pg")));
 		managerPaging.setPageBlock(4);
@@ -116,6 +116,28 @@ public class ManagerMemberServiceImpl implements ManagerMemberService {
 		managerPaging.setTotalA(memberBlackCount);
 		managerPaging.makePagingHTML();
 		return managerPaging;
+	}
+	@Override
+	public ManagerPaging managerSearchBlackPaging(Map<String, String> map) {
+		int memberBlackSearchCount = managerMemberDAO.getBlackSearchTotalA(map);
+		// System.out.println(memberCount);
+		managerPaging.setCurrentPage(Integer.parseInt(map.get("pg")));
+		managerPaging.setPageBlock(4);
+		managerPaging.setPageSize(10);
+		managerPaging.setTotalA(memberBlackSearchCount);
+		managerPaging.makePagingHTML();
+		return managerPaging;
+	}
+	@Override
+	public List<MemberDTO> getSearchManagerMemberBlack(Map<String, String> map) {
+		// 1페이지당 10개씩
+				int endNum = Integer.parseInt(map.get("pg")) * 10;
+				int startNum = endNum - 9;
+
+				map.put("startNum", startNum + "");
+				map.put("endNum", endNum + "");
+
+				return managerMemberDAO.getSearchManagerMemberBlack(map);
 	}
 	/*==차트 구현을 위한 카테고리, 카테고리 count 가져오기 ==*/
 	@Override
@@ -196,6 +218,13 @@ public class ManagerMemberServiceImpl implements ManagerMemberService {
 	public int getSaleReportPickerCount(Map<String, String> map) {
 		return managerMemberDAO.getSaleReportPickerCount(map);
 	}
+
+
+	@Override
+	public List<String> getCalenderInfo(Map<String, String> map) {
+		return managerMemberDAO.getCalenderInfo(map);
+	}
+
 
 
 

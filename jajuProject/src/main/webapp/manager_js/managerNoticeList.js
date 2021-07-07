@@ -28,7 +28,7 @@ $(function(){
 		                align: 'center',
 		                text: items.notice_seq
 		            })).append($('<td/>',{
-		            	
+		            	width: '594px',
 		            	}).append($('<a/>',{
 		            		href: '#',
 		            		width: '594px',
@@ -98,6 +98,8 @@ $('.noticeSearch').click(function(){
 	 if($('#keyword').val() == ''){
 		   alert("검색어를 입력하세요")
 	   }else{
+		   $('#searchHidden').val($('#keyword').val());
+		   
 		   $('.mangerNoticeTable tr:gt(0)').remove();
 		   
 		   $.ajax({
@@ -113,21 +115,23 @@ $('.noticeSearch').click(function(){
 					   alert('검색어가 없습니다');
 					   location.href = '/jaju/manager/managerNoticeList'
 				   }else{
+					   
 					   $.each(data.list, function(index, items){
 				            
 				        	$('<tr/>').append($('<td/>',{
 				        		align: 'center',
 				        		width: '40px',
 					        	}).append($('<input/>',{
-					        		type: 'checkbox',
+									type: 'checkbox',
 									name: 'check',
+									value: items.notice_seq,
 					        	}))
 				        	).append($('<td/>',{
 				        		width: '80px',
 				                align: 'center',
 				                text: items.notice_seq
 				            })).append($('<td/>',{
-				            	
+				            	width: '594px',
 				            	}).append($('<a/>',{
 				            		href: '#',
 				            		width: '594px',
@@ -163,7 +167,7 @@ $('.noticeSearch').click(function(){
 function noticePaging(pg){
 	var keyword = document.getElementById('keyword').value;
 	//alert(keyword);
-	if(keyword==''){//keyword가 없을 때
+	if($('#searchHidden').val() ==''){//keyword가 없을 때
 		//alert($('.pg').val());
 		location.href = "/jaju/manager/managerNoticeList?pg="+pg;	
 	}else{
@@ -171,6 +175,7 @@ function noticePaging(pg){
 		
 		$('input[name=pg]').val(pg);
 		
+		$('#keyword').val($('#searchHidden').val())
 		$('.noticeSearch').trigger('click');
 		
 		$('input[name=pg]').val(1);

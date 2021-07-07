@@ -8,7 +8,7 @@
 <body>
 <div style="width: 1050px; margin: auto;" >
 <jsp:include page="/serviceCenter/serviceMenu.jsp"/>
-
+<input type="hidden" id="searchHidden" name="searchHidden">
 <input type="hidden" id="notice_seq" name="notice_seq" value="${notice_seq}">
 <input type="hidden" id="pg" value="${pg}">
 
@@ -17,16 +17,18 @@
 	<h2 class="tit">공지사항 </h2>
 </div>
 <div id="totalDiv">
-	<table id="noticeListTable" class="xans-board-listheader jh" cellpadding="0" cellspacing="0">
+	<table id="noticeListTable" class="xans-board-listheader jh" cellpadding="0" cellspacing="0" style="width: 800px; table-layout: fixed;">
 		<thead>
 			<tr>
-				<th class="th1" style="width: '80'; align: 'center';">번호</th>
-				<th class="th2">제목</th>
-				<th class="th3" style="width: '150'; align: 'center';">작성일</th>
+				<th class="th1" style="width: '80px'; align: 'center';">번호</th>
+				<th class="th2" style="width: '570px';">제목</th>
+				<th class="th3" style="width: '150px'; align: 'center';">작성일</th>
 			</tr>
+			
 		</thead>
-	<tbody>
 
+	<tbody>
+	
 </tbody>
 </table>
 </div>

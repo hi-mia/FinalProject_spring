@@ -54,4 +54,9 @@ public class MemberDAOMybatis implements MemberDAO {
 	public MemberDTO isBlackList(String member_email) {
 		return sqlSession.selectOne("memberSQL.isBlackList", member_email);
 	}
+
+	@Override
+	public void retire(String member_id) {
+		sqlSession.update("memberSQL.retire", member_id);
+	}
 }

@@ -14,4 +14,5 @@ public interface MemberService {
 	public MemberDTO getMember(String member_id);
 	public void modify(MemberDTO memberDTO);
 	public String isBlackList(String member_email);
+	public void retire(String member_id);
 }

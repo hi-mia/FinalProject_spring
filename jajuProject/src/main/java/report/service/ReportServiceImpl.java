@@ -41,10 +41,10 @@ public class ReportServiceImpl implements ReportService {
 	@Override
 	public List<ReportDTO> getReportList(String pg, String report_id) {
 		
-		//System.out.println(memId+ "       2");
+		
 		
 		//1페이지당 10개씩
-		int endNum = Integer.parseInt(pg)*10; //map에 언제 pg 값을 넣었나?
+		int endNum = Integer.parseInt(pg)*10; 
 		int startNum = endNum-9;
 		
 		Map<String, String> map = new HashedMap<String, String>();
@@ -106,7 +106,6 @@ public class ReportServiceImpl implements ReportService {
 		reportDAO.commentModify(commentDTO);
 		
 	}
-
 
 	@Override
 	public void commentDelete(Map<String, String> map) {

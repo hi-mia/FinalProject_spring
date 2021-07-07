@@ -233,34 +233,31 @@ public class ReviewboardController {
 	//리스트
 	@RequestMapping(value="getReviewboardList", method=RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView getReviewboardList(@RequestParam(required=false, defaultValue="1") String pg,
-												HttpSession session,
-												HttpServletResponse response) {
+	public ModelAndView getReviewboardList(@RequestParam Map<String, String> map) {
+		
+		ModelAndView mav = new ModelAndView();
+		
 		//1페이지당 5개씩
-		List<ReviewboardDTO> list = reviewboardService.getReviewboardList(pg);
+		List<ReviewboardDTO> list = reviewboardService.getReviewboardList(map);
+		
+		int pg = Integer.parseInt(map.get("pg"));
 		
 		//세션
-		String memId = (String) session.getAttribute("memId");
+		//String memId = (String) session.getAttribute("memId");
 		
 		//페이징 처리
 		ReviewboardPaging reviewboardPaging = reviewboardService.reviewboardPaging(pg);
 		
-		//조회수 - 새로고침 방지
-		
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("pg", pg);
-		mav.addObject("list", list);		
-		mav.addObject("memId", memId);
+		//mav.addObject("pg", pg);
 		mav.addObject("reviewboardPaging", reviewboardPaging);
-		
+		//mav.addObject("memId", memId);
+		mav.addObject("list", list);		
 		
 		mav.setViewName("jsonView");
 		return mav;
 	}
 	
 	//검색
-
-
 	 	@RequestMapping(value="getReviewboardSearchList", method=RequestMethod.POST)
 		@ResponseBody
 		public ModelAndView getReviewboardSearchList(@RequestParam Map<String, String> map,

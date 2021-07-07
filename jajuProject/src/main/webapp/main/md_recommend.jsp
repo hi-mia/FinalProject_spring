@@ -193,7 +193,7 @@ a:active, a:hover {
 		<div class="tit_goods">
 			<h3 class="tit">
 				<!---->
-				<span class="name"> MD의 추천 <!----></span>
+				<span class="name"> 카테고리별 추천 <!----></span>
 			</h3>
 		</div>
 		<div class="category_menu">
@@ -205,63 +205,63 @@ a:active, a:hover {
 				<ul class="list_category">
 				
 					<li data-start="32" data-end="74">
-					<a data-no="907" href="#none" class="menu" id="digital">디지털/가전</a>
+					<a data-no="907" href="javascript: void(0)" class="menu" id="digital">디지털/가전</a>
 					</li>
 
 					<li data-start="100" data-end="196">
-					<a data-no="908" href="#none" class="menu" id="life">생활</a>
+					<a data-no="908" href="javascript: void(0)" class="menu" id="life">생활</a>
 					</li>
 
 					<li data-start="220" data-end="342">
-					<a data-no="909" href="#none" class="menu" id="instant_food">가공식품</a>
+					<a data-no="909" href="javascript: void(0)" class="menu" id="instant_food">가공식품</a>
 					</li>
 
 					<li data-start="367" data-end="442">
-					<a data-no="910" href="#none" class="menu" id="women_cloth">여성의류</a>
+					<a data-no="910" href="javascript: void(0)" class="menu" id="women_cloth">여성의류</a>
 					</li>
 
 					<li data-start="467" data-end="589">
-					<a data-no="911" href="#none" class="menu" id="beauty">뷰티 / 미용</a>
+					<a data-no="911" href="javascript: void(0)" class="menu" id="beauty">뷰티 / 미용</a>
 					</li>
 
 					<li data-start="614" data-end="715">
-					<a data-no="912" href="#none" class="menu" id="furniture">가구 / 인테리어</a>
+					<a data-no="912" href="javascript: void(0)" class="menu" id="furniture">가구 / 인테리어</a>
 					</li>
 						
 					<li data-start="740" data-end="836">
-					<a data-no="913" href="#none" class="menu" id="sport">스포츠 / 레저</a>
+					<a data-no="913" href="javascript: void(0)" class="menu" id="sport">스포츠 / 레저</a>
 					</li>
 						
 					<li data-start="862" data-end="1004">
-					<a data-no="914" href="#none" class="menu cut" id="men_choth">남성 / 패션잡화</a>
+					<a data-no="914" href="javascript: void(0)" class="menu cut" id="men_choth">남성 / 패션잡화</a>
 					</li>
 						
 					<li data-start="1029" data-end="1125">
-					<a data-no="249" href="#none" class="menu" id="dogCat">반려동물용품</a>
+					<a data-no="249" href="javascript: void(0)" class="menu" id="dogCat">반려동물용품</a>
 					</li>
 						
 					<li data-start="1151" data-end="1285">
-					<a data-no="915" href="#none" class="menu" id="kids">유아동 / 유아도서</a>
+					<a data-no="915" href="javascript: void(0)" class="menu" id="kids">유아동 / 유아도서</a>
 					</li>
 						
 					<li data-start="1311" data-end="1378">
-					<a data-no="032"	href="#none" class="menu" id="womenAcc">여성잡화</a>
+					<a data-no="032"	href="javascript: void(0)" class="menu" id="womenAcc">여성잡화</a>
 					</li>
 						
 					<li data-start="1403" data-end="1504">
-					<a data-no="918"	href="#none" class="menu" id="game">게임 / 취미</a>
+					<a data-no="918"	href="javascript: void(0)" class="menu" id="game">게임 / 취미</a>
 					</li>
 						
 					<li data-start="1529" data-end="1656">
-					<a data-no="233"	href="#none" class="menu" id="kitchen">주방용품</a>
+					<a data-no="233"	href="javascript: void(0)" class="menu" id="kitchen">주방용품</a>
 					</li>
 						
 					<li data-start="1681" data-end="1790">
-					<a data-no="012" href="#none" class="menu on" id="book">도서 / 티켓 / 음반</a>
+					<a data-no="012" href="javascript: void(0)" class="menu on" id="book">도서 / 티켓 / 음반</a>
 					</li>
 						
 					<li data-start="1816" data-end="1883">
-					<a data-no="916" href="#none" class="menu" id="else">기타 중고물품</a>
+					<a data-no="916" href="javascript: void(0)" class="menu" id="else">기타 중고물품</a>
 					</li>
 					<!---->
 				</ul>

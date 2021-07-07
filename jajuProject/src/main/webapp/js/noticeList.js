@@ -11,13 +11,14 @@ $(document).ready(function(){
 		dataType: 'json',
 		success: function(data){
 			//alert(JSON.stringify(data));
-			
+		
 			$.each(data.list, function(index, items){
 				$('<tr/>').append($('<td/>',{
-					width: '80',
+					width: '80px',
 	                align: 'center',
 	                text: items.notice_seq,
 				})).append($('<td/>',{
+					width: '570px',
 					color: '#333'	
 	            	}).append($('<a/>',{
 	            		href: '#',
@@ -25,7 +26,7 @@ $(document).ready(function(){
 	            		class: 'subject'+items.notice_seq
 	            	}))
             	).append($('<td/>',{
-            		width: '150',
+            		width: '150px',
 	                align: 'center',
 	                class: 'eng',
 	                text: items.logtime,
@@ -37,6 +38,7 @@ $(document).ready(function(){
 				}); 
 			
 			});//each
+			
 			
 			//페이징 처리
 	        $('.pagediv').html(data.noticePaging.pagingHTML);
@@ -52,8 +54,10 @@ $('#searchBtn').click(function(){
 	
 	 if($('#keyword').val() == ''){
 		   alert("검색어를 입력하세요")
-		   location.href = '/jaju/manager/noticeList'
+		   location.href = '/jaju/serviceCenter/noticeList'
 	   }else{
+		   $('#searchHidden').val($('#keyword').val());
+		   
 		   $('#noticeListTable tr:gt(0)').remove();
 		   
 		   $.ajax({
@@ -70,23 +74,24 @@ $('#searchBtn').click(function(){
 					   
 				   }else{
 					   $.each(data.list, function(index, items){
-						   $('<tr/>').append($('<td/>',{
-							   width: '80',
-							   align: 'center',
-							   text: items.notice_seq,
-						   })).append($('<td/>',{
-							   color: '#333'	
-						   		}).append($('<a/>',{
-						   			href: '#',
-						   			text: items.notice_subject,
-						   			class: 'subject'+items.notice_seq
-						   		}))
-						   ).append($('<td/>',{
-							   width: '150',
-							   align: 'center',
-							   class: 'eng',
-							   text: items.logtime,
-						   })).appendTo('#noticeListTable');
+							$('<tr/>').append($('<td/>',{
+								width: '80px',
+				                align: 'center',
+				                text: items.notice_seq,
+							})).append($('<td/>',{
+								width: '570px',
+								color: '#333'	
+				            	}).append($('<a/>',{
+				            		href: '#',
+				            		text: items.notice_subject,
+				            		class: 'subject'+items.notice_seq
+				            	}))
+			            	).append($('<td/>',{
+			            		width: '150px',
+				                align: 'center',
+				                class: 'eng',
+				                text: items.logtime,
+			            	})).appendTo('#noticeListTable');
 	
 						   $('.subject'+items.notice_seq).click(function(){
 							   location.href = '/jaju/serviceCenter/noticeView?notice_seq='+items.notice_seq+'&pg='+$('#pg').val();
@@ -109,7 +114,7 @@ $('#searchBtn').click(function(){
 function noticePaging(pg){
 	var keyword = document.getElementById('keyword').value;
 	//alert(keyword);
-	if(keyword==''){//keyword가 없을 때
+	if($('#searchHidden').val() ==''){//keyword가 없을 때
 		//alert($('.pg').val());
 		location.href = "/jaju/serviceCenter/noticeList?pg="+pg;	
 	}else{
@@ -117,7 +122,9 @@ function noticePaging(pg){
 		
 		$('input[name=pg]').val(pg);
 		
+		$('#keyword').val($('#searchHidden').val())
 		$('#searchBtn').get(0).click();
+		
 		
 		$('input[name=pg]').val(1);
 		//alert($('input[name=pg]').val());

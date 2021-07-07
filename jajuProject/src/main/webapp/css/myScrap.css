@@ -80,8 +80,8 @@ transform: translate(-50%,-50%) scale(1.05);
 transition: transform .2s;
 }
 .add_scrap_pic{
-	display: -webkit-inline-box;  /* flex; */
-    justify-content: space-between;
+	display:   flex; /* -webkit-inline-box; */
+    /* justify-content: space-between; */
     flex-wrap: wrap;
 }
 /* .scrap_row{

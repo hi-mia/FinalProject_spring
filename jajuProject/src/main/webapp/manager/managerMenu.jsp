@@ -14,14 +14,14 @@
 		<strong><span class="ico_admin"></span> <span class="txt_lnb">운영/관리</span></strong>
 		<ul>
 			<li id="managerMainChart" style="text-align: left;"><a href="/jaju/manager/managerMainChart.jsp" class="link_lnb">홈</a></li>
-			<li id="managerMainCalender" style="text-align: left;"><a href="/jaju/manager/managerMainCalender.jsp" class="link_lnb">통계</a></li>
+			<li id="managerMainCalender" style="text-align: left;"><a href="/jaju/manager/managerMainCalender.jsp" class="link_lnb">일별조회</a></li>
 		</ul>
 	</li>
 	<li class="lnb_admin2">
 		<strong><span class="ico_admin"></span> <span class="txt_lnb">회원 관리</span></strong>
 		<ul>
 			<li id="managerMember" style="text-align: left;"><a href="/jaju/manager/managerMember" class="link_lnb">회원 관리</a></li>
-			<li id="managerMemberBlack" style="text-align: left;"><a href="/jaju/manager/managerMemberBlack" class="link_lnb">블랙리스트 관리</a></li>
+			<li id="managerMemberBlack" style="text-align: left;"><a href="/jaju/manager/managerMemberBlack?sortinSelect=break_member" class="link_lnb">블랙리스트 관리</a></li>
 		</ul>
 	</li>
 	<li class="lnb_admin3">

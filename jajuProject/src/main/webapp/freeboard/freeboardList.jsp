@@ -9,7 +9,7 @@
 <jsp:include page="/freeboard/boardMenu.jsp"/>
 <div id="formTotal" style="width:800px; display:inline-block; float:left; margin-left:80px; margin-top: 86px;">
 <div class="head_aticle" padding-left="10px">
-	<h2 class="tit">자유게시판 </h2>
+	<h2 class="tit" style="color: #333;">자유게시판 </h2>
 </div>
 <br>
 <div id="totalDiv">
@@ -42,7 +42,7 @@
 				
 </div>
 <br>
-			<div class="search" align="right">
+			<div class="search" align="right" style="margin-bottom:50px;">
 			
 				<select name="searchOption" id="searchOption" width="100px" align="absmiddle">
 					<option value="board_subject">&nbsp;&nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;</option>
@@ -70,14 +70,6 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/js/freeboardList.js"></script>
 <script type="text/javascript">
-/*
- * 
- $(document).ready(function(){
-		
-		$('#type2').addClass('on');
-	});
-
- */
 
 function freeboardPaging(pg){
 	var boardSearchText = document.getElementById('keyword').value;

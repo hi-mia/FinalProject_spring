@@ -25,8 +25,11 @@ public interface ManagerMemberDAO {
 	//검색 페이징 처리. 
 	public int getSearchTotalA(Map<String, String> map);
 	//블랙리스트 페이징 처리, 블랙토탈 int 가져오기
-	public int getMemberBlackTotalA();
-
+	public int getMemberBlackTotalA(Map<String, String> map);
+	//블랙리스트 검색 페이징 처리
+	public int getBlackSearchTotalA(Map<String, String> map);
+	//블랙리스트 검색 리스트 처리
+	public List<MemberDTO> getSearchManagerMemberBlack(Map<String, String> map);
 	//차트
 	public List<ManagerMainDTO> getMemberCategory();
 
@@ -62,5 +65,8 @@ public interface ManagerMemberDAO {
 
 	public int getSaleReportPickerCount(Map<String, String> map);
 
+
+	//date 달력 선택 날짜
+	public List<String> getCalenderInfo(Map<String, String> map);
 
 }

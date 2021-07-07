@@ -114,6 +114,7 @@ ol, ul {
 #snb {
     float: left;
     width: 200px;
+    margin-bottom: 100px;
 }
 .page_aticle.aticle_type2 {
     padding-top: 65px;

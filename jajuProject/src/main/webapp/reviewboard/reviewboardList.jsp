@@ -8,7 +8,7 @@
 <jsp:include page="/freeboard/boardMenu.jsp"/>
 <div id="formTotal">
 <div class="head_aticle" padding-left="10px">
-	<h2 class="tit">후기 게시판 </h2>
+	<h2 class="tit" style="color: #333;">후기 게시판 </h2>
 </div>
 <br>
 <div id="totalDiv">
@@ -44,18 +44,18 @@
 					
 	</div>
 <br>
-			<div class="search" align="right">
+			<div class="search" align="right" style="margin-bottom:50px;">
 			
 				<select name="searchOption" id="searchOption" width="100px" align="absmiddle">
 					<option value="review_subject">&nbsp;&nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;</option>
 					<option value="review_content">&nbsp;&nbsp;&nbsp;&nbsp;내용&nbsp;&nbsp;&nbsp;&nbsp;</option>
-					<option value="review_id">&nbsp;&nbsp;&nbsp;&nbsp;작성자&nbsp;&nbsp;&nbsp;&nbsp;</option>
 				</select>	
 				<input type="text" name="keyword" id="keyword" required="" align="absmiddle">
 				
 				<input type="image" src="/jaju/jajuImage/search.png" id="reviewboardSearchBtn" align="absmiddle">
 
 			</div>			
+			<input type="hidden" id="id" name="id" value="${memId}">
 			<input type="hidden" name="pg" id="pg" value="${param.pg }">
 			<input type="hidden" name="searchPg" id="searchPg" value="1">	
 		</form>

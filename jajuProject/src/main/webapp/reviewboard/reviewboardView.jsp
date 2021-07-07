@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+
 <link rel="stylesheet" href="/jaju/css/reviewboardView.css" />
 
 <input type="hidden" id="review_seq" value="${param.review_seq }">
@@ -14,7 +13,7 @@
 
 <div id="wrap">
 <div id="pos_scroll"></div>
-<div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
+<div id="container" style="float:left; margin-left:80px; width:800px; margin-top:68px;">
 
 <div class="tit_page" style="width:800px; align:center;">
 	<h1 class="tit"></h1>

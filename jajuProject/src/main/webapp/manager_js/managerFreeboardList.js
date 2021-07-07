@@ -4,9 +4,19 @@ $(function(){
 		
 		type: 'post',
 		url: '/jaju/manager/getManagerFreeboardList',
-		data: 'pg='+$('#pg').val(),
+		data: 'pg='+$('#pg').val(), //{'pg':$('#pg').val(),'id':$('#id').val()}
 		dataType: 'json',
 		success: function(data){
+			 if(JSON.stringify(data.list)=='[]'){
+					
+					$('<tr/>').append($('<div/>',{
+						align:'center',
+						text:'등록된 게시물이 없습니다',
+						style:'height:300px; width:800px; line-height:300px;'
+					})).appendTo($('#managerFreeboardTable'));
+				}
+				
+			 else {
 		
 			  $.each(data.list, function(index, items){
 		            $('<tr/>').append($('<td/>', {
@@ -43,6 +53,8 @@ $(function(){
 	
 			}); //each
 			  
+			  
+
 			  $(document).on('click', '#item', function(){
 
 		               var seq = $(this).parent().prev().text();
@@ -52,6 +64,7 @@ $(function(){
 
 			  //페이징 처리
 			$('#pagingArea').html(data.freeboardPaging.pagingHTML);		   
+			 }//else
 		}, 
 			error:function(err){
 			console.log(err);

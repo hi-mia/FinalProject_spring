@@ -32,7 +32,7 @@
 						<select id="searchMode" fixedsize="110" class="selectbox_styled">
 							<option value="member_id" selected="selected">아이디</option>
 							<option value="member_email">이메일</option>
-							<option value="member_id_email">닉네임+이메일</option>
+							<option value="member_id_email">아이디+이메일</option>
 						</select>
 						
 						<!--  <a id="searchMode_img" class="img_selectbox" tabindex="0" style="width: 90px;">닉네임+이메일</a>-->
@@ -147,11 +147,12 @@
 	</form>
 
 
-	<div class="set_list" id="listControlBar2" style="background: #FAFAFA;height: 40px;">
+	<div class="set_list" id="listControlBar2" style="background: #FAFAFA;height: 30px;">
 	</div>
 
 
 		<div style="text-align: center;" id="memberPagingDiv"></div>
+		<div style="text-align: center;" id="memberPagingBlackDiv"></div>
 
 <!-- 
 			<div id="pagingArea" class="page_admin">
@@ -179,6 +180,7 @@
 	</div>
 </div>
 <input type="hidden" id="searchPg" value="1">
+<input type="hidden" id="sortinSelected" value="${param.sortinSelect }">
 
 
 	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>	
@@ -189,7 +191,7 @@
 	function managerPaging(pg){
 		var keyword = document.getElementById('search-text').value;
 		if(keyword == ''){
-			location.href="managerMemberBlack?pg="+pg;
+			location.href="/jaju/manager/managerMemberBlack?pg="+pg+'&sortinSelect='+$('#sortinSelect').val();
 			//$('#sortinSelect').trigger('change');		
 		} else{
 			$('input[name=pg]').val(pg);

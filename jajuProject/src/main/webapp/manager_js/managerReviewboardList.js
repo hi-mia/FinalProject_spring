@@ -7,7 +7,16 @@ $(function(){
 		data: 'pg='+$('#pg').val(),
 		dataType: 'json',
 		success: function(data){
-		
+			
+			 if(JSON.stringify(data.list)=='[]'){
+					
+					$('<tr/>').append($('<div/>',{
+						align:'center',
+						text:'등록된 게시물이 없습니다',
+						style:'height:300px; width:800px; line-height:300px;'
+					})).appendTo($('#managerReviewboardTable'));
+				}
+			 else {
 			  $.each(data.list, function(index, items){
 		            $('<tr/>').append($('<td/>', {
 		            	align: "center"
@@ -51,7 +60,8 @@ $(function(){
 		         });
 
 			  //페이징 처리
-			$('#pagingArea_review').html(data.reviewboardPaging.pagingHTML);		   
+			$('#pagingArea_review').html(data.reviewboardPaging.pagingHTML);	
+			 }//else
 		}, 
 			error:function(err){
 			console.log(err);

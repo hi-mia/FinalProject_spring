@@ -103,7 +103,11 @@
     white-space: nowrap;
     font-size: 13px;
     word-wrap: normal;
-} 
+}
+.mangerReportTable td a:hover{
+	font-weight: blod;
+}
+
 body#cafeAdmin #content.cont_post {
     width: 840px;
     margin: 33px 0 0 60px;

@@ -46,10 +46,10 @@
 		]]>
 </select>
 
- <select id="getReviewboardList" resultType="reviewboard">
- 			select * from (
-	 		select rownum rn ,tt.*from(
-	 		select * from reviewboard order by review_date desc)tt)
+ <select id="getReviewboardList" parameterType="java.util.Map" resultType="reviewboard">
+ 			select * from 
+ 			(select rownum rn ,tt.*from
+ 			(select * from reviewboard where review_id=#{id} order by review_date desc)tt)
 	 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
  </select>
  
