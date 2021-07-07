@@ -125,7 +125,7 @@
   		    	tooltips: {
   		          mode: 'index',
   		          bodySpacing: 5,
-  		          bodyFontFamily: 'Noto sans',
+  		          bodyFontFamily: 'S-CoreDream-4Regular',
   		          bodyFontSize: 20
   		        },
 				legend: {
