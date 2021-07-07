@@ -20,4 +20,6 @@ public interface ManagerQuestionService {
 
 	public void managerQuestionModify(QuestionDTO questionDTO);
 
+	public void managerQuestionDelete(String[] check);
+
 }

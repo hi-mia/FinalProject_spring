@@ -30,6 +30,7 @@ public class ManagerQuestionController {
 	@Autowired
 	private ManagerQuestionService managerQuestionService;
 	
+	//자주 하는 질문 관리 게시판 
 	@RequestMapping(value="/managerServiceQuestion", method=RequestMethod.GET)
 	public ModelAndView managerServiceQuestion(@RequestParam(required = false, defaultValue = "1") String pg) {
 		ModelAndView mav = new ModelAndView();
@@ -38,6 +39,7 @@ public class ManagerQuestionController {
 		
 		return mav;
 	}
+	//자주 하는 질문 게시판 글쓰기 
 	@RequestMapping(value="managerQuestionWriteForm", method=RequestMethod.GET)
 	public ModelAndView managerQuestionWriteForm() {
 		ModelAndView mav = new ModelAndView();
@@ -94,6 +96,7 @@ public class ManagerQuestionController {
 		//DB
 		managerQuestionService.managerQuestionWrite(questionDTO);
 	}
+	
 	
 	@RequestMapping(value="getManagerQuestionList", method=RequestMethod.POST)
 	@ResponseBody
@@ -234,6 +237,13 @@ public class ManagerQuestionController {
 
 //			DB
 			managerQuestionService.managerQuestionModify(questionDTO);
+		}
+		
+		@RequestMapping(value = "managerQuestionDelete", method=RequestMethod.GET)
+		public ModelAndView managerQuestionDelete(String[] check) {
+			System.out.println(check);
+			managerQuestionService.managerQuestionDelete(check);
+			return new ModelAndView("redirect:/manager/managerServiceQuestion");
 		}
 	
 }

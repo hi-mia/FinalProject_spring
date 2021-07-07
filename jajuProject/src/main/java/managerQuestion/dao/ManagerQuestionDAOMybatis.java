@@ -47,4 +47,10 @@ public class ManagerQuestionDAOMybatis implements ManagerQuestionDAO {
 		sqlSession.update("managerQuestionSQL.managerQuestionModify", questionDTO);
 		
 	}
+
+	@Override
+	public void managerQuestionDelete(Map<String, String[]> map) {
+		sqlSession.delete("managerQuestionSQL.managerQuestionDelete", map);
+		
+	}
 }

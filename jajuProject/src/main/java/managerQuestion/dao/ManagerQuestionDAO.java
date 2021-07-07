@@ -20,4 +20,6 @@ public interface ManagerQuestionDAO {
 
 	public void managerQuestionModify(QuestionDTO questionDTO);
 
+	public void managerQuestionDelete(Map<String, String[]> map);
+
 }

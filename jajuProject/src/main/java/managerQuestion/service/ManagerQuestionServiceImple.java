@@ -66,4 +66,13 @@ public class ManagerQuestionServiceImple implements ManagerQuestionService {
 		
 	}
 
+	@Override
+	public void managerQuestionDelete(String[] check) {
+		Map<String, String[]>map = new HashedMap<String, String[]>();
+		map.put("array", check);
+		
+		managerQuestionDAO.managerQuestionDelete(map);
+		
+	}
+
 }

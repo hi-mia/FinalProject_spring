@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="/jaju/manager_css/managerServiceQuestion.css" />
 </head>
 <body>
+<form id = "managerQuestionDelete" method="get" action="managerQuestionDelete">
 <input type = "hidden" id = "pg" name = "pg" value="${pg }">
 <input type = "hidden" id = "question_seq" name = "question_seq" value = "">
 <div class="total" style="display:flex; justify-content: center;">
@@ -76,13 +77,12 @@
 	</table>
 </div>
 
-<div id="pagingAreaPg" class="page_admin"></div>
-
-		<div id="pagingArea" class="page_admin">
-				<ul class="bundle_page"><li class="on"><a>1</a></li></ul>	
-			</div>
+<div id="pagingArea" class="page_admin">
+<!-- <span class="paging currentPaging" onclick="inquirePaging">1</span> -->
+</div>
 	</div>
 </div>
+</form>
 </body>
 <script type = "text/javascript" src = "http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/manager_js/managerServiceQuestion.js"></script>
