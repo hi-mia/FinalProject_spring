@@ -1,4 +1,5 @@
 $(function(){
+	
 	$("#sortinSelect").val($('#sortinSelected').val()).prop("selected", true);
 	
 	if($('#memId').val() == ''){
@@ -18,7 +19,7 @@ $(function(){
 				}
 				
 				$.each(data.list, function(index,items){
-							
+
 					$('<li/>').append($('<div/>',{
 						class: 'item',
 						id: items.sale_seq

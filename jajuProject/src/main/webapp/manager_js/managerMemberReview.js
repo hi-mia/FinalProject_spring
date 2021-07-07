@@ -21,15 +21,13 @@ $(function(){
 	    	  $('#historyDiv1').empty();
 	    	  
 	    	 // saleContentSpan
-	         
-	    	  if(JSON.stringify(data.list)=='[]'){
-					
-					
-					$('<div/>').append($('<div/>',{
-						align:'center',
-						text:'판매 후기가 없습니다.',
-						style:'height:200px;'
-					})).appendTo($('#historyDiv1'));
+				 if(JSON.stringify(data.list)=='[]'){
+					 	$('.title').remove();
+			            $('<tr/>').append($('<td/>',{
+			                align:'center',
+			                text:'판매 후기가 없습니다.',
+			                style:'height:200px;'
+			             })).appendTo($('#historyTable'));
 				}
 				
 	    	  else {
@@ -50,15 +48,15 @@ $(function(){
 	                 
 	    			  //historyTable
 					$('<tr/>').append($('<td/>').append($('<span/>',{
-		                   text:' 제 목: '+items.review_subject+' ',
-		                   style:'cursor: pointer;',
+		                   text:items.review_subject+' ',
+		                   style:'cursor: pointer; font-size:18px;',
 		                   align:'left',
 		                   class:'subject_'+items.review_seq //글제목 부분
 		                }))).append($('<td/>').append($('<span/>',{
 	                         align:'left',
-	                         style:'margin-left:100px;',
+	                         style:'font-size:18px;',
 	                         id:'reviewDate' ,
-	                         text:' 작성일: '+items.review_date
+	                         text:items.review_date
 	                   }))).appendTo($('#historyTable'));
 	                  
 	                  

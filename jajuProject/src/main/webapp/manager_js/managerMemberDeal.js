@@ -14,27 +14,29 @@ $(function(){
 			
 			console.log(JSON.stringify(data));
 			
+			//data.list.length != 0
+			
 			 if(JSON.stringify(data.list)=='[]'){
-					
-					
-					$('<div/>').append($('<div/>',{
-						align:'center',
-						text:'판 매 중이 없습니다.',
-						style:'height:200px;'
-					})).appendTo($('#historyDiv4'));
-				}
-				
+				 	$('.title').remove();
+		            $('<tr/>').append($('<td/>',{
+		                align:'center',
+		                text:'판매 중인 내역이 없습니다.',
+		                style:'height:200px;'
+		             })).appendTo($('#historyTable'));
+			}
 			 else {
+				 
 	    		  $.each(data.list, function(index, items){
+	    			  
 	    			  $('<tr/>').append($('<td/>').append($('<a/>',{
-		                   text:' 제 목: '+items.sale_subject+' ',
-		                   style:'cursor: pointer;',
+		                   text:items.sale_subject+' ',
+		                   style:'cursor: pointer;font-size: 18px;',
 		                   class:'subject_'+items.sale_seq //글제목 부분
 		                }))).append($('<td/>').append($('<span/>',{
 	                         align:'left',
-	                         style:'margin-left:100px;',
+	                         style:'font-size: 18px;',
 	                         id:'dealDate',
-	                         text:' 작성일: '+items.sale_date
+	                         text:items.sale_date
 	                   }))).appendTo($('#historyTable'));
 					
 					
@@ -44,9 +46,6 @@ $(function(){
 	    				 window.opener.location.href="/jaju/saleboard/saleboardView?sale_seq="+items.sale_seq+"&pg=1";
 	    				 });
 	    		  });//each
-	    		  		
-	    		  		
-	  						
 	    	  }//else
 		},
 		error: function(err){

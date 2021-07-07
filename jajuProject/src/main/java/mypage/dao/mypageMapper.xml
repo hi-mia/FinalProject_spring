@@ -227,23 +227,45 @@ select count(*) as count from message where message_reader=#{id} and message_cha
 	</select>
 
 <!-- 판매내역 paging  -->
-	<select id="getTotalASale" parameterType="String" resultType="int" > 
-		select count(*) as count from sale_board where member_id=#{id} and sale_state='판매완료'
+	<select id="getTotalASale" parameterType="String" resultType="int" >
+			select count(*) as count from sale_board where member_id=#{id} and sale_state='판매완료'
 	</select>
 	
 <!-- 구매내역 목록 -->	
 <select id="myBuyRecodeList" parameterType="java.util.Map" resultType="saleboard">
+	
+	<if test='id != "jajuadmin" '>
+	<![CDATA[
+		select * from 
+		(select rownum rn, tt.* from 
+ 		(select * from sale_board where sale_buyer=#{id} and sale_state='판매완료' order by sale_seq desc)tt)
+ 		where rn >= #{startNum} and rn <= #{endNum}
+	]]>
+	</if>
+	
+	<if test='id == "jajuadmin" '>
 	<![CDATA[
 		select * from 
 		(select rownum rn, tt.* from 
  		(select * from sale_board where sale_buyer=#{id} and sale_state='판매완료' and sale_hide='on' order by sale_seq desc)tt)
  		where rn >= #{startNum} and rn <= #{endNum}
 	]]>
+	</if>
 </select>
 	
 <!-- 구매내역 paging  --> <!--#{id}  -->
 <select id="getTotalABuy" parameterType="String"  resultType="int" >
+	
+	<if test='id != "jajuadmin" '>
+	select count(*) as count from sale_board where sale_buyer=#{id} and sale_state='판매완료'
+	</if>
+	
+		
+	<if test='id == "jajuadmin" '>
 	select count(*) as count from sale_board where sale_buyer=#{id} and sale_state='판매완료' and sale_hide='on'
+	</if>
+	
+
 </select>
 
 <!-- 판매중(+예약중) 내역 목록 -->	
@@ -479,6 +501,7 @@ select count(*) as count from message where message_reader=#{id} and message_cha
 <delete id="deleteMyFollow" parameterType="java.util.Map" >
    delete from follow where follow_id=#{follow_id} and member_id = #{member_id}
 </delete>
+
 <!-- 나의 프로필 판매 내역 목록 -->
 <select id="getMyProfileReviewList" parameterType="java.util.Map" resultType="reviewboard">
 		<![CDATA[

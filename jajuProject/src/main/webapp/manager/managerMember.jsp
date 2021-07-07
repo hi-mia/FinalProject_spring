@@ -18,7 +18,6 @@
 <input type="hidden" id="sortinSelected" value="${param.sortinSelect}">
 <input type="hidden" id="sortinSelectHidden" value="${sortinSelectHidden}">
 
-
 	<div id="content" class="cont_post member_admin">
 	
 		<div class="wrap_tit">
@@ -251,6 +250,7 @@
 	</div><!-- end content -->
 	</div>
 </div>
+<input type="hidden" id="searchPg" value="1">
 <input type="hidden" id="searchPg" value="1">
 
 

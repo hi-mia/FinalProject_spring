@@ -9,7 +9,7 @@
 * {
     letter-spacing: -.05em;
     /*color: #4c4c4c;*/
-    font-size: 15px;
+    /*font-size: 15px;*/
     max-width: 100%;
     font-family: 'S-CoreDream-4Regular';
    -webkit-text-size-adjust: 100%;
@@ -17,6 +17,9 @@
 html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+}
+.deal_wrap{
+	height: 200px;	
 }
 
 .wrap {
@@ -471,7 +474,7 @@ ol, ul {
 }
 .mypage_top .list_mypage .link_wrap {
     flex-grow: 1;
-    width: 168px;
+    /*width: 168px;*/
     background-color: #fff;
     padding: 30px 30px 30px 30px;
     display: flex;

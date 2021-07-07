@@ -49,7 +49,7 @@
 		
 		<div class="chart_js" style="width: 485px; height:485px;">
 				<h5 style="text-align: center; class="mb-0 ms-3">판매게시판 일별(7일) 게시물</h5>
-			<canvas id="myChart" style="display:inline-block; " width="400" height="400" ></canvas>
+			<canvas id="myChart" style="display:inline-block; " width="400" height="422" ></canvas>
 		</div>
 	</div><!-- 차트 -->
 	
@@ -277,7 +277,6 @@
 					var newLabels = labels.slice(-5);
 					var newMyData = myData.slice(-5);
 					 */
-
 					// Chart.js 막대그래프 그리기
 					var ctx = $('#myChart');
 
@@ -331,7 +330,7 @@
 								yAxes : [ {
 									ticks : {
 										min: 0,
-										max: 10,
+										max: 50,
 										fontColor : 'rgba(12, 13, 13, 1)',
 										fontFamily:'S-CoreDream-4Regular',
 										fontSize : 18

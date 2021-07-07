@@ -1,5 +1,4 @@
-
-	$(function(){
+$(function(){
 
 		$.ajax({
 			type: 'post',
@@ -12,29 +11,29 @@
 			},  // --->hidden의 값을 쓸때
 			dataType: 'json',
 			success: function(data){
-				console.log(JSON.stringify(data));
+				
+				console.log("historyTable???"+JSON.stringify(data));
 				
 				 if(JSON.stringify(data.list)=='[]'){
-						
-						
-						$('<div/>').append($('<div/>',{
-							align:'center',
-							text:'구매 완료가 없습니다.',
-							style:'height:200px;'
-						})).appendTo($('#historyDiv3'));
+					 	$('.title').remove();
+			            $('<tr/>').append($('<td/>',{
+			                align:'center',
+			                text:'구매 완료 내역이 없습니다.',
+			                style:'height:200px;'
+			             })).appendTo($('#historyTable'));
 					}
 					
 				 else {
 		    		  $.each(data.list, function(index, items){
 		    			  $('<tr/>').append($('<td/>').append($('<a/>',{
-			                   text:' 제 목: '+items.sale_subject+' ',
-			                   style:'cursor: pointer;', 	 	  
+			                   text:items.sale_subject+' ',
+			                   style:'cursor: pointer; font-size:18px;', 	 	  
 			                   class:'subject_'+items.sale_seq //글제목 부분
 			                }))).append($('<td/>').append($('<span/>',{
 		                         align:'left',
-		                         style:'margin-left:100px;',
+		                         style:'font-size:18px; ',
 		                         id:'buyDate',
-		                         text:' 작성일: '+items.sale_date
+		                         text:items.sale_date
 		                   }))).appendTo($('#historyTable'));
 						
 						
@@ -44,12 +43,10 @@
 		    				 window.opener.location.href="/jaju/saleboard/saleboardView?sale_seq="+items.sale_seq+"&pg=1";
 		    				 });
 		    		  });//each
-		    		  					
 		    	  }//else
 			},
 			error: function(err){
 				console.log('buyList에러발생'+err);
 			}
 		});
-	
 });

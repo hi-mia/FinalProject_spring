@@ -13,15 +13,22 @@
 <input type="hidden" id="pg" name="pg" value="${pg}">
 <jsp:include page="/manager/managerMemberHistory.jsp" />
 
-<div style="margin-top: 100px;">
-		<table id="historyTable" style="text-align-last: left;"></table>
+		<div class="deal_wrap">
+			<table border="0" id="historyTable" cellpadding="5" width="800px" bordercolor="#ededed" align="center" frame="hsides" rules="rows">
+				<tr class="title">
+					<th width="200px">제 목</th>
+					<th width="200px">작성일</th>
+				</tr>
+			</table>
 		</div>
-		<div style="margin: 0px; text-align: center;"
-			id="memberDealListPageDiv"></div>
+		
+		<div style="margin: 0px; text-align: center;" id="memberDealListPageDiv"></div>
+		
 <script type="text/javascript"
 		src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/jaju/manager_js/managerMemberDeal.js"></script>
 <script type="text/javascript">
+
 function myDealPaging(pg){
 		//alert($('#id').val())
 		location.href="managerMemberDeal?id="+$('#id').val()+"&pg="+pg;
