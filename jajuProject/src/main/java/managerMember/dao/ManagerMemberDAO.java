@@ -25,7 +25,7 @@ public interface ManagerMemberDAO {
 	//검색 페이징 처리. 
 	public int getSearchTotalA(Map<String, String> map);
 	//블랙리스트 페이징 처리, 블랙토탈 int 가져오기
-	public int getMemberBlackTotalA();
+	public int getMemberBlackTotalA(Map<String, String> map);
 	//블랙리스트 검색 페이징 처리
 	public int getBlackSearchTotalA(Map<String, String> map);
 	//블랙리스트 검색 리스트 처리

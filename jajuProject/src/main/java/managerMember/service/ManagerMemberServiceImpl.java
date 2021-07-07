@@ -108,7 +108,7 @@ public class ManagerMemberServiceImpl implements ManagerMemberService {
 
 	@Override
 	public ManagerPaging managerPagingBlack(Map<String, String> map) {
-		int memberBlackCount = managerMemberDAO.getMemberBlackTotalA();
+		int memberBlackCount = managerMemberDAO.getMemberBlackTotalA(map);
 		// System.out.println(memberCount);
 		managerPaging.setCurrentPage(Integer.parseInt(map.get("pg")));
 		managerPaging.setPageBlock(4);

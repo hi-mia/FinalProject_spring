@@ -60,17 +60,17 @@ public class ManagerMemberDAOMybatis implements ManagerMemberDAO {
 	public int getMemberTotalA() {
 		return sqlSession.selectOne("managerMemberSQL.getMemberTotalA");
 	}
-
+	
 	@Override
 	public int getSearchTotalA(Map<String, String> map) {
 		return sqlSession.selectOne("managerMemberSQL.getSearchTotalA", map);
 	}
-
+	
 	@Override
-	public int getMemberBlackTotalA() {
-		return sqlSession.selectOne("managerMemberSQL.getMemberBlackTotalA");
+	public int getMemberBlackTotalA(Map<String, String> map) {
+		return sqlSession.selectOne("managerMemberSQL.getMemberBlackTotalA",map);
 	}
-
+	
 	@Override
 	public List<ManagerMainDTO> getMemberCategory() {
 		return sqlSession.selectList("managerMemberSQL.getMemberCategory");
