@@ -393,7 +393,7 @@ $('#sortinSelect').change(function(){
 			$.ajax({
 				type: 'post',
 				url: '/jaju/saleboard/getSaleboardList',
-				data: {'pg': 1, 'sortinSelect': $('#sortinSelect').val()},
+				data: {'pg': '1', 'sortinSelect': $('#sortinSelect').val()},
 				dataType: 'json',
 				success: function(data){
 					//alert(JSON.stringify(data));
@@ -494,7 +494,7 @@ $('#sortinSelect').change(function(){
 									$.ajax({
 										type: 'post',
 										url: '/jaju/saleboard/getSaleboardListLogin',
-										data: {'pg': 1, 'sortinSelect': $('#sortinSelect').val(),
+										data: {'pg': '1', 'sortinSelect': $('#sortinSelect').val(),
 											   'location1': location1, 'location2': location2, 'location3': location3,
 											   'keyword1':keyword1,'keyword2':keyword2,'keyword3':keyword3,
 											   'keyword4':keyword4,'keyword5':keyword5, 'keywordSw': keywordSw},
