@@ -70,9 +70,8 @@
       <td width="50%">
          <input type="file" name="file[]" style="width:50%" class="linebg">
          <a href="javascript:add()">
-            <img src="../image/upadd.jpg" style="width:90px; height:25px;">
+            <img src="/jaju/jajuImage/upadd.jpg" style="width:90px; height:25px;">
          </a>
-           <div id="review_imageDiv"></div>
        </td>
    </tr>
    </tbody>
@@ -96,7 +95,7 @@
 	<tbody>
 		<tr style="width:800px;">
 			<td align="right" style="padding-top:30px; padding-bottom:40px; border:none;" id="avoidDbl">
-				<input type="button" id="freeboardWriteBtn" class="bhs_button yb" value="글등록" style="float:none;">
+				<input type="button" id="reviewboardWriteBtn" class="bhs_button yb" value="글등록" style="float:none;">
 			</td>
 		</tr>
 	</tbody>
@@ -118,6 +117,7 @@
 <script src="/jaju/js/reviewboardWrite.js"></script>
 <script type="text/javascript">
 
+
 function add(){
     var table = document.getElementById('table');
     var reviewFileNum = "3";
@@ -131,7 +131,7 @@ function add(){
     oTd1      = oTr.insertCell(0);
     oTd1.style.textAlign = "center";
     oTd2      = oTr.insertCell(1);
-    tmpHTML = "<input type=file name='file[]' style='width:50%' class=line> <a href=\"javascript:del('"+"tr_"+(tr_num)+"')\"><img src='../image/upadd2.jpg' style='width:90px; height:25px;' align=absmiddle></a>";
+    tmpHTML = "<input type=file name='file[]' style='width:50%' class=line> <a href=\"javascript:del('"+"tr_"+(tr_num)+"')\"><img src='/jaju/jajuImage/upadd2.jpg' style='width:90px; height:25px;' align=absmiddle></a>";
     oTd2.innerHTML = tmpHTML;
     calcul();
 }
