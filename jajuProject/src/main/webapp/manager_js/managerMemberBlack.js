@@ -2,17 +2,19 @@
 
 $(function(){
 	$('#sortinSelect').val($('#sortinSelected').val()).prop("selected", true);
-	
 	$('#managerMemberBlack').addClass('on');
 	$('#memberListBody tr').remove();
-	
+	$('#memberPagingBlackDiv').hide();
+	$('#memberPagingDiv').show();
 //창이 열리자 마자 , (활동중지 회원) 정보 가져오기. 
 	$.ajax({
 		url: '/jaju/manager/getManagerMemberBlack',
 		type:'post',
 		dataType:'json',
-		data: {'pg':  $('#pg').val(), 'sortinSelect': $('#sortinSelect').val()},
-				//'pg': $('#pg').val()
+		data: {'pg':  $('#pg').val(), 
+			   'sortinSelect': $('#sortinSelect').val()
+		},
+				//'pg': $('#pg').val() 
 		success:function(data){
 			
 			
@@ -98,8 +100,9 @@ $(function(){
 		         });//member_sell span click
 				
 			});//each
-		}//else
+			
 			$('#memberPagingDiv').html(data.managerPagingBlack.pagingHTML);
+		}//else
 		
 		},error:function(err){
 			console.log("관리자-회원 쪽 에러발생"+err);
@@ -108,13 +111,9 @@ $(function(){
 });
 //리스트에 따라 결과 가져오기
 $('#sortinSelect').change(function(){
+	$('#memberPagingBlackDiv').hide();
+	$('#memberPagingDiv').show();
 	$('#memberListBody tr').remove();
-	if($('#sortinSelect').val()=='delete_member'){
-		$('#btnWithdraw').hide();
-	}
-	if($('#sortinSelect').val()=='break_member'){
-		$('#btnWithdraw').show();
-	}
 	/*
 	if($(this).val()=='delete_member'){
 		$("#again_member_id").hide();
@@ -130,11 +129,13 @@ $('#sortinSelect').change(function(){
 		url: '/jaju/manager/getManagerMemberBlack',
 		type:'post',
 		dataType:'json',
-		data: {'pg':  $('#pg').val(), 'sortinSelect': $('#sortinSelect').val()},
+		data: {'pg':  $('#pg').val(), 'sortinSelect': $('#sortinSelect').val(),
+		},
 				//'pg': $('#pg').val()
 		success:function(data){
 			
 			if(JSON.stringify(data.list)=='[]'){
+				$('#memberPagingDiv').hide();
 				if($('#sortinSelect').val()=='delete_member'){
 					$("#again_member_id").hide();
 					$("#btnWithdraw").hide();
@@ -163,7 +164,7 @@ $('#sortinSelect').change(function(){
 
 	    		
 	    	}else{
-				
+	    		$('#memberPagingDiv').show();
 			$.each(data.list, function(index, items){
 				//console.log(JSON.stringify(data));
 				$('<tr/>').append($('<td/>',{
@@ -234,8 +235,9 @@ $('#sortinSelect').change(function(){
 		         });//member_sell span click	
 				
 			});//each
-			}//else (each문 밖에 위치)
+			
 			$('#memberPagingDiv').html(data.managerPagingBlack.pagingHTML);
+			}//else (each문 밖에 위치)
 
 		},error:function(err){
 			console.log("관리자-회원 쪽 에러발생"+err);
@@ -269,6 +271,10 @@ $('#btnWithdraw').click(function(){
 
 /*==검색==*/
 $('#search-text_Btn').click(function(){
+	$('#memberListBody tr').remove();
+	$('#memberPagingBlackDiv').show();
+	$('#memberPagingDiv').hide();
+	
 	if($('#search-text').val() == ""){
 		alert("검색어를 입력해 주세요");
 		$('#search-text').focus();
@@ -385,8 +391,8 @@ $('#search-text_Btn').click(function(){
 			         });//member_sell span click	
 					
 				});//each
+				$('#memberPagingBlackDiv').html(data.managerSearchBlackPaging.pagingHTML);
 				}//else (each문 밖에 위치)
-				$('#memberPagingDiv').html(data.managerPagingBlack.pagingHTML);
 
 			},error:function(err){
 				console.log("관리자-Black회원 쪽 에러발생"+err);

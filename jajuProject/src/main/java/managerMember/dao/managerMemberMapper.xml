@@ -106,6 +106,7 @@
 	</if>
 	
  	<if test='sortinSelect == "delete_member"'>
+ 	
 		select * from 
 		(select rownum rn, tt.* from
 		(select * from jajumember where member_state='2' order by member_date desc)tt)
@@ -128,13 +129,95 @@
 		select count(*) from jajumember where member_email like '%'||#{search-text}||'%' and member_state='0'
 	</if>
 	<if test='searchMode == "member_id_email"'>
-		select count(*) from jajumember where member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%' and member_state='0'
+		select count(*) from jajumember where (member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%') and member_state='0'
+	</if>
+</select> 
+
+<!-- 블랙회원리스트 검색  결과 가져오기. 닉네임, 이메일,  -->
+<select id="getSearchManagerMemberBlack" parameterType="java.util.Map" resultType="member">
+	<if test='sortinSelect == "break_member" '>
+		<if test='searchMode == "member_id" '>
+			select * from 
+			(select rownum rn, tt.* from
+			(select * from jajumember where member_id like '%'||#{search-text}||'%' and member_state='1' order by member_date desc)tt)
+			where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+		</if>
+		
+		<if test='searchMode == "member_email"'>
+			select * from 
+			(select rownum rn, tt.* from
+			(select * from jajumember where member_email like '%'||#{search-text}||'%' and  member_state='1' order by member_date desc)tt)
+			where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+		</if>
+		
+		<if test='searchMode == "member_id_email"'>
+			select * from 
+			(select rownum rn, tt.* from
+			(select * from jajumember where  member_state='1' and (member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%') order by member_date desc)tt)
+			where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+		</if>
+	</if>
+	<if test='sortinSelect == "delete_member" '>		
+		<if test='searchMode == "member_id" '>
+			select * from 
+			(select rownum rn, tt.* from
+			(select * from jajumember where member_id like '%'||#{search-text}||'%' and member_state='2' order by member_date desc)tt)
+			where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+		</if>
+		
+		<if test='searchMode == "member_email"'>
+			select * from 
+			(select rownum rn, tt.* from
+			(select * from jajumember where member_email like '%'||#{search-text}||'%' and  member_state='2' order by member_date desc)tt)
+			where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+		</if>
+		
+		<if test='searchMode == "member_id_email"'>
+			select * from 
+			(select rownum rn, tt.* from
+			(select * from jajumember where  member_state='2' and (member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%') order by member_date desc)tt)
+			where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+		</if>
+	</if>
+</select>
+
+<!-- 블랙회원리스트 검색 paging 처리  -->
+<select id="getBlackSearchTotalA" parameterType="String" resultType="int">
+	<if test='sortinSelect == "break_member" '>
+		<if test='searchMode == "member_id"'>
+			select count(*) from jajumember where member_id like '%'||#{search-text}||'%' and member_state='1'
+		</if>	
+		<if test='searchMode == "member_email"'>
+			select count(*) from jajumember where member_email like '%'||#{search-text}||'%' and member_state='1'
+		</if>
+		<if test='searchMode == "member_id_email"'>
+			select count(*) from jajumember where (member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%') and member_state='1'
+		</if>
+	</if>
+	
+	<if test='sortinSelect == "delete_member" '>	
+		<if test='searchMode == "member_id" '>
+			select count(*) from jajumember where member_id like '%'||#{search-text}||'%' and member_state='2'
+		</if>	
+		<if test='searchMode == "member_email"'> 
+			select count(*) from jajumember where member_email like '%'||#{search-text}||'%' and member_state='2'
+		</if>
+		<if test='searchMode == "member_id_email"'>
+			select count(*) from jajumember where (member_id like '%'||#{search-text}||'%' or member_email like '%'||#{search-text}||'%') and member_state='2'
+		</if>
 	</if>
 </select> 
 
 <!-- 블랙회원리스트 paging 처리 -->
 <select id="getMemberBlackTotalA" parameterType="String" resultType="int">
-	select count(*) from jajumember where member_state='1'
+	
+	<if test='sortinSelect == "break_member" '>
+		select count(*) from jajumember where member_state='1'
+	</if>
+	<if test='sortinSelect == "delete_member" '>	
+		select count(*) from jajumember where member_state='2'
+	</if>
+	
 </select>
 
 <!-- 차트  mapper 카테고리 -->
