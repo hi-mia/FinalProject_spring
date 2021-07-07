@@ -6,8 +6,11 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import inquire.bean.InquireDTO;
 import managerQuestion.service.ManagerQuestionService;
 import question.bean.QuestionDTO;
 import question.bean.QuestionPaging;
@@ -26,6 +30,7 @@ public class ManagerQuestionController {
 	@Autowired
 	private ManagerQuestionService managerQuestionService;
 	
+	//자주 하는 질문 관리 게시판 
 	@RequestMapping(value="/managerServiceQuestion", method=RequestMethod.GET)
 	public ModelAndView managerServiceQuestion(@RequestParam(required = false, defaultValue = "1") String pg) {
 		ModelAndView mav = new ModelAndView();
@@ -34,6 +39,7 @@ public class ManagerQuestionController {
 		
 		return mav;
 	}
+	//자주 하는 질문 게시판 글쓰기 
 	@RequestMapping(value="managerQuestionWriteForm", method=RequestMethod.GET)
 	public ModelAndView managerQuestionWriteForm() {
 		ModelAndView mav = new ModelAndView();
@@ -47,7 +53,7 @@ public class ManagerQuestionController {
 							 @RequestParam ("img[]") List<MultipartFile> list,
 							 @RequestParam Map<String, String> map) { //img[] 배열이라고 알려준다, 파일이 여러개가 가능) {
 		
-		String filePath = "D:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
+		String filePath = "C:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 		String fileName;
 		File file;
 
@@ -91,6 +97,7 @@ public class ManagerQuestionController {
 		managerQuestionService.managerQuestionWrite(questionDTO);
 	}
 	
+	
 	@RequestMapping(value="getManagerQuestionList", method=RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView getManagerQuestionList(@RequestParam(required=false, defaultValue="1") String pg) {
@@ -111,11 +118,132 @@ public class ManagerQuestionController {
 	}
 	
 	@RequestMapping(value="/managerQuestionView", method=RequestMethod.GET)
-	public ModelAndView managerQuestionView(@RequestParam(required = false, defaultValue = "1") String pg) {
+	public ModelAndView managerQuestionView(@RequestParam(required = false, defaultValue = "1") String pg,
+											@RequestParam String seq) {
+		
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg", pg);
+		mav.addObject("seq", seq);
 		mav.setViewName("/manager/managerQuestionView");
 		
 		return mav;
 	}
+	
+	@RequestMapping(value="getManagerQuestionView", method=RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView getManagerQuestionView(@RequestParam String seq) {
+		
+		QuestionDTO questionDTO = managerQuestionService.getManagerQuestionView(seq);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("questionDTO", questionDTO);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	@RequestMapping(value="/managerQuestionModifyForm", method=RequestMethod.POST)
+	public ModelAndView managerQuestionModifyForm(@RequestParam(required = false, defaultValue = "1") String pg,
+												  @RequestParam String question_seq) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg", pg);
+		mav.addObject("seq", question_seq);
+		mav.setViewName("/manager/managerQuestionModifyForm");
+		System.out.println(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="getManagerQuestionModify", method=RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView getManagerQuestionModify(@RequestParam String seq,
+										HttpServletResponse response){
+		
+		QuestionDTO questionDTO = managerQuestionService.getManagerQuestionModify(seq);
+	
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("questionDTO",questionDTO);
+		mav.setViewName("jsonView");
+		return mav;	
+	}
+	
+		//자주하는 질문 수정
+		@RequestMapping(value = "managerQuestionModify", method = RequestMethod.POST)
+		@ResponseBody
+		public void managerQuestionModify(@ModelAttribute QuestionDTO questionDTO,
+								  @RequestParam Map<String, MultipartFile> imgMap,
+								  @RequestParam Map<String, String> checkMap,
+								 Model model) {
+			String filePath;
+			String fileName;
+			File file;	
+			
+			System.out.println(questionDTO);
+			if(checkMap.get("checkbox1") != null) {
+				questionDTO.setQuestion_image1("");
+			}
+			else {
+				if(imgMap.get("img1").getOriginalFilename() != "") {
+					
+						filePath = "C:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
+						fileName = imgMap.get("img1").getOriginalFilename();
+						file = new File(filePath,fileName);
+						
+						try {
+							FileCopyUtils.copy(imgMap.get("img1").getInputStream(), new FileOutputStream(file));
+						}catch (IOException e) {
+							//e.printStackTrace();
+						}
+						questionDTO.setQuestion_image1(fileName);
+				}
+			}
+			
+			if(checkMap.get("checkbox2") != null) {
+				questionDTO.setQuestion_image2("");
+			}
+			else {
+				if(imgMap.get("img2").getOriginalFilename() != "") {
+					
+						filePath = "C:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
+						fileName = imgMap.get("img2").getOriginalFilename();
+						file = new File(filePath,fileName);
+						
+						try {
+							FileCopyUtils.copy(imgMap.get("img2").getInputStream(), new FileOutputStream(file));
+						}catch (IOException e) {
+							//e.printStackTrace();
+						}
+						questionDTO.setQuestion_image2(fileName);
+				}
+			}
+			
+			if(checkMap.get("checkbox3") != null) {
+				questionDTO.setQuestion_image3("");
+			}
+			else {
+				if(imgMap.get("img3").getOriginalFilename() != "") {
+				
+						filePath = "C:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
+						fileName = imgMap.get("img3").getOriginalFilename();
+						file = new File(filePath,fileName);
+						
+						try {
+							FileCopyUtils.copy(imgMap.get("img3").getInputStream(), new FileOutputStream(file));
+						}catch (IOException e) {
+							//e.printStackTrace();
+						}
+						questionDTO.setQuestion_image3(fileName);
+				}
+			}
+
+//			DB
+			managerQuestionService.managerQuestionModify(questionDTO);
+		}
+		
+		@RequestMapping(value = "managerQuestionDelete", method=RequestMethod.GET)
+		public ModelAndView managerQuestionDelete(String[] check) {
+			System.out.println(check);
+			managerQuestionService.managerQuestionDelete(check);
+			return new ModelAndView("redirect:/manager/managerServiceQuestion");
+		}
+	
 }

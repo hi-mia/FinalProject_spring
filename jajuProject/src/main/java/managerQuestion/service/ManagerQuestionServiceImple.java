@@ -7,6 +7,7 @@ import org.apache.commons.collections4.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import inquire.bean.InquireDTO;
 import managerQuestion.dao.ManagerQuestionDAO;
 import question.bean.QuestionDTO;
 import question.bean.QuestionPaging;
@@ -47,6 +48,31 @@ public class ManagerQuestionServiceImple implements ManagerQuestionService {
 		questionPaging.makePagingHTML();
 		
 		return questionPaging;
+	}
+
+	@Override
+	public QuestionDTO getManagerQuestionView(String seq) {
+		return managerQuestionDAO.getManagerQuestionView(seq);
+	}
+
+	@Override
+	public QuestionDTO getManagerQuestionModify(String seq) {
+		return managerQuestionDAO.getManagerQuestionModify(seq);
+	}
+
+	@Override
+	public void managerQuestionModify(QuestionDTO questionDTO) {
+		managerQuestionDAO.managerQuestionModify(questionDTO);
+		
+	}
+
+	@Override
+	public void managerQuestionDelete(String[] check) {
+		Map<String, String[]>map = new HashedMap<String, String[]>();
+		map.put("array", check);
+		
+		managerQuestionDAO.managerQuestionDelete(map);
+		
 	}
 
 }
