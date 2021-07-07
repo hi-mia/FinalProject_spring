@@ -12,10 +12,11 @@ $(function(){
 		dataType: 'json',
 		success: function(data){
 			//alert(JSON.stringify(data));
-			
-			
+
 			$('#sale_seq').val(data.reportDTO.sale_seq);
+			$('#sale_id').val(data.reportDTO.sale_id);
 		
+			
 			//신고 글 링크
 			$('#sale_subject').attr('href', '/jaju/managerSaleboard/managerSaleboardView?sale_seq='+data.reportDTO.sale_seq+'&pg=1&sale_category=*');
 			
@@ -54,7 +55,7 @@ function mode(num, seq){
 		document.managerReportView.submit();
 		}
 	
-	}else if(num==2){ //댓글등록
+/*	}else if(num==2){ //댓글등록
 		
 		$('#commentDiv').empty();
 		
@@ -72,7 +73,7 @@ function mode(num, seq){
 						   'comment_content': $('#comment_content').val()},
 					success: function(data){
 						
-						/*$.ajax({
+						$.ajax({
 							type: 'post',
 							url: '/jaju/serviceCenter/commentWrite',
 							data: {'report_seq': $('#report_seq').val(),
@@ -80,7 +81,7 @@ function mode(num, seq){
 							success: function(data){
 								
 							}
-						});*/
+						});
 						
 						alert('댓글 작성이 완료되었습니다');
 						location.href='/jaju/manager/managerReportView?report_seq='+$('#report_seq').val()+'&pg='+$('#pg').val();
@@ -90,7 +91,7 @@ function mode(num, seq){
 				 	}
 				});
 			}
-		}
+		}*/
 		
 	}else if(num==3){ //댓글수정 -> 수정할 글 불러오기
 		//alert(seq);
@@ -244,20 +245,66 @@ $(document).ready(function(){
 });
 
 //신고글 보이기
-function show(){
-	if(confirm("정말로 보이겠습니까?")){
-		$.ajax({
-			type: 'post',
-			url: '/jaju/manager/getShowList',
-			data: {'sale_seq': $('#sale_seq').val()},
+$('.reportBtn.show').click(function(){
+
+	$('#commentDiv').empty();
+	
+	if($('#comment_content').val() == ''){
+		$('#commentDiv').text('내용을 입력하세요');
+		$('#commentDiv').css('color', 'red');
+        $('#commentDiv').css('font-size', '10pt');
+        $('#commentDiv').css('font-weight', 'bold');
+	}else{
+		
+		if(confirm("정말로 등록하시겠습니까? (신고글 보이기)")){
 			
-			success: function(data){
-				
-			},
-			
-			error: function(err){
-		 		console.log(err);
-		 	}
-		});
+			$.ajax({
+				type: 'post',
+				url: '/jaju/manager/commentWriteShow',
+				data: {'report_seq': $('#report_seq').val(),
+					   'sale_seq': $('#sale_seq').val(),
+					   'comment_content': $('#comment_content').val()},
+				success: function(data){
+					
+					alert('댓글 작성이 완료되었습니다');
+					location.href='/jaju/manager/managerReportView?report_seq='+$('#report_seq').val()+'&pg='+$('#pg').val();
+				},
+				error: function(err){
+			 		console.log(err);
+			 	}
+			});
+		}
 	}
-}
+	
+});
+
+//신고글 숨기기
+$('.reportBtn.hide').click(function(){
+	
+	$('#commentDiv').empty();
+	
+	if($('#comment_content').val() == ''){
+		$('#commentDiv').text('내용을 입력하세요');
+		$('#commentDiv').css('color', 'red');
+        $('#commentDiv').css('font-size', '10pt');
+        $('#commentDiv').css('font-weight', 'bold');
+	}else{
+		if(confirm("정말로 등록하시겠습니까? (신고글 숨기기)")){
+			$.ajax({
+				type: 'post',
+				url: '/jaju/manager/commentWriteHide',
+				data: {'report_seq': $('#report_seq').val(),
+					   'sale_seq': $('#sale_seq').val(),
+					   'sale_id': $('#sale_id').val(),
+					   'comment_content': $('#comment_content').val()},
+				success: function(data){
+					alert('댓글 작성이 완료되었습니다');
+					location.href='/jaju/manager/managerReportView?report_seq='+$('#report_seq').val()+'&pg='+$('#pg').val();
+				},
+				error: function(err){
+			 		console.log(err);
+			 	}
+			});
+		}
+	}
+});

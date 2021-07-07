@@ -21,14 +21,21 @@
 a:link{
 	text-decoration: none;
 }
-.reportBtn.modify, .reportBtn.list, .reportBtn.delete, .reportBtn.hide {
+.reportBtn.modify, .reportBtn.list, .reportBtn.delete{
     background-color: #617aad;
     color: #fff;
     width: 80px;
     line-height: 30px;
     text-decoration: none;
 }
-.reportBtn.comWrite, .reportBtn.comModify, .reportBtn.comDelete, .reportBtn.comReWrite {
+.reportBtn.hide, .reportBtn.show{
+	 background-color: #617aad;
+    color: #fff;
+    width: 60px;
+    line-height: 30px;
+    text-decoration: none;
+}
+.reportBtn.comModify, .reportBtn.comDelete, .reportBtn.comReWrite {
 	background-color: #617aad;
     color: #fff;
     width: 50px;
@@ -47,10 +54,9 @@ a:link{
 	background-color: #47597e;
     border: 1px solid #47597e;
     text-decoration: none;
+    cursor: pointer;
 }
-.reportBtn.modify:hover, .reportBtn.list:hover, .reportBtn.delete:hover, .reportBtn.comWrite:hover, .reportBtn.comModify:hover, .reportBtn.comDelete:hover, .reportBtn.comReWrite:hover, .reportBtn.hide { 
-	text-decoration: none;
-}
+
 .tit_page {
     overflow: hidden;
     width: 1050px;

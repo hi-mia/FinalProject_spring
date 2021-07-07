@@ -11,34 +11,39 @@ $(document).ready(function(){
 		dataType: 'json',
 		success: function(data){
 			//alert(JSON.stringify(data));
-		
-			$.each(data.list, function(index, items){
-				$('<tr/>').append($('<td/>',{
-					width: '80px',
-	                align: 'center',
-	                text: items.notice_seq,
-				})).append($('<td/>',{
-					width: '570px',
-					color: '#333'	
-	            	}).append($('<a/>',{
-	            		href: '#',
-	            		text: items.notice_subject,
-	            		class: 'subject'+items.notice_seq
-	            	}))
-            	).append($('<td/>',{
-            		width: '150px',
-	                align: 'center',
-	                class: 'eng',
-	                text: items.logtime,
-            	})).appendTo('#noticeListTable');
+			if(data.list.length != 0){
+				$('.no_data').hide();
 				
-				$('.subject'+items.notice_seq).click(function(){
-				location.href = '/jaju/serviceCenter/noticeView?notice_seq='+items.notice_seq+'&pg='+$('#pg').val();
+				$.each(data.list, function(index, items){
+					$('<tr/>').append($('<td/>',{
+						width: '80px',
+		                align: 'center',
+		                text: items.notice_seq,
+					})).append($('<td/>',{
+						width: '570px',
+						color: '#333'	
+		            	}).append($('<a/>',{
+		            		href: '#',
+		            		text: items.notice_subject,
+		            		class: 'subject'+items.notice_seq
+		            	}))
+	            	).append($('<td/>',{
+	            		width: '150px',
+		                align: 'center',
+		                class: 'eng',
+		                text: items.logtime,
+	            	})).appendTo('#noticeListTable');
+					
+					$('.subject'+items.notice_seq).click(function(){
+					location.href = '/jaju/serviceCenter/noticeView?notice_seq='+items.notice_seq+'&pg='+$('#pg').val();
+					
+					}); 
 				
-				}); 
+				});//each
 			
-			});//each
-			
+			}else if(data.list.length == 0){
+				$('.no_data').show();
+			}
 			
 			//페이징 처리
 	        $('.pagediv').html(data.noticePaging.pagingHTML);

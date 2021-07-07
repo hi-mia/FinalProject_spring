@@ -3,6 +3,7 @@ package managerReport.service;
 import java.util.List;
 import java.util.Map;
 
+import member.bean.MemberDTO;
 import report.bean.CommentDTO;
 import report.bean.ReportDTO;
 import report.bean.ReportPaging;
@@ -25,7 +26,8 @@ public interface ManagerReportService {
 
 	public void managerReportDelete(String[] check);
 	
-	public void commentWrite(Map<String, String> map);
+	public void commentWriteShow(Map<String, String> map);
+	public void commentWriteHide(Map<String, String> map);
 
 	public List<CommentDTO> getCommentList(String report_seq);
 
@@ -34,6 +36,5 @@ public interface ManagerReportService {
 	public void commentModify(CommentDTO commentDTO);
 
 	public void commentDelete(Map<String, String> map);
-
 
 }

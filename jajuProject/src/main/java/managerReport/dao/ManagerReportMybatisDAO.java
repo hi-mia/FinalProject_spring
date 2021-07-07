@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import member.bean.MemberDTO;
 import report.bean.CommentDTO;
 import report.bean.ReportDTO;
 
@@ -61,8 +62,12 @@ public class ManagerReportMybatisDAO implements ManagerReportDAO {
 	}
 	
 	@Override
-	public void commentWrite(Map<String, String> map) {
-		sqlSession.insert("managerReportSQL.commentWrite", map);
+	public void commentWriteShow(Map<String, String> map) {
+		sqlSession.insert("managerReportSQL.commentWriteShow", map);
+	}
+	@Override
+	public void commentWriteHide(Map<String, String> map) {
+		sqlSession.insert("managerReportSQL.commentWriteHide", map);
 	}
 	
 	@Override

@@ -3,6 +3,7 @@ package managerReport.dao;
 import java.util.List;
 import java.util.Map;
 
+import member.bean.MemberDTO;
 import report.bean.CommentDTO;
 import report.bean.ReportDTO;
 
@@ -24,7 +25,8 @@ public interface ManagerReportDAO {
 
 	public void managerReportDelete(Map<String, String[]> map);
 	
-	public void commentWrite(Map<String, String> map);
+	public void commentWriteShow(Map<String, String> map);
+	public void commentWriteHide(Map<String, String> map);
 
 	public List<CommentDTO> getCommentList(String report_seq);
 
