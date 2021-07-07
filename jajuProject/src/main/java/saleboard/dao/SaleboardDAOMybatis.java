@@ -241,4 +241,14 @@ public class SaleboardDAOMybatis implements SaleboardDAO {
 		sqlSession.update("saleboardSQL.salebuyerConfirmation", map);	
 	}
 
+//	@Override
+//	public List<SaleboardDTO> getSaleboardListFavorite(Map<String, String> map) {
+//		return sqlSession.selectList("saleboardSQL.getSaleboardListFavorite", map);
+//	}
+//
+//	@Override
+//	public int getTotalFavorite() {
+//		return sqlSession.selectOne("saleboardSQL.getTotal");
+//	}
+
 }

@@ -74,4 +74,8 @@ public interface SaleboardService {
 	public List<SaleboardCommentDTO> salebuyerFindComment(int sale_seq);
 
 	public void salebuyerConfirmation(Map<String, String> map);
+
+//	public List<SaleboardDTO> getSaleboardListFavorite(Map<String, String> map);
+//
+//	public SaleboardPaging saleboardPagingFavorite(int pg);
 }

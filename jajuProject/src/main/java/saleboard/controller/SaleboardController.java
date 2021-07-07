@@ -526,7 +526,37 @@ public class SaleboardController {
 			System.out.println("컨트롤러 updateMap값"+map);
 			saleboardService.salebuyerConfirmation(map);
 		}
-
+		
+//		@RequestMapping(value="saleboardListFavorite", method=RequestMethod.GET)
+//		public String saleboardListFavorite(Model model) {
+//			
+//			
+//			model.addAttribute("display","/saleboard/saleboardListFavorite.jsp");
+//			return "/index";
+//		}
+//		
+//		@RequestMapping(value="getSaleboardListFavorite", method=RequestMethod.POST)
+//		@ResponseBody
+//		public ModelAndView getSaleboardListFavorite(@RequestParam Map<String, String> map) {
+//			
+//			ModelAndView mav = new ModelAndView();
+//			
+//			
+//			List<SaleboardDTO> list = saleboardService.getSaleboardListFavorite(map);
+//			
+//			int pg = Integer.parseInt(map.get("pg"));
+//			
+//			SaleboardPaging saleboardPaging = saleboardService.saleboardPagingFavorite(pg);
+//			
+//			mav.addObject("saleboardPaging", saleboardPaging);
+//			
+//			mav.addObject("list", list);
+//			mav.setViewName("jsonView");
+//			
+//			return mav;
+//		}
+		
+		
 		
 		
 }
