@@ -21,20 +21,20 @@
 a:link{
 	text-decoration: none;
 }
-.inquireBtn.modify, .inquireBtn.list, .inquireBtn.delete, .inquireBtn.reply {
+.questionBtn.modify, .questionBtn.list {
     background-color: #617aad;
     color: #fff;
     width: 80px;
     line-height: 30px;
 }
-.inquireBtn {
+.questionBtn {
     display: inline-block;
     text-align: center;
     border: 1px solid #47597e;
     margin-left: 2px;
     font-size: 13px;
 }
-.inquireBtn:hover{
+.questionBtn:hover{
 	background-color: #47597e;
     border: 1px solid #47597e;
     text-decoration: none;

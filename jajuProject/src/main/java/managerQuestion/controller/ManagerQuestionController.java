@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import inquire.bean.InquireDTO;
 import managerQuestion.service.ManagerQuestionService;
 import question.bean.QuestionDTO;
 import question.bean.QuestionPaging;
@@ -111,11 +114,52 @@ public class ManagerQuestionController {
 	}
 	
 	@RequestMapping(value="/managerQuestionView", method=RequestMethod.GET)
-	public ModelAndView managerQuestionView(@RequestParam(required = false, defaultValue = "1") String pg) {
+	public ModelAndView managerQuestionView(@RequestParam(required = false, defaultValue = "1") String pg,
+											@RequestParam String seq) {
+		
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg", pg);
+		mav.addObject("seq", seq);
 		mav.setViewName("/manager/managerQuestionView");
 		
 		return mav;
 	}
+	
+	@RequestMapping(value="getManagerQuestionView", method=RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView getManagerQuestionView(@RequestParam String seq) {
+		
+		QuestionDTO questionDTO = managerQuestionService.getManagerQuestionView(seq);
+
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("questionDTO", questionDTO);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	@RequestMapping(value="/managerQuestionModifyForm", method=RequestMethod.POST)
+	public ModelAndView managerQuestionModifyForm(@RequestParam(required = false, defaultValue = "1") String pg,
+												  @RequestParam String seq) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg", pg);
+		mav.addObject("seq", seq);
+		mav.setViewName("/manager/managerQuestionModifyForm");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="getManagerQuestionModify", method=RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView getManagerQuestionModify(@RequestParam String seq,
+										HttpServletResponse response){
+		
+		QuestionDTO questionDTO = managerQuestionService.getManagerQuestionModify(seq);
+	
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("questionDTO",questionDTO);
+		mav.setViewName("jsonView");
+		return mav;	
+	}
+	
 }

@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/jaju/css/inquireView.css" />
+<link rel="stylesheet" href="/jaju/manager_css/managerQuestionView.css" />
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <jsp:include page="/manager/managerHeader.jsp"/>
-<form name = "inquireView" id = "inquireView">
-<input type="hidden" name="seq" id = "question_seq" value= "${question_seq}">
+<form name = "managerQuestionView" id = "managerQuestionView">
+<input type="hidden" name="seq" id = "question_seq" value= "${seq}">
 <input type="hidden" name="pg" value="${pg}">
 <div style="width: 1050px; margin: auto;" >
 

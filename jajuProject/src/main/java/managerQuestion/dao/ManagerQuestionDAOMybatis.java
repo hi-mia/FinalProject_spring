@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import inquire.bean.InquireDTO;
 import question.bean.QuestionDTO;
 
 @Transactional
@@ -33,4 +34,13 @@ public class ManagerQuestionDAOMybatis implements ManagerQuestionDAO {
 		return sqlSession.selectOne("managerQuestionSQL.getTotalA");
 	}
 
+	@Override
+	public QuestionDTO getManagerQuestionView(String seq) {
+		return sqlSession.selectOne("managerQuestionSQL.getManagerQuestionView", Integer.parseInt(seq));
+	}
+
+	@Override
+	public QuestionDTO getManagerQuestionModify(String seq) {
+		return sqlSession.selectOne("managerQuestionSQL.getManagerQuestionModify", Integer.parseInt(seq));
+	}
 }

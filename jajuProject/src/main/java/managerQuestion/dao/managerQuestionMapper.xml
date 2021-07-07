@@ -27,4 +27,14 @@
  		select count(*) from question
  	</select>
  
+ 	<!-- 한사람 글 -->
+ 	<select id="getManagerQuestionView" parameterType="int" resultType="question">
+ 		select * from question where question_seq=#{question_seq}
+ 	</select>
+ 	
+ 	<!-- 1인분의 글 -->
+ 	<select id="getManagerQuestionModify" parameterType="int" resultType="question">
+		select * from question where question_seq=#{question_seq}
+	</select>
+ 
  </mapper>
