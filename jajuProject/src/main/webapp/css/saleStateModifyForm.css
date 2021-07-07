@@ -363,21 +363,21 @@ input[type="submit" i] {
 
 
 
-.saleboardmodifyForm .sale_state, .saleboardmodifyForm .sale_category ,  .saleboardmodifyForm .fileInfo {
+.saleboardModifyForm .sale_state, .saleboardModifyForm .sale_category ,  .saleboardModifyForm .fileInfo {
     border: 1px solid #47597e;
     background-color: #fff;
     color: #47597e;
     font-family: 'S-CoreDream-4Regular';
 }
-.saleboardmodifyForm .saleText{
+.saleboardModifyForm .saleText{
 	font-family: 'S-CoreDream-4Regular';
 }
 
-.saleboardmodifyForm input[type=radio]:checked+.ico {
+.saleboardModifyForm input[type=radio]:checked+.ico {
     border: 1px solid #47597e;
     background-color: #47597e;
 }
- .saleboardmodifyForm input[type=radio]+.ico {
+ .saleboardModifyForm input[type=radio]+.ico {
     display: inline-block;
     position: relative;
     width: 22px;
@@ -388,7 +388,7 @@ input[type="submit" i] {
     border-radius: 100%;
     vertical-align: -7px;
 } 
-.saleboardmodifyForm input[type=radio]:checked+.ico:after {
+.saleboardModifyForm input[type=radio]:checked+.ico:after {
     content: "";
     position: absolute;
     left: 50%;
@@ -399,14 +399,14 @@ input[type="submit" i] {
     border-radius: 100%;
     background-color: #fff;
 }
-.saleboardmodifyForm input[type=radio] {
+.saleboardModifyForm input[type=radio] {
     position: absolute;
     z-index: -1;
     opacity: 0;
 }
 /**/
 
-.saleboardmodifyForm input[type=checkbox]+.ico {
+.saleboardModifyForm input[type=checkbox]+.ico {
     display: inline-block;
     position: relative;
     width: 24px;
@@ -417,12 +417,12 @@ input[type="submit" i] {
     background-size: 24px 24px;
     vertical-align: -7px;
 }
-.saleboardmodifyForm input[type=checkbox]:checked+.ico {
+.saleboardModifyForm input[type=checkbox]:checked+.ico {
    	
     background: url("/jaju/image/checked.jpg") no-repeat 50% 50%;
     background-size: 24px 24px;
 }
-.saleboardmodifyForm input[type=checkbox] {
+.saleboardModifyForm input[type=checkbox] {
     position: absolute;
     z-index: -1;
     opacity: 0;
