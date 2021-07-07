@@ -11,7 +11,8 @@
 				 					#{questionType},
 				 					#{question_image1},
 				 					#{question_image2},
-				 					#{question_image3})
+				 					#{question_image3},
+				 					sysdate)
 	</insert>
 	
 	<!-- 목록 --><!-- 페이징 처리 -->
@@ -27,14 +28,26 @@
  		select count(*) from question
  	</select>
  
- 	<!-- 한사람 글 -->
+ 	<!-- 한사람 글 view 창 띄우기 -->
  	<select id="getManagerQuestionView" parameterType="int" resultType="question">
  		select * from question where question_seq=#{question_seq}
  	</select>
  	
- 	<!-- 1인분의 글 -->
+ 	<!--자주하는 질문 1인분의 글 불러오기 -->
  	<select id="getManagerQuestionModify" parameterType="int" resultType="question">
 		select * from question where question_seq=#{question_seq}
 	</select>
+
+	<!-- 자주 하는 질문 수정본 저장 -->
+	<update id="managerQuestionModify" parameterType="question" >
+		update question set questionType=#{questionType},
+								  question_subject=#{question_subject}, 
+								  question_content=#{question_content}, 
+								  question_image1 = #{question_image1},
+								  question_image2 = #{question_image2},
+								  question_image3 = #{question_image3},
+								  logtime=sysdate 
+								  where question_seq=#{question_seq} 
+	</update>
  
  </mapper>

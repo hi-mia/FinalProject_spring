@@ -9,7 +9,7 @@
 </head>
 <jsp:include page="/manager/managerHeader.jsp"/>
 <form name = "managerQuestionView" id = "managerQuestionView">
-<input type="hidden" name="seq" id = "question_seq" value= "${seq}">
+<input type="hidden" name="question_seq" id = "question_seq" value= "${seq}">
 <input type="hidden" name="pg" value="${pg}">
 <div style="width: 1050px; margin: auto;" >
 

@@ -1,14 +1,14 @@
-//글 불러오기
+//자주 하는 질문 글 불러오기
 $(function(){
 	$('.image1Name').hide();
 	$('.image2Name').hide();
 	$('.image3Name').hide();
-	
+	alert($('input[name=question_seq]').val());
 	var formData = new FormData($('#managerQuestionModifyForm')[0])
 	$.ajax({
 		type : 'post',
 		url : '/jaju/manager/getManagerQuestionModify',
-		data : 'seq='+$('input[name=seq]').val(),
+		data : 'seq='+$('input[name=question_seq]').val(),
 		dataType : 'json',
 		success : function(data){
 			alert(JSON.stringify(data));
@@ -44,9 +44,8 @@ $(function(){
 	});
 });
 
-//글 수정하기
+//자주 하는 질문 글 수정하기
 $('#questionModifyBtn').click(function(){
-	alert("asd");
 	$('#questionTypeDiv').empty();
 	$('#question_subjectDiv').empty();
 	$('#question_contentDiv').empty();

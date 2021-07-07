@@ -21,7 +21,7 @@
 
 <div class="xans-board-write">
 <form name="managerQuestionModifyForm" id="managerQuestionModifyForm" method="post"  enctype="multipart/form-data" style="height: 100%;">
-<input type="hidden" name="seq" id = "question_seq" value= "${seq}">
+<input type="hidden" name="question_seq" id = "seq" value= "${seq}">
 <input type="hidden" name="pg" value="${pg}">
 <table id="table_after" class="boardWrite2" width="100%">
 <colgroup><col width="14%" align="right"></colgroup>
@@ -54,18 +54,43 @@
 <tr>
 <th class="input_txt">이미지</th>
 <td>
-<table width="95%" id="table" cellpadding="0" cellspacing="0" border="0" style="border:solid 1px #f4f4f4; border-collapse:collapse;">
-	<tbody>
+<table width="95%" class = "questionModifyTable" id="questionModifyTable" cellpadding="0" cellspacing="0" border="0" style="border:solid 1px #f4f4f4; border-collapse:collapse;">
 	<tr id="tr_0">
-		<td width="20" nowrap="" align="center">1</td>
-		<td width="100%">
-			<input type="file" name="img[]" style="width:50%" class="linebg" multiple size = "50">
-			<a href="javascript:add()">
-				<img src="/jaju/jajuImage/upadd.jpg">
-			</a>
-		 </td>
-	</tr>
-	</tbody>
+		<td width="20" align="left">1.
+		<input type = "hidden" id = "question_image1" name="question_image1"></input></td>
+			<td><span class="image1Name" id="image1Name"></span></td>
+			<td width="100%">
+				<input type="file" name="img1" style="width:50%" class="linebg" multiple size="50">
+				<span class="image1Name">
+					<input type="checkbox" value="삭제" name="checkbox1">삭제
+				</span>
+			 </td>
+		</tr>
+		
+		<tr id="tr_0">
+		<td width="20" align="left">2.
+		<input type = "hidden" id = "question_image2" name="question_image2"></input></td>
+			<td><span class="image2Name" id="image2Name"></span></td>
+			<td width="100%">
+				<input type="file" name="img2" style="width:50%" class="linebg" multiple size="50">
+				<span class="image2Name">
+					<input type="checkbox" value="삭제" name="checkbox2">삭제
+				</span>
+			 </td>
+		</tr>
+		
+		<tr id="tr_0">
+		<td width="20" align="left">3.
+		<input type = "hidden" name = "question_image3" id = "question_image3"></input></td>
+			<td><span class="image3Name" id="image3Name"></span></td>
+			<td width="100%">
+				<input type="file" name="img3" style="width:50%" class="linebg" multiple size="50">
+				<span class="image3Name">
+					<input type="checkbox" value="삭제" name="checkbox3">삭제
+				</span>
+			 </td>
+		</tr>
+		
 </table>
 <table>
 	<tbody>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,7 +51,7 @@ public class ManagerQuestionController {
 							 @RequestParam ("img[]") List<MultipartFile> list,
 							 @RequestParam Map<String, String> map) { //img[] 배열이라고 알려준다, 파일이 여러개가 가능) {
 		
-		String filePath = "D:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
+		String filePath = "C:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 		String fileName;
 		File file;
 
@@ -131,7 +132,6 @@ public class ManagerQuestionController {
 	public ModelAndView getManagerQuestionView(@RequestParam String seq) {
 		
 		QuestionDTO questionDTO = managerQuestionService.getManagerQuestionView(seq);
-
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("questionDTO", questionDTO);
 		mav.setViewName("jsonView");
@@ -140,11 +140,12 @@ public class ManagerQuestionController {
 	
 	@RequestMapping(value="/managerQuestionModifyForm", method=RequestMethod.POST)
 	public ModelAndView managerQuestionModifyForm(@RequestParam(required = false, defaultValue = "1") String pg,
-												  @RequestParam String seq) {
+												  @RequestParam String question_seq) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg", pg);
-		mav.addObject("seq", seq);
+		mav.addObject("seq", question_seq);
 		mav.setViewName("/manager/managerQuestionModifyForm");
+		System.out.println(mav);
 		
 		return mav;
 	}
@@ -161,5 +162,78 @@ public class ManagerQuestionController {
 		mav.setViewName("jsonView");
 		return mav;	
 	}
+	
+		//자주하는 질문 수정
+		@RequestMapping(value = "managerQuestionModify", method = RequestMethod.POST)
+		@ResponseBody
+		public void managerQuestionModify(@ModelAttribute QuestionDTO questionDTO,
+								  @RequestParam Map<String, MultipartFile> imgMap,
+								  @RequestParam Map<String, String> checkMap,
+								 Model model) {
+			String filePath;
+			String fileName;
+			File file;	
+			
+			System.out.println(questionDTO);
+			if(checkMap.get("checkbox1") != null) {
+				questionDTO.setQuestion_image1("");
+			}
+			else {
+				if(imgMap.get("img1").getOriginalFilename() != "") {
+					
+						filePath = "C:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
+						fileName = imgMap.get("img1").getOriginalFilename();
+						file = new File(filePath,fileName);
+						
+						try {
+							FileCopyUtils.copy(imgMap.get("img1").getInputStream(), new FileOutputStream(file));
+						}catch (IOException e) {
+							//e.printStackTrace();
+						}
+						questionDTO.setQuestion_image1(fileName);
+				}
+			}
+			
+			if(checkMap.get("checkbox2") != null) {
+				questionDTO.setQuestion_image2("");
+			}
+			else {
+				if(imgMap.get("img2").getOriginalFilename() != "") {
+					
+						filePath = "C:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
+						fileName = imgMap.get("img2").getOriginalFilename();
+						file = new File(filePath,fileName);
+						
+						try {
+							FileCopyUtils.copy(imgMap.get("img2").getInputStream(), new FileOutputStream(file));
+						}catch (IOException e) {
+							//e.printStackTrace();
+						}
+						questionDTO.setQuestion_image2(fileName);
+				}
+			}
+			
+			if(checkMap.get("checkbox3") != null) {
+				questionDTO.setQuestion_image3("");
+			}
+			else {
+				if(imgMap.get("img3").getOriginalFilename() != "") {
+				
+						filePath = "C:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
+						fileName = imgMap.get("img3").getOriginalFilename();
+						file = new File(filePath,fileName);
+						
+						try {
+							FileCopyUtils.copy(imgMap.get("img3").getInputStream(), new FileOutputStream(file));
+						}catch (IOException e) {
+							//e.printStackTrace();
+						}
+						questionDTO.setQuestion_image3(fileName);
+				}
+			}
+
+//			DB
+			managerQuestionService.managerQuestionModify(questionDTO);
+		}
 	
 }

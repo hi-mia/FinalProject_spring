@@ -15,6 +15,6 @@ public class QuestionDTO {
 	private String question_image1;
 	private String question_image2;
 	private String question_image3;
-//	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd")
-//	private Date logtime;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd")
+	private Date logtime;
 }

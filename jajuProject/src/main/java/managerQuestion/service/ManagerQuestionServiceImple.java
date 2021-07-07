@@ -60,4 +60,10 @@ public class ManagerQuestionServiceImple implements ManagerQuestionService {
 		return managerQuestionDAO.getManagerQuestionModify(seq);
 	}
 
+	@Override
+	public void managerQuestionModify(QuestionDTO questionDTO) {
+		managerQuestionDAO.managerQuestionModify(questionDTO);
+		
+	}
+
 }

@@ -18,4 +18,6 @@ public interface ManagerQuestionDAO {
 
 	public QuestionDTO getManagerQuestionModify(String seq);
 
+	public void managerQuestionModify(QuestionDTO questionDTO);
+
 }
