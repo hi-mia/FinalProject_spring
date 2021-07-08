@@ -17,7 +17,6 @@ $(function(){
 			
 				$('.View1').hide();
 				$('.View2').hide();
-				$('.View3').hide();
 				
 			}else if(data.reportDTO != null){
 			
@@ -61,15 +60,8 @@ $(function(){
 });
 
 function mode(num, seq){
-	if(num==1){ //글삭제
-		if(confirm("정말로 삭제하시겠습니까?")){
-		document.managerReportView.method='post';
-		document.managerReportView.action="/jaju/manager/reportDelete";
-		document.managerReportView.submit();
-		}
 	
-		
-	}else if(num==3){ //댓글수정 -> 수정할 글 불러오기
+	if(num==1){ //댓글수정 -> 수정할 글 불러오기
 		//alert(seq);
 		$('.replyList').hide();
 		$('.reply').hide();
@@ -95,7 +87,7 @@ function mode(num, seq){
 			});
 		});
 		
-	}else if(num==4){ //댓글삭제
+	}else if(num==2){ //댓글삭제
 		
 		if(confirm("정말로 삭제하시겠습니까?")){
 			$.ajax({
@@ -183,7 +175,7 @@ $(document).ready(function(){
 							align: 'right',
 							}).append($('<a/>',{
 								href: 'javascript:void(0)',
-								onclick: 'mode(3,'+items.comment_seq+')',
+								onclick: 'mode(1,'+items.comment_seq+')',
 								
 								}).append($('<span/>',{
 									style:'float: none;',
@@ -192,7 +184,7 @@ $(document).ready(function(){
 							}))
 							).append($('<a/>',{
 								href: 'javascript:void(0)',
-								onclick: 'mode(4,'+items.comment_seq+')',
+								onclick: 'mode(2,'+items.comment_seq+')',
 								
 								}).append($('<span/>',{
 									style:'float: none;',

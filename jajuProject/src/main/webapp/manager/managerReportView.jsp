@@ -102,26 +102,7 @@
 		</table>
 		<br>
 		
-		<table class="View2" width="100%" style="table-layout:fixed" cellpadding="0" cellspacing="0">
-		<tbody>
-		<tr>
-		<td align="center" style="padding-top:10px;">
 		
-		<table class="View3" width="100%">
-			<tbody>
-				<tr>
-					<td align="right">
-						<a href="javascript:void(0)" onclick="mode(1)">
-							<span class="reportBtn delete" style="float:none;">삭제</span>
-						</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		</td>
-		</tr>
-		</tbody>
-		</table>
 		
 		<div class="replyRealTotal">
 		<div class="replyTotal">

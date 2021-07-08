@@ -51,12 +51,9 @@ public class ManagerReportMybatisDAO implements ManagerReportDAO {
 	}
 	
 	@Override
-	public void reportDelete(String report_seq) {
-		sqlSession.delete("memberreportSQL.reportDelete", Integer.parseInt(report_seq));
-	}
-
-	@Override
 	public void managerReportDelete(Map<String, String[]> map) {
+		//sqlSession.update("managerReportSQL.managerReportDelete2", Integer.parseInt(sale_seq));
+	
 		sqlSession.delete("managerReportSQL.managerReportDelete", map);
 		
 	}

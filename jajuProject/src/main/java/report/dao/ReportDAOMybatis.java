@@ -31,10 +31,10 @@ public class ReportDAOMybatis implements ReportDAO {
 		//System.out.println(reportDTO);
 	}
 
-	@Override
-	public int getTotalA() {
-		return sqlSession.selectOne("memberreportSQL.getTotalA");
-	}
+//	@Override
+//	public int getTotalA() {
+//		return sqlSession.selectOne("memberreportSQL.getTotalA");
+//	}
 	
 	@Override
 	public int getIdTotalA(String report_id) {

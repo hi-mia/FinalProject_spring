@@ -22,8 +22,6 @@ public interface ManagerReportService {
 	
 	public ReportPaging reportPaging(Map<String, String> map);
 
-	public void reportDelete(String report_seq);
-
 	public void managerReportDelete(String[] check);
 	
 	public void commentWriteShow(Map<String, String> map);

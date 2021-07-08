@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -107,6 +108,7 @@
 		<tr>
 		<td align="center" style="padding-top:10px;">
 		
+		<c:if test="${memId != 'jajuadmin'}">
 		<table class="View3" width="100%">
 			<tbody>
 				<tr>
@@ -121,6 +123,7 @@
 				</tr>
 			</tbody>
 		</table>
+		</c:if>
 		</td>
 		</tr>
 		</tbody>

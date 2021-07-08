@@ -15,7 +15,7 @@ public interface ReportDAO {
 
 	public List<ReportDTO> getReportList(Map<String, String> map);
 
-	public int getTotalA(); //총 글수
+	//public int getTotalA(); //총 글수
 	
 	public int getIdTotalA(String report_id); //ID 값의 총 글수
 

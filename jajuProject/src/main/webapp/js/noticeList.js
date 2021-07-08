@@ -76,7 +76,7 @@ $('#searchBtn').click(function(){
 				   //alert(JSON.stringify(data));
 				   if(data.list.length == 0){
 					   alert('검색어가 없습니다');
-					   
+					   location.href = '/jaju/serviceCenter/noticeList';
 				   }else{
 					   $.each(data.list, function(index, items){
 							$('<tr/>').append($('<td/>',{

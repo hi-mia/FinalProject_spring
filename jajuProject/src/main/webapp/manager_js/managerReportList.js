@@ -10,7 +10,7 @@ $(function(){
 		dataType:'json',
 		success:function(data){
 			//alert(JSON.stringify(data));
-			console.log(JSON.stringify(data));
+			//console.log(JSON.stringify(data));
 			
 			if(data.list.length != 0){
 				$('.no_data').hide();
