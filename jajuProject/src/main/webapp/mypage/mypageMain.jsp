@@ -131,10 +131,12 @@
 					<li id="type4" style="text-align: left;">
 						<a href="/jaju/serviceCenter/reportList" class="inquireList" onclick="">1:1 문의 내역</a>
 					</li>
-					<li id="type3" style="text-align: left;">
-						<a href="/jaju/member/modifyForm" class="modify">회원 정보 수정</a>
-					</li>
-					<li><a href="/jaju/member/retireForm" class="retire">회원 탈퇴</a></li>
+					<c:if test="${sessionScope.kakao != 'kakao' }">
+						<li id="type3" style="text-align: left;">
+							<a href="/jaju/member/modifyForm" class="modify">회원 정보 수정</a>
+						</li>
+						<li><a href="/jaju/member/retireForm" class="retire">회원 탈퇴</a></li>
+					</c:if>
 				</ul>
 			</div>
 			<a href="/jaju/serviceCenter/reportWriteForm" class="link_inquire" style="margin-bottom: 50px;">

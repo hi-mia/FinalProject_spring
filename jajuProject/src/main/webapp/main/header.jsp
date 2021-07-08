@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -119,7 +120,10 @@
 					<a	href="/jaju/saleboard/saleboardListFavorite?pg=1&sortinSelect=sale_date">MyFavorite</a></li>
 				<li class="cheap-product-category  header_a_li">
 					<a href="/jaju/freeboard/freeboardList?pg=1"	class="button">자유게시판</a></li>
-
+				<c:if test="${memId != null }">
+					<li class="cheap-product-category  header_a_li">
+						<a href="/jaju/reviewboard/reviewboardList?pg=1"	class="button">후기게시판</a></li>
+				</c:if>
 			</ul>
 			<%--mainnav --%>
 

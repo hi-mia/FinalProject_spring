@@ -47,7 +47,7 @@
 			<div class="search" align="right" style="margin-bottom:50px;">
 			
 				<select name="searchOption" id="searchOption" width="100px" align="absmiddle">
-					<option value="review_subject">&nbsp;&nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;</option>
+					<option value="member_id">&nbsp;&nbsp;&nbsp;&nbsp;아이디&nbsp;&nbsp;&nbsp;&nbsp;</option>
 					<option value="review_content">&nbsp;&nbsp;&nbsp;&nbsp;내용&nbsp;&nbsp;&nbsp;&nbsp;</option>
 				</select>	
 				<input type="text" name="keyword" id="keyword" required="" align="absmiddle">
