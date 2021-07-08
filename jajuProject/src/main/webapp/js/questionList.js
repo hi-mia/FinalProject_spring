@@ -186,13 +186,14 @@ $('#searchBtn').click(function(){
 function questionPaging(pg){
 	var keyword = document.getElementById('keyword').value;
 	
-	if(keyword==''){//keyword가 없을 때
+	if($('#searchHidden').val() ==''){//keyword가 없을 때
 	
 		location.href = "/jaju/serviceCenter/questionList?pg="+pg;
 	}else{
 		
 		$('input[name=pg]').val(pg);
 		
+		$('#keyword').val($('#searchHidden').val())
 		$('#searchBtn').get(0).click();
 		
 		$('input[name=pg]').val(1);

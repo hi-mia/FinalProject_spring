@@ -6,9 +6,9 @@
 <form name="frmList">
 	<div style="width: 1080px; margin: auto;">
 		<jsp:include page="/serviceCenter/serviceMenu.jsp" />
-		<input type="hidden" id="question_seq" name="question_seq"
-			value="${question_seq}"> <input type="hidden" id="pg"
-			name="pg" value="${pg}">
+		<input type="hidden" id="question_seq" name="question_seq" value="${question_seq}"> 
+		<input type="hidden" id="pg" name="pg" value="${pg}">
+		<input type="hidden" id="searchHidden" name="searchHidden">
 		<div class="page_section">
 			<div id="questionTotal" style="margin-bottom: 50px;">
 				<div class="head_aticle">
