@@ -21,33 +21,62 @@ $(function(){
 					}
 					
 					$.each(data.list, function(index,items){
-	
-						$('<li/>').append($('<div/>',{
-							class: 'item',
-							id: items.sale_seq
-						}).append($('<div/>',{
-							class: 'thumb'
-						}).append($('<a/>',{
-							class: 'img'
-						}).append($('<img/>',{
-							src:"/jaju/storage/" + items.sale_image1,
-							width:"308",
-							height:"396"
-						})))).append($('<a/>',{
-							class: 'info'
-							
-						}).append($('<span/>',{
-							class: 'name',
-							text: items.sale_subject
-							
-						})).append($('<span/>',{
-							class: 'cost'
-						}).append($('<span/>',{
-							class:"price",
-							text: items.sale_price.toLocaleString()+'원'
-						})))
-						)).appendTo($('.inner_listgoods  .list'));
 						
+						if(items.sale_state=='판매완료'){
+							$('<li/>').append($('<div/>',{
+								class: 'item',
+								id: items.sale_seq
+							}).append($('<div/>',{
+								class: 'thumb'
+							}).append($('<a/>',{
+								class: 'img'
+							}).append($('<img/>',{
+								src:"/jaju/storage/" + items.sale_image1,
+								width:"308",
+								height:"396",
+								style:"opacity: 0.5;"
+							})))).append($('<a/>',{
+								class: 'info'
+								
+							}).append($('<span/>',{
+								class: 'name',
+								text: "["+items.sale_state+"] "+items.sale_subject
+								
+							})).append($('<span/>',{
+								class: 'cost'
+							}).append($('<span/>',{
+								class:"price",
+								text: items.sale_price.toLocaleString()+'원'
+							})))
+							)).appendTo($('.inner_listgoods  .list'));
+						}else{
+							$('<li/>').append($('<div/>',{
+								class: 'item',
+								id: items.sale_seq
+							}).append($('<div/>',{
+								class: 'thumb'
+							}).append($('<a/>',{
+								class: 'img'
+							}).append($('<img/>',{
+								src:"/jaju/storage/" + items.sale_image1,
+								width:"308",
+								height:"396",
+							})))).append($('<a/>',{
+								class: 'info'
+								
+							}).append($('<span/>',{
+								class: 'name',
+								text: "["+items.sale_state+"] "+items.sale_subject
+								
+							})).append($('<span/>',{
+								class: 'cost'
+							}).append($('<span/>',{
+								class:"price",
+								text: items.sale_price.toLocaleString()+'원'
+							})))
+							)).appendTo($('.inner_listgoods  .list'));
+						}
+
 					}); //each
 					$(document).on('click', '.item', function(){
 						if($('#memId').val() == ''){
@@ -128,31 +157,61 @@ $(function(){
 										$.each(data.list, function(index,items){
 											//alert(items.member_sigungu);
 											
-												$('<li/>').append($('<div/>',{
-													class: 'item',
-													id: items.sale_seq
-												}).append($('<div/>',{
-													class: 'thumb'
-												}).append($('<a/>',{
-													class: 'img'
-												}).append($('<img/>',{
-													src:"/jaju/storage/" + items.sale_image1,
-													width:"308",
-													height:"396"
-												})))).append($('<a/>',{
-													class: 'info'
-													
-												}).append($('<span/>',{
-													class: 'name',
-													text: items.sale_subject
-													
-												})).append($('<span/>',{
-													class: 'cost'
-												}).append($('<span/>',{
-													class:"price",
-													text: items.sale_price.toLocaleString()+'원'
-												})))
-												)).appendTo($('.inner_listgoods  .list'));
+												if(items.sale_state=='판매완료'){
+													$('<li/>').append($('<div/>',{
+														class: 'item',
+														id: items.sale_seq
+													}).append($('<div/>',{
+														class: 'thumb'
+													}).append($('<a/>',{
+														class: 'img'
+													}).append($('<img/>',{
+														src:"/jaju/storage/" + items.sale_image1,
+														width:"308",
+														height:"396",
+														style:"opacity: 0.5;"
+													})))).append($('<a/>',{
+														class: 'info'
+														
+													}).append($('<span/>',{
+														class: 'name',
+														text: "["+items.sale_state+"] "+items.sale_subject
+														
+													})).append($('<span/>',{
+														class: 'cost'
+													}).append($('<span/>',{
+														class:"price",
+														text: items.sale_price.toLocaleString()+'원'
+													})))
+													)).appendTo($('.inner_listgoods  .list'));
+												}else{
+													$('<li/>').append($('<div/>',{
+														class: 'item',
+														id: items.sale_seq
+													}).append($('<div/>',{
+														class: 'thumb'
+													}).append($('<a/>',{
+														class: 'img'
+													}).append($('<img/>',{
+														src:"/jaju/storage/" + items.sale_image1,
+														width:"308",
+														height:"396"
+													})))).append($('<a/>',{
+														class: 'info'
+														
+													}).append($('<span/>',{
+														class: 'name',
+														text: "["+items.sale_state+"] "+items.sale_subject
+														
+													})).append($('<span/>',{
+														class: 'cost'
+													}).append($('<span/>',{
+														class:"price",
+														text: items.sale_price.toLocaleString()+'원'
+													})))
+													)).appendTo($('.inner_listgoods  .list'));
+												}
+	
 												
 											}); //each
 											$(document).on('click', '.item', function(){					
@@ -216,32 +275,60 @@ $('#searchBtn').click(function(event,str){
 						$('#noneDiv').css('display', 'block')
 					}
 					$.each(data.list, function(index,items){
-						
-						$('<li/>').append($('<div/>',{
-							class: 'item',
-							id: items.sale_seq
-						}).append($('<div/>',{
-							class: 'thumb'
-						}).append($('<a/>',{
-							class: 'img'
-						}).append($('<img/>',{
-							src:"/jaju/storage/" + items.sale_image1,
-							width:"308",
-							height:"396"
-						})))).append($('<a/>',{
-							class: 'info'
-							
-						}).append($('<span/>',{
-							class: 'name',
-							text: items.sale_subject
-							
-						})).append($('<span/>',{
-							class: 'cost'
-						}).append($('<span/>',{
-							class:"price",
-							text: items.sale_price.toLocaleString()+'원'
-						})))
-						)).appendTo($('.inner_listgoods  .list'));
+						if(items.sale_state=='판매완료'){
+							$('<li/>').append($('<div/>',{
+								class: 'item',
+								id: items.sale_seq
+							}).append($('<div/>',{
+								class: 'thumb'
+							}).append($('<a/>',{
+								class: 'img'
+							}).append($('<img/>',{
+								src:"/jaju/storage/" + items.sale_image1,
+								width:"308",
+								height:"396",
+								style:"opacity: 0.5;"
+							})))).append($('<a/>',{
+								class: 'info'
+								
+							}).append($('<span/>',{
+								class: 'name',
+								text: "["+items.sale_state+"] "+items.sale_subject
+								
+							})).append($('<span/>',{
+								class: 'cost'
+							}).append($('<span/>',{
+								class:"price",
+								text: items.sale_price.toLocaleString()+'원'
+							})))
+							)).appendTo($('.inner_listgoods  .list'));
+						}else{
+							$('<li/>').append($('<div/>',{
+								class: 'item',
+								id: items.sale_seq
+							}).append($('<div/>',{
+								class: 'thumb'
+							}).append($('<a/>',{
+								class: 'img'
+							}).append($('<img/>',{
+								src:"/jaju/storage/" + items.sale_image1,
+								width:"308",
+								height:"396"
+							})))).append($('<a/>',{
+								class: 'info'
+								
+							}).append($('<span/>',{
+								class: 'name',
+								text: "["+items.sale_state+"] "+items.sale_subject
+								
+							})).append($('<span/>',{
+								class: 'cost'
+							}).append($('<span/>',{
+								class:"price",
+								text: items.sale_price.toLocaleString()+'원'
+							})))
+							)).appendTo($('.inner_listgoods  .list'));
+						}
 						
 					}); //each
 					$(document).on('click', '.item', function(){
@@ -323,32 +410,60 @@ $('#searchBtn').click(function(event,str){
 												$('#noneDiv').css('display', 'block')
 											}
 											$.each(data.list, function(index,items){
-												
-												$('<li/>').append($('<div/>',{
-													class: 'item',
-													id: items.sale_seq
-												}).append($('<div/>',{
-													class: 'thumb'
-												}).append($('<a/>',{
-													class: 'img'
-												}).append($('<img/>',{
-													src:"/jaju/storage/" + items.sale_image1,
-													width:"308",
-													height:"396"
-												})))).append($('<a/>',{
-													class: 'info'
-													
-												}).append($('<span/>',{
-													class: 'name',
-													text: items.sale_subject
-													
-												})).append($('<span/>',{
-													class: 'cost'
-												}).append($('<span/>',{
-													class:"price",
-													text: items.sale_price.toLocaleString()+'원'
-												})))
-												)).appendTo($('.inner_listgoods  .list'));
+												if(items.sale_state=='판매완료'){
+													$('<li/>').append($('<div/>',{
+														class: 'item',
+														id: items.sale_seq
+													}).append($('<div/>',{
+														class: 'thumb'
+													}).append($('<a/>',{
+														class: 'img'
+													}).append($('<img/>',{
+														src:"/jaju/storage/" + items.sale_image1,
+														width:"308",
+														height:"396",
+														style:"opacity: 0.5;"
+													})))).append($('<a/>',{
+														class: 'info'
+														
+													}).append($('<span/>',{
+														class: 'name',
+														text: "["+items.sale_state+"] "+items.sale_subject
+														
+													})).append($('<span/>',{
+														class: 'cost'
+													}).append($('<span/>',{
+														class:"price",
+														text: items.sale_price.toLocaleString()+'원'
+													})))
+													)).appendTo($('.inner_listgoods  .list'));
+												}else{
+													$('<li/>').append($('<div/>',{
+														class: 'item',
+														id: items.sale_seq
+													}).append($('<div/>',{
+														class: 'thumb'
+													}).append($('<a/>',{
+														class: 'img'
+													}).append($('<img/>',{
+														src:"/jaju/storage/" + items.sale_image1,
+														width:"308",
+														height:"396"
+													})))).append($('<a/>',{
+														class: 'info'
+														
+													}).append($('<span/>',{
+														class: 'name',
+														text: "["+items.sale_state+"] "+items.sale_subject
+														
+													})).append($('<span/>',{
+														class: 'cost'
+													}).append($('<span/>',{
+														class:"price",
+														text: items.sale_price.toLocaleString()+'원'
+													})))
+													)).appendTo($('.inner_listgoods  .list'));
+												}
 												
 											}); //each
 											$(document).on('click', '.item', function(){
@@ -413,33 +528,60 @@ $('#sortinSelect').change(function(){
 						$('#noneDiv').css('display', 'block')
 					}
 					$.each(data.list, function(index,items){
-						
-						$('<li/>').append($('<div/>',{
-							class: 'item',
-							id: items.sale_seq
-						}).append($('<div/>',{
-							class: 'thumb'
-						}).append($('<a/>',{
-							class: 'img'
-						}).append($('<img/>',{
-							src:"/jaju/storage/" + items.sale_image1,
-							width:"308",
-							height:"396"
-						})))).append($('<a/>',{
-							class: 'info'
-							
-						}).append($('<span/>',{
-							class: 'name',
-							text: items.sale_subject
-							
-						})).append($('<span/>',{
-							class: 'cost'
-						}).append($('<span/>',{
-							class:"price",
-							text: items.sale_price.toLocaleString()+'원'
-						})))
-						)).appendTo($('.inner_listgoods  .list'));
-						
+						if(items.sale_state=='판매완료'){
+							$('<li/>').append($('<div/>',{
+								class: 'item',
+								id: items.sale_seq
+							}).append($('<div/>',{
+								class: 'thumb'
+							}).append($('<a/>',{
+								class: 'img'
+							}).append($('<img/>',{
+								src:"/jaju/storage/" + items.sale_image1,
+								width:"308",
+								height:"396",
+								style:"opacity: 0.5;"
+							})))).append($('<a/>',{
+								class: 'info'
+								
+							}).append($('<span/>',{
+								class: 'name',
+								text: "["+items.sale_state+"] "+items.sale_subject
+								
+							})).append($('<span/>',{
+								class: 'cost'
+							}).append($('<span/>',{
+								class:"price",
+								text: items.sale_price.toLocaleString()+'원'
+							})))
+							)).appendTo($('.inner_listgoods  .list'));
+						}else{
+							$('<li/>').append($('<div/>',{
+								class: 'item',
+								id: items.sale_seq
+							}).append($('<div/>',{
+								class: 'thumb'
+							}).append($('<a/>',{
+								class: 'img'
+							}).append($('<img/>',{
+								src:"/jaju/storage/" + items.sale_image1,
+								width:"308",
+								height:"396"
+							})))).append($('<a/>',{
+								class: 'info'
+								
+							}).append($('<span/>',{
+								class: 'name',
+								text: "["+items.sale_state+"] "+items.sale_subject
+								
+							})).append($('<span/>',{
+								class: 'cost'
+							}).append($('<span/>',{
+								class:"price",
+								text: items.sale_price.toLocaleString()+'원'
+							})))
+							)).appendTo($('.inner_listgoods  .list'));
+						}
 					}); //each
 					$(document).on('click', '.item', function(){
 						if($('#memId').val() == ''){
@@ -518,33 +660,61 @@ $('#sortinSelect').change(function(){
 											}
 										$.each(data.list, function(index,items){
 											//alert(items.member_sigungu);
-											
-												$('<li/>').append($('<div/>',{
-													class: 'item',
-													id: items.sale_seq
-												}).append($('<div/>',{
-													class: 'thumb'
-												}).append($('<a/>',{
-													class: 'img'
-												}).append($('<img/>',{
-													src:"/jaju/storage/" + items.sale_image1,
-													width:"308",
-													height:"396"
-												})))).append($('<a/>',{
-													class: 'info'
+												if(items.sale_state=='판매완료'){
+													$('<li/>').append($('<div/>',{
+														class: 'item',
+														id: items.sale_seq
+													}).append($('<div/>',{
+														class: 'thumb'
+													}).append($('<a/>',{
+														class: 'img'
+													}).append($('<img/>',{
+														src:"/jaju/storage/" + items.sale_image1,
+														width:"308",
+														height:"396",
+														style:"opacity: 0.5;"
+													})))).append($('<a/>',{
+														class: 'info'
+														
+													}).append($('<span/>',{
+														class: 'name',
+														text: "["+items.sale_state+"] "+items.sale_subject
+														
+													})).append($('<span/>',{
+														class: 'cost'
+													}).append($('<span/>',{
+														class:"price",
+														text: items.sale_price.toLocaleString()+'원'
+													})))
+													)).appendTo($('.inner_listgoods  .list'));
+												}else{
+													$('<li/>').append($('<div/>',{
+														class: 'item',
+														id: items.sale_seq
+													}).append($('<div/>',{
+														class: 'thumb'
+													}).append($('<a/>',{
+														class: 'img'
+													}).append($('<img/>',{
+														src:"/jaju/storage/" + items.sale_image1,
+														width:"308",
+														height:"396"
+													})))).append($('<a/>',{
+														class: 'info'
+														
+													}).append($('<span/>',{
+														class: 'name',
+														text: "["+items.sale_state+"] "+items.sale_subject
+														
+													})).append($('<span/>',{
+														class: 'cost'
+													}).append($('<span/>',{
+														class:"price",
+														text: items.sale_price.toLocaleString()+'원'
+													})))
+													)).appendTo($('.inner_listgoods  .list'));
+												}
 													
-												}).append($('<span/>',{
-													class: 'name',
-													text: items.sale_subject
-													
-												})).append($('<span/>',{
-													class: 'cost'
-												}).append($('<span/>',{
-													class:"price",
-													text: items.sale_price.toLocaleString()+'원'
-												})))
-												)).appendTo($('.inner_listgoods  .list'));
-												
 											}); //each
 											$(document).on('click', '.item', function(){					
 												var seq = $(this).attr('id');

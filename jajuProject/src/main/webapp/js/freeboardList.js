@@ -50,11 +50,13 @@ $(function(){
 			}); //each
 			  
 			  $(document).on('click', '#item', function(){ //a태그에 아이디 준거 subjectA 그거의 부모 찾고 그 부모의 앞에거를 찾고
-
+				  if($('#board_id').val() == ''){
+						alert("먼저 로그인 하세요");
+					}else {
 		               var seq = $(this).parent().prev().text();
 		               location.href = '/jaju/freeboard/freeboardView?board_seq='+seq+'&pg=1';
 		               //location.href = '/jaju/freeboard/freeboardView?board_seq='+seq+'&pg='+$('#pg').val();
-
+					}
 		         });
 
 			  //페이징 처리

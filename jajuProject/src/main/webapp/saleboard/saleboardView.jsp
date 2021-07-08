@@ -207,7 +207,7 @@ function saleboardCommentPaging(pg){
 			
 			$('#commentTable tr:gt(0)').remove();
 			
-$('#commentTable tr:gt(0)').remove();
+			$('#commentTable tr:gt(0)').remove();
 			
 			$.each(data.list, function(index,items){
 				

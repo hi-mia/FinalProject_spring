@@ -256,120 +256,120 @@ p {
 
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img id="img0" src="">
+						<img id="s_img0" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject" id="subject0"></div>
+						<div class="item_subject" id="s_subject0"></div>
 						<div class="item_price_div">
-							<div class="item_price" id="price0"></div>
+							<div class="item_price" id="s_price0"></div>
 						</div>
 					</div>
 				</div>
 
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img id="img1" src="">
+						<img id="s_img1" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject" id="subject1"></div>
+						<div class="item_subject" id="s_subject1"></div>
 						<div class="item_price_div">
-							<div class="item_price" id="price1"></div>
+							<div class="item_price" id="s_price1"></div>
 						</div>
 					</div>
 				</div>
 
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img id="img2" src="">
+						<img id="s_img2" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject" id="subject2"></div>
+						<div class="item_subject" id="s_subject2"></div>
 						<div class="item_price_div">
-							<div class="item_price" id="price2"></div>
+							<div class="item_price" id="s_price2"></div>
 						</div>
 					</div>
 				</div>
 				
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img id="img3" src="">
+						<img id="s_img3" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject" id="subject3"></div>
+						<div class="item_subject" id="s_subject3"></div>
 						<div class="item_price_div">
-							<div class="item_price" id="price3"></div>
+							<div class="item_price" id="s_price3"></div>
 						</div>
 					</div>
 				</div>
 						
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img id="img4" src="">
+						<img id="s_img4" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject" id="subject4"></div>
+						<div class="item_subject" id="s_subject4"></div>
 						<div class="item_price_div">
-							<div class="item_price" id="price4"></div>
+							<div class="item_price" id="s_price4"></div>
 						</div>
 					</div>
 				</div>
 							
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img id="img5" src="">
+						<img id="s_img5" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject" id="subject5"></div>
+						<div class="item_subject" id="s_subject5"></div>
 						<div class="item_price_div">
-							<div class="item_price" id="price5"></div>
+							<div class="item_price" id="s_price5"></div>
 						</div>
 					</div>
 				</div>	
 						
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img id="img6" src="">
+						<img id="s_img6" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject" id="subject6"></div>
+						<div class="item_subject" id="s_subject6"></div>
 						<div class="item_price_div">
-							<div class="item_price" id="price6">가격</div>
+							<div class="item_price" id="s_price6">가격</div>
 						</div>
 					</div>
 				</div>
 						
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img id="img7" src="">
+						<img id="s_img7" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject" id="subject7"></div>
+						<div class="item_subject" id="s_subject7"></div>
 						<div class="item_price_div">
-							<div class="item_price" id="price7"></div>
+							<div class="item_price" id="s_price7"></div>
 						</div>
 					</div>
 				</div>
 						
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img id="img8" src="">
+						<img id="s_img8" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject" id="subject8"></div>
+						<div class="item_subject" id="s_subject8"></div>
 						<div class="item_price_div">
-							<div class="item_price" id="price8"></div>
+							<div class="item_price" id="s_price8"></div>
 						</div>
 					</div>
 				</div>
 						
 				<div class="item-wrap">
 					<div class="item_image_div">
-						<img id="img9" src="">
+						<img id="s_img9" src="">
 					</div>
 					<div class="item_detail">
-						<div class="item_subject" id="subject9"></div>
+						<div class="item_subject" id="s_subject9"></div>
 						<div class="item_price_div">
-							<div class="item_price" id="price9"></div>
+							<div class="item_price" id="s_price9"></div>
 						</div>
 					</div>
 				</div>
@@ -420,7 +420,7 @@ p {
 					.slick(
 							{
 								slide : 'div', //슬라이드 되어야 할 태그 ex) div, li 
-								infinite : true, //무한 반복 옵션     
+								infinite : false, //무한 반복 옵션     
 								slidesToShow : 5, // 한 화면에 보여질 컨텐츠 개수
 								slidesToScroll : 1, //스크롤 한번에 움직일 컨텐츠 개수
 								speed : 500, // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
@@ -434,7 +434,7 @@ p {
 								nextArrow : "<button type='button' class='slick-next'>Next</button>", // 다음 화살표 모양 설정
 								dotsClass : "slick-dots", //아래 나오는 페이지네이션(점) css class 지정
 								draggable : true, //드래그 가능 여부 
-
+								
 								responsive : [ // 반응형 웹 구현 옵션
 								{
 									breakpoint : 960, //화면 사이즈 960px
@@ -450,7 +450,8 @@ p {
 									}
 								} ]
 							});
-		})
+			
+		});
 	</script>
 
 

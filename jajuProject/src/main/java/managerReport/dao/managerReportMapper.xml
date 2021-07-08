@@ -76,7 +76,7 @@
 	 	
 	 	update jajumember set member_warning=member_warning+1 where member_id=#{sale_id};
 
-		update memberreport set report_subject='삭제 처리가 완료된 글입니다' where report_seq=#{report_seq};
+		update memberreport set report_subject='삭제 처리가 완료된 글입니다' where sale_seq=#{sale_seq};
 
 		delete sale_board where sale_seq=${sale_seq};
           

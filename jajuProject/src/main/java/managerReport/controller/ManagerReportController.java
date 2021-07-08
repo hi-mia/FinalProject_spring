@@ -130,7 +130,7 @@ public class ManagerReportController {
 	@RequestMapping(value="/commentWriteHide", method=RequestMethod.POST)
 	@ResponseBody
 	public void commentWriteHide(@RequestParam Map<String, String> map) {
-		System.out.println(map);
+		//System.out.println(map);
 		managerReportService.commentWriteHide(map);
 	}
 	

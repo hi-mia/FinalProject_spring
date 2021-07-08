@@ -18,25 +18,56 @@
 	<div>
 		<jsp:include page="/main/top_slider.jsp" />
 	</div>
-	
+
 	<div>
 		<jsp:include page="/main/slider01.jsp" />
 	</div>
 
-	<div>
+	<%-- <div>
 		<jsp:include page="/main/slider02.jsp" />
 	</div>
 
 	<div>
 		<jsp:include page="/main/slider03.jsp" />
-	</div>
-	
+	</div> --%>
+
 	<div>
 		<jsp:include page="/main/md_recommend.jsp" />
 	</div>
 
-	
-	
+	<div id="total" style="margin-top: 100px;">
+		<div id="formTotal"
+			style="width: 1050px; max-width: 1050px; padding: 0 0 20px; margin: 0 auto; text-align: center;">
+			<div class="head_aticle" padding-left="10px">
+				<h2 class="tit" style="font-weight: 700; font-size: 28px; line-height: 32px; letter-spacing: -0.3px; text-align: center;">자유게시판</h2>
+			</div>
+			<br>
+			<div id="totalDiv">
+				<table style="width: 100%; border-top: 2px solid #47597e; font-size: 18px;" class="xans-board-listheader jh" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>
+							<th width="8%" style="text-align: center;">번호</th>
+							<th style="text-align: center;">제목</th>
+							<th width="12%" style="text-align: center;">작성자</th>
+							<th width="12%" style="text-align: center;">작성일</th>
+							<th width="8%" style="text-align: center;">조회수</th>
+						</tr>
+					</thead>
+					<tbody id="boardTable">
+					
+					</tbody>
+				</table>
+			</div>
+			
+			<div class="link_cate" style="width: 516px; margin: 0 auto; margin-top: 50px;">
+				<a id="b_linkBtn" class="link" style="display: block; overflow: hidden; height: 56px; padding-top: 16px;
+						border: 1px solid #e3e3e3; border-radius: 3px; font-size: 16px; line-height: 20px; text-align: center;
+						letter-spacing: -0.3px; cursor: pointer;"><span class="ico">자유게시판 더보기</span></a>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript" src="/jaju/js/body.js"></script>
+
 	<div class="section-container_info">
 		<div class="container">
 			<div class="row">
@@ -50,8 +81,8 @@
 			</div>
 		</div>
 	</div>
-	
-	
+
+
 	<div class="section-container">
 		<div class="container">
 			<div class="row">
@@ -71,18 +102,18 @@
 								<h3>자주마켓은</h3>
 								<a class="left carousel-control"
 									href="#carousel-example-generic" role="button"
-									data-slide="prev"> <!--<i class="fa fa-chevron-left" aria-hidden="true"></i> --> 
+									data-slide="prev"> <!--<i class="fa fa-chevron-left" aria-hidden="true"></i> -->
 									<span class="sr-only">Previous</span>
 								</a> <a class="right carousel-control"
 									href="#carousel-example-generic" role="button"
-									data-slide="next"> <!--<i class="fa fa-chevron-right" aria-hidden="true"></i> --> 
+									data-slide="next"> <!--<i class="fa fa-chevron-right" aria-hidden="true"></i> -->
 									<span class="sr-only">Next</span>
 								</a>
 								<p>지역 내에서 발생하는 모든 생활정보(중고거래, 지역업체, 질문답변, 부동산, 구인구직 등)들이 모이고,
 									그 정보들이 따뜻한 문화 안에서 교류되는 세상을 꿈꾸고 있어요. 자주마켓은 중고거래에서 시작하지만 지역커뮤니티 및
 									정보 서비스를 지향합니다.</p>
 								<p>자주마켓은 동네 이웃 간의 연결을 도와 따뜻하고 활발한 교류가 있는 지역 사회를 꿈꾸고 있어요.</p>
-								<a href="/jaju/main/fullpage.jsp" class="btn btn-primary" title="">자주마켓 소개 </a>
+								<!-- <a href="/jaju/main/fullpage.jsp" class="btn btn-primary" title="">자주마켓 소개 </a> -->
 							</div>
 							<!-- card-shadow reveal  -->
 						</div>
@@ -95,19 +126,18 @@
 								<h3>중고거래 전 반드시 숙지!</h3>
 								<a class="left carousel-control"
 									href="#carousel-example-generic" role="button"
-									data-slide="prev">
-									 <!--( < )    <i class="fa fa-chevron-left" aria-hidden="true"></i> --> 
-									 <span class="sr-only">Previous</span>
+									data-slide="prev"> <!--( < )    <i class="fa fa-chevron-left" aria-hidden="true"></i> -->
+									<span class="sr-only">Previous</span>
 								</a> <a class="right carousel-control"
 									href="#carousel-example-generic" role="button"
-									data-slide="next"> <!-- ( > )  <i class="fa fa-chevron-right" aria-hidden="true"></i> --> 
+									data-slide="next"> <!-- ( > )  <i class="fa fa-chevron-right" aria-hidden="true"></i> -->
 									<span class="sr-only">Next</span>
 								</a>
 								<p>매너온도는 판매자의 신용도에요. 매너온도가 낮다면 주의해주세요! 직거래가 아닌 택배이용을 한다면
 									판매자의 후기를 먼저 읽고 거래해주세요.</p>
 
-								<a href="./project.html" class="btn btn-primary" title=""> 더
-									많은 꿀팁 </a>
+								<a href="/jaju/serviceCenter/noticeList" class="btn btn-primary"
+									title=""> 더 많은 꿀팁 </a>
 							</div>
 						</div>
 					</div>
@@ -116,7 +146,6 @@
 		</div>
 	</div>
 </div>
-
 <!-- <div class="section-container contact-container">
 	<div class="container">
 		<div class="row">

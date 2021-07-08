@@ -66,7 +66,7 @@ public class FreeboardController {
 		String memId = (String) session.getAttribute("memId");
 		model.addAttribute("memId", memId);
 		
-		String filePath = "D:\\Spring\\workspace\\jajuProject\\src\\main\\webapp\\storage";
+		String filePath = "C:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 
 		String fileName;
 		File file;
@@ -174,7 +174,7 @@ public class FreeboardController {
 			String memId = (String) session.getAttribute("memId");
 			model.addAttribute("memId", memId);
 			
-			String filePath = "D:\\Spring\\workspace\\jajuProject\\src\\main\\webapp\\storage";
+			String filePath = "C:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 	
 			String fileName;
 			File file;
@@ -183,7 +183,7 @@ public class FreeboardController {
 				fileName = list.get(i).getOriginalFilename();
 				file = new File(filePath, fileName);
 				
-				System.out.println(fileName);
+//				System.out.println(fileName);
 				
 				//파일 복사
 				try {
