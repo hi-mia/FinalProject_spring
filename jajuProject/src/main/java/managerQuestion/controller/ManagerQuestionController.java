@@ -123,6 +123,7 @@ public class ManagerQuestionController {
 		
 		
 		ModelAndView mav = new ModelAndView();
+		
 		mav.addObject("pg", pg);
 		mav.addObject("seq", seq);
 		mav.setViewName("/manager/managerQuestionView");
@@ -135,6 +136,7 @@ public class ManagerQuestionController {
 	public ModelAndView getManagerQuestionView(@RequestParam String seq) {
 		
 		QuestionDTO questionDTO = managerQuestionService.getManagerQuestionView(seq);
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("questionDTO", questionDTO);
 		mav.setViewName("jsonView");
@@ -145,10 +147,11 @@ public class ManagerQuestionController {
 	public ModelAndView managerQuestionModifyForm(@RequestParam(required = false, defaultValue = "1") String pg,
 												  @RequestParam String question_seq) {
 		ModelAndView mav = new ModelAndView();
+		
 		mav.addObject("pg", pg);
 		mav.addObject("seq", question_seq);
 		mav.setViewName("/manager/managerQuestionModifyForm");
-		System.out.println(mav);
+		
 		
 		return mav;
 	}
@@ -161,6 +164,7 @@ public class ManagerQuestionController {
 		QuestionDTO questionDTO = managerQuestionService.getManagerQuestionModify(seq);
 	
 		ModelAndView mav = new ModelAndView();
+		
 		mav.addObject("questionDTO",questionDTO);
 		mav.setViewName("jsonView");
 		return mav;	
@@ -177,7 +181,7 @@ public class ManagerQuestionController {
 			String fileName;
 			File file;	
 			
-			System.out.println(questionDTO);
+			
 			if(checkMap.get("checkbox1") != null) {
 				questionDTO.setQuestion_image1("");
 			}
@@ -241,7 +245,7 @@ public class ManagerQuestionController {
 		
 		@RequestMapping(value = "managerQuestionDelete", method=RequestMethod.GET)
 		public ModelAndView managerQuestionDelete(String[] check) {
-			System.out.println(check);
+			
 			managerQuestionService.managerQuestionDelete(check);
 			return new ModelAndView("redirect:/manager/managerServiceQuestion");
 		}

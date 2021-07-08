@@ -102,7 +102,7 @@ public class InquireController {
 		//세션
 		String memId = (String) session.getAttribute("memId");
 				
-		System.out.println(pg);
+	
 		List<InquireDTO>list = inquireService.getInquireList(pg, inquiry_id);
 		
 		//페이징 처리
