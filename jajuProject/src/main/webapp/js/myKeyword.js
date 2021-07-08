@@ -12,7 +12,7 @@ $(function(){
 		dataType:'json',
 		success:function(data){
 		//alert(data.mypageDTO.keyword_id);
-			console.log("data.mypageDTO"+JSON.stringify(data));
+			//console.log("data.mypageDTO"+JSON.stringify(data));
 				$('input[value='+data.mypageDTO.keyword1+']').prop('checked',true);
 				$('input[value='+data.mypageDTO.keyword2+']').prop('checked',true);
 				$('input[value='+data.mypageDTO.keyword3+']').prop('checked',true);
@@ -182,7 +182,7 @@ $('#resetBtn').click(function(){
 	$('input[name=check]:checked').each(function() {
 	      this.checked = true; //checked 처리
 	      if(this.checked){//checked 처리된 항목의 값
-	        console.log(this.value); 
+	        //console.log(this.value); 
 	      }
 	 });
 	//선택된 값이 있다면, 다시 초기화시키기.

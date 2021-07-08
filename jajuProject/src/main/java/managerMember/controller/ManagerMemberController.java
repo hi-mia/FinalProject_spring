@@ -129,7 +129,7 @@ public class ManagerMemberController {
 	public ModelAndView getManagerMemberBlack(@RequestParam Map<String, String> map,
 		@RequestParam(required = false, defaultValue = "1") String pg) {
 		//System.out.println("블랙리스트 맵 : " + map);
-		System.out.println("elqjrm1"+map);
+		//System.out.println("elqjrm1"+map);
 		List<MemberDTO> list = managerMemberService.getManagerMemberBlack(map);// pg넘겨서 페이징 처리해서 회원 리스트 가져오기
 
 		// System.out.println("블랙리스트 = "+list);
@@ -282,7 +282,7 @@ public class ManagerMemberController {
 	@RequestMapping(value = "/getDatePickerInfo", method = RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView getDatePickerInfo(@RequestParam Map<String, String> map) {
-		System.out.println("map, getDatePickerInfo date의 값 넘어와야 함 "+map);
+		//System.out.println("map, getDatePickerInfo date의 값 넘어와야 함 "+map);
 	
 		//신규 1:1문의수
 		int inquirePickerCount = managerMemberService.getInquirePickerCount(map);
@@ -292,7 +292,7 @@ public class ManagerMemberController {
 		int newMemberPickerCount = managerMemberService.getNewMemberPickerCount(map);
 		//당일 판매 게시글 등록 수 불러오기 
 		int saleReportPickerCount = managerMemberService.getSaleReportPickerCount(map);
-		System.out.println("db에서 불러온 COUNT NUM = "+inquirePickerCount+","+reportPickerCount+","+newMemberPickerCount+","+saleReportPickerCount);
+		//System.out.println("db에서 불러온 COUNT NUM = "+inquirePickerCount+","+reportPickerCount+","+newMemberPickerCount+","+saleReportPickerCount);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("inquirePickerCount",inquirePickerCount+"");
 		mav.addObject("reportPickerCount",reportPickerCount+"");
@@ -306,7 +306,7 @@ public class ManagerMemberController {
 	@RequestMapping(value = "/getCalenderInfo", method = RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView getCalenderInfo(@RequestParam Map<String, String> map) {
-		System.out.println("map, getCalenderInfo date의 값 넘어와야 함 "+map);
+		//System.out.println("map, getCalenderInfo date의 값 넘어와야 함 "+map);
 		
 		List<String> list = managerMemberService.getCalenderInfo(map);
 		

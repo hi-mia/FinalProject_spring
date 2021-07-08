@@ -743,7 +743,7 @@ $('.cal-body').click(function (){
 	
 	var date = new Date(calyear,calmonthMinus-1,dayactive);
 	date= getFormatDate(date);
-	alert(date);
+	//alert(date);
 	
 	if(confirm(date+" 일자로 조회하시겠습니까?")){
 	
@@ -787,7 +787,7 @@ $('.cal-body').click(function (){
 //$( "#testDatepicker" ).datepicker( "getDate" );
 $('#testDatepicker').change(function (){
     var date = $('#testDatepicker').val();
-    alert("date???" + date);
+    //alert("date???" + date);
     
     $.ajax({
     	url:'/jaju/manager/getDatePickerInfo',

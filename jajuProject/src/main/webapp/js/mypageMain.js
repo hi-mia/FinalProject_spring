@@ -17,7 +17,7 @@ $(function(){
 			
 			//alert("name? " +data);
 			
-			console.log("getMyProfileInfo"+data);
+			//console.log("getMyProfileInfo"+data);
 			if(data.memberDTO.member_image==null){
 				$('.profile_image').attr('src','/jaju/storage/unnamed.png');
 			}
@@ -58,7 +58,7 @@ $(function(){
 				text=' '+data;
 			}
 			//alert("형 변환 한 data" + text)
-			console.log("getMemberMannerTemp"+text);
+			//console.log("getMemberMannerTemp"+text);
 			if(text==36.5){
 				$('#total_grade').append($('<span/>',{
 					id:'fas fa-thermometer-half',
@@ -121,7 +121,7 @@ $(function(){
 		
 		success: function(data){
 			
-			console.log(JSON.stringify(data));
+			//console.log(JSON.stringify(data));
 			
 			$.each(data.list, function(index, items){
 				//console.log(items.dealCount),console.log(items.saleCount),console.log(items.buyCount)
@@ -172,7 +172,7 @@ $(function(){
 		dataType:'text',
 		success:function(data){
 			
-			console.log("getTotalScrapCount"+data);
+			//console.log("getTotalScrapCount"+data);
 			$('#scrap_count').append($('<p/>',{
 				class: 'info',
 				text: data+'건'
@@ -194,7 +194,7 @@ $(function(){
 		dataType:'text',
 		success:function(data){
 			
-			console.log("getTotalFollowCount"+data);
+			//console.log("getTotalFollowCount"+data);
 			$('#follow_count').append($('<p/>',{
 				class: 'info',
 				text: data+'건'
@@ -216,7 +216,7 @@ $(function(){
 		dataType:'text',
 		success:function(data){
 			
-			console.log("getTotalMessageCount"+data);
+			//console.log("getTotalMessageCount"+data);
 			$('#message_count').append($('<p/>',{
 				class: 'info',
 				text: data+'건'
@@ -238,7 +238,7 @@ $(function(){
 		dataType:'text',
 		success:function(data){
 			
-			console.log("getNotReadMessageCount"+data);
+			//console.log("getNotReadMessageCount"+data);
 			$('#expire').append($('<span>',{
 				class: 'info',
 				text: '읽지않음: '+data+'개',

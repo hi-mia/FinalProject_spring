@@ -442,11 +442,13 @@ public class MypageController {
 	@ResponseBody
 	public void writeMyMessage(@RequestParam Map<String, String> map) {
 
-		System.out.println(map.get("message_reader"));
-		System.out.println(map.get("message_writer"));
-		System.out.println(map.get("message_subject"));
-		System.out.println(map.get("message_content"));
-		System.out.println(map.get("sale_seq"));
+		/*
+		 * System.out.println(map.get("message_reader"));
+		 * System.out.println(map.get("message_writer"));
+		 * System.out.println(map.get("message_subject"));
+		 * System.out.println(map.get("message_content"));
+		 * System.out.println(map.get("sale_seq"));
+		 */
 
 		map.put("message_content", map.get("message_content_Span"));
 
@@ -641,8 +643,8 @@ public class MypageController {
 		// 1페이지당 5개씩
 		map.put("id", id);
 		map.put("pg", pg);
-		System.out.println("확인11?"+id);
-		System.out.println("확인11.?"+pg);
+		//System.out.println("확인11?"+id);
+		//System.out.println("확인11.?"+pg);
 		
 		List<SaleboardDTO> list = mypageService.mySaleRecodeList(map);
 		
@@ -687,11 +689,11 @@ public class MypageController {
 	public ModelAndView myDealRecodeList(@RequestParam String id, @RequestParam String pg, @RequestParam Map<String, String> map) {
 		// map에 pg 같이 담아 보내기. id+pg
 
-		System.out.println("myDealRecodeList==" + map);
+		//System.out.println("myDealRecodeList==" + map);
 		map.put("id", id);
 		map.put("pg", pg);
-		System.out.println("확인33?"+id);
-		System.out.println("확인33.?"+pg);
+		//System.out.println("확인33?"+id);
+		//System.out.println("확인33.?"+pg);
 		// 1페이지당 5개씩
 		List<SaleboardDTO> list = mypageService.myDealRecodeList(map);
 
@@ -714,19 +716,19 @@ public class MypageController {
 		// 1페이지당 5개씩
 		map.put("id", id);
 		map.put("pg", pg);
-		System.out.println("검색확인11?"+id);
-		System.out.println("검색확인11.?"+pg);
+		//System.out.println("검색확인11?"+id);
+		//System.out.println("검색확인11.?"+pg);
 		
 		List<SaleboardDTO> list = mypageService.mySaleRecodeSearchList(map);
-		System.out.println("서비스인플Lsit"+map);
+		//System.out.println("서비스인플Lsit"+map);
 		// 페이징처리
 		MySalePaging mySaleSearchPaging = mypageService.mySaleSearchPaging(map);
-		System.out.println("서비스인플Pageing"+map);
+		//System.out.println("서비스인플Pageing"+map);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
-		System.out.println("돌아온list"+list);
+		//System.out.println("돌아온list"+list);
 		mav.addObject("mySaleSearchPaging", mySaleSearchPaging);
-		System.out.println("돌아온mySaleSearchPaging"+mySaleSearchPaging);
+		//System.out.println("돌아온mySaleSearchPaging"+mySaleSearchPaging);
 		mav.setViewName("jsonView");
 
 		return mav;
@@ -748,8 +750,8 @@ public class MypageController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
 		mav.addObject("myBuySearchPaging", myBuySearchPaging);
-		System.out.println("retrun했나"+list);
-		System.out.println("retrun했나2"+myBuySearchPaging);
+		//System.out.println("retrun했나"+list);
+		//System.out.println("retrun했나2"+myBuySearchPaging);
 		
 		mav.setViewName("jsonView");
 
@@ -905,7 +907,7 @@ public class MypageController {
 	@RequestMapping(value = "getFollowerIdManner", method = RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView getFollowerIdManner(@RequestParam Map<String, String> map, HttpSession session) {
-		System.out.println("getFollowerIdManner 의 map (id있어야함) == " + map);
+		//System.out.println("getFollowerIdManner 의 map (id있어야함) == " + map);
 
 		MemberDTO memberDTO = mypageService.getFollowerIdManner(map); // memberDTO에 담아 불러오기
 
@@ -920,8 +922,8 @@ public class MypageController {
 	public ModelAndView getMyProfileReviewList(@RequestParam Map<String, String> map, @RequestParam String pg,
 			HttpSession session, @RequestParam String id) {
 		//String id = (String) session.getAttribute("memId");
-		System.out.println("ReviewList id?"+id);
-		System.out.println("ReviewList pg값?"+pg);
+		//System.out.println("ReviewList id?"+id);
+		//System.out.println("ReviewList pg값?"+pg);
 		map.put("pg", pg);
 		map.put("id",id);
 		// 1페이지당 5개씩
