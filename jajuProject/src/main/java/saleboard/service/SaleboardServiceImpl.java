@@ -488,8 +488,8 @@ public class SaleboardServiceImpl implements SaleboardService {
 	}
 	/*-----*/
 	@Override
-	public List<MessageDTO> salebuyerFindMessage(int sale_seq) {
-		return saleboardDAO.salebuyerFindMessage(sale_seq);
+	public List<MessageDTO> salebuyerFindMessage(Map<String,String> map) {
+		return saleboardDAO.salebuyerFindMessage(map);
 	}
 
 	@Override

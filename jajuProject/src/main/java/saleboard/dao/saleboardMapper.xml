@@ -395,9 +395,14 @@
 		update sale_board set sale_state=#{sale_state} where sale_seq=#{sale_seq}
 	</update>
 		
-	<!--message 발신자 목록 불러오기  -->
-	<select id="salebuyerFindMessage" parameterType="int" resultType="java.util.Map" >
-		select message_writer from message where sale_seq=#{sale_seq}
+	<!--message 발신자 목록 불러오기+발신자 목록 불러오기 +본인아이디 제거 + salebuyerFindComment폐기  -->
+	<select id="salebuyerFindMessage" parameterType="java.util.Map" resultType="java.util.Map" >
+		<!-- select message_writer from message where sale_seq=#{sale_seq} -->
+		select DISTINCT message_writer from (
+		select message_writer from message where sale_seq=#{sale_seq} and message_writer != #{memId}
+		union all
+		select member_id as message_writer from sale_board_comment where sale_seq=#{sale_seq} and member_id != #{memId}
+		)
 	</select> 
 	
 	<!--comment 발신자 목록 불러오기  -->

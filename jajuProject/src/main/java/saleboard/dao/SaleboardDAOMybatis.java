@@ -227,8 +227,8 @@ public class SaleboardDAOMybatis implements SaleboardDAO {
 	/*-----*/
 
 	@Override
-	public List<MessageDTO> salebuyerFindMessage(int sale_seq) {
-		return sqlSession.selectList("saleboardSQL.salebuyerFindMessage", sale_seq);	
+	public List<MessageDTO> salebuyerFindMessage(Map<String,String> map) {
+		return sqlSession.selectList("saleboardSQL.salebuyerFindMessage", map);	
 	}
 
 	@Override
