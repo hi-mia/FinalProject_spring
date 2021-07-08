@@ -66,7 +66,7 @@
 						<select id="sortinSelect" class="selectBox" >
 							<option value="member_date_desc">가입일 최신순</option>
 							<option value="member_date_asc">가입일 오래된순</option>
-							<option value="member_manner_desc">매너온도높은순</option>
+							<option value="member_manner_desc">매너온도 높은순</option>
 						</select> 
 					</div>
 				</div>
@@ -103,7 +103,7 @@
 						<th id="regdt" style="width: 90px;">
 							<label class="btn_admin btn_date">
 				                   <span class="txt_btn">가입일
-				                       <span class="ico_admin"></span>
+				                       <span class="ico_admin ico_disabled"></span>
 				                   </span>
 								<input type="button" class="btn_g" value="가입일">
 							</label>

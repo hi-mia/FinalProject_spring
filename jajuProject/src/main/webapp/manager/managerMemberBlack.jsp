@@ -96,7 +96,7 @@
 						<th id="regdt" style="width: 90px;">
 							<label class="btn_admin btn_date">
 				                   <span class="txt_btn">가입일
-				                       <span class="ico_admin"></span>
+				                       <span class="ico_admin ico_disabled"></span>
 				                   </span>
 								<input type="button" class="btn_g" value="가입일">
 							</label>
