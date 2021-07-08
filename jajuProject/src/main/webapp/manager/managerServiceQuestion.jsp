@@ -15,7 +15,7 @@
 <div id="content" class="cont_post post_spam">
 	<div class="wrap_tit">
 		<h3 class="cont_tit">
-			<span class="tit_menu">자주묻는질문 관리</span>
+			<span class="tit_menu">자주 묻는 질문 관리</span>
 		</h3>
 		
 		<div class="box_search">
@@ -73,8 +73,10 @@
                <th class="question_subject" style="width:564px;">제목</th>
 			</tr> 
 			</thead>
-
 	</table>
+	<div class="no_data" style="padding: 150px 0 148px; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6; font-size: 14px; color: #4c4c4c; text-align: center;">
+		자주묻는 질문 글이 등록되지 않았습니다.
+	</div>
 </div>
 <table class="inquireTable" id="inquireTable" style="width:100%; border-top: 50px solid #FAFAFA;; border-bottom: 1px solid #e6e6e6;"></table>
 <div id="pagingArea" class="page_admin">

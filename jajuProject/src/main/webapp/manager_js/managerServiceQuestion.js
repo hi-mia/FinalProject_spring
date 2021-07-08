@@ -7,6 +7,9 @@ $(function(){
 		dataType: 'json',
 		success: function(data){
 			//alert(JSON.stringify(data))
+			
+		if(data.list.length != 0){
+			$('.no_data').hide();
 	        $.each(data.list, function(index, items){
 	            $('<tr/>').append($('<td/>',{
 	            	align: 'center'
@@ -33,16 +36,17 @@ $(function(){
 		            }))
 	            ).appendTo($('.tbl_admin'))
 
-	            //페이징 처리
-	            $('.page_admin').html(data.questionPaging.pagingHTML);
 	        
 	            $('.subject'+items.question_seq).click(function(){
 	            	location.href = '/jaju/manager/managerQuestionView?seq='+items.question_seq+'&pg='+$('#pg').val();
 	            });
 	        }); //each
-	      
-	        
-         
+		}else if(data.list.length == 0){
+			$('.no_data').show();
+		}
+		//페이징 처리
+		$('.page_admin').html(data.questionPaging.pagingHTML);
+
 		},
       	error: function(err){
       		console.log(err);
