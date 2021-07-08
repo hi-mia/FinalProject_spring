@@ -192,7 +192,6 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/js/saleboardModify.js"></script>
 <script type="text/javascript">
-
 function order_open(){
     var divEl = document.getElementById('ifm_order');
     divEl.style.display = "block";
@@ -225,7 +224,7 @@ function add(){
     oTd1      = oTr.insertCell(0);
     oTd1.style.textAlign = "center";
     oTd2      = oTr.insertCell(1);
-    tmpHTML = "<input type=file name='file[]' style='width:50%' class=line> <a href=\"javascript:del('"+"tr_"+(tr_num)+"')\"><img src='../image/upadd2.jpg' style='width:90px; height:25px;' align=absmiddle></a>";
+    tmpHTML = "<input type=file name='file' style='width:50%' class=file> <a href=\"javascript:del('"+"tr_"+(tr_num)+"')\"><img src='/jaju/jajuImage/upadd2.jpg' style='width:90px; height:25px;' align=absmiddle></a>";
     oTd2.innerHTML = tmpHTML;
     calcul();
 }

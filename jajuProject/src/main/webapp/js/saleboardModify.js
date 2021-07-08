@@ -106,7 +106,7 @@ $('#saleboardModifyBtn').click(function(){
 			num++;
 		}
 	}
-	if(!num) { //처음부터 나옴, 먹히긴 먹힌다
+	if(!num) {
 		$('#sale_directDiv').text('배송 방법을 선택해주세요');
 		$('#sale_directDiv').css('color', 'red');
 		$('#sale_directDiv').css('font-size', '10pt');
