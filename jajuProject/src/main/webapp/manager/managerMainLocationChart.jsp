@@ -173,7 +173,7 @@
 
   			//맵안에 list 였으니 for문으로 돌린다
   			$.each(data.list, function(index, items) {
-  				console.log("관심지역도넛: most_Regist?"
+  				//console.log("관심지역도넛: most_Regist?"
   						+ JSON.stringify(data));
 
   				labels.push(items.most_Regist);//items.sale_category

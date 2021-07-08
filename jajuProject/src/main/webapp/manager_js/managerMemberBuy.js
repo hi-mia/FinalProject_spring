@@ -12,7 +12,7 @@ $(function(){
 			dataType: 'json',
 			success: function(data){
 				
-				console.log("historyTable???"+JSON.stringify(data));
+				//console.log("historyTable???"+JSON.stringify(data));
 				
 				 if(JSON.stringify(data.list)=='[]'){
 					 	$('.title').remove();
