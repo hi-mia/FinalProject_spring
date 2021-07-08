@@ -32,14 +32,15 @@ $(function(){
 	            		class: 'subject'+items.question_seq
 		            }))
 	            ).appendTo($('.tbl_admin'))
+
+	            //페이징 처리
+	            $('.page_admin').html(data.questionPaging.pagingHTML);
 	        
 	            $('.subject'+items.question_seq).click(function(){
 	            	location.href = '/jaju/manager/managerQuestionView?seq='+items.question_seq+'&pg='+$('#pg').val();
 	            });
 	        }); //each
 	      
-	        //페이징 처리
-	        $('.pagediv').html(data.questionPaging.pagingHTML);
 	        
          
 		},
@@ -69,11 +70,11 @@ $('#choiceDeleteBtn').click(function(){
 		alert("삭제할 항목을 선택하세요");
 	}else{
 		confirm("정말로 삭제 하시겠습니까?");
-		$('#managerInquireDelete').submit();
+		$('#managerQuestionDelete').submit();
 	}
 });
 //페이징 이동
-function inquirePaging(pg){
-	location.href = "/jaju/manager/managerServiceInquire?pg="+pg;
+function questionPaging(pg){
+	location.href = "/jaju/manager/managerServiceQuestion?pg="+pg;
 }
 

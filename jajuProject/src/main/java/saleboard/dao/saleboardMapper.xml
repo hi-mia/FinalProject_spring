@@ -90,7 +90,7 @@
                          sale_delivery=#{sale_delivery},
                           sale_onlineTran=#{sale_onlineTran}, 
                           sale_content=#{sale_content},         
-                         sale_hide=#{sale_hide},
+                         sale_hide='on',
                            sale_buyer=#{sale_buyer}, 
                         sale_image1=#{sale_image1}, 
                         sale_image2=#{sale_image2},
@@ -116,7 +116,7 @@
                          sale_delivery=#{sale_delivery},
                           sale_onlineTran=#{sale_onlineTran}, 
                           sale_content=#{sale_content},         
-                         sale_hide=#{sale_hide}, 
+                         sale_hide='on', 
                          sale_buyer=#{sale_buyer}
                   where sale_seq=#{sale_seq}
              </when>
@@ -131,8 +131,6 @@
 		 	delete sale_board_comment where sale_seq=#{sale_seq};
 		 	
 		 	delete scrap where sale_seq=#{sale_seq};
-		 	
-		 	delete memberreport where sale_seq=#{sale_seq};
 		 	
 		 	delete message where sale_seq=#{sale_seq};
 		 	
@@ -191,13 +189,13 @@
 			<if test='sortinSelect != "low_sale_price" '>
 				select * from (
 		 		select rownum rn ,tt.*from(
-		 		select * from sale_board join jajumember using(member_id) where  member_sigungu in (#{location1},#{location2},#{location3}) and sale_hide like 'on' and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5}) order by ${sortinSelect} desc)tt)
+		 		select * from sale_board join jajumember using(member_id) where  member_sigungu in (#{location1},#{location2},#{location3}) and sale_hide like 'on' order by ${sortinSelect} desc)tt)
 		 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
 	 		</if>
 	 		<if test='sortinSelect == "low_sale_price" '>
 				select * from (
 		 		select rownum rn ,tt.*from(
-		 		select * from sale_board join jajumember using(member_id) where member_sigungu in (#{location1},#{location2},#{location3}) and sale_hide like 'on' and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5}) order by sale_price asc)tt)
+		 		select * from sale_board join jajumember using(member_id) where member_sigungu in (#{location1},#{location2},#{location3}) and sale_hide like 'on' order by sale_price asc)tt)
 		 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
 	 		</if>
 		</if>
@@ -221,7 +219,7 @@
 	<!-- 로그인 상태 리스트 토탈 가져오기 -->
 	<select id="getTotalLogin1" resultType="int" parameterType="java.util.Map">
 		<if test='keywordSw.equals("1")'>
-			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location1} and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5}) and sale_hide like 'on'
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location1} and sale_hide like 'on'
 		</if>
 		<if test='keywordSw.equals("0")'>
 			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location1} and sale_hide like 'on'
@@ -229,7 +227,7 @@
 	</select>
 	<select id="getTotalLogin2" resultType="int" parameterType="java.util.Map">
 			<if test='keywordSw.equals("1")'>
-			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location2} and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5}) and sale_hide like 'on'
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location2} and sale_hide like 'on'
 		</if>
 		<if test='keywordSw.equals("0")'>
 			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location2} and sale_hide like 'on'
@@ -237,7 +235,7 @@
 	</select>
 	<select id="getTotalLogin3" resultType="int" parameterType="java.util.Map">
 			<if test='keywordSw.equals("1")'>
-			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location3} and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5}) and sale_hide like 'on'
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location3} and sale_hide like 'on'
 		</if>
 		<if test='keywordSw.equals("0")'>
 			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location3} and sale_hide like 'on'
@@ -397,9 +395,14 @@
 		update sale_board set sale_state=#{sale_state} where sale_seq=#{sale_seq}
 	</update>
 		
-	<!--message 발신자 목록 불러오기  -->
-	<select id="salebuyerFindMessage" parameterType="int" resultType="java.util.Map" >
-		select message_writer from message where sale_seq=#{sale_seq}
+	<!--message 발신자 목록 불러오기+발신자 목록 불러오기 +본인아이디 제거 + salebuyerFindComment폐기  -->
+	<select id="salebuyerFindMessage" parameterType="java.util.Map" resultType="java.util.Map" >
+		<!-- select message_writer from message where sale_seq=#{sale_seq} -->
+		select DISTINCT message_writer from (
+		select message_writer from message where sale_seq=#{sale_seq} and message_writer != #{memId}
+		union all
+		select member_id as message_writer from sale_board_comment where sale_seq=#{sale_seq} and member_id != #{memId}
+		)
 	</select> 
 	
 	<!--comment 발신자 목록 불러오기  -->
@@ -412,5 +415,125 @@
 		update sale_board set sale_buyer=#{sale_buyer} where sale_seq=#{sale_seq}
 	</update>
 	
+	<!-- saleFavorite 리스트 가져오기 -->
+	<select id="getSaleboardListFavorite" parameterType="java.util.Map" resultType="saleboard">
+		<if test='keywordSw.equals("1")'>
+			<if test='sortinSelect != "low_sale_price" '>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board join jajumember using(member_id) where  member_sigungu in (#{location1},#{location2},#{location3}) and sale_hide like 'on' and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5}) order by ${sortinSelect} desc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
+	 		</if>
+	 		<if test='sortinSelect == "low_sale_price" '>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board join jajumember using(member_id) where member_sigungu in (#{location1},#{location2},#{location3}) and sale_hide like 'on' and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5}) order by sale_price asc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
+	 		</if>
+		</if>
+		<if test='keywordSw.equals("0")'>
+			<if test='sortinSelect != "low_sale_price" '>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board join jajumember using(member_id) where  member_sigungu in (#{location1},#{location2},#{location3}) and sale_hide like 'on' order by ${sortinSelect} desc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
+	 		</if>
+	 		<if test='sortinSelect == "low_sale_price" '>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board join jajumember using(member_id) where   member_sigungu in (#{location1},#{location2},#{location3}) and sale_hide like 'on' order by sale_price asc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
+	 		</if>
+		</if>
+	</select>
+	
+	<!-- saleFavorite 토탈 가져오기 -->
+	<select id="getTotalFavorite1" resultType="int" parameterType="java.util.Map">
+		<if test='keywordSw.equals("1")'>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location1} and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5}) and sale_hide like 'on'
+		</if>
+		<if test='keywordSw.equals("0")'>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location1} and sale_hide like 'on'
+		</if>
+	</select>
+	<select id="getTotalFavorite2" resultType="int" parameterType="java.util.Map">
+			<if test='keywordSw.equals("1")'>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location2} and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5}) and sale_hide like 'on'
+		</if>
+		<if test='keywordSw.equals("0")'>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location2} and sale_hide like 'on'
+		</if>
+	</select>
+	<select id="getTotalFavorite3" resultType="int" parameterType="java.util.Map">
+			<if test='keywordSw.equals("1")'>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location3} and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5}) and sale_hide like 'on'
+		</if>
+		<if test='keywordSw.equals("0")'>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location3} and sale_hide like 'on'
+		</if>
+	</select>
+	<!--saleFavorite 검색 -->
+	<select id="getSearchSaleboardListFavorite" resultType="saleboard" parameterType="java.util.Map">
+		<if test='sortinSelect != "low_sale_price" '>
+			<if test='keywordSw.equals("1")'>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board join jajumember using(member_id) where sale_subject like '%'||#{searchText}||'%' and member_sigungu in (#{location1},#{location2},#{location3}) and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5}) and sale_hide like 'on' order by ${sortinSelect} desc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <= ${endNum}]]>
+		 	</if>
+			<if test='keywordSw.equals("0")'>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board join jajumember using(member_id) where sale_subject like '%'||#{searchText}||'%' and member_sigungu in (#{location1},#{location2},#{location3}) and sale_hide like 'on' order by ${sortinSelect} desc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <= ${endNum}]]>
+		 	</if>
+		 </if>
+		 <if test='sortinSelect == "low_sale_price" '>
+			<if test='keywordSw.equals("1")'>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board join jajumember using(member_id) where   sale_subject like '%'||#{searchText}||'%' and member_sigungu in (#{location1},#{location2},#{location3}) and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5}) and sale_hide like 'on' order by sale_price asc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <= ${endNum}]]>
+		 	</if>
+			<if test='keywordSw.equals("0")'>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board join jajumember using(member_id) where sale_subject like '%'||#{searchText}||'%' and member_sigungu in (#{location1},#{location2},#{location3}) and sale_hide like 'on' order by sale_price asc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <= ${endNum}]]>
+		 	</if>
+		 </if>
+	</select>
+	
+	<!-- saleFavorite 검색 토탈 -->
+	<select id="getSearchTotalFavorite1" resultType="int" parameterType="java.util.Map">
+	
+		<if test='keywordSw.equals("1")'>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location1} and sale_subject like '%'||#{searchText}||'%' and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5}) and sale_hide like 'on'
+		</if>
+		<if test='keywordSw.equals("0")'>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location1} and sale_subject like '%'||#{searchText}||'%' and sale_hide like 'on'
+		</if>
+		
+	</select>
+	<select id="getSearchTotalFavorite2" resultType="int" parameterType="java.util.Map">
+	
+		<if test='keywordSw.equals("1")'>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location2} and sale_subject like '%'||#{searchText}||'%' and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5}) and sale_hide like 'on'
+		</if>
+		<if test='keywordSw.equals("0")'>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location2} and sale_subject like '%'||#{searchText}||'%' and sale_hide like 'on'
+		</if>
+		
+	</select>
+	<select id="getSearchTotalFavorite3" resultType="int" parameterType="java.util.Map">
+	
+		<if test='keywordSw.equals("1")'>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location3} and sale_subject like '%'||#{searchText}||'%' and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5}) and sale_hide like 'on'
+		</if>
+		<if test='keywordSw.equals("0")'>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location3} and sale_subject like '%'||#{searchText}||'%' and sale_hide like 'on'
+		</if>
+		
+	</select>
 	
 	</mapper>

@@ -11,7 +11,6 @@
 <body>
 
 	<div class="section_view">
-	
 
 							<div id="shareLayer">
 							<div class="layer_share" style="display: none;">
@@ -52,7 +51,7 @@
 					<p class="goods_price">
 						<span class="position"><span class="dc">
 								<!----> <span class="dc_price">10<span class="won">원</span></span><br>
-								<span id="sale_nego"></span>
+								<span id="sale_nego" style="font-size: 12pt;"></span>
 						</span></span>
 						
 					</p>
@@ -77,10 +76,12 @@
 						<dt class="tit">거래지역</dt>
 						<dd class="desc"></dd>
 					</dl>
+					
 					<dl class="list" id="sale_date">
 						<dt class="tit">올린 날자</dt>
 						<dd class="desc"></dd>
 					</dl>
+					
 					<dl class="list" id="sale_state">
 						<dt class="tit">현재 상태</dt>
 						<dd class="desc"></dd>
@@ -92,30 +93,26 @@
 				<!---->
 			</div>
 			</div>						
-	
 
-		
 		<div id="cartPut">
 			<div class="cart_option cartList cart_type2">
 				<div class="inner_option">					
 					<div class="group_btn off">
+						<!-- 찜 자리 -->
+						<span class="btn_type_scrap">
+							<button type="button" class="txt_type_scrap" id="scrapBtn">찜♡</button> <!---->
+						</span>
 						<span class="btn_type_follow">
 							<button type="button"class="txt_type_follow">팔로우</button> <!---->
 						</span>
 						<span class="btn_type_message">
 							<button type="button"class="txt_type">쪽지 보내기</button> <!---->
 						</span>
-						<!-- 찜 자리 -->
-						<span class="btn_type_scrap">
-							<button type="button" class="txt_type_scrap" id="scrapBtn">찜♡</button> <!---->
-						</span>
 						<!--
 						<a id="scrapBtn">
 							<img alt="하트" src="/jaju/jajuImage/blackhart.png" width="50" height="50">
 						</a>
 						-->
-						<!---->
-						<!---->
 			
 					</div>
 				</div>
@@ -179,7 +176,7 @@
 		<table border="1" id=c cellspacing="0" cellpadding="10"
          bordercolor="#47597e" align="center" frame="hsides" rules="rows"
          width="1050" id="commentWriteTable" style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff;">
-         <tr >
+         <tr>
             <td height="80" width="150" align="left">댓글: &nbsp; <span id="replySpan"></span>
                <input type="text" placeholder="댓글을 입력하세요." size="110" id="commentText" class="commentInput">
                &nbsp;&nbsp;

@@ -52,7 +52,7 @@
 	<th class="saleboardModifyTd" align="left" >카테고리</th>
  	<td class="saleboardModifyTd">
  		<select class="sale_category" name="sale_category" id="sale_category">
-		<option value="*">전체</option>
+		<option value="*">선택해 주세요</option>
             <option value="digital">디지털/가전</option>
             <option value="life">생활</option>
             <option value="instant_food">가공식품</option>
@@ -73,8 +73,8 @@
 	</td>
 </tr>
  <tr>
- 	<th class="saleboardModifyTd" align="left" >상품 상태</th>
- 	<td class="saleboardModifyTd">
+  	<th class="saleboardWriteTd" align="left">상품 상태</th>
+ 	<td class="saleboardWriteTd">
 		<label class="">	 	
   		새상품<input type="radio" name="sale_condition" id="new" value="새상품">
   			<span class="ico"></span>
@@ -97,15 +97,15 @@
  	<th class="saleboardModifyTd" align="left" >배송 방법</th>
  	<td class="saleboardModifyTd">
  			<label class="">  	
-		  	직거래<input type="checkbox" id="sale_direct" name="howDelivery">
+		  	직거래<input type="checkbox" id="sale_direct" name="sale_direct">
   			<span class="ico"></span>
   		</label>
   		<label class="">  	
-		  	택배거래<input type="checkbox" id="sale_delivery" name="howDelivery">
+		  	택배거래<input type="checkbox" id="sale_delivery" name="sale_delivery">
   			<span class="ico"></span>
   		</label>
   		<label class="">  	
-		  	온라인거래<input type="checkbox" id="sale_onlineTran" name="howDelivery">
+		  	온라인거래<input type="checkbox" id="sale_onlineTran" name="sale_onlineTran">
   			<span class="ico"></span>
   		</label>
   			<div id="sale_directDiv"></div>
@@ -145,11 +145,18 @@
    <tr id="tr_0">
       <td width="20" nowrap="" align="center">1</td>
       <td width="50%">
-         <input type="file" name="file[]" style="width:50%" class="linebg">
+         <input type="file" name="file" id="file" class="file" style="width:50%; display: inline-block;" class="linebg">
          <a href="javascript:add()">
-            <img src="../image/upadd.jpg" style="width:90px; height:25px;">
+            <img src="/jaju/jajuImage/upadd.jpg" class="addImage" style="width:90px; height:25px;">
          </a>
-         <div id="sale_image"></div>
+       </td>
+   </tr>
+   
+   <tr id="tr_0">
+      <td width="20" nowrap="" align="center">2</td>
+      <td width="50%">
+         <input type="file" name="file" id="file" class="file" style="width:50%" class="linebg">
+         <div id="sale_imageDiv"></div>
        </td>
    </tr>
    </tbody>

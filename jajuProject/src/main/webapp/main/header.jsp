@@ -29,7 +29,7 @@
 				</c:if>
 				
 				<c:if test="${memId == null}">
-					<li class="sign_up_item"><a href="/jaju/member/writeForm">회원가입</a></li>
+					<li class="sign_up_item"><a href="/jaju/member/writeForm">회원가입 </a></li>
 					<li class="sign_in_item"><a href="/jaju/member/loginForm">로그인</a></li>
 				</c:if>
 
@@ -42,7 +42,7 @@
 
 				<li class="service_center_item">
 					
-					<a class="service_center" href="/jaju/serviceCenter/noticeList">고객센터</a>
+					<a class="service_center" href="/jaju/serviceCenter/noticeList"> 고객센터</a>
 					<button type="button" class="service_center_icon"></button>
 					
 					<ul class="service_center_detail">
@@ -115,8 +115,11 @@
 
 				<li class="new-product-category">
 					<a	href="/jaju/saleboard/saleboardList?pg=1&sortinSelect=sale_date">판매게시글</a></li>
+				<li class="new-product-category">
+					<a	href="/jaju/saleboard/saleboardListFavorite?pg=1&sortinSelect=sale_date">MyFavorite</a></li>
 				<li class="cheap-product-category  header_a_li">
 					<a href="/jaju/freeboard/freeboardList?pg=1"	class="button">자유게시판</a></li>
+
 			</ul>
 			<%--mainnav --%>
 
@@ -197,6 +200,15 @@
 	              }
 	        });         
 	      });
+		//header 검색
+		$('.button_search').click(function(){
+			if($('.search-box').val() == ''){
+				alert('검색어를 입력해 주세요');				
+			} else{
+				location.href = '/jaju/saleboard/saleboardList?pg=1&sortinSelect=sale_date&headerSerachText='+$('.search-box').val()				
+			}
+		});
+		
 	</script>
 </body>
 </html>

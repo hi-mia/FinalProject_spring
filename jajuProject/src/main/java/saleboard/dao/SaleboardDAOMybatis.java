@@ -227,8 +227,8 @@ public class SaleboardDAOMybatis implements SaleboardDAO {
 	/*-----*/
 
 	@Override
-	public List<MessageDTO> salebuyerFindMessage(int sale_seq) {
-		return sqlSession.selectList("saleboardSQL.salebuyerFindMessage", sale_seq);	
+	public List<MessageDTO> salebuyerFindMessage(Map<String,String> map) {
+		return sqlSession.selectList("saleboardSQL.salebuyerFindMessage", map);	
 	}
 
 	@Override
@@ -240,5 +240,53 @@ public class SaleboardDAOMybatis implements SaleboardDAO {
 	public void salebuyerConfirmation(Map<String, String> map) {
 		sqlSession.update("saleboardSQL.salebuyerConfirmation", map);	
 	}
+
+	@Override
+	public List<SaleboardDTO> getSaleboardListFavorite(Map<String, String> map) {
+		return sqlSession.selectList("saleboardSQL.getSaleboardListFavorite", map);
+	}
+
+	@Override
+	public int getTotalFavorite(Map<String, String> map) {
+		int a =0;
+		int b =0;
+		int c =0;
+		if(!map.get("location1").equals("")) {
+			a = sqlSession.selectOne("saleboardSQL.getTotalFavorite1", map);
+		}
+		if(!map.get("location2").equals("")) {
+			b = sqlSession.selectOne("saleboardSQL.getTotalFavorite2", map);
+		}
+		if(!map.get("location3").equals("")) {
+			c = sqlSession.selectOne("saleboardSQL.getTotalFavorite3", map);
+		}
+		
+		return a+b+c;
+	}
+
+	@Override
+	public List<SaleboardDTO> getSearchSaleboardListFavorite(Map<String, String> map) {
+		return sqlSession.selectList("saleboardSQL.getSearchSaleboardListFavorite", map);
+	}
+
+	@Override
+	public int getSearchTotalFavorite(Map<String, String> map) {
+		int a =0;
+		int b =0;
+		int c =0;
+		if(!map.get("location1").equals("")) {
+			a = sqlSession.selectOne("saleboardSQL.getSearchTotalFavorite1", map);
+		}
+		if(!map.get("location2").equals("")) {
+			b = sqlSession.selectOne("saleboardSQL.getSearchTotalFavorite2", map);
+		}
+		if(!map.get("location3").equals("")) {
+			c = sqlSession.selectOne("saleboardSQL.getSearchTotalFavorite3", map);
+		}
+		
+		return a+b+c;
+	}
+
+	
 
 }

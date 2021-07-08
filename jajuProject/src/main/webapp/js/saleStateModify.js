@@ -26,6 +26,7 @@ $(function(){
 				$('#select_buyer').hide();
 				$('#saleBuyerBtn').hide();
 				$('.click_to_change_inform').hide();
+				alert('구매자 찾기 버튼을 눌러주세요.');
 			}
 			
 			//판매상태 가져오기 sale_state
@@ -103,14 +104,16 @@ $(function(){
 						})).appendTo($('#buyer_list'));
 
 					});//each
-
+					alert("구매하신 분의 ID를 선택하고 완료버튼을 누르세요.")
+					$('#select_buyer').show();
+					$('#saleBuyerBtn').show(); //구매자 확정버튼 보이기 
 				},
 				error : function() {
 					console.log("salebuyer1 error발생+err")
 				}
 			});//ajax
 
-			$.ajax({
+			/*$.ajax({
 				type : 'post',
 				url : '/jaju/saleboard/salebuyerFindComment',
 				data : {
@@ -141,7 +144,7 @@ $(function(){
 					console.log("salebuyer2 error발생+err")
 				}
 			});//ajax
-
+*/
 		});
 
 		$('#saleBuyerBtn').click(function() {

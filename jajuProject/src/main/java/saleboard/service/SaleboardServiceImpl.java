@@ -488,8 +488,8 @@ public class SaleboardServiceImpl implements SaleboardService {
 	}
 	/*-----*/
 	@Override
-	public List<MessageDTO> salebuyerFindMessage(int sale_seq) {
-		return saleboardDAO.salebuyerFindMessage(sale_seq);
+	public List<MessageDTO> salebuyerFindMessage(Map<String,String> map) {
+		return saleboardDAO.salebuyerFindMessage(map);
 	}
 
 	@Override
@@ -502,4 +502,61 @@ public class SaleboardServiceImpl implements SaleboardService {
 		saleboardDAO.salebuyerConfirmation(map);
 		
 	}
+
+	@Override
+	public List<SaleboardDTO> getSaleboardListFavorite(Map<String, String> map) {
+		int pg = Integer.parseInt(map.get("pg"));
+		
+		int endNum = pg * 15;
+		int startNum = endNum - 14;
+		
+		
+		map.put("startNum", startNum+"");
+		map.put("endNum", endNum +"");
+		
+		return saleboardDAO.getSaleboardListFavorite(map);
+	}
+
+	@Override
+	public SaleboardPaging saleboardPagingFavorite(Map<String, String> map) {
+		int pg = Integer.parseInt(map.get("pg"));
+		saleboardPaging.setCurrentPage(pg);
+		saleboardPaging.setPageBlock(3);
+		saleboardPaging.setPageSize(15);
+		int totalA = saleboardDAO.getTotalFavorite(map);
+		saleboardPaging.setTotalA(totalA);		
+		
+		saleboardPaging.makePagingHTML();
+		
+		return saleboardPaging;
+	}
+
+	@Override
+	public List<SaleboardDTO> getSearchSaleboardListFavorite(Map<String, String> map) {
+		int endNum = Integer.parseInt(map.get("pg")) * 15;
+		int startNum = endNum - 14;
+		
+		map.put("startNum", startNum+"");
+		map.put("endNum", endNum +"");
+
+		
+		return saleboardDAO.getSearchSaleboardListFavorite(map);
+	}
+
+	@Override
+	public SaleboardPaging searchSaleboardPagingFavorite(Map<String, String> map) {
+		int pg = Integer.parseInt(map.get("pg"));
+		saleboardPaging.setCurrentPage(pg);
+		saleboardPaging.setPageBlock(3);
+		saleboardPaging.setPageSize(15);
+		int totalA = saleboardDAO.getSearchTotalFavorite(map);
+		saleboardPaging.setTotalA(totalA);		
+		
+		saleboardPaging.makePagingHTML();
+		
+		return saleboardPaging;
+	}
+
+	
+	
 }

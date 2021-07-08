@@ -40,28 +40,55 @@
 		</foreach>
 		
 	</delete>
-	
-	<!-- 신고글 보이기 -->
-	<update id="getShowList" parameterType="int">
-		update sale_board set sale_hide = 'on' where sale_seq = ${sale_seq};
-	</update>
-	
+
 	
 	
 	
 	<!-- 댓글 -->
 	
-	<!-- 댓글입력 -->
-	 <insert id="commentWrite" parameterType="java.util.Map">
+	<!-- 댓글입력 (보이기) -->
+	 <insert id="commentWriteShow" parameterType="java.util.Map">
 	 	begin
 		insert into reportcomment values (${report_seq},
 										 seq_reportcomment.nextval,
 								 		 #{comment_content},
 								 		 sysdate);
-	 
+	 	
+	 	update sale_board set sale_hide = 'on' where sale_seq = ${sale_seq};
+	 	
 	 	update memberreport set report_state='처리완료' where report_seq=#{report_seq};
 	 	end;
 	 </insert>
+	 
+<!-- 	 <select id="commentMemberWarning" parameterType="int" resultType="member">
+	 	selcet * from jajumember where =#{report_seq}
+	 </select> -->
+	 
+	 <!-- 댓글입력 (숨기기) -->
+	 <insert id="commentWriteHide" parameterType="java.util.Map">
+	 	begin
+		insert into reportcomment values (${report_seq},
+										 seq_reportcomment.nextval,
+								 		 #{comment_content},
+								 		 sysdate);
+								 		 
+	 	update memberreport set report_state='처리완료' where report_seq=#{report_seq};
+	 	
+	 	update jajumember set member_warning=member_warning+1 where member_id=#{sale_id};
+
+		update memberreport set report_subject='삭제 처리가 완료된 글입니다' where report_seq=#{report_seq};
+
+		delete sale_board where sale_seq=${sale_seq};
+          
+	 	delete sale_board_comment where sale_seq=${sale_seq};
+          
+        delete scrap where sale_seq=${sale_seq};
+          
+        delete message where sale_seq=${sale_seq};
+	 	end;
+	 </insert>
+	 
+	 
 	 
 	 <!-- 목록 -->
 	 <select id="getCommentList" parameterType="int" resultType="comment">

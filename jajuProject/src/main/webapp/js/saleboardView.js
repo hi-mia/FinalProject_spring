@@ -57,6 +57,27 @@ $(function(){
 				}
 			});
 			
+			$.ajax({
+				type: 'post',
+				url: '/jaju/mypage/getMyFollow',
+				async: false,
+				data:{
+					'member_id': member_id, 
+					'follow_id': data.saleboardDTO.member_id
+				},
+				dataType: 'text',
+				success: function(data){
+					//alert("data???????"+data)
+					if(data=='exist'){
+						$('.txt_type_follow').text("팔로잉 중");
+						//alert("민지야getMyFollow성공해따아");
+					}
+					
+				},error: function(err){
+					alert("팔로잉 불러오기 에러");
+					console.log(err);
+				}
+			});
 			
 			$('#member_sido .desc').text(data.saleboardDTO.member_sido+" "+data.saleboardDTO.member_sigungu);
 			
@@ -163,7 +184,16 @@ $(function(){
 		success: function(data){
 			//alert(JSON.stringify(data));
 			
-			$('#commentTable tr:gt(0)').remove();
+			 if(JSON.stringify(data.list)=='[]'){
+				 $('#commentTable tr').remove();
+				 
+					$('<tr/>').append($('<div/>',{
+						align:'center',
+						style:'height:30px; width:800px;'
+					})).appendTo($('#commentTable'));
+				}
+			 else {	
+			
 			
 			$.each(data.list, function(index,items){
 				
@@ -241,7 +271,7 @@ $(function(){
 					
 			});
 			
-			
+			 }//else		
 			
 		},error: function(err){
 			alert("댓글 불러오기 에러");

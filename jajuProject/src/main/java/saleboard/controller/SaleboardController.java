@@ -457,7 +457,9 @@ public class SaleboardController {
 		}
 		
 		@RequestMapping(value="saleStateModifyForm", method=RequestMethod.GET)
-		public String saleStateModifyForm(Model model,@RequestParam int sale_seq) {
+		public String saleStateModifyForm(Model model,@RequestParam int sale_seq,HttpSession session) {
+			String memId = (String) session.getAttribute("memId");
+			model.addAttribute("memId",memId);
 			model.addAttribute("sale_seq",sale_seq);
 			return "/saleboard/saleStateModifyForm";
 		}
@@ -485,13 +487,17 @@ public class SaleboardController {
 		//구매자버튼 클릭시 메시지 발신자 목록 불러오기
 		@RequestMapping(value = "salebuyerFindMessage", method = RequestMethod.POST)
 		@ResponseBody
-		public ModelAndView salebuyerFindMessage(@RequestParam int sale_seq) {
+		public ModelAndView salebuyerFindMessage(@RequestParam int sale_seq,@RequestParam Map<String,String> map,HttpSession session) {
 			
-			System.out.println("컨트롤러 글번호 받는가"+sale_seq);
+			String memId = (String) session.getAttribute("memId");
+			map.put("sale_seq", sale_seq+"");
+			map.put("memId", memId);
+			
+			System.out.println("컨트롤러 글번호+session 받는가999"+map);
 			// db에 저장하기
 			ModelAndView mav = new ModelAndView();
 			
-			List<MessageDTO> list = saleboardService.salebuyerFindMessage(sale_seq);
+			List<MessageDTO> list = saleboardService.salebuyerFindMessage(map);
 		
 			mav.addObject("list", list);
 			mav.setViewName("jsonView");
@@ -526,7 +532,53 @@ public class SaleboardController {
 			System.out.println("컨트롤러 updateMap값"+map);
 			saleboardService.salebuyerConfirmation(map);
 		}
+		
+		@RequestMapping(value="saleboardListFavorite", method=RequestMethod.GET)
+		public String saleboardListFavorite(Model model) {
+			
+			
+			model.addAttribute("display","/saleboard/saleboardListFavorite.jsp");
+			return "/index";
+		}
+		
+		@RequestMapping(value="getSaleboardListFavorite", method=RequestMethod.POST)
+		@ResponseBody
+		public ModelAndView getSaleboardListFavorite(@RequestParam Map<String, String> map) {
+			
+			ModelAndView mav = new ModelAndView();
+			
+			
+			List<SaleboardDTO> list = saleboardService.getSaleboardListFavorite(map);
+			
+			
+			
+			SaleboardPaging saleboardPaging = saleboardService.saleboardPagingFavorite(map);
+			
+			mav.addObject("saleboardPaging", saleboardPaging);
+			
+			mav.addObject("list", list);
+			mav.setViewName("jsonView");
+			
+			return mav;
+		}
+		
+		@RequestMapping(value = "getSearchSaleboardListFavorite", method = RequestMethod.POST)
+		@ResponseBody
+		public ModelAndView getSearchSaleboardListFavorite(@RequestParam Map<String, String> map) {
 
+			ModelAndView mav = new ModelAndView();
+
+			List<SaleboardDTO> list = saleboardService.getSearchSaleboardListFavorite(map);
+
+			SaleboardPaging saleboardPaging = saleboardService.searchSaleboardPagingFavorite(map);
+
+			mav.addObject("saleboardPaging", saleboardPaging);
+			mav.addObject("list", list);
+			mav.setViewName("jsonView");
+
+			return mav;
+		}
+		
 		
 		
 }

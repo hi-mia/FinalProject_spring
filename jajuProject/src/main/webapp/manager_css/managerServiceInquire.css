@@ -707,9 +707,9 @@ td{
     font-size: 12px;
     cursor: pointer;
 }
-.paging:first-child {
+/* .paging:first-child {
 	border-left: 1px solid #ddd;
-}
+} */
 .currentPaging, .thisPaging:hover, .currentPaging:hover{
     background-color: #f2f2f2;
     color: #47597e;

@@ -69,9 +69,19 @@ public interface SaleboardService {
 	
 	public void saleStateModify(Map<String, String> map);
 
-	public List<MessageDTO> salebuyerFindMessage(int sale_seq);
+	public List<MessageDTO> salebuyerFindMessage(Map<String,String> map);
 
 	public List<SaleboardCommentDTO> salebuyerFindComment(int sale_seq);
 
 	public void salebuyerConfirmation(Map<String, String> map);
+
+	public List<SaleboardDTO> getSaleboardListFavorite(Map<String, String> map);
+
+	public SaleboardPaging saleboardPagingFavorite(Map<String, String> map);
+
+	public List<SaleboardDTO> getSearchSaleboardListFavorite(Map<String, String> map);
+
+	public SaleboardPaging searchSaleboardPagingFavorite(Map<String, String> map);
+
+	
 }

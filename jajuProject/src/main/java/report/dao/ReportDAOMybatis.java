@@ -65,13 +65,6 @@ public class ReportDAOMybatis implements ReportDAO {
 	}
 
 	@Override
-	public void commentWrite(Map<String, String> map) {
-		//System.out.println(map);
-		sqlSession.insert("memberreportSQL.commentWrite", map);
-		
-	}
-
-	@Override
 	public List<CommentDTO> getCommentList(String report_seq) {
 		return sqlSession.selectList("memberreportSQL.getCommentList", Integer.parseInt(report_seq));
 	}
@@ -79,18 +72,6 @@ public class ReportDAOMybatis implements ReportDAO {
 	@Override
 	public CommentDTO getComment(String comment_seq) {
 		return sqlSession.selectOne("memberreportSQL.getComment", Integer.parseInt(comment_seq));
-	}
-
-	@Override
-	public void commentModify(CommentDTO commentDTO) {
-		sqlSession.update("memberreportSQL.commentModify", commentDTO);
-		
-	}
-	
-	@Override
-	public void commentDelete(Map<String, String> map) {
-		sqlSession.delete("memberreportSQL.commentDelete", map);
-		
 	}
 
 }

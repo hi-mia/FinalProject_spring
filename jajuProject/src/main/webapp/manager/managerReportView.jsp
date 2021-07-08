@@ -9,6 +9,8 @@
 <form id="managerReportView" name="managerReportView">
 <jsp:include page="/manager/managerMenu.jsp"/>
 <input type="hidden" id="sale_seq" name="sale_seq">
+<input type="hidden" id="sale_id" name="sale_id">
+<input type="hidden" id="member_warning" name="member_warning">
 <input type="hidden" id="report_seq" name="report_seq" value="${report_seq}">
 <input type="hidden" id="comment_seq" name="comment_seq" value="${comment_seq}">
 <input type="hidden" id="pg" name="pg" value="${pg}">
@@ -32,7 +34,7 @@
 			<tbody>
 			<tr>
 			<td>
-			<table style="width:800px;">
+			<table class="View1" style="width:800px;">
 			<tbody>
 			<tr>
 			<td>
@@ -100,23 +102,17 @@
 		</table>
 		<br>
 		
-		<table width="100%" style="table-layout:fixed" cellpadding="0" cellspacing="0">
+		<table class="View2" width="100%" style="table-layout:fixed" cellpadding="0" cellspacing="0">
 		<tbody>
 		<tr>
 		<td align="center" style="padding-top:10px;">
 		
-		<table width="100%">
+		<table class="View3" width="100%">
 			<tbody>
 				<tr>
 					<td align="right">
-						<button onclick="javascript:show()'" style="border: none;"> 
-							<span class="reportBtn hide" style="float:none;">보이기</span>
-						</button>
 						<a href="javascript:void(0)" onclick="mode(1)">
 							<span class="reportBtn delete" style="float:none;">삭제</span>
-						</a>
-						<a href="/jaju/manager/managerReportList">
-							<span class="reportBtn list" style="float:none;">목록</span>
 						</a>
 					</td>
 				</tr>
@@ -167,10 +163,13 @@
 				</tr>
 			
 				<tr>
-					<td align="right">
-						<a href="javascript:void(0)" onclick="mode(2)">
-							<span class="reportBtn comWrite" style="float:none;">등록</span>
-						</a>
+					<td style="text-align: left; font-size: 13px; width: 630px; display:inline-block;">
+						- 보이기 버튼을 누르면 신고된 글이 다시 보여집니다. <br>
+						- 원글 삭제 버튼을 누르면 신고 누적횟수가 +1 됩니다.
+					</td>
+					<td style="align: right; display:inline-block; margin-top: 10px;">
+						<input type="button" class="reportBtn show" value="보이기">
+						<input type="button" class="reportBtn hide" value="원글삭제">
 					</td>
 				</tr>
 			</tbody>
@@ -196,13 +195,17 @@
 			</tbody>
 		</table>
 		
-		</div>
-		</div>
 		
-		</td>
-		</tr>
+		
+		</div>
+		</div>
 		</tbody>
 		</table>
+		<div class="listView">
+			<a href="/jaju/manager/managerReportList">
+				<span class="reportBtn list">목록</span>
+			</a>
+		</div>
 	</div>
 </div>
 </div>

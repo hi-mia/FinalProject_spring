@@ -125,7 +125,7 @@ $('#saleboardModifyBtn').click(function(){
         $('#sale_priceDiv').css('font-size', '10pt');
         $('#sale_priceDiv').css('font-weight', 'bold');
 	}
-	else if($('#sale_category').val() == ''){
+	else if($('#sale_category').val() == '*'){
 		$('#sale_categoryDiv').text('카테고리를 선택해주세요');
 		$('#sale_categoryDiv').css('color', 'red');
         $('#sale_categoryDiv').css('font-size', '10pt');
@@ -161,9 +161,11 @@ $('#saleboardModifyBtn').click(function(){
 });
 
 $('#sale_state').change(function(){
-	//if($('#sale_state').val() == '판매완료'){
+	
+	
+	if($('#sale_state').val() == '판매완료'){
 		$('.saleboardModifyTr').after($('<tr/>',{
-			
+			id : 'sale_state_com'
 		}).append($('<th/>',{
 			text: '구매자 선택'
 		})).append($('<td/>',{
@@ -181,9 +183,6 @@ $('#sale_state').change(function(){
 			class : 'bhs_button yb',
 			id : 'bayer_selectBtn'
 		}))))
-	//}
-		
-		
 		
 		$.ajax({
 				type : 'post',
@@ -244,6 +243,14 @@ $('#sale_state').change(function(){
 				console.log("salebuyer2 error발생+err")
 			}
 		});//ajax
+		
+	} else{
+		$('#sale_state_com').remove()
+	}
+		
+		
+		
+		
 
 	
 });

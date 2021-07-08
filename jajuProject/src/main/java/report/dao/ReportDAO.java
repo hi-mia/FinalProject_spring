@@ -25,15 +25,10 @@ public interface ReportDAO {
 
 	public void reportDelete(String report_seq);
 
-	
-	public void commentWrite(Map<String, String> map);
 
 	public List<CommentDTO> getCommentList(String report_seq);
 
 	public CommentDTO getComment(String comment_seq);
 
-	public void commentModify(CommentDTO commentDTO);
-
-	public void commentDelete(Map<String, String> map);
 
 }
