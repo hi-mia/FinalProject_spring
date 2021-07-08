@@ -75,4 +75,26 @@ public class ManagerQuestionServiceImple implements ManagerQuestionService {
 		
 	}
 
+	@Override
+	public List<InquireDTO> getQuestionSearchList(Map<String, String> map) {
+		int endNum = Integer.parseInt(map.get("pg"))*10;
+		int startNum = endNum-9;
+		
+		map.put("startNum", startNum+"");
+		map.put("endNum", endNum+"");
+		return managerQuestionDAO.getQuestionSearchList(map);
+	}
+
+	@Override
+	public QuestionPaging managerQuestionPaging(Map<String, String> map) {
+		int totalA = managerQuestionDAO.getTotalSearchA(map);
+		
+		questionPaging.setCurrentPage(Integer.parseInt(map.get("pg")));
+		questionPaging.setPageBlock(5);
+		questionPaging.setPageSize(10);
+		questionPaging.setTotalA(totalA);
+		questionPaging.makePagingHTML();	
+		return questionPaging;
+	}
+
 }

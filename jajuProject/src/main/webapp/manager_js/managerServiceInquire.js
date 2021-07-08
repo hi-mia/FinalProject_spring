@@ -10,6 +10,10 @@ $(function(){
 		success : function(data){
 			//alert(JSON.stringify(data));
 				
+			
+		if(data.list.length != 0){
+			$('.no_data').hide();
+				
 			$.each(data.list, function(index, items){
 				
 				$('<tr/>').append($('<td/>',{
@@ -49,16 +53,22 @@ $(function(){
 	            	text: items.inquiry_state,
 	            	class: 'state',
 				})).appendTo($('#tbl_admin'))
-				//페이징 처리
-				 $('#pagingArea').html(data.inquirePaging.pagingHTML);
-					
 				
+					
 				$('.subject'+items.inquiry_seq).click(function(){
 					//alert(items.inquiry_seq);
 					//alert($('#pg').val());
 					location.href = '/jaju/serviceCenter/managerInquireView?seq='+items.inquiry_seq+'&pg='+$('#pg').val()+'&inquiry_id='+items.inquiry_id;
 				});
+				//처리중 처리완료 색 변경
+	        	$("td.state:contains('처리중')").css({color:"red"});
+	        	$("td.state:contains('처리완료')").css({color:"blue"});
 			});
+		}else if(data.list.length == 0){
+			$('.no_data').show();
+		}
+		//페이징 처리
+		$('.page_admin').html(data.inquirePaging.pagingHTML);
 		},
 		error: function(err){
 			console.log(err);

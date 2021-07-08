@@ -102,7 +102,7 @@ public class QuestionController {
 		//페이징 처리
 		QuestionPaging questionPaging = questionService.questionPaging(pg); 
 		
-		//System.out.println(list);
+	
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg", pg);
 		mav.addObject("list", list);
@@ -136,7 +136,6 @@ public class QuestionController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg", map.get("pg"));
 		mav.addObject("list", list);
-		//System.out.println(list);
 		mav.addObject("questionPaging", questionPaging);
 		mav.setViewName("jsonView");
 		return mav;

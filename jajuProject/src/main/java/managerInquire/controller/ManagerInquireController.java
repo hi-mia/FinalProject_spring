@@ -67,7 +67,7 @@ public class ManagerInquireController {
 
 	@RequestMapping(value = "managerInquireDelete", method=RequestMethod.GET)
 	public ModelAndView managerInquireDelete(String[] check) {
-		System.out.println(check);
+		
 		managerInquireService.managerInquireDelete(check);
 		return new ModelAndView("redirect:/manager/managerServiceInquire");
 	}

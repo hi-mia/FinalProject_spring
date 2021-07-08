@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import inquire.bean.InquireDTO;
+import inquire.bean.InquirePaging;
 import managerQuestion.service.ManagerQuestionService;
 import question.bean.QuestionDTO;
 import question.bean.QuestionPaging;
@@ -249,5 +250,22 @@ public class ManagerQuestionController {
 			managerQuestionService.managerQuestionDelete(check);
 			return new ModelAndView("redirect:/manager/managerServiceQuestion");
 		}
-	
+		
+		@RequestMapping(value = "getQuestionSearchList", method = RequestMethod.POST)
+		@ResponseBody
+		public ModelAndView getQuestionSearchList(@RequestParam Map<String, String>map) {
+
+			List<InquireDTO>list = managerQuestionService.getQuestionSearchList(map);
+			
+			QuestionPaging questionPaging = managerQuestionService.managerQuestionPaging(map);
+			
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("pg", map.get("pg"));
+			mav.addObject("list", list);
+			mav.addObject("questionPaging", questionPaging);
+			mav.setViewName("jsonView");
+			
+			return mav;
+			
+	}
 }

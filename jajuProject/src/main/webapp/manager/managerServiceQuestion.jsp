@@ -21,14 +21,14 @@
 		<div class="box_search">
 			<div class="select_admin" style="font-size: 14px;">
 			<select id="itemcd" name="itemcd">
-				<option value="managerService">&nbsp;&nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;</option>
-				<option value="managerService">&nbsp;&nbsp;&nbsp;&nbsp;카테고리&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				<option value="question_subject">&nbsp;&nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				<option value="questionType">&nbsp;&nbsp;&nbsp;&nbsp;카테고리&nbsp;&nbsp;&nbsp;&nbsp;</option>
 			</select>
 			</div>
 			
 			<div class="search_input">
-				<input id="search-text" maxlength="20" size="25" class="tf_search textbox_default" title="검색어">
-				<button type="button" class="btn_admin btn_search button-search">
+				<input id="text" id = "keyword" name="keyword" value="${keyword}" maxlength="20" size="25" class="tf_search textbox_default" title="검색어">
+				<button type="button" id = "managerServiceQuestionBtn" class="btn_admin btn_search button-search">
 					<span class="ico_admin">검색</span>
 				</button>
 			</div>
@@ -38,7 +38,7 @@
 		
 	</div>
 
-	<div class="set_list" id="listControlBar" style="width: 800px; height: 50px; background: #FAFAFA; border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4;">
+	<div class="set_list" id="listControlBar" style="width: 840px; height: 59px; padding : 0; background: #FAFAFA; border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4;">
 		<div class="bundle_set">
 		
 		</div>
@@ -76,7 +76,7 @@
 
 	</table>
 </div>
-
+<table class="inquireTable" id="inquireTable" style="width:100%; border-top: 50px solid #FAFAFA;; border-bottom: 1px solid #e6e6e6;"></table>
 <div id="pagingArea" class="page_admin">
 <!-- <span class="paging currentPaging" onclick="inquirePaging">1</span> -->
 </div>

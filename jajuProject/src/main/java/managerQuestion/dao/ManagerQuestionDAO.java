@@ -22,4 +22,8 @@ public interface ManagerQuestionDAO {
 
 	public void managerQuestionDelete(Map<String, String[]> map);
 
+	public List<InquireDTO> getQuestionSearchList(Map<String, String> map);
+
+	public int getTotalSearchA(Map<String, String> map);
+
 }

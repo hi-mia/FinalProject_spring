@@ -139,7 +139,7 @@ public class InquireController {
 									 @RequestParam String pg,
 									 @RequestParam (required=false, defaultValue="1") String inquiry_id,
 									 Model model) {
-			System.out.println(inquiry_id);
+			
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("inquiry_id", inquiry_id);
 			mav.addObject("seq", seq);
@@ -250,38 +250,8 @@ public class InquireController {
 					inquireDTO.setInquiry_image3(fileName);
 			}
 		}
-//		
-		
-		
-//		int i = 0;
-//		for(MultipartFile img: list) {
-//			filePath = "D:\git_home\git_jajuProject\jajuProject\src\main\webapp\storage";
-//			fileName = img.getOriginalFilename();
-//			file = new File(filePath,fileName);
-//			
-//			if(!fileName.equals("")) {
-//	//			파일 복사
-//				try {
-//					FileCopyUtils.copy(img.getInputStream(), new FileOutputStream(file));
-//				}catch (IOException e) {
-//					//e.printStackTrace();
-//				}
-//				
-//				if(i == 0) {
-//						inquireDTO.setInquiry_image1(fileName);		
-//				}else if(i == 1) {
-//						inquireDTO.setInquiry_image2(fileName);		
-//				}else if(i == 2) {
-//						inquireDTO.setInquiry_image3(fileName);		
-//					
-//				}
-//				i++;
-//			}
-//		}
-//		
-//		
-////		System.out.println("inquireModify"+inquireDTO);
-//		//DB
+
+		//DB
 		inquireService.inquireModify(inquireDTO);
 	}
 	
@@ -293,17 +263,7 @@ public class InquireController {
 		
 	}
 	
-//	//관리자 답글
-//	@RequestMapping(value="inquireReplyForm", method=RequestMethod.GET)
-//	public String inquireReplyForm(@RequestParam String seq, 
-//								   @RequestParam String pg,
-//								   Model model) {
-//		//답글 - 원글페이지, 원글 밑
-//		model.addAttribute("pseq",seq);//원글번호
-//		model.addAttribute("pg",pg);//원글 페이지번호
-//		model.addAttribute("display", "/serviceCenter/inquireReplyForm.jsp");
-//		return "/index";
-//	}
+
 	
 	@RequestMapping(value="inquireReply", method=RequestMethod.POST)
 	@ResponseBody
