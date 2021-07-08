@@ -12,7 +12,7 @@
 
 <div id="wrap">
 <div id="pos_scroll"></div>
-<div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
+<div id="container" style="float:left; margin-left:40px; margin-top:-150px; width:800px;">
 
 <div class="tit_page" style="width:800px; align:center;">
 	<h1 class="tit"></h1>
