@@ -1,7 +1,5 @@
 $(function(){
    opener.parent.location.reload();
-   
-   
    $.ajax({
       //먼저 기존의 이미지, 아이디 (아이디는 세션값으로 처리), 매너온도, 현재 위치 addr1,2만 받아오기 행정동법정동 까지만. 
       url:'/jaju/mypage/getMyProfileInfo',
@@ -13,7 +11,7 @@ $(function(){
       },
       dataType:'json',
       success:function(data){
-         console.log(data.memberDTO);
+         //console.log(data.memberDTO);
          //성공하면 , 기존 span태그에 붙여주기 
          //이미지먼저 붙여주고. 
          if(data.memberDTO.member_image==null || data.memberDTO.member_image=="" ){
@@ -48,13 +46,8 @@ $(function(){
 	      success:function(data){
 	         //console.log(data.memberDTO);
 	         //성공하면 , 기존 span태그에 붙여주기 
-	    	  
-	    	  console.log(JSON.stringify(data));
-	    	  saleContentSpan
-	         
 	    	  if(JSON.stringify(data.list)=='[]'){
 					//$('.title').remove();
-					
 					$('<tr/>').append($('<td/>',{
 						align:'center',
 						text:'판매 후기가 없습니다.',

@@ -168,7 +168,7 @@ $(function(){
 		dataType:'json',
 		
 		success: function(data){
-			console.log(JSON.stringify(data));
+			//console.log(JSON.stringify(data));
 			$.each(data.list, function(index, items){
 		
 			//alert(items.location2_addr1 + items.location3_addr1 )	
@@ -192,7 +192,7 @@ $(function(){
 					
 					dataType: 'json',
 					success: function(data){
-						console.log(JSON.stringify(data));
+						//console.log(JSON.stringify(data));
 					
 						//$('#select_box_div').remove();
 						

@@ -156,18 +156,7 @@
 				<th width="200" style="padding-bottom: 10px;">작성일</th>
 				<th width="100"/>
 			</tr>
-			<tr>
-				<td >18</td>
-				<td style="text-align: left;"></td>
-				<td ></td>
-				<td ></td>
-			</tr>
-			<tr>
-				<td >28</td>
-				<td style="text-align: left;"></td>
-				<td ></td>
-				<td ></td>
-			</tr>
+			
 		</table>
 		<div id="pagingDiv" style="text-align: center; margin-bottom: 10px;">
 		

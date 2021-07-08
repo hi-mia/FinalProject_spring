@@ -5,7 +5,6 @@ $(function(){
 		url:'/jaju/mypage/getMyProfileInfo',
 		data: //{'id':$('#id').val()},//id값 가져가야 해당 로그인 한 사람의 관심정보 가져올 수 있음.
 		 {'id':$('#id').val()},
-		 
 		dataType:'json',
 		success:function(data){
 			var text

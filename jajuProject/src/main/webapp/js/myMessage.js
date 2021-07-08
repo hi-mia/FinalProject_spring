@@ -10,15 +10,9 @@ $(document).ready(function() {
 			},
 		dataType:'json',
 		success:function(data){
-			
-			console.log(JSON.stringify(data));
-		
-			
-			//리스트가 null이라면, 
+		//리스트가 null이라면, 
 			if(JSON.stringify(data.list)=='[]' && data.getMyMessageListPage != null){
-				
 				$('.board-list').remove();
-
 				$('<tr/>').append($('<td/>',{
 					align:'center',
 					text:'받은 쪽지가 없습니다.',
@@ -27,11 +21,8 @@ $(document).ready(function() {
 			}
 			
 			else {
-				
 			$.each(data.list, function(index, items){
-			
 				//alert("items.message_seq = "+items.message_seq);
-
 				var text;
 			
 				if(items.message_change=='0'){
@@ -41,8 +32,7 @@ $(document).ready(function() {
 				}else if(items.message_change=='3'){
 					text ="삭제된 메세지";
 				}
-						//받은쪽지없습니다 그럼 테이블치워버려!!!!
-					
+					//받은쪽지없습니다 그럼 테이블치워버려!!!!
 					//그리고 붙여!!!! 체크박스, 보낸사람, 내용, 작성일, 답변상태, 
 					$('<tr/>',{
 						id:'tr_row',

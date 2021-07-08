@@ -12,18 +12,13 @@ $(function(){
 		},
 		dataType:'json',
 		success:function(data){
-			
 			//alert("data? "+data);
-			console.log(JSON.stringify(data));
-				//리스트가 null이라면, 
-
-	        	// && data.myRecodePaging2 != null
-			
-			
-			//var subject = items.sale_subject;
-			
 			//console.log(JSON.stringify(data));
-			
+				//리스트가 null이라면, 
+	        	// && data.myRecodePaging2 != null
+		
+			//var subject = items.sale_subject;
+			//console.log(JSON.stringify(data));
 			
 			$.each(data.list, function(index, items){
 				$('<ul/>',{
@@ -96,7 +91,7 @@ $(function(){
 			
 			//var subject = items.sale_subject;
 			
-			console.log(JSON.stringify(data));
+			//console.log(JSON.stringify(data));
 			
 			if(JSON.stringify(data.list)=='[]' ){
 				$('.title').remove();

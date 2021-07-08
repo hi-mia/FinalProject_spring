@@ -3,6 +3,9 @@
 .row .card-body:hover, .google_chart:hover , .chart_js:hover , .drawLocationChart:hover{
   box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
+.google_chart path{
+	cursor: pointer;
+}
 #container {
 	position: relative;
 	
