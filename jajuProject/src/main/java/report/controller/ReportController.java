@@ -258,13 +258,6 @@ public class ReportController {
 		return new ModelAndView("redirect:/serviceCenter/reportList");
 	}
 	
-	@RequestMapping(value="commentWrite", method=RequestMethod.POST)
-	@ResponseBody
-	public void commentWrite(@RequestParam Map<String, String> map) {
-		
-		//System.out.println(map);
-		reportService.commentWrite(map);// seq값이랑 DTO 값
-	}
 	
 	@RequestMapping(value="getCommentList", method=RequestMethod.POST)
 	@ResponseBody
@@ -293,18 +286,4 @@ public class ReportController {
 		return mav;
 	}
 	
-	@RequestMapping(value="commentModify", method=RequestMethod.POST)
-	@ResponseBody
-	public void commentModify(@ModelAttribute CommentDTO commentDTO) {
-		//System.out.println(commentDTO);
-		reportService.commentModify(commentDTO);
-	}
-	
-	@RequestMapping(value="commentDelete", method=RequestMethod.POST)
-	@ResponseBody
-	public void commentDelete(@RequestParam Map<String, String> map) {
-		
-		reportService.commentDelete(map);
-		
-	}
 }

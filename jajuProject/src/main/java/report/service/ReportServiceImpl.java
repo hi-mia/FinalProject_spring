@@ -34,7 +34,7 @@ public class ReportServiceImpl implements ReportService {
 	@Override
 	public void reportWrite(ReportDTO reportDTO) {
 		//System.out.println("1");
-		System.out.println(reportDTO);
+		//System.out.println(reportDTO);
 		reportDAO.reportWrite(reportDTO);
 	}
 	
@@ -86,12 +86,6 @@ public class ReportServiceImpl implements ReportService {
 	}
 
 	@Override
-	public void commentWrite(Map<String, String> map) {
-		reportDAO.commentWrite(map);
-		
-	}
-
-	@Override
 	public List<CommentDTO> getCommentList(String report_seq) {
 		return reportDAO.getCommentList(report_seq);
 	}
@@ -99,18 +93,6 @@ public class ReportServiceImpl implements ReportService {
 	@Override
 	public CommentDTO getComment(String comment_seq) {
 		return reportDAO.getComment(comment_seq);
-	}
-
-	@Override
-	public void commentModify(CommentDTO commentDTO) {
-		reportDAO.commentModify(commentDTO);
-		
-	}
-
-	@Override
-	public void commentDelete(Map<String, String> map) {
-		reportDAO.commentDelete(map);
-		
 	}
 
 }
