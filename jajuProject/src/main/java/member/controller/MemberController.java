@@ -128,6 +128,7 @@ public class MemberController {
 			}
 		}
 		
+		session.setAttribute("kakao", "kakao");
 		session.setAttribute("memId", map.get("member_id"));
 		model.addAttribute("memId", session.getAttribute("memId"));
 	}
