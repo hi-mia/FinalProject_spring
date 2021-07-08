@@ -202,7 +202,6 @@ ol, ul {
 	<input type="hidden" id="id" name="id" value="${memId}">
 	<input type="hidden" id="pg" name="pg" value="${param.pg}">
 <div id="total" style="width:1080px; margin: auto;">
-<jsp:include page="/freeboard/boardMenu.jsp"/>
 
 	<div class="section_review" style="margin-bottom: 120px;">
 

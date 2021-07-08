@@ -9,7 +9,6 @@
 <input type="hidden" name="sale_seq" id="sale_seq" value="${param.sale_seq }">
 
 <div id="total" style="width:1080px; margin: auto; ">
-<jsp:include page="/freeboard/boardMenu.jsp"/>
 
 <div id="wrap">
 <div id="pos_scroll"></div>
