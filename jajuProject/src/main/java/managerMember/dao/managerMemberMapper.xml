@@ -118,7 +118,7 @@
 
 <!-- 회원리스트 paging 처리 -->
 <select id="getMemberTotalA" parameterType="String" resultType="int">
-	select count(*) from jajumember where member_state='0'
+	select count(*) from jajumember where member_state='0' and member_id != 'jajuadmin'
 </select>
 <!-- 검색 paging 처리  -->
 <select id="getSearchTotalA" parameterType="String" resultType="int">
