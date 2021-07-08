@@ -9,4 +9,18 @@
 	 		select * from sale_board where sale_state in ('판매중', '예약중') and sale_hide = 'on' order by sale_hit desc)tt)
 	 		<![CDATA[where rn >= 1 and rn <=10]]>
  	</select>
+ 	
+ 	<select id="recommend" resultType="saleboard">
+		select * from (
+	 		select rownum rn ,tt.*from(
+	 		select * from sale_board where sale_category = #{category} and sale_hide = 'on' order by sale_hit desc)tt)
+	 		<![CDATA[where rn >= 1 and rn <=4]]>
+ 	</select>
+ 		
+ 	<select id="board" resultType="freeboard">
+		select * from (
+	 		select rownum rn ,tt.*from(
+	 		select * from freeboard order by board_seq desc)tt)
+	 		<![CDATA[where rn >= 1 and rn <=5]]>
+ 	</select>
  </mapper>
