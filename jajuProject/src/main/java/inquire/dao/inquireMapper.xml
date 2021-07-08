@@ -23,18 +23,18 @@
 	</insert>
 	
 	<select id = "getInquireList" parameterType = "java.util.Map" resultType = "inquire">
+		<if test="inquiry_id == '관리자'">
  		select *from (select rownum rn, tt.* from
-		(select * from inquiryboard where inquiry_id = #{inquiry_id} or inquiry_id='관리자' order by inquiry_ref desc, inquiry_lev asc)tt)
+		(select * from inquiryboard order by inquiry_ref desc, inquiry_lev asc)tt)
 		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+		</if>
 		
-		<!-- 
-		<![CDATA[
+		<if test="inquiry_id != '관리자'">
 		select *from (select rownum rn, tt.* from
-		(select * from imageboard order by seq desc)tt)
-		where rn >=#{startNum} and rn <=#{endNum}
-		]]>
-		이렇게 쓰면 <>기호도 사용 가능하다.
-		 -->
+		(select * from inquiryboard where inquiry_id = #{inquiry_id} order by inquiry_ref desc, inquiry_lev asc)tt)
+		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+		</if>
+	
  	</select>
  	
  	<select id="getInquireView" parameterType="int" resultType="inquire">
