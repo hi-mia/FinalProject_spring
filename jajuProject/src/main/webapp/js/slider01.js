@@ -7,9 +7,9 @@ $(function(){
 			//alert(JSON.stringify(data))
 
 			$.each(data.list, function(index, items){
-				$('#img' + index).prop('src', '/jaju/storage/' + items.sale_image1);
-				$('#subject' + index).text(items.sale_subject);
-				$('#price' + index).text(items.sale_price);
+				$('#s_img' + index).prop('src', '/jaju/storage/' + items.sale_image1);
+				$('#s_subject' + index).text(items.sale_subject);
+				$('#s_price' + index).text(items.sale_price);
 			})
 		},
 		error: function(err){

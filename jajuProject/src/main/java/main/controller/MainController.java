@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import freeboard.bean.FreeboardDTO;
 import main.service.MainService;
 import saleboard.bean.SaleboardDTO;
 
@@ -34,8 +35,22 @@ public class MainController {
 	@RequestMapping(value="/recommend", method=RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView recommend(@RequestParam String category) {
-		System.out.println(category);
+		List<SaleboardDTO> list = mainService.recommend(category);
+		
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", list);
+		mav.setViewName("jsonView");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/board", method=RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView board() {
+		List<FreeboardDTO> list = mainService.board();
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", list);
 		mav.setViewName("jsonView");
 		
 		return mav;

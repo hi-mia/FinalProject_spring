@@ -59,6 +59,10 @@
  	</select>
  	
  	<update id="retire" parameterType="String">
- 		update jajumember set member_state='탈퇴' where member_id=#{member_id}
+ 		begin
+ 		update jajumember set member_state='탈퇴' where member_id=#{member_id};
+ 		
+ 		update sale_board set sale_hide='off' where member_id=#{member_id};
+ 		end;
  	</update>
  </mapper>

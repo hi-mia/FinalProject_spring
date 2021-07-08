@@ -67,7 +67,7 @@ body {
 }
 
 .category_type {
-	padding-bottom: 100px;
+	padding-bottom: 20px;
 }
 
 .tit_goods {
@@ -84,6 +84,7 @@ body {
 
 .tit_goods .name {
 	position: relative;
+	color: #4457C0;
 	font-weight: 700;
 }
 
@@ -276,26 +277,26 @@ a:active, a:hover {
 						<li data-index="1" class="" data-name="md_choice"
 							style="float: left; list-style: none; position: relative; width: 249px; margin-right: 18px;"><a
 							class="thumb_goods"> <!----> 
-							<img id="img0" src=""	alt="상품이미지" class="thumb"
+							<img id="r_img0" src=""	alt="상품이미지" class="thumb"
 								style="background-image: url();">
 							</a>
 							<div class="info_goods">
 								<span class="name">
-								<a id="subject0" class="txt"><br></a></span> 
-								<span id="price0" class="price"></span> 
+								<a id="r_subject0" class="txt"><br></a></span> 
+								<span id="r_price0" class="price"></span> 
 							</div>
 						</li>
 							
 						<li data-index="2" class="" data-name="md_choice"
 							style="float: left; list-style: none; position: relative; width: 249px; margin-right: 18px;"><a
 							class="thumb_goods"> <!----> 
-							<img id="img1" src=""	alt="상품이미지" class="thumb"
+							<img id="r_img1" src=""	alt="상품이미지" class="thumb"
 								style="background-image: url();">
 							</a>
 							<div class="info_goods">
 								<span class="name">
-								<a id="subject1" class="txt"><br></a></span> 
-								<span id="price1" class="price"></span> 
+								<a id="r_subject1" class="txt"><br></a></span> 
+								<span id="r_price1" class="price"></span> 
 							</div>
 						</li>
 						
@@ -303,26 +304,26 @@ a:active, a:hover {
 						<li data-index="3" class="cut" data-name="md_choice"
 							style="float: left; list-style: none; position: relative; width: 249px; margin-right: 18px;"><a
 							class="thumb_goods"> <!----> 
-							<img id="img2" src=""	alt="상품이미지" class="thumb"
+							<img id="r_img2" src=""	alt="상품이미지" class="thumb"
 								style="background-image: url();">
 							</a>
 							<div class="info_goods">
 								<span class="name">
-								<a id="subject2" class="txt"><br></a></span> 
-								<span id="price2" class="price"></span> 
+								<a id="r_subject2" class="txt"><br></a></span> 
+								<span id="r_price2" class="price"></span> 
 							</div>
 						</li>
 						
 						<li data-index="4" class="" data-name="md_choice"
 							style="float: left; list-style: none; position: relative; width: 249px; margin-right: 18px;"><a
 							class="thumb_goods"> <!----> 
-							<img id="img3" src=""	alt="상품이미지" class="thumb"
+							<img id="r_img3" src=""	alt="상품이미지" class="thumb"
 								style="background-image: url();">
 							</a>
 							<div class="info_goods">
 								<span class="name">
-								<a id="subject3" class="txt"><br></a></span> 
-								<span id="price3" class="price"></span> 
+								<a id="r_subject3" class="txt"><br></a></span> 
+								<span id="r_price3" class="price"></span> 
 							</div>
 						</li>
 
@@ -338,6 +339,11 @@ a:active, a:hover {
 				</div>
 			</div>
 		</div>
+		
+		<div class="no_data" style="padding: 150px 0 148px; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6; font-size: 14px; color: #4c4c4c; text-align: center; margin-bottom: 50px;">
+			등록된 상품이 없습니다.
+		</div>
+		
 		<div class="link_cate">
 			<a id="linkBtn" class="link"><span class="ico"></span></a>
 		</div>
