@@ -78,6 +78,7 @@
 <input type="hidden" id="memId" value="${sessionScope.memId }">
 <input type="hidden" id="sortinSelected" value="${param.sortinSelect }">
 <input type="hidden" id="searchHidden" >
+<input type="hidden" id="headerSerachText" value="${param.headerSerachText }">
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/js/saleboardList.js"></script>
