@@ -19,9 +19,7 @@ $(function(){
 				$('.View2').hide();
 				$('.View3').hide();
 				
-				
 			}else if(data.reportDTO != null){
-				
 			
 				$('#sale_seq').val(data.reportDTO.sale_seq);
 				$('#sale_id').val(data.reportDTO.sale_id);
@@ -76,7 +74,6 @@ function mode(num, seq){
 		$('.replyList').hide();
 		$('.reply').hide();
 		$('.replyModify').show();
-		$('.listView').show();
 		
 		//var comment_seq = $(this).parent().parent().prev().prev().find('td:frist').attr('id');
 		//alert(seq+"=seq");

@@ -19,8 +19,8 @@ $(function(){
 				$('.View2').hide();
 				$('.View3').hide();
 				
-			}else{
-			
+			}else if(data.reportDTO != null){
+				
 				
 				$('#sale_seq').val(data.reportDTO.sale_seq);
 				
