@@ -166,7 +166,7 @@ function getFristInfomation(){
 		type:'post',
 		dataType:'json',
 		success:function(data){
-			console.log("mainChart에 대한 모든정보" + JSON.stringify(data));
+			//console.log("mainChart에 대한 모든정보" + JSON.stringify(data));
 			//만약 모든 정보 가져오는 걸 성공했다면 html로 하나씩 넣어주기. 
 			
 			$('#inquire_count').html(data.inquire_db+'건');

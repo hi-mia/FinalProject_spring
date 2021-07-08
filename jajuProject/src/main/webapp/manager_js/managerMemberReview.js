@@ -16,7 +16,7 @@ $(function(){
 	         //console.log(data.memberDTO);
 	         //성공하면 , 기존 span태그에 붙여주기 
 	    	  
-	    	  console.log(JSON.stringify(data));
+	    	 // console.log(JSON.stringify(data));
 	    	  
 	    	  $('#historyDiv1').empty();
 	    	  

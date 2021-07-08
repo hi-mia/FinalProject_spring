@@ -10,7 +10,7 @@ $(function(){
 		},   // --->hidden의 값을 쓸때
 		dataType: 'json',
 		success: function(data){
-			console.log(JSON.stringify(data));
+			//console.log(JSON.stringify(data));
 			
 			 if(JSON.stringify(data.list)=='[]'){
 				 	$('.title').remove();

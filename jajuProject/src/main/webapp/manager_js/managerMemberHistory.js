@@ -19,7 +19,7 @@ $(function(){
 			
 			//alert("name? " +data);
 			
-			console.log("getMyProfileInfo"+data);
+			//console.log("getMyProfileInfo"+data);
 			if(data.memberDTO.member_image==null){
 				$('.profile_image').attr('src','/jaju/storage/unnamed.png');
 			}
@@ -50,7 +50,7 @@ $(function(){
 		
 		success: function(data){
 			
-			console.log(JSON.stringify(data));
+			//console.log(JSON.stringify(data));
 			
 			$.each(data.list, function(index, items){
 				//console.log(items.dealCount),console.log(items.saleCount),console.log(items.buyCount)

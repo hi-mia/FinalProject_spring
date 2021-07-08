@@ -227,7 +227,7 @@
 				async: false,
 				success : function(data) {
 
-					console.log(JSON.stringify(data));
+					//console.log(JSON.stringify(data));
 					var labels = [];
 					var myData = [];
 
