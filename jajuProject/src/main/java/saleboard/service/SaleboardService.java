@@ -69,7 +69,7 @@ public interface SaleboardService {
 	
 	public void saleStateModify(Map<String, String> map);
 
-	public List<MessageDTO> salebuyerFindMessage(int sale_seq);
+	public List<MessageDTO> salebuyerFindMessage(Map<String,String> map);
 
 	public List<SaleboardCommentDTO> salebuyerFindComment(int sale_seq);
 
