@@ -217,7 +217,7 @@ dl {
 	border: 0;
 	background: 0 0;
 	font-weight: 700;
-	color: #fff;
+	color: #333;
 	font-size: 16px;
 	line-height: 52px;
 	letter-spacing: -.1px;
@@ -231,7 +231,7 @@ dl {
 	border: 0;
 	background: 0 0;
 	font-weight: 700;
-	color: #fff;
+	color: #333;
 	font-size: 16px;
 	line-height: 52px;
 	letter-spacing: -.1px;
@@ -319,17 +319,17 @@ button, input, optgroup, select, textarea {
 	margin: 0;
 }
 
-.btn_type_follow, .btn_type_message,.btn_type_scrap { /*배경색*/
+.btn_type_message{
 	border: 1px solid #617aad;
 	background-color: #617aad;
 	margin-right: 3px;
 }
 
-.btn_type_follow:hover, .btn_type_message:hover,.btn_type_scrap:hover { /*추가*/
+.btn_type_follow:hover, .btn_type_scrap:hover, .btn_type_message:hover { /*추가*/
 	background-color: #47597e;
 }
 
-.btn_type_follow, .btn_type_message,.btn_type_scrap{ /*추가*/
+.btn_type_follow, .btn_type_scrap, .btn_type_message{ /*추가*/
 	display: block;
 	overflow: hidden;
 	width: 50%;
@@ -338,6 +338,20 @@ button, input, optgroup, select, textarea {
 	font-size: 0;
 	text-align: center;
 }
+
+.btn_type_follow, .btn_type_scrap {
+   border: 1px solid #617aad;
+   /*background-color: #617aad;*/
+   background-color: #fff;
+   margin-right: 3px;
+}
+
+.btn_type_follow:hover, .btn_type_scrap:hover {
+	border: 1px solid #a9aaab;
+	background-color: #a9aaab;
+	margin-right: 3px;
+}
+
 
 .group_btn {
 	overflow: hidden;

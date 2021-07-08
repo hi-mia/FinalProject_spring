@@ -7,7 +7,7 @@
 
 <input type="hidden" id="board_seq" value="${board_seq }">
 <input type="hidden" id="pg" value="${param.pg }"/>
-<input type="hidden" id="board_id" name= "board_id" value="${sessionScope.memId }"/>
+<input type="hidden" id="board_id" value="${sessionScope.memId }"/>
 <div id="wrap"  style="width:800px; display:inline-block; float:left; margin-left:40px; margin-top: 118px;">
 <div id="pos_scroll"></div>
 <div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
@@ -193,9 +193,9 @@ function freeboardCommentPaging(pg){
 						class: 'content_'+ items.comment_seq
 					}))
 				).append($('<td/>',{
-					text : items.board_id
+					text : items.member_id
 				})).append($('<td/>',{
-					class: 'trLast',
+					class: 'trLast'+items.comment_seq,
 					text : items.logtime
 				})).appendTo($('#commentTable'));
 				
@@ -208,24 +208,54 @@ function freeboardCommentPaging(pg){
 					}));
 				}
 				
-			}); //each
+			if(items.board_id == $('#board_id').val()){
 			
-			$('.trLast').append($('<img>',{
-				src: '/jaju/jajuImage/delete.png',
-				id: 'commentDeleteBtn',
-				style: 'cursor: pointer; float: right;',
-				width: '20px',
-				height: '20px'
-			})).append($('<img>',{
-				src: '/jaju/jajuImage/modify.png',
-				id: 'commentModifyBtn',
-				style: 'cursor: pointer; float: right;',
-				width: '20px',
-				height: '20px'
-			}));
-			
+				$('.trLast'+items.comment_seq).after($('<td/>',{
+					width: '100px',
+				}).append($('<img>',{
+					src: '/jaju/jajuImage/delete.png',
+					id: 'commentDeleteBtn',
+					style: 'cursor: pointer; float: right; border: 1px solid #00000033; margin-right: 10px;',
+					width: '20px',
+					height: '20px'
+				})).append($('<img>',{
+					src: '/jaju/jajuImage/modify.png',
+					id: 'commentModifyBtn',
+					style: 'cursor: pointer; float: right; border: 1px solid #00000033; margin-right: 10px;',
+					width: '20px',
+					height: '20px'
+				})));
+			}
+		}); //each
 			$('#pagingDiv').html(data.freeboardCommentPaging.pagingHTML);
 			
+			$(document).on('click', '#subjectA', function(){
+				
+				$('#reCommentTr').remove();
+				$('#reCommentModifyTr').remove();
+			
+				$(this).parent().parent().after($('<tr/>',{
+					id: 'reCommentTr'
+				}).append($('<td/>',{
+					style: 'background-color: #f5f5f5;'
+				})).append($('<td/>',{
+					colspan: 3,
+					text: 're: ',
+					style: 'background-color: #f5f5f5; text-align: left;'
+				}).append($('<input/>',{
+					type: 'text',
+					id: 'reCommentText',
+					width: '55%'
+				})).append($('<input/>',{
+					type: 'button',
+					id: 'reCommentBtn',
+					value: '   답글달기'
+				}))
+				));
+				
+		});
+		
+		
 		},error: function(err){
 			alert("댓글 불러오기 에러");
 			console.log(err);

@@ -47,9 +47,12 @@ $(function(){
 				success: function(data){
 					//alert(data)
 					if(data == 'hart.png'){
-						$('#scrapBtn').text("찜♥");					
+						$('#scrapBtn').text("찜♥");	
+						$('.btn_type_scrap').css('backgroundColor', '#617aad');
 					} else{
 						$('#scrapBtn').text("찜♡");
+						$('.btn_type_scrap').css('backgroundColor', '#fff');
+
 					}
 				},error: function(err){
 					alert("찜 상품 불러오기 에러");
@@ -306,40 +309,46 @@ $('#scrapBtn').click(function(){
 	//if($('#scrapBtn img').attr('src') == '/jaju/jajuImage/blackhart.png' ){
 	
 	
-	if($('#member_id .tit').text()==member_id){
-	      alert("본인의 판매글입니다.");
-	      return false;
-	   }else{	
-	
-			if($('#scrapBtn').text() == '찜♡'){	
-				$.ajax({
-					type: 'post',
-					url: '/jaju/mypage/writeMyScrap',
-					data: {'member_id': member_id, 'sale_seq': $('#sale_seq').val(),
-						   'sale_state': $('#sale_state .desc').text(), 'sale_subject': $('.goods_name .name').text(),
-						   'sale_image1': $('#imageDiv img:first').attr('id')
-						   },
-					success: function(date){
-						//$('#scrapBtn img').attr('src', '/jaju/jajuImage/hart.png')
-						$('#scrapBtn').text("찜♥");
-						
-					},error: function(err){
-						alert("찜 하기 에러");
-						console.log(err);
-					}
-					
-				});
-			} else{
-				$.ajax({
-					type: 'post',
-					url: '/jaju/mypage/deleteMyScrapView',
-					data: {'member_id': member_id, 'sale_seq': $('#sale_seq').val()},
-					success: function(date){
-						//$('#scrapBtn img').attr('src', '/jaju/jajuImage/blackhart.png')
-						$('#scrapBtn').text("찜♡");
-					},error: function(err){
-						alert("찜 삭제 에러");
-						console.log(err);
+	   if($('#member_id .tit').text()==member_id){
+	         alert("본인의 판매글입니다.");
+	         return false;
+	      }else{   
+	   
+	         if($('#scrapBtn').text() == '찜 ♡'){   
+
+	            $.ajax({
+	               type: 'post',
+	               url: '/jaju/mypage/writeMyScrap',
+	               data: {'member_id': member_id, 'sale_seq': $('#sale_seq').val(),
+	                     'sale_state': $('#sale_state .desc').text(), 'sale_subject': $('.goods_name .name').text(),
+	                     'sale_image1': $('#imageDiv img:first').attr('id')
+	                     },
+	               success: function(date){
+	                  //$('#scrapBtn img').attr('src', '/jaju/jajuImage/hart.png')
+	                  $('#scrapBtn').text("찜 ♥");
+	                  $("#scrapBtn").css("background","#617aad");
+	                  $("#scrapBtn").css("color","white");
+	                  //$('#scrapBtn').css('font-size', '17pt');
+	               },error: function(err){
+	                  alert("찜 하기 에러");
+	                  console.log(err);
+	               }
+	            });
+	         } else{
+	            $.ajax({
+	               type: 'post',
+	               url: '/jaju/mypage/deleteMyScrapView',
+	               data: {'member_id': member_id, 'sale_seq': $('#sale_seq').val()},
+	               success: function(date){
+	                  //$('#scrapBtn img').attr('src', '/jaju/jajuImage/blackhart.png')
+	                  $('#scrapBtn').text("찜 ♡");
+	                  $("#scrapBtn").css("background","white");
+	                  $("#scrapBtn").css("color","#47597e");
+	                  //$('#scrapBtn').css('font-size', '17pt');
+	               },error: function(err){
+	                  alert("찜 삭제 에러");
+	                  console.log(err);
+
 					}
 					
 				});
@@ -546,6 +555,8 @@ $('#memberreportA').click(function(){
 	location.href= '/jaju/serviceCenter/reportWriteForm?sale_seq='+ $('#sale_seq').val() +'&sale_id='+$('#member_id .tit').text();
 	
 });
+
+
 
 /*$(document).on('click','#profilImg',function(){
 //$('#profilImg').click(function(){
