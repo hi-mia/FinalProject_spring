@@ -56,6 +56,7 @@
 			</div>			
 			<input type="hidden" name="pg" id="pg" value="${param.pg }">
 			<input type="hidden" name="searchPg" id="searchPg" value="1">	
+
 		</form>
 		</td>
 	</tr>
@@ -66,6 +67,8 @@
 </div>
 </div>
 </div>
+
+<input type="hidden" id="board_id" value="${sessionScope.memId }"/>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/js/freeboardList.js"></script>

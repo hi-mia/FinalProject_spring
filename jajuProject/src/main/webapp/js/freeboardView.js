@@ -86,7 +86,7 @@ $(function(){
 				).append($('<td/>',{
 					text : items.board_id
 				})).append($('<td/>',{
-					class: 'trLast',
+					class: 'trLast'+items.comment_seq,
 					text : items.logtime
 				})).appendTo($('#commentTable'));
 				
@@ -99,24 +99,25 @@ $(function(){
 					}));
 				}
 				
+				
+				if(items.board_id == $('#board_id').val()){
+					$('.trLast'+items.comment_seq).after($('<td/>',{
+						width: '100px'
+					}).append($('<img>',{
+						src: '/jaju/jajuImage/delete.png',
+						id: 'commentDeleteBtn',
+						style: 'cursor: pointer; float: right; border: 1px solid #00000033; margin-right: 10px;',
+						width: '20px',
+						height: '20px'
+					})).append($('<img>',{
+						src: '/jaju/jajuImage/modify.png',
+						id: 'commentModifyBtn',
+						style: 'cursor: pointer; float: right; border: 1px solid #00000033; margin-right: 10px;',
+						width: '20px',
+						height: '20px'
+					})));
+				}
 			}); //each
-			
-			//나중에 세션에서 가져오기 로그인한 id
-			//if(items.member_id == sessionId){
-			//}  삭제와 수정 붙이기
-			$('.trLast').append($('<img>',{
-				src: '/jaju/jajuImage/delete.png',
-				id: 'commentDeleteBtn',
-				style: 'cursor: pointer; float: right;',
-				width: '20px',
-				height: '20px'
-			})).append($('<img>',{
-				src: '/jaju/jajuImage/modify.png',
-				id: 'commentModifyBtn',
-				style: 'cursor: pointer; float: right;',
-				width: '20px',
-				height: '20px'
-			}));
 			
 			$('#pagingDiv').html(data.freeboardCommentPaging.pagingHTML);
 			
@@ -147,7 +148,6 @@ $(function(){
 			});
 			 }//else
 			
-			
 		},error: function(err){
 			alert("댓글 불러오기 에러");
 			console.log(err);
@@ -163,7 +163,7 @@ $(document).on('click', '#reCommentBtn', function(){
 	
 	var comment_pseq = $(this).parent().parent().prev().find('td:first').text(); //원글번호
 	
-	//var loginId = 'sessionId'; //나중에 세션에서 받아오기
+	var loginId = $('#board_id').val(); 
 	
 	if(reCommentText == ''){
 		alert('댓글 내용을 입력해 주세요');
@@ -191,7 +191,7 @@ $(document).on('click', '#reCommentBtn', function(){
 });
 
 $('#commentInputBtn').click(function(){
-	
+	var board_id = $('#board_id').val();	
 	//$('#sale_seq').val();
 	//var member_id = 'sessionId'; // 나중에 세션에서 가져오기
 	var comment_content = $('#commentText').val()
