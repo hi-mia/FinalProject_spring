@@ -1,7 +1,6 @@
 $(function(){
 	//messageView 상세 페이지 가져오기
 	opener.location.reload();
-	
 	$.ajax({
 		url:'/jaju/mypage/myMessageView',
 		type:'post',
@@ -18,7 +17,6 @@ $(function(){
 			$('#message_writer_Span').html(data.messageDTO.message_writer);
 			$('#message_date_Span').html(data.messageDTO.message_date);
 			$('#message_content_Span').html(data.messageDTO.message_content);
-			
 			$(document).on("click","#sendBtn",function(){
 			//$('#sendBtn').click(function(){
 				var seq = data.messageDTO.message_seq; 

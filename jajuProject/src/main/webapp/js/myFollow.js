@@ -13,7 +13,7 @@ $(document).ready(function(){
 			  dataType : 'json',
 			  success:function(data){
  
-         console.log("보고있나2"+JSON.stringify(data));// JSON형식 그대로 보여줭
+         //console.log("보고있나2"+JSON.stringify(data));// JSON형식 그대로 보여줭
          // 이미지, 아이디 붙이기.
  
          if(JSON.stringify(data.list)=='[]' && data.mypagePaging != null){

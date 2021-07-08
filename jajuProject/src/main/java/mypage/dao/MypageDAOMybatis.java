@@ -59,7 +59,7 @@ public class MypageDAOMybatis implements MypageDAO {
 			count5=1;
 		}
 		int sum = count1 + count2 + count3 + count4 + count5;
-		System.out.println("sum = " + sum);
+		//System.out.println("sum = " + sum);
 		return sum;
 	}
 
@@ -194,13 +194,13 @@ public class MypageDAOMybatis implements MypageDAO {
 	//Sale  리스트 검색
 	@Override
 	public List<SaleboardDTO> mySaleRecodeSearchList(Map<String, String> map) {
-		System.out.println("바티스11"+map);
+		//System.out.println("바티스11"+map);
 		return sqlSession.selectList("mypageSQL.mySaleRecodeSearchList", map);
 	}
 	//Sale  리스트 검색 페이징 처리
 	@Override
 	public int getTotalASaleSearch(Map<String, String> map) {
-		System.out.println("바티스11페이징"+map);
+		//System.out.println("바티스11페이징"+map);
 		return sqlSession.selectOne("mypageSQL.getTotalASaleSearch",map);
 	} 
 	//Buy리스트 검색
@@ -336,7 +336,7 @@ public class MypageDAOMybatis implements MypageDAO {
 
 	@Override
 	public List<MemberDTO> getMyFollowProfile(String followId) {
-		System.out.println("MFP bybatis"+followId);
+		//System.out.println("MFP bybatis"+followId);
 		return sqlSession.selectList("mypageSQL.getMyFollowProfile" , followId);
 	}
 

@@ -10,7 +10,7 @@ $(function(){
 		},  // --->hidden의 값을 쓸때
 		dataType: 'json',
 		success: function(data){
-			console.log(JSON.stringify(data));
+			//console.log(JSON.stringify(data));
 			
 			if(JSON.stringify(data.list)=='[]' && data.myBuyPaging != null){
 				
@@ -64,8 +64,19 @@ $(function(){
 									text:'주문상태'
 								})).append($('<dd/>',{
 									text:items.sale_state,
-									class:'status end'	
+									class:'status end'})).
+									append($('<button/>',{
+									class:'state_'+items.sale_seq,
+									id:"change_state_btn",
+									text:' 리뷰작성', 
+									style:'height: 30px;width: 90px; background-color: #617aad;color: #fff;border: none;border-radius: 3px; float:right;'	
 						}))))))).appendTo($('#tabTable'));
+				
+				//리뷰 작성 이라는 버튼 누르면 리뷰작성 폼으로 이동한다.. click 이벤트
+				$('.state_'+items.sale_seq).click(function(){
+					//만약 미경이가 주소 바꾸면, 주소만 바꾸기. 
+					location.href='/jaju/reviewboard/reviewboardWriteForm?sale_seq='+items.sale_seq;
+				});
 				
 				
 			$(document).on("click",".subject_"+items.sale_seq,function(){		
@@ -88,8 +99,8 @@ $('#search-text_Btn').click(function(){
 	//$('.mySaleRecordTable$').remove();
 	$('.list_order').remove();
 	
-	console.log("보여야3-1모드"+$('#searchMode').val())
-	console.log("보여야3-2텍스트"+$('#search-text').val())
+	//console.log("보여야3-1모드"+$('#searchMode').val())
+	//console.log("보여야3-2텍스트"+$('#search-text').val())
 	$.ajax({
 		type: 'post',
 		url : '/jaju/mypage/myBuyRecodeSearchList',
@@ -104,7 +115,7 @@ $('#search-text_Btn').click(function(){
 		},   // --->hidden의 값을 쓸때
 		dataType: 'json',
 		success: function(data){
-			console.log(JSON.stringify(data));
+			//console.log(JSON.stringify(data));
 			if(JSON.stringify(data.list)=='[]'){
 				
 				//$('.title').remove();

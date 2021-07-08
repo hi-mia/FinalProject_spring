@@ -59,7 +59,7 @@ public class MypageServiceImpl implements MypageService {
 	// 관심키워드 등록
 	@Override
 	public void myKeyword(Map<String, Object> map) {
-		System.out.println(map);
+		//System.out.println(map);
 		// map널이라면?
 		if (map.get("keyword1") == null) {
 			map.put("keyword1", "");
@@ -149,11 +149,11 @@ public class MypageServiceImpl implements MypageService {
 		int endNum = Integer.parseInt(map.get("pg"))*5;
 		int startNum = endNum-4;
 		//System.out.println("FollowSaleList pg값"+pg);
-		System.out.println(followId);
+		//System.out.println(followId);
 		map.put("startNum",startNum+"");
 		map.put("endNum",endNum+"");
-		System.out.println("FI START"+startNum);
-		System.out.println("FI END"+endNum);
+		//System.out.println("FI START"+startNum);
+		//System.out.println("FI END"+endNum);
 		
 		return mypageDAO.getMyFollowSaleList(map,followId);
 	}

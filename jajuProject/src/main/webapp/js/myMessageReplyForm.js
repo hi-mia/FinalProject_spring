@@ -5,7 +5,6 @@
 */
 $(function() {
 	//alert('잘넘어왔는지 확인' + $('#seq').val());
-
 	$.ajax({
 		url : '/jaju/mypage/myMessageFormLoad',
 		type : 'post',
@@ -16,9 +15,8 @@ $(function() {
 		async: false,
 		dataType : 'json',
 		success : function(data) {
-			console.log(data.messageDTO);
+			//console.log(data.messageDTO);
 			$('#message_reader_span').html(data.messageDTO.message_writer);
-			
 			$('#message_reader_span').text($('#message_reader').val());
 			$('#message_writer_Span').text($('#message_writer').val());
 

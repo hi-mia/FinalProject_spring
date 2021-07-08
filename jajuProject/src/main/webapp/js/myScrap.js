@@ -13,10 +13,7 @@ $(function(){
 		dataType:'json',
 		
 		success:function(data){
-			
-			console.log(JSON.stringify(data));
 			//$('#row').remove();
-			
 			if(JSON.stringify(data.list)=='[]' && data.myScrap_Paging != null){
 				//alert("찜한 상품이 없습니다.");
 				$('.delete_btn_div').remove();
@@ -26,11 +23,8 @@ $(function(){
 					text:'찜목록이 없습니다.',
 					style:'height:250px;'
 				})).appendTo($('#scrapListTable'));
-				
 			}
-			
 			else {
-			
 			$.each(data.list,function(index,items){ 
 				var text;
 				if(items.sale_state=='0'){
@@ -42,9 +36,7 @@ $(function(){
 			$('<ul/>',{
 					style: 'margin: 0 5px; width: 30%; height: 32%;',
 					id:'scrap_ul'
-				})
-				
-				.append($('<div/>',{
+				}).append($('<div/>',{
 					style:' color: #fff; position: relative; z-index: 6; left: 5px;  top: 10px; cursor:pointer; ',
 					id:'check_div'
 				}).append($('<input>',{
@@ -54,18 +46,14 @@ $(function(){
 					value:items.scrap_seq,
 					style:'zoom:1.5; color: #fff; position: absolute;  cursor:pointer;  top: -5px; right: 12px; display:none; ',
 					/*value:items.follow_seq*/
-				}))
-				
-				).append($('<li/>',{
+				}))).append($('<li/>',{
 					style: 'width: 100%; height: 100%;'
 
-				})
-					.append($('<img/>',{
+				}).append($('<img/>',{
 					src:'/jaju/storage/'+items.sale_image1,
 					style:'width:100%; height:105%; transform:scale(1.0);	transition: transform .5s; cursor:pointer; ',
 					class:'subject_'+items.sale_seq //글제목 부분
-				})))
-				.append($('<li/>',{
+				}))).append($('<li/>',{
 					text:items.sale_subject,
 					style:'font-weight:bold; font-size:16px; margin-top: 10px; margin-bottom: -5px; cursor:pointer; ',
 
@@ -114,18 +102,13 @@ $(function(){
 						$('.check').prop('checked',false);
 					}
 				});*/
-			
 				$(document).on("click",".subject_"+items.sale_seq,function(){		
 					location.href="/jaju/saleboard/saleboardView?sale_seq="+items.sale_seq+"&pg=1";
 					});
-				
 			});//each
-			
 			$('#ScrapPagingDiv').html(data.myScrap_Paging.pagingHTML);
-
-			
+		
 			}//else
-			
 		},error:function(err){
 			console.log("error발생"+err);
 		}

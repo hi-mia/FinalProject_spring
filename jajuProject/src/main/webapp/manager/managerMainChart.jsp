@@ -62,17 +62,12 @@
 
 
 	<!--Load the AJAX API-->
-	<script type="text/javascript"
-		src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript"
-		src="https://www.gstatic.com/charts/loader.js"></script>
-
+	<script type="text/javascript"	src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript"	src="https://www.gstatic.com/charts/loader.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+	<script	src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 		
 	<script type="text/javascript">
-	
 		//차트 색상 랜덤
 		$(function() {
 			
@@ -158,7 +153,8 @@
 					}
 				});
 			}//drawChart
-
+			
+			/*========================= here ==========================*/
 			function randomColor(labels) {
 				var colors = [];
 				for (let i = 0; i < labels.length; i++) {
@@ -329,8 +325,8 @@
 							scales : {
 								yAxes : [ {
 									ticks : {
-										min: 0,
-										max: 50,
+										min: 0,//x축
+										max: 50,//y축 숫자 
 										fontColor : 'rgba(12, 13, 13, 1)',
 										fontFamily:'S-CoreDream-4Regular',
 										fontSize : 18

@@ -148,9 +148,8 @@ $(function(){
 		});
 
 		$('#saleBuyerBtn').click(function() {
-
-			console.log($("select[name=select_buyer]").val());
-			console.log($('#sale_seq').val());
+			//console.log($("select[name=select_buyer]").val());
+			//console.log($('#sale_seq').val());
 			
 			if($("#select_buyer option:checked").text()=='구매자선택'){
 				alert("구매자 ID를 선택해주세요.");
@@ -177,34 +176,15 @@ $(function(){
 					console.log("salebuyer3 error발생+err")
 				}
 			});//ajax
-			
-			
-
 			}//else
 		});
-
-	
-	
-	
-	
-	
-	
 });
-
-
-
-
-
-
-
 $('#saleBuyer').click(function(){
 	$('#saleBuyer').hide();
 	$('#sale_category').show();
 	$('#saleBuyerBtn').show();
 });
 $('#change_state').click(function(){
-	
-	
 	$.ajax({
 		url:'/jaju/saleboard/saleStateModify',
 		type:'post',
@@ -220,7 +200,6 @@ $('#change_state').click(function(){
 			 alert("판매 상태가 수정 되었습니다.");
 	         window.opener.parent.location.reload(); 
 	         //window.self.close(); 
-			
 		},error:function(err){
 			console.log("saleStateModify.js error 발생 ");
 		}

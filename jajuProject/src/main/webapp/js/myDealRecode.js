@@ -14,7 +14,7 @@ $(function(){
 		dataType: 'json',
 		success: function(data){
 			
-			console.log(JSON.stringify(data));
+			//console.log(JSON.stringify(data));
 			
 			if(JSON.stringify(data.list)=='[]' && data.myDealPaging != null){
 				$('.title').remove();
@@ -145,8 +145,8 @@ $('#search-text_Btn').click(function(){
 	//$('.mySaleRecordTable$').remove();
 	$('.list_order').remove();
 	
-	console.log("보여야2-1모드"+$('#searchMode').val())
-	console.log("보여야2-2텍스트"+$('#search-text').val())
+	//console.log("보여야2-1모드"+$('#searchMode').val())
+	//console.log("보여야2-2텍스트"+$('#search-text').val())
 	$.ajax({
 		type: 'post',
 		url : '/jaju/mypage/myDealRecodeSearchList',
@@ -161,7 +161,7 @@ $('#search-text_Btn').click(function(){
 		},   // --->hidden의 값을 쓸때
 		dataType: 'json',
 		success: function(data){
-			console.log(JSON.stringify(data));
+			//console.log(JSON.stringify(data));
 			if(JSON.stringify(data.list)=='[]'){
 				
 				//$('.title').remove();
