@@ -129,7 +129,7 @@
 						<a href="/jaju/mypage/myLocationForm" class="myLocation" onclick="">관심 지역 등록</a>
 					</li>
 					<li id="type4" style="text-align: left;">
-						<a href="/jaju/serviceCenter/reportList" class="inquireList" onclick="">1:1 문의 내역</a>
+						<a href="/jaju/serviceCenter/inquireList" class="inquireList" onclick="">1:1 문의 내역</a>
 					</li>
 					<li id="type3" style="text-align: left;">
 						<a href="/jaju/member/modifyForm" class="modify">회원 정보 수정</a>
@@ -137,7 +137,7 @@
 					<li><a href="/jaju/member/retireForm" class="retire">회원 탈퇴</a></li>
 				</ul>
 			</div>
-			<a href="/jaju/serviceCenter/reportWriteForm" class="link_inquire" style="margin-bottom: 50px;">
+			<a href="/jaju/serviceCenter/inquireWriteForm" class="link_inquire" style="margin-bottom: 50px;">
 				<span class="emph" >도움이 필요하신가요?</span> 1:1 문의하기
 			</a>
 		</div>
