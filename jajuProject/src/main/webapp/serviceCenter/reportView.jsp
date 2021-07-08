@@ -33,7 +33,7 @@
 			<tbody>
 			<tr>
 			<td>
-			<table style="width:800px;">
+			<table class="View1" style="width:800px;">
 			<tbody>
 			<tr>
 			<td>
@@ -102,12 +102,12 @@
 		</table>
 		<br>
 		
-		<table width="100%" style="table-layout:fixed" cellpadding="0" cellspacing="0">
+		<table class="View2" width="100%" style="table-layout:fixed" cellpadding="0" cellspacing="0">
 		<tbody>
 		<tr>
 		<td align="center" style="padding-top:10px;">
 		
-		<table width="100%">
+		<table class="View3" width="100%">
 			<tbody>
 				<tr>
 					<td align="right">
@@ -116,9 +116,6 @@
 						</a>
 						<a href="javascript:void(0)" onclick="mode(2)">
 							<span class="reportBtn delete" style="float:none;">삭제</span>
-						</a>
-						<a href="/jaju/serviceCenter/reportList">
-							<span class="reportBtn list" style="float:none;">목록</span>
 						</a>
 					</td>
 				</tr>
@@ -129,10 +126,27 @@
 		</tbody>
 		</table>
 		
+		<div class="replyRealTotal">
+			<div class="replyTotal">
+			
+				<table class="replyList" style="">
+					
+		
+				</table>
+			
+			</div>
+		</div>
+		
+		
 		</td>
 		</tr>
 		</tbody>
 		</table>
+		<div class="listView">
+			<a href="/jaju/serviceCenter/reportList">
+				<span class="reportBtn list">목록</span>
+			</a>
+		</div>
 	</div>
 </div>
 </div>

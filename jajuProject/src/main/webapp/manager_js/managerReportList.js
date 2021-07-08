@@ -10,6 +10,8 @@ $(function(){
 		dataType:'json',
 		success:function(data){
 			//alert(JSON.stringify(data));
+			console.log(JSON.stringify(data));
+			
 			if(data.list.length != 0){
 				$('.no_data').hide();
 				
@@ -33,12 +35,14 @@ $(function(){
 		            	text: items.reportType
 		            })).append($('<td/>',{
 		            	width: '274px',
+		            	
 		            	}).append($('<a/>',{
 		            		href: '#',
 		            		width: '274px',
 		            		text: items.report_subject,
 		            		class: 'subject'+items.report_seq
 		            	}))
+		            	
 		            ).append($('<td/>',{
 		            	width: '100px',
 		                align: 'center',
