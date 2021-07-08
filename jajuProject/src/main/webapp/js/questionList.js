@@ -93,7 +93,7 @@ $('#searchBtn').click(function(){
 	 if($('#keyword').val() == ''){
 		   alert("검색어를 입력하세요")
 	 }else{
-		   $('.table_faq tr:gt(0)').remove();
+		   $('#sub_table table').remove();
 		   
 		   $.ajax({
 			   type: 'post',  
@@ -103,10 +103,14 @@ $('#searchBtn').click(function(){
 				   	  'keyword':$('#keyword').val()},
 			   dataType: 'json',
 			   success: function(data){
-				   
+				 // alert(JSON.stringify(data));
+				 if(data.list.length == 0){
+					  alert('검색어가 없습니다');
+					  location.href = '/jaju/serviceCenter/questionList'
+				  }else{
 				   $.each(data.list, function(index, items){
 			            //console.log(data);
-			            
+			           
 					   $('<div/>').append($('<table/>',{
 			            	style : 'width : 100%;',
 			            	class : 'table_faq',
@@ -148,14 +152,9 @@ $('#searchBtn').click(function(){
 			            					text : items.question_content
 			            			})))))
 			            ).appendTo('#sub_table')
-
-						   $('.subject'+items.notice_seq).click(function(){
-							   location.href = '/jaju/serviceCenter/noticeView?notice_seq='+items.notice_seq+'&pg='+$('#pg').val();
-			
-						   }); 
 		   
 					   }); //each
-				   
+				   }
 				   $('.table_faq .subject a').click(function(){
 		            	$(this).toggleClass("selected");
 		            	$(".table_faq .subject a").not(this).removeClass('selected');
