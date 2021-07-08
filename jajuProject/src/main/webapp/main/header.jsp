@@ -200,6 +200,15 @@
 	              }
 	        });         
 	      });
+		//header 검색
+		$('.button_search').click(function(){
+			if($('.search-box').val() == ''){
+				alert('검색어를 입력해 주세요');				
+			} else{
+				location.href = '/jaju/saleboard/saleboardList?pg=1&sortinSelect=sale_date&headerSerachText='+$('.search-box').val()				
+			}
+		});
+		
 	</script>
 </body>
 </html>
