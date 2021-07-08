@@ -131,6 +131,8 @@ a:-webkit-any-link {
 .bhs_button.yb {
     background-color: #617aad;
     color: #fff;
+    width: 80px;
+    line-height: 30px;
 }
 .bhs_button {
     width: 125px;
