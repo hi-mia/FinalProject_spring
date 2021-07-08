@@ -5,17 +5,17 @@
 <link rel="stylesheet" href="/jaju/css/inquireList.css" />    
 
 <form id="inqureList">
-<div style="width: 1050px; margin: auto;" >
+<div style="width: 1050px; margin: auto; min-height : 500px;" >
 <jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 <input type = "hidden" name="pg" id = "pg" value = "${param.pg }">
 <input type = "hidden" name="inquiry_id" id = "inquiry_id" value = "${sessionScope.memId }">
 <input type = "hidden" name = "inquiry_seq" id = "inquiry_seq" value = "${inquiry_seq }">
 <div id="total">
-	<div class="page_section section_qna">
+	<div class="page_section section_qna" style = "min-height : 550px;">
 		<div class="head_aticle">
 			<h2 class="tit">1:1  문의</h2>
 		</div>
-		<table class="xans-board-listheader" style="width:100%">
+		<table class="xans-board-listheader" style="width:100%;">
 			<tbody>
 				<tr class="input_txt">
 					<th width="5%">번호</th>
@@ -27,7 +27,6 @@
 				</tr>
 			</tbody>
 		</table>
-	
 	<table class="inquireTable" id="inquireTable" style="width:100%; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6;"></table>
 			
 	<div class="no_data" style="padding: 150px 0 148px; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6; font-size: 14px; color: #4c4c4c; text-align: center;">
