@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="/jaju/css/reviewboardModifyForm.css" />
 <div id="total" style="width:1080px; margin: auto; ">
-<jsp:include page="/freeboard/boardMenu.jsp"/>
 <div id="reviewboardDiv"  style="width:800px; display:inline-block; float:left; margin-left:40px; margin-top: 167px;">
 <div class="head_aticle">
 </div>

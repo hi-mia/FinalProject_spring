@@ -347,3 +347,19 @@ select {
     cursor: pointer;
     
 }
+
+.bhs_buttonsm {
+    width: 100px;
+    display: inline-block;
+    line-height: 30px;
+    text-align: center;
+    background-color: #617aad;
+    border: 1px solid #47597e;
+    color: #fff;
+    margin-left: 2px;
+    font-size: 14px;
+}
+.bhs_buttonsm:hover{
+    background-color: #47597e;
+    border: 1px solid #47597e;
+}

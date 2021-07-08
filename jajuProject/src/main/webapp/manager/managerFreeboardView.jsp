@@ -9,11 +9,15 @@
 <jsp:include page="/manager/managerMenu.jsp"/>
 <input type="hidden" id="board_seq" value="${board_seq }">
 <input type="hidden" id="pg" value="${param.pg }"/>
-<div id="wrap">
-<div id="container" style="float:left;  margin-left:40px; width:800px;">
+<div id="wrap"  style="width:800px; display:inline-block; float:left; margin-left:40px; margin-top: 118px;">
+<div id="pos_scroll"></div>
+<div id="container" style="float:left; margin-left:40px; margin-top:-137px; width:800px;">
 
+<div class="tit_page" style="width:800px; align:center;">
+	<h1 class="tit"></h1>
+</div>
 
-<div id="main" style="margin-top: -80px;">
+<div id="main">
 <div id="content">
 
 <div id="qnb" class="quick-navigation" style="top: 70px;"></div>
@@ -82,42 +86,35 @@
 		
 		<table width="100%">
 		<tbody>
-		
-		<tr style="width: 800px;">
-		<td align="right">
-		<span class="bhs_button yb" style="float:none; cursor:pointer; " id="managerFreeboardDeleteBtn">삭제</span>
-		</td>
-		</tr>
-		
-		</tbody></table>
+		<tr style="width:800px;">
+		<td align="right" colspan="2">
+		<a href="/jaju/freeboard/freeboardModifyForm?board_seq=${param.board_seq }"><span id="boardModify" class="bhs_button yb" style="float:none;">수정</span></a>
+		<span id="boardDelete" class="bhs_button yb" style="float:none; cursor:pointer; " id="freeboardDeleteBtn">삭제</span>
 		</td>
 		</tr>
 		</tbody></table>
+		</td>
+		</tr>
+		</tbody></table>
 		
-		<br><br><br>
+		<br><br><br><br>
 		
 		
 <!-- 댓글 -->
-	<div id="commentDiv" style="width: 800px;">
+	<div id="commentDiv">
 		<table id="commentTable" >
 			<tr style="border-bottom: 1px solid #f5f5f5;">
-				<th width="200" style="padding-bottom: 10px;">번호</th>
-				<th width="400" style="padding-bottom: 10px;">내용</th>
-				<th width="200" style="padding-bottom: 10px;">작성자</th>
-				<th width="200" style="padding-bottom: 10px;">작성일</th>
+				<th width="200" style="padding-bottom: 20px;">번호</th>
+				<th width="400" style="padding-bottom: 20px;">내용</th>
+				<th width="200" style="padding-bottom: 20px;">작성자</th>
+				<th width="200" style="padding-bottom: 20px;">작성일</th>
 			</tr>
 
 		</table>
-		<div id="pagingDiv" style="text-align: center; margin-bottom: 10px;">
+		<div id="pagingDiv" style="text-align: center; margin-top:20px; margin-bottom: 10px;">
 		
 		</div>
-		
-		<table border="2" id=c cellspacing="0" cellpadding="10"
-         bordercolor="#d6e6f2" align="center" frame="hsides" rules="rows"
-         width="1050" id="commentWriteTable">
-         <tr >
-         </tr>
-      </table>
+
 	</div>
 		<br>
 		<div class="xans-element- xans-board xans-board-movement-1002 xans-board-movement xans-board-1002 " style="width: 800px;">
@@ -186,9 +183,9 @@ function freeboardCommentPaging(pg){
 						class: 'content_'+ items.comment_seq
 					}))
 				).append($('<td/>',{
-					text : items.board_id
+					text : items.member_id
 				})).append($('<td/>',{
-					class: 'trLast',
+					class: 'trLast'+items.comment_seq,
 					text : items.logtime
 				})).appendTo($('#commentTable'));
 				
@@ -201,18 +198,52 @@ function freeboardCommentPaging(pg){
 					}));
 				}
 				
-			}); //each
 			
-			$('.trLast').append($('<img>',{
-				src: '/jaju/jajuImage/delete.png',
-				id: 'commentDeleteBtn',
-				style: 'cursor: pointer; float: right;',
-				width: '20px',
-				height: '20px'
-			}));
-			
+				$('.trLast'+items.comment_seq).after($('<td/>',{
+					width: '100px',
+				}).append($('<img>',{
+					src: '/jaju/jajuImage/delete.png',
+					id: 'commentDeleteBtn',
+					style: 'cursor: pointer; float: right; border: 1px solid #00000033; margin-right: 10px;',
+					width: '20px',
+					height: '20px'
+				})).append($('<img>',{
+					src: '/jaju/jajuImage/modify.png',
+					id: 'commentModifyBtn',
+					style: 'cursor: pointer; float: right; border: 1px solid #00000033; margin-right: 10px;',
+					width: '20px',
+					height: '20px'
+				})));
+		}); //each
 			$('#pagingDiv').html(data.freeboardCommentPaging.pagingHTML);
 			
+			$(document).on('click', '#subjectA', function(){
+				
+				$('#reCommentTr').remove();
+				$('#reCommentModifyTr').remove();
+			
+				$(this).parent().parent().after($('<tr/>',{
+					id: 'reCommentTr'
+				}).append($('<td/>',{
+					style: 'background-color: #f5f5f5;'
+				})).append($('<td/>',{
+					colspan: 3,
+					text: 're: ',
+					style: 'background-color: #f5f5f5; text-align: left;'
+				}).append($('<input/>',{
+					type: 'text',
+					id: 'reCommentText',
+					width: '55%'
+				})).append($('<input/>',{
+					type: 'button',
+					id: 'reCommentBtn',
+					value: '   답글달기'
+				}))
+				));
+				
+		});
+		
+		
 		},error: function(err){
 			alert("댓글 불러오기 에러");
 			console.log(err);
@@ -220,6 +251,7 @@ function freeboardCommentPaging(pg){
 	});
 	
 }
+
 
 </script>
 <script type="text/javascript">

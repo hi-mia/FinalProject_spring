@@ -60,11 +60,11 @@
 				<tr class="etcArea">
 					<td colspan="2">
 					<ul>
-					<li class="tpye ">
+					<li class="tpye">
 						<strong class="th">전화번호</strong>
 						<span class="td" id = "inquiry_telephone"></span>
 					</li>
-					<li class="date ">
+					<li class="date">
 						<strong class="th">작성일</strong> 
 						 <span class="td" id = "logtime"></span>
 					</li>

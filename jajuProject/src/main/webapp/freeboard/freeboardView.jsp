@@ -3,7 +3,6 @@
 
 <link rel="stylesheet" href="/jaju/css/freeboardView.css" />
 <div id="total" style="width:1080px; margin: auto; ">
-<jsp:include page="/freeboard/boardMenu.jsp"/>
 
 <input type="hidden" id="board_seq" value="${board_seq }">
 <input type="hidden" id="pg" value="${param.pg }"/>
@@ -86,9 +85,10 @@
 		<table width="100%">
 		<tbody>
 		<tr style="width:800px;">
-		<td align="right" colspan="2">
+		<td align="right" colspan="3">
 		<a href="/jaju/freeboard/freeboardModifyForm?board_seq=${param.board_seq }"><span id="boardModify" class="bhs_button yb" style="float:none;">수정</span></a>
 		<span id="boardDelete" class="bhs_button yb" style="float:none; cursor:pointer; " id="freeboardDeleteBtn">삭제</span>
+		<a href="/jaju/freeboard/freeboardList?pg=${param.pg }"><span id="boardList" class="bhs_button yb" style="float:none;">목록</span></a>
 		</td>
 		</tr>
 		</tbody></table>

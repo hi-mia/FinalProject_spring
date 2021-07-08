@@ -99,11 +99,11 @@
 				<div class="inner_option">					
 					<div class="group_btn off">
 						<!-- 찜 자리 -->
-						<span class="btn_type_scrap">
+						<span class="btn_type_scrap" id="btn_type_scrap">
 							<button type="button" class="txt_type_scrap" id="scrapBtn">찜♡</button> <!---->
 						</span>
-						<span class="btn_type_follow">
-							<button type="button"class="txt_type_follow">팔로우</button> <!---->
+						<span class="btn_type_follow" id="txt_type_follow">
+							<button type="button"class="txt_type_follow" id="followBtn">팔로우</button> <!---->
 						</span>
 						<span class="btn_type_message">
 							<button type="button"class="txt_type">쪽지 보내기</button> <!---->

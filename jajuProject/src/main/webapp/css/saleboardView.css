@@ -346,6 +346,83 @@ button, input, optgroup, select, textarea {
    margin-right: 3px;
 }
 
+.default_scrap {
+   border: 1px solid #617aad;
+   /*background-color: #617aad;*/
+   background-color: #fff;
+   margin-right: 3px;
+   display: block;
+	overflow: hidden;
+	width: 50%;
+	height: 54px;
+	border-radius: 3px;
+	font-size: 0;
+	text-align: center;
+}
+
+.default_scrap:hover {
+	border: 1px solid #a9aaab;
+	background-color: #a9aaab;
+	margin-right: 3px;
+}
+
+
+.default_follow {
+	border: 1px solid #617aad;
+   /*background-color: #617aad;*/
+	margin-right: 3px;
+	display: block;
+	overflow: hidden;
+	width: 50%;
+	height: 54px;
+	border-radius: 3px;
+	font-size: 0;
+	text-align: center;
+}
+
+.default_follow:hover {
+	border: 1px solid #a9aaab;
+	background-color: #a9aaab;
+	margin-right: 3px;
+}
+
+.change_scrap {
+   border: 1px solid #617aad;
+   background-color: #617aad;
+   color:white;
+   margin-right: 3px;
+   display: block;
+	overflow: hidden;
+	width: 50%;
+	height: 54px;
+	border-radius: 3px;
+	font-size: 0;
+	text-align: center;
+}
+
+.change_scrap:hover {
+	background-color: #47597e;
+}
+
+.change_follow {
+   border: 1px solid #617aad;
+   background-color: #617aad;
+   color:white;
+   margin-right: 3px;
+   display: block;
+	overflow: hidden;
+	width: 50%;
+	height: 54px;
+	border-radius: 3px;
+	font-size: 0;
+	text-align: center;
+}
+
+.change_follow:hover {
+	background-color: #47597e;
+}
+
+
 .btn_type_follow:hover, .btn_type_scrap:hover {
 	border: 1px solid #a9aaab;
 	background-color: #a9aaab;

@@ -47,11 +47,13 @@ $(function(){
 				success: function(data){
 					//alert(data)
 					if(data == 'hart.png'){
-						$('#scrapBtn').text("찜♥");	
-						$('.btn_type_scrap').css('backgroundColor', '#617aad');
+						$('#scrapBtn').text("찜♥");
+						$('#btn_type_scrap').attr('class', 'change_scrap');
+						$("#scrapBtn").css("color","white");
 					} else{
 						$('#scrapBtn').text("찜♡");
-						$('.btn_type_scrap').css('backgroundColor', '#fff');
+						$('#btn_type_scrap').attr('class', 'default_scrap');
+						$("#scrapBtn").css("color","#47597e");
 
 					}
 				},error: function(err){
@@ -59,28 +61,34 @@ $(function(){
 					console.log(err);
 				}
 			});
-			
+
 			$.ajax({
-				type: 'post',
-				url: '/jaju/mypage/getMyFollow',
-				async: false,
-				data:{
-					'member_id': member_id, 
-					'follow_id': data.saleboardDTO.member_id
-				},
-				dataType: 'text',
-				success: function(data){
-					//alert("data???????"+data)
-					if(data=='exist'){
-						$('.txt_type_follow').text("팔로잉 중");
-						//alert("민지야getMyFollow성공해따아");
+	            type: 'post',
+	            url: '/jaju/mypage/getMyFollow',
+	            async: false,
+	            data:{
+	               'member_id': member_id, 
+	               'follow_id': data.saleboardDTO.member_id
+	            },
+	            dataType: 'text',
+	            success: function(data){
+	               //alert("data???????"+data)
+	               if(data=='exist'){
+	                  $('.txt_type_follow').text("팔로잉 중");
+	                  $('#txt_type_follow').attr('class', 'change_follow');
+					  $("#followBtn").css("color","white");
+	               }else{
+		                $('.txt_type_follow').text("팔로우");
+						$('#txt_type_follow').attr('class', 'default_follow');
+						$("#followBtn").css("color","#47597e");
+
 					}
-					
-				},error: function(err){
-					alert("팔로잉 불러오기 에러");
-					console.log(err);
-				}
-			});
+	               
+	            },error: function(err){
+	               alert("팔로잉 불러오기 에러");
+	               console.log(err);
+	            }
+	         });
 			
 			$('#member_sido .desc').text(data.saleboardDTO.member_sido+" "+data.saleboardDTO.member_sigungu);
 			
@@ -347,7 +355,8 @@ $('#scrapBtn').click(function(){
 	               success: function(date){
 	                  //$('#scrapBtn img').attr('src', '/jaju/jajuImage/hart.png')
 	                  $('#scrapBtn').text("찜 ♥");
-	                  $("#scrapBtn").css("background","#617aad");
+	                  $("#btn_type_scrap").attr('class', 'change_scrap');
+	                  //$("#scrapBtn").css("background","#617aad");
 	                  $("#scrapBtn").css("color","white");
 	                  //$('#scrapBtn').css('font-size', '17pt');
 	               },error: function(err){
@@ -363,8 +372,9 @@ $('#scrapBtn').click(function(){
 	               success: function(date){
 	                  //$('#scrapBtn img').attr('src', '/jaju/jajuImage/blackhart.png')
 	                  $('#scrapBtn').text("찜 ♡");
-	                  $("#scrapBtn").css("background","white");
-	                  $("#scrapBtn").css("color","#47597e");
+	                  $("#btn_type_scrap").attr('class', 'default_scrap');
+	                  //$("#scrapBtn").css("background","white");
+	                    $("#scrapBtn").css("color","#47597e");
 	                  //$('#scrapBtn').css('font-size', '17pt');
 	               },error: function(err){
 	                  alert("찜 삭제 에러");
@@ -399,6 +409,8 @@ $('.txt_type_follow').click(function(){
 					},
 					success: function(date){
 						$('.txt_type_follow').text("팔로잉 중");
+						$("#txt_type_follow").attr('class', 'change_follow');
+						$("#followBtn").css("color","white");
 					},error: function(err){
 						alert("팔로잉에 실패했습니다.");
 						console.log(err);
@@ -417,6 +429,8 @@ $('.txt_type_follow').click(function(){
 					success: function(date){
 						//alert("민지야 deleteMyFollow 성공해따아");
 						$('.txt_type_follow').text("팔로우");
+						$("#txt_type_follow").attr('class', 'default_follow');
+						$("#followBtn").css("color","#47597e");
 					},error: function(err){
 						alert("팔로잉에 실패했습니다.");
 						console.log(err);

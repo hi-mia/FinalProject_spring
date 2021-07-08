@@ -33,11 +33,6 @@ $(function(){
 				}
 			}
 			
-			//로그인 한다면
-			//if(data.memId == data.boardDTO.id)
-			//	$('#boardViewSpan').show();
-			//else
-			//	$('#boardViewSpan').hide();
 		},
 		error: function(err){
 			console.log(err);
@@ -82,20 +77,9 @@ $(function(){
 					text : items.logtime
 				})).appendTo($('#commentTable'));
 				
-				for(var i=1; i<items.comment_lev; i++){
-					$('.content_'+items.comment_seq).before('&emsp;');
-				}
-				if(items.comment_pseq != 0 ){
-					$('.content_'+items.comment_seq).before($('<img>',{
-						src: '/jaju/jajuImage/reply.gif'
-					}));
-				}
 				
 			}); //each
-			
-			//나중에 세션에서 가져오기 로그인한 id
-			//if(items.member_id == sessionId){
-			//}  삭제와 수정 붙이기
+
 			$('.trLast').append($('<img>',{
 				src: '/jaju/jajuImage/delete.png',
 				id: 'commentDeleteBtn',

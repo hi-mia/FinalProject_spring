@@ -6,7 +6,6 @@
 <input type="hidden" name="id" value="freeboard">
 
 <div id="total" style="width:1100px; margin:0 auto; ">
-<jsp:include page="/freeboard/boardMenu.jsp"/>
 <div id="formTotal" style="width:800px; display:inline-block; float:left; margin-left:80px; margin-top: 86px;">
 <div class="head_aticle" padding-left="10px">
 	<h2 class="tit" style="color: #333;">자유게시판 </h2>
@@ -30,11 +29,25 @@
 </div>
 
 <br><br>
+
 <div id="totalSearch">
+
+
 	<table class="xans-board-search xans-board-search2">
 	<tbody>
+	
 	<tr>
 		<td class="input_txt">
+				
+				
+			<div style="position:relative">
+		<div style="position:absolute;right:0;top:60px;">
+			<a href="/jaju/freeboard/freeboardWriteForm">
+				<span class="bhs_buttonsm yb" style="float:none; margin-top:10px;">글쓰기</span>
+			</a>
+		</div>
+	</div>				
+				
 		<form name="boardSearchList" id="boardSearchList"> <!-- 이전 form name: frmList -->
 			
 				<!-- 페이징 -->
@@ -42,7 +55,7 @@
 				
 </div>
 <br>
-			<div class="search" align="right" style="margin-bottom:50px;">
+			<div class="search" align="right" style="margin-top:75px; margin-bottom:50px;">
 			
 				<select name="searchOption" id="searchOption" width="100px" align="absmiddle">
 					<option value="board_subject">&nbsp;&nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;</option>
