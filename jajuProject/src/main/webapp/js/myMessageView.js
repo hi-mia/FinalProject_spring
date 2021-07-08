@@ -1,5 +1,7 @@
 $(function(){
 	//messageView 상세 페이지 가져오기
+	opener.location.reload();
+	
 	$.ajax({
 		url:'/jaju/mypage/myMessageView',
 		type:'post',
@@ -23,9 +25,6 @@ $(function(){
 			//	alert('글번호'+seq);
 			    window.location.href='/jaju/mypage/myMessageReplyForm?seq='+seq;
 			});
-			
-			
-			
 		},
 		error:function(err){
 			console.log("err발생"+err);
