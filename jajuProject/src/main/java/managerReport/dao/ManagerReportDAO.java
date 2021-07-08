@@ -21,9 +21,8 @@ public interface ManagerReportDAO {
 	
 	public int getTotalSearchA(Map<String, String> map);
 
-	public void reportDelete(String report_seq);
-
 	public void managerReportDelete(Map<String, String[]> map);
+	//public void managerReportDelete(String sale_seq, Map<String, String[]> map);
 	
 	public void commentWriteShow(Map<String, String> map);
 	public void commentWriteHide(Map<String, String> map);

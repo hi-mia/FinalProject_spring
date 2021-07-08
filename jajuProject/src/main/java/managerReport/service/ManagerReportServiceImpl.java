@@ -80,12 +80,6 @@ public class ManagerReportServiceImpl implements ManagerReportService {
 		
 		return reportPaging;
 	}
-	
-	@Override
-	public void reportDelete(String report_seq) {
-		managerReportDAO.reportDelete(report_seq);
-		
-	}
 
 	@Override
 	public void managerReportDelete(String[] check) {

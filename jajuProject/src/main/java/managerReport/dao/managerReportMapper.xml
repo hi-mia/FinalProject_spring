@@ -33,6 +33,7 @@
 	
 	<!-- 글 삭제 -->
  	<delete id="managerReportDelete" parameterType="java.util.Map">
+		
 		delete memberreport where report_seq in 
 		<foreach collection="array" item="data" open="(" close=")" separator=",">
 			#{data}
@@ -40,9 +41,6 @@
 		</foreach>
 		
 	</delete>
-
-	
-	
 	
 	<!-- 댓글 -->
 	

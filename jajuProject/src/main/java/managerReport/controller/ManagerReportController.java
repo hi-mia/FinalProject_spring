@@ -101,14 +101,6 @@ public class ManagerReportController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/reportDelete", method=RequestMethod.POST)
-	@ResponseBody
-	public ModelAndView reportDelete(@RequestParam String report_seq) {
-		
-		managerReportService.reportDelete(report_seq);
-		
-		return new ModelAndView("redirect:/manager/managerReportList");
-	}
 	
 	@RequestMapping(value="/managerReportDelete", method=RequestMethod.POST)
 	public ModelAndView managerReportDelete(String[] check) {
@@ -117,6 +109,7 @@ public class ManagerReportController {
 		
 		return new ModelAndView("redirect:/manager/managerReportList");
 	}
+
 	
 	
 	//댓글 시작

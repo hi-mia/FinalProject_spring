@@ -39,20 +39,30 @@
  		)where rn &gt;= #{startNum} and rn &lt;= #{endNum}
  	</select> -->
  	<select id="getReportList" parameterType="java.util.Map" resultType="report">
- 		select * from
- 		(select rownum rn, tt.* from
- 		(select * from memberreport where report_id=#{report_id} order by report_seq desc)tt
- 		)where rn &gt;= #{startNum} and rn &lt;= #{endNum}
- 	</select>
- 	 
- 	<!-- 총 글수 -->
- 	<select id="getTotalA" resultType="int">
- 		select count(*) from memberreport
+	 	<if test='report_id == "jajuadmin"'>
+	 		select * from
+	 		(select rownum rn, tt.* from
+	 		(select * from memberreport order by report_seq desc)tt
+	 		)where rn &gt;= #{startNum} and rn &lt;= #{endNum}
+	 	</if>
+	 	<if test='report_id != "jajuadmin"'>
+	 		select * from
+	 		(select rownum rn, tt.* from
+	 		(select * from memberreport where report_id=#{report_id} order by report_seq desc)tt
+	 		)where rn &gt;= #{startNum} and rn &lt;= #{endNum}
+	 	</if>
  	</select>
  	
- 	<!-- ID 값의 총 글수 -->
  	<select id="getIdTotalA" resultType="int">
- 		select count(*) from memberreport where report_id=#{report_id}
+	 	<!-- 총 글수 -->
+	 	<if test='report_id == "jajuadmin"'>
+	 		select count(*) from memberreport
+	 	</if>
+	 	
+	 	<!-- ID 값의 총 글수 -->
+		 <if test='report_id != "jajuadmin"'>
+	 		select count(*) from memberreport where report_id=#{report_id}
+ 		</if>
  	</select>
  	
  	
