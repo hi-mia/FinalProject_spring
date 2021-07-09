@@ -446,7 +446,7 @@ select count(*) as count from message where message_reader=#{id} and message_cha
 </select>
 
 <select id="getTotalMessageCount" parameterType="String" resultType="int">
-	select count(*) from message where message_reader=#{id}
+	select count(*) from message where message_reader=#{id} and message_change in(0,1)
 </select>
 
 <select id="getNotReadMessageCount" parameterType="String" resultType="int">

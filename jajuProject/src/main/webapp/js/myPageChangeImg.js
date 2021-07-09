@@ -52,7 +52,7 @@ $(function(){
 						align:'center',
 						text:'판매 후기가 없습니다.',
 						style:'height:200px;'
-					})).appendTo($('#saleContentTd'));
+					})).appendTo($('#historyTable'));
 				}
 				
 	    	  else {
@@ -65,7 +65,7 @@ $(function(){
 						text:' 제 목: '+items.review_subject+' ',
 						style:"margin-right: 200px;",
 						class:'subject_'+items.review_seq //글제목 부분
-					}))).appendTo($('#saleContentTd'));
+					}))).appendTo($('#historyTable'));
 					
 	    			 $(document).on("click",".subject_"+items.review_seq,function(){			    					
 	    				 window.opener.location.href="/jaju/reviewboard/reviewboardView?review_seq="+items.review_seq+"&pg=1";    					
@@ -117,6 +117,7 @@ $('#update_btn').click(function(){
       endtype:'multipart/form-data',
       processData:false,
       contentType:false,
+      async : false,
       data:formData,
       success:function(){
          //window.close();
