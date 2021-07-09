@@ -54,7 +54,7 @@
 						</tr>
 					</thead>
 					<tbody id="boardTable">
-					
+						
 					</tbody>
 				</table>
 			</div>
