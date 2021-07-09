@@ -70,9 +70,9 @@ $(function(){
 	});
 });
 
-function reviewboardPaging(pg){
-	location.href="managerReviewboardList?pg="+pg;
-}
+//function reviewboardPaging(pg){
+//	location.href="managerReviewboardList?pg="+pg;
+//}
 
 //검색
 $('#managerReviewSearchBtn').click(function(){

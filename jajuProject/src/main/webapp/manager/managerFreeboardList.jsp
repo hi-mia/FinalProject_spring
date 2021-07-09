@@ -30,6 +30,7 @@
 		</div>
          <input type="hidden" name="pg" id="pg" value="${param.pg }">
          <input type="hidden" name="searchPg" id="searchPg" value="1">   
+         <input type="hidden" name="search_managerFree" id="search_managerFree">
          </form>
       </div>
       <div class="option_list article_option_list">
@@ -106,12 +107,14 @@ $(document).ready(function(){
 function freeboardPaging(pg){
 	var boardSearchText = document.getElementById('keyword').value;
 	
-	if(boardSearchText == ''){
-		//location.href = '/jaju/freeboard/freeboardList?pg='+pg;
-		location.href="managerFreeboardList?pg="+pg;
+	if($('#search_managerFree').val() == ''){
+		location.href='/jaju/manager/managerFreeboardList?pg='+pg;
 	} else{
+		//search_managerFree
+		
 		$('#searchPg').val(pg);
-		$('#managerBoardSearchBtn').trigger('click');
+		$('#keyword').val($('#search_managerFree').val());
+		$('#managerBoardSearchBtn').trigger('click','research');
 		//location.href = 'boardSearch?pg='+pg+'&select='+$('#select option:selected').val() +'&keyword='+$('#keyword').val();
 		//encodeURIComponent('${keyword}');
 		$('#searchPg').val(1);
