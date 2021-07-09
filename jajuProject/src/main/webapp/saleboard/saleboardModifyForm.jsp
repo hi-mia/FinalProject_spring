@@ -225,7 +225,7 @@ function add(){
     oTd1.style.textAlign = "center";
     oTd2      = oTr.insertCell(1);
 
-    tmpHTML = "<input type=file name='file' style='width:50%' class=file> <a href=\"javascript:del('"+"tr_"+(tr_num)+"')\"><img src='/jaju/jajuImage/upadd2.jpg' style='width:90px; height:25px;' align=absmiddle></a>";
+    tmpHTML = "<input type=file name='file' style='width:50%; display:inline-block;' class=file> <a href=\"javascript:del('"+"tr_"+(tr_num)+"')\"><img src='/jaju/jajuImage/upadd2.jpg' style='width:90px; height:25px;' align=absmiddle></a>";
 
     oTd2.innerHTML = tmpHTML;
     calcul();
