@@ -79,9 +79,11 @@ $('#managerReviewSearchBtn').click(function(){
 	//alert($('input[name=pg]').val());
 	//alert($('#pg').val());
 	//alert('이미지클릭')
-	if($('#searchText').val() == ""){
+	//search_managerReview
+	$('#search_managerReview').val($('#keyword').val())
+	if($('#keyword').val() == ""){
 		alert("검색어를 입력해 주세요");
-		$('#searchText').focus();
+		$('#keyword').focus();
 	}  else{
 	
 	$.ajax({
@@ -93,6 +95,13 @@ $('#managerReviewSearchBtn').click(function(){
 			//alert(JSON.stringify(data));
 			
 			$('#managerReviewboardTable tr:gt(0)').remove();
+			
+			   if(data.list.length == 0){
+				   alert('검색어가 없습니다');
+				   location.href = '/jaju/manager/managerReviewboardList?pg=1'
+				   
+			   }else{
+			
 			
 			  $.each(data.list, function(index, items){
 		            $('<tr/>').append($('<td/>', {
@@ -136,7 +145,7 @@ $('#managerReviewSearchBtn').click(function(){
 	               location.href = '/jaju/manager/managerReviewboardView?review_seq='+seq+'&pg=1';
 
 	         });
-
+			   }
 				$('#pagingArea_review').html(data.reviewboardPaging.pagingHTML);	   
 			
 		}, error: function(err){
