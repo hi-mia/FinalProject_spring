@@ -22,7 +22,10 @@
 
  <!-- 삭제 -->
  <delete id="managerFreeboardDelete" parameterType="int">
+ begin
  	delete freeboard where board_seq=#{board_seq}
+ 	delete freeboard_comment where comment_seq = #{comment_seq}; 	
+end;
 </delete>
 
 <!-- 글 체크박스 삭제 -->
