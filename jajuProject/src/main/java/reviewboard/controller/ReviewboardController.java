@@ -65,7 +65,7 @@ public class ReviewboardController {
 			String memId = (String) session.getAttribute("memId");
 			model.addAttribute("memId", memId);
 			
-			String filePath =  "D:\\Spring\\workspace\\jajuProject\\src\\main\\webapp\\storage";
+			String filePath =  "C:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 
 			String fileName;
 			File file;
@@ -177,7 +177,7 @@ public class ReviewboardController {
 		
 		//model.addAttribute("pg", pg); // pg값 받기
 		
-		String filePath = "D:\\Spring\\workspace\\jajuProject\\src\\main\\webapp\\storage";
+		String filePath = "C:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 
 		String fileName;
 		File file;

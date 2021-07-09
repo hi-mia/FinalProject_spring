@@ -88,7 +88,7 @@
 		<tbody>
 		<tr style="width:800px;">
 		<td align="right" colspan="2">
-		<span id="boardDelete" class="bhs_button yb" style="float:none; cursor:pointer; " id="freeboardDeleteBtn">삭제</span>
+		<span id="boardDelete" class="bhs_button yb" style="float:none; cursor:pointer; ">삭제</span>
 		</td>
 		</tr>
 		</tbody></table>

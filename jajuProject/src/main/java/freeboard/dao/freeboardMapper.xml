@@ -51,7 +51,10 @@
  
  <!-- 삭제 -->
  <delete id="freeboardDelete" parameterType="int">
- 	delete freeboard where board_seq=#{board_seq}
+ begin
+ 	delete freeboard where board_seq=#{board_seq};
+ 	delete freeboard_comment where comment_seq = #{comment_seq};
+ end;
 </delete>
 
 <!-- 조회수 -->
