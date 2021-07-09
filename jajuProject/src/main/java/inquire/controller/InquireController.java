@@ -268,7 +268,6 @@ public class InquireController {
 	@RequestMapping(value="inquireReply", method=RequestMethod.POST)
 	@ResponseBody
 	public void inquireReply(@RequestParam Map<String, String>map) {//pseq, pg, subject, content
-		
 		inquireService.inquireReply(map);
 	}
 }

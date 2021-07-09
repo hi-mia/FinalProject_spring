@@ -62,6 +62,7 @@ public class ManagerInquireController {
 		mav.addObject("pseq",seq);//원글번호
 		mav.addObject("pg",pg);//원글 페이지번호
 		mav.setViewName("/manager/managerInquireReplyForm");
+		
 		return mav;
 	}
 
