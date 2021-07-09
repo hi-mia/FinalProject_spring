@@ -56,4 +56,14 @@ public class ManagerReviewboardDAOMybatis implements ManagerReviewboardDAO {
 	public void managerReviewboardListDelete(Map<String, String[]> map) {
 		sqlSession.delete("managerReviewboardSQL.managerReviewboardListDelete", map);
 	}
+
+	@Override
+	public List<ReviewboardDTO> getReviewListMember(String member_id) {
+		return sqlSession.selectList("managerReviewboardSQL.getReviewListMember", member_id);
+	}
+
+	@Override
+	public Object updateManner(double d) {
+		return sqlSession.update("managerReviewboardSQL.updateManner", d);
+	}
 }

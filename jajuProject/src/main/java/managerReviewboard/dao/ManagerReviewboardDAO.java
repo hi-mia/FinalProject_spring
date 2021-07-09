@@ -23,5 +23,9 @@ public interface ManagerReviewboardDAO {
 
 	public void managerReviewboardListDelete(Map<String, String[]> map);
 
+	public List<ReviewboardDTO> getReviewListMember(String member_id);
+
+	public Object updateManner(double d);
+
 
 }
