@@ -60,12 +60,14 @@ $(function(){
 				
 			}); //each
 			$(document).on('click', '#item', function(){ //a태그에 아이디 준거 subjectA 그거의 부모 찾고 그 부모의 앞에거를 찾고
-
+				  if($('#id').val() == ''){
+						alert("먼저 로그인 하세요");
+					}else {
 	               var seq = $(this).parent().prev().prev().text();
 	               //alert(seq);
 	               location.href = '/jaju/reviewboard/reviewboardView?review_seq='+seq+'&pg='+$('#pg').val();
 	               //location.href = '/jaju/freeboard/freeboardView?board_seq='+seq+'&pg='+$('#pg').val();
-
+					}
 	         });
 
 		  //페이징 처리
@@ -89,12 +91,12 @@ function reviewboardPaging(pg){
 //검색
 
  $('#reviewboardSearchBtn').click(function(){
-	alert($('input[name=pg]').val());
+	//alert($('input[name=pg]').val());
 	//alert($('#pg').val());
 	//alert('이미지클릭')
-	if($('#searchText').val() == ""){
+	if($('#keyword').val() == ""){
 		alert("검색어를 입력해 주세요");
-		$('#searchText').focus();
+		$('#keyword').focus();
 	}  else{
 	
 	$.ajax({
@@ -107,6 +109,12 @@ function reviewboardPaging(pg){
 			
 			$('#reviewboardListTable tr:gt(0)').remove();
 			
+			   if(data.list.length == 0){
+				   alert('검색어가 없습니다');
+				   location.href = '/jaju/reviewboard/reviewboardList?pg=1'
+				   
+			   }else{
+				   
 			  $.each(data.list, function(index, items){
 				 $('<tr/>').append($('<td/>',{
 		               align:'center',
@@ -149,9 +157,9 @@ function reviewboardPaging(pg){
 
 		               var seq = $(this).parent().prev().text();
 		               location.href = '/jaju/reviewboard/reviewboardView?review_seq='+seq;
-
 		   });
-			
+			   }
+			   
 			$('#reviewboardpagingDiv').html(data.reviewboardpaging.pagingHTML);		
 			
 		}, error: function(err){

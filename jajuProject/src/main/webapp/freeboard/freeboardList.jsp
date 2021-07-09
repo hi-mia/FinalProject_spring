@@ -69,6 +69,7 @@
 			</div>			
 			<input type="hidden" name="pg" id="pg" value="${param.pg }">
 			<input type="hidden" name="searchPg" id="searchPg" value="1">	
+			<input type="hidden" name="search" id="search">
 
 		</form>
 		</td>
@@ -90,10 +91,11 @@
 function freeboardPaging(pg){
 	var boardSearchText = document.getElementById('keyword').value;
 	
-	if(boardSearchText == ''){
+	if($('#search').val() == ''){
 		location.href = '/jaju/freeboard/freeboardList?pg='+pg;
 	} else{
 		$('#searchPg').val(pg);
+		$('#keyword').val($('#search').val());
 		$('#boardSearchBtn').trigger('click','research');
 		//location.href = 'boardSearch?pg='+pg+'&select='+$('#select option:selected').val() +'&keyword='+$('#keyword').val();
 		//encodeURIComponent('${keyword}');
