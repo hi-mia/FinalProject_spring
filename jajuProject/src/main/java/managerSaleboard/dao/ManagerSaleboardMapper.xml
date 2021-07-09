@@ -68,7 +68,7 @@
   
 <!-- 삭제 -->
 <delete id="managerSaleboardDelete" parameterType="int">
-<<<<<<< HEAD
+
  	begin
 		 	delete sale_board where sale_seq=#{sale_seq};
 		 	
@@ -79,12 +79,7 @@
 		 	delete message where sale_seq=#{sale_seq};
 		 	
 	end;
-=======
-begin
- 	delete sale_board where sale_seq=#{sale_seq};
- 	delete sale_board_comment where sale_seq=#{sale_seq};
- end;
->>>>>>> idleline
+
 </delete>
 	<!-- 이전글 다음글 -->
    <select id="getPage_sale" parameterType="java.util.Map" resultType="saleboard">
