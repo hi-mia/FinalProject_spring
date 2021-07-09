@@ -159,18 +159,7 @@ s린ㅇ머핮ㅂ다덩ㅊ'ㄴㅇ
 				<th width="200" style="padding-bottom: 10px;">작성일</th>
 				<th width="100"/>
 			</tr>
-			<tr>
-				<td >18</td>
-				<td style="text-align: left;">이제 정말 끝이라고 해줘 제발~!!!!!!</td>
-				<td >나요</td>
-				<td >2016-06-10</td>
-			</tr>
-			<tr>
-				<td >28</td>
-				<td style="text-align: left;">끝내 달라고 했더니 제 머리가 끝났습니다.</td>
-				<td >저요</td>
-				<td >2016-06-10</td>
-			</tr>
+			
 		</table>
 		<div id="pagingDiv" style="text-align: center; margin-bottom: 10px;">
 		

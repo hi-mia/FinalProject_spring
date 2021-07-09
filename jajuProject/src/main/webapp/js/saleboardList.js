@@ -109,14 +109,15 @@ $(function(){
 									var location3 = items.location3_addr2;
 									
 									//alert(location1);
-									
+									//alert($('#memId').val());
 									$.ajax({
 										type: 'post',
 										url: '/jaju/saleboard/getSaleboardListLogin',
 										data: {'pg': $('#pg').val(), 'sortinSelect': $('#sortinSelect').val(),
 											   'location1': location1, 'location2': location2, 'location3': location3,
 											   'keyword1':keyword1,'keyword2':keyword2,'keyword3':keyword3,
-											   'keyword4':keyword4,'keyword5':keyword5, 'keywordSw': keywordSw},
+											   'keyword4':keyword4,'keyword5':keyword5, 'keywordSw': keywordSw,
+											   'member_id': $('#memId').val()},
 										dataType: 'json',
 										success: function(data){
 											//alert(JSON.stringify(data));
@@ -312,7 +313,8 @@ $('#searchBtn').click(function(event,str){
 										url: '/jaju/saleboard/getSearchSaleboardListLogin',
 										data: {'pg': $('#searchPg').val(), 'sale_category': $('#selectBox').val(),
 											   'searchText' : $('#searchText').val(), 'sortinSelect': $('#sortinSelect').val(),
-											   'location1': location1, 'location2': location2, 'location3': location3},
+											   'location1': location1, 'location2': location2, 'location3': location3,
+											   'member_id': $('#memId').val()},
 										dataType: 'json',
 										success: function(data){
 											$('.inner_listgoods .list li').remove();
@@ -506,7 +508,8 @@ $('#sortinSelect').change(function(){
 										data: {'pg': '1', 'sortinSelect': $('#sortinSelect').val(),
 											   'location1': location1, 'location2': location2, 'location3': location3,
 											   'keyword1':keyword1,'keyword2':keyword2,'keyword3':keyword3,
-											   'keyword4':keyword4,'keyword5':keyword5, 'keywordSw': keywordSw},
+											   'keyword4':keyword4,'keyword5':keyword5, 'keywordSw': keywordSw,
+											   'member_id': $('#memId').val()},
 										dataType: 'json',
 										success: function(data){
 											//alert(JSON.stringify(data));
