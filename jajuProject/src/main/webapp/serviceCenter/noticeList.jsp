@@ -10,7 +10,7 @@
 <jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 <input type="hidden" id="searchHidden" name="searchHidden">
 <input type="hidden" id="notice_seq" name="notice_seq" value="${notice_seq}">
-<input type="hidden" id="pg" value="${pg}">
+<input type="hidden" id="pg" value="${pg}">no_data
 
 <div id="formTotal" style="min-height: 550px;">
 <div class="head_aticle" padding-left="10px">

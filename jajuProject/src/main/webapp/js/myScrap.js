@@ -13,6 +13,7 @@ $(function(){
 		dataType:'json',
 		
 		success:function(data){
+			console.log(JSON.stringify(data));
 			//$('#row').remove();
 			if(JSON.stringify(data.list)=='[]' && data.myScrap_Paging != null){
 				//alert("찜한 상품이 없습니다.");
@@ -33,38 +34,73 @@ $(function(){
 					text='판매완료';
 				}
 				//items=="[]"  data=="list[]"
-			$('<ul/>',{
-					style: 'margin: 0 5px; width: 30%; height: 32%;',
-					id:'scrap_ul'
-				}).append($('<div/>',{
-					style:' color: #fff; position: relative; z-index: 6; left: 5px;  top: 10px; cursor:pointer; ',
-					id:'check_div'
-				}).append($('<input>',{
-					type:'checkbox',
-					name:'check',
-					class:'check',
-					value:items.scrap_seq,
-					style:'zoom:1.5; color: #fff; position: absolute;  cursor:pointer;  top: -5px; right: 12px; display:none; ',
-					/*value:items.follow_seq*/
-				}))).append($('<li/>',{
-					style: 'width: 100%; height: 100%;'
-
-				}).append($('<img/>',{
-					src:'/jaju/storage/'+items.sale_image1,
-					style:'width:100%; height:105%; transform:scale(1.0);	transition: transform .5s; cursor:pointer; ',
-					class:'subject_'+items.sale_seq //글제목 부분
-				}))).append($('<li/>',{
-					text:items.sale_subject,
-					style:'font-weight:bold; font-size:16px; margin-top: 10px; margin-bottom: -5px; cursor:pointer; ',
-
-				})).append($('<li/>',{
-					text:text,
-					style:'margin-top: 3px; margin-bottom: -5px; cursor:pointer; ',
-
-				})).append($('<li/>',{
-					text:items.scrap_date,
-					style:'margin-top: 3px;'
-				})).appendTo($('.add_scrap_pic'));
+				if(items.sale_state=='판매완료'){
+					$('<ul/>',{
+						style: 'margin: 0 5px; width: 30%; height: 32%;',
+						id:'scrap_ul'
+					}).append($('<div/>',{
+						style:' color: #fff; position: relative; z-index: 6; left: 5px;  top: 10px; cursor:pointer; ',
+						id:'check_div'
+					}).append($('<input>',{
+						type:'checkbox',
+						name:'check',
+						class:'check',
+						value:items.scrap_seq,
+						style:'zoom:1.5; color: #fff; position: absolute;  cursor:pointer;  top: -5px; right: 12px; display:none; ',
+						/*value:items.follow_seq*/
+					}))).append($('<li/>',{
+						style: 'width: 100%; height: 100%;'
+	
+					}).append($('<img/>',{
+						src:'/jaju/storage/'+items.sale_image1,
+						style:'width:240px; height:240px; transform:scale(1.0);	transition: transform .5s; cursor:pointer; opacity:0.5; ',
+						class:'subject_'+items.sale_seq //글제목 부분
+					}))).append($('<li/>',{
+						text:"["+items.sale_state+"] "+items.sale_subject,
+						style:'font-weight:bold; font-size:16px; margin-top: 10px; margin-bottom: -5px; cursor:pointer; ',
+	
+					})).append($('<li/>',{
+						text:text,
+						style:'margin-top: 3px; margin-bottom: -5px; cursor:pointer; ',
+	
+					})).append($('<li/>',{
+						text:items.scrap_date,
+						style:'margin-top: 3px;'
+					})).appendTo($('.add_scrap_pic'));
+				}else{
+					$('<ul/>',{
+						style: 'margin: 0 5px; width: 30%; height: 32%;',
+						id:'scrap_ul'
+					}).append($('<div/>',{
+						style:' color: #fff; position: relative; z-index: 6; left: 5px;  top: 10px; cursor:pointer; ',
+						id:'check_div'
+					}).append($('<input>',{
+						type:'checkbox',
+						name:'check',
+						class:'check',
+						value:items.scrap_seq,
+						style:'zoom:1.5; color: #fff; position: absolute;  cursor:pointer;  top: -5px; right: 12px; display:none; ',
+						/*value:items.follow_seq*/
+					}))).append($('<li/>',{
+						style: 'width: 100%; height: 100%;'
+	
+					}).append($('<img/>',{
+						src:'/jaju/storage/'+items.sale_image1,
+						style:'width:240px; height:240px; transform:scale(1.0);	transition: transform .5s; cursor:pointer; ',
+						class:'subject_'+items.sale_seq //글제목 부분
+					}))).append($('<li/>',{
+						text:"["+items.sale_state+"] "+items.sale_subject,
+						style:'font-weight:bold; font-size:16px; margin-top: 10px; margin-bottom: -5px; cursor:pointer; ',
+	
+					})).append($('<li/>',{
+						text:text,
+						style:'margin-top: 3px; margin-bottom: -5px; cursor:pointer; ',
+	
+					})).append($('<li/>',{
+						text:items.scrap_date,
+						style:'margin-top: 3px;'
+					})).appendTo($('.add_scrap_pic'));
+				}
 				
 /*				$('li > img').hover(function(){
 				    $(this).css('transform','scale(1.1)');

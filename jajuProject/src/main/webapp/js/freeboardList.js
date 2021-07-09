@@ -79,11 +79,13 @@ $('#boardSearchBtn').click(function(){
 	//alert($('input[name=pg]').val());
 	//alert($('#pg').val());
 	//alert('이미지클릭')
+	$('#search').val($('#keyword').val())
 	if($('#keyword').val() == ""){
 		alert("검색어를 입력해 주세요");
 		$('#keyword').focus();
 	}
 	else{
+		
 	
 	$.ajax({
 		type: 'post',

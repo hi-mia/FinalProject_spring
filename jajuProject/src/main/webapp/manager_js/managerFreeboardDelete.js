@@ -1,4 +1,4 @@
-$('#managerFreeboardDeleteBtn').click(function(){
+$('#boardDelete').click(function(){
 	
 	$.ajax({
 		type: 'post',

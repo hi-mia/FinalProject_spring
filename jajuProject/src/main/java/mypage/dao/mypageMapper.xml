@@ -153,7 +153,7 @@ select count(*) as count from message where message_reader=#{id} and message_cha
 </delete>
 
 <insert id="writeMyScrap" parameterType="java.util.Map">
-   insert into scrap values(seq_scrap.nextval ,#{member_id}, sysdate, #{sale_seq}, #{sale_state}, #{sale_subject}, #{sale_image1})
+   insert into scrap values(seq_scrap.nextval ,#{member_id}, sysdate, #{sale_seq})
 </insert>
 
 <select id="getMyScrap" parameterType="java.util.Map" resultType="mypageScrap">
