@@ -60,5 +60,21 @@
 			</foreach>
 			
 	</delete>
+	
+	<!-- 검색 -->
+	<select id="getQuestionSearchList" parameterType="java.util.Map" resultType="question">
+		<![CDATA[
+			select * from 
+			(select rownum rn, tt. * from 
+	 		(select * from question where ${itemcd} like '%'||#{keyword}||'%' 
+	 		                     order by question_seq desc)tt
+	 		)where rn >= #{startNum} and rn <= #{endNum}
+		]]>
+	</select>
+	
+	<!-- 검색한 총글수 -->
+	<select id="getTotalSearchA" parameterType="java.util.Map" resultType="int">
+		select count(*) from question where ${itemcd} like '%'||#{keyword}||'%'
+	</select>
  
  </mapper>

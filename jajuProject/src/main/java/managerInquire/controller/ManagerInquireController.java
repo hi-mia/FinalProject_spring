@@ -62,12 +62,13 @@ public class ManagerInquireController {
 		mav.addObject("pseq",seq);//원글번호
 		mav.addObject("pg",pg);//원글 페이지번호
 		mav.setViewName("/manager/managerInquireReplyForm");
+		
 		return mav;
 	}
 
 	@RequestMapping(value = "managerInquireDelete", method=RequestMethod.GET)
 	public ModelAndView managerInquireDelete(String[] check) {
-		System.out.println(check);
+		
 		managerInquireService.managerInquireDelete(check);
 		return new ModelAndView("redirect:/manager/managerServiceInquire");
 	}

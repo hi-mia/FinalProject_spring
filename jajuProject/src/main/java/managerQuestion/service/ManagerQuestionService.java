@@ -1,6 +1,7 @@
 package managerQuestion.service;
 
 import java.util.List;
+import java.util.Map;
 
 import inquire.bean.InquireDTO;
 import question.bean.QuestionDTO;
@@ -21,5 +22,9 @@ public interface ManagerQuestionService {
 	public void managerQuestionModify(QuestionDTO questionDTO);
 
 	public void managerQuestionDelete(String[] check);
+
+	public List<InquireDTO> getQuestionSearchList(Map<String, String> map);
+
+	public QuestionPaging managerQuestionPaging(Map<String, String> map);
 
 }

@@ -23,18 +23,12 @@
 	</insert>
 	
 	<select id = "getInquireList" parameterType = "java.util.Map" resultType = "inquire">
+		
  		select *from (select rownum rn, tt.* from
-		(select * from inquiryboard where inquiry_id = #{inquiry_id} or inquiry_id='관리자' order by inquiry_ref desc, inquiry_lev asc)tt)
+		(select * from inquiryboard where inquiry_id = #{inquiry_id} or inquiry_name= #{inquiry_id} order by inquiry_ref desc, inquiry_lev asc)tt)
 		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
 		
-		<!-- 
-		<![CDATA[
-		select *from (select rownum rn, tt.* from
-		(select * from imageboard order by seq desc)tt)
-		where rn >=#{startNum} and rn <=#{endNum}
-		]]>
-		이렇게 쓰면 <>기호도 사용 가능하다.
-		 -->
+	
  	</select>
  	
  	<select id="getInquireView" parameterType="int" resultType="inquire">
@@ -77,7 +71,7 @@
 		insert into inquiryboard(inquiry_seq, inquiry_id, inquiry_name, inquiryType, inquiry_telephone, inquiry_subject, inquiry_contents, inquiry_pseq, inquiry_ref, inquiry_lev, inquiry_state,logtime) values(
 											inquiry_seq.nextval
 										   , '관리자'
-										   , #{inquiry_name}
+										   , #{inquiry_id}
 										   , #{inquiryType}
 										   , '홈페이지 문의 바랍니다'
 										   , '[답글]'||#{inquiry_subject}

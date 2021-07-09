@@ -7,6 +7,9 @@ $(function(){
 		dataType: 'json',
 		success: function(data){
 			//alert(JSON.stringify(data))
+			
+		if(data.list.length != 0){
+			$('.no_data').hide();
 	        $.each(data.list, function(index, items){
 	            $('<tr/>').append($('<td/>',{
 	            	align: 'center'
@@ -33,16 +36,17 @@ $(function(){
 		            }))
 	            ).appendTo($('.tbl_admin'))
 
-	            //페이징 처리
-	            $('.page_admin').html(data.questionPaging.pagingHTML);
 	        
 	            $('.subject'+items.question_seq).click(function(){
 	            	location.href = '/jaju/manager/managerQuestionView?seq='+items.question_seq+'&pg='+$('#pg').val();
 	            });
 	        }); //each
-	      
-	        
-         
+		}else if(data.list.length == 0){
+			$('.no_data').show();
+		}
+		//페이징 처리
+		$('.page_admin').html(data.questionPaging.pagingHTML);
+
 		},
       	error: function(err){
       		console.log(err);
@@ -72,6 +76,69 @@ $('#choiceDeleteBtn').click(function(){
 		confirm("정말로 삭제 하시겠습니까?");
 		$('#managerQuestionDelete').submit();
 	}
+});
+
+//검색
+$('#managerServiceQuestionBtn').click(function(){
+	if($('input[name=keyword]').val() == ''){
+		   alert("검색어를 입력하세요")
+	   }else{
+		   $('.tbl_admin tr:gt(0)').remove();
+		   
+		   $.ajax({
+			   type : 'post',
+			   url : '/jaju/manager/getQuestionSearchList',
+			   data : {'pg':$('input[name=pg]').val(),
+				   	  'itemcd':$('#itemcd').val(),
+				   	  'keyword':$('input[name=keyword]').val()},
+			   dataType : 'json',
+			   success : function(data){
+				// alert(JSON.stringify(data))
+				 
+					   $.each(data.list, function(index, items){
+						   $('<tr/>').append($('<td/>',{
+								align: 'center'
+								}).append($('<input/>',{
+									type : 'checkbox',
+									id : 'all',
+									name : 'check',
+									value : items.question_seq
+								}))
+							).append($('<td/>',{
+								width: '75px',
+				                align: 'center',
+				                text: items.question_seq
+							})).append($('<td/>',{
+								width: '135px',
+				            	align: 'center',
+				            	text: items.questionType
+							})).append($('<td/>',{
+								}).append($('<a/>',{
+				            		href: '#',
+				            		width: '274px',
+				            		text: items.question_subject,
+				            		class: 'subject'+items.question_seq
+				            	}))
+							).appendTo($('.tbl_admin'))
+				        	
+				        	$('.subject'+items.question_seq).click(function(){
+							// alert(items.question_seq);
+							// alert($('#pg').val());
+							location.href = '/jaju/manager/managerQuestionView?seq='+items.question_seq+'&pg='+$('#pg').val();
+				        	});
+				        	
+				        	// 처리중 처리완료 색 변경
+				        	$("td.state:contains('처리중')").css({color:"red"});
+				        	$("td.state:contains('처리완료')").css({color:"blue"});
+				        }); // each
+					   
+				  
+			   },
+			   error : function(err){
+				   console.log(err);  
+			   }
+		 });
+	   }
 });
 //페이징 이동
 function questionPaging(pg){

@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import inquire.bean.InquireDTO;
 import question.bean.QuestionDTO;
 
 @Transactional
@@ -52,5 +54,16 @@ public class ManagerQuestionDAOMybatis implements ManagerQuestionDAO {
 	public void managerQuestionDelete(Map<String, String[]> map) {
 		sqlSession.delete("managerQuestionSQL.managerQuestionDelete", map);
 		
+	}
+
+	@Override
+	public List<InquireDTO> getQuestionSearchList(Map<String, String> map) {
+		List<InquireDTO> list =  sqlSession.selectList("managerQuestionSQL.getQuestionSearchList", map);
+		return list;
+	}
+
+	@Override
+	public int getTotalSearchA(Map<String, String> map) {
+		return sqlSession.selectOne("managerQuestionSQL.getTotalSearchA", map);
 	}
 }

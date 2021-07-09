@@ -71,10 +71,15 @@
 
 	
 	</table>
+			
+	<div class="no_data" style="padding: 150px 0 148px; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6; font-size: 14px; color: #4c4c4c; text-align: center;">
+		1:1 문의 내역이 존재하지 않습니다.
+	</div>
+	<table class="inquireTable" id="inquireTable" style="width:100%; border-top: 50px solid #FAFAFA;; border-bottom: 1px solid #e6e6e6;"></table>
+ <div id="pagingArea" class="page_admin">
+
 </div>
 </div>
-<div id="pagingArea" class="page_admin">
-<!-- <span class="paging currentPaging" onclick="inquirePaging">1</span> -->
 </div>
 
 </div>

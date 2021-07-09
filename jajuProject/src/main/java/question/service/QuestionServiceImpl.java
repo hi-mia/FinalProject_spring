@@ -57,7 +57,7 @@ public class QuestionServiceImpl implements QuestionService {
 
 	@Override
 	public List<QuestionDTO> getQuestionSearchList(Map<String, String> map) {
-		System.out.println(map);
+		
 		
 		//1페이지당 10개씩
 		int endNum = Integer.parseInt(map.get("pg"))*10; //map에 언제 pg 값을 넣었나?
