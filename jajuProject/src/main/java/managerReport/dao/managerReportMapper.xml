@@ -31,7 +31,9 @@
 		select count(*) from memberreport where ${itemcd} like '%'||#{keyword}||'%'
 	</select>
 	
-	<!-- 글 삭제 -->
+	
+	
+	<!-- 글 삭제 check -->
  	<delete id="managerReportDelete" parameterType="java.util.Map">
 		
 		delete memberreport where report_seq in 
@@ -41,7 +43,17 @@
 		</foreach>
 		
 	</delete>
+ 	<update id="managerReportDelete2" parameterType="java.util.Map">
+		
+		update sale_board set sale_hide = 'on' where sale_seq in 
+		<foreach collection="array" item="data" open="(" close=")" separator=",">
+			#{data}
+			<!-- ${array[i]} -->
+		</foreach>
+		
+	</update>
 	
+
 	<!-- 댓글 -->
 	
 	<!-- 댓글입력 (보이기) -->
@@ -57,11 +69,8 @@
 	 	update memberreport set report_state='처리완료' where report_seq=#{report_seq};
 	 	end;
 	 </insert>
-	 
-<!-- 	 <select id="commentMemberWarning" parameterType="int" resultType="member">
-	 	selcet * from jajumember where =#{report_seq}
-	 </select> -->
-	 
+
+
 	 <!-- 댓글입력 (숨기기) -->
 	 <insert id="commentWriteHide" parameterType="java.util.Map">
 	 	begin

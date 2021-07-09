@@ -58,6 +58,13 @@ $(function(){
 		            	class: 'state',
 		            })).appendTo('.mangerReportTable');
 		        	
+		        	$('#managerReportList').append($('<input/>', {
+		        		type: 'hidden',
+		        		name: 'check2',
+		        		value: items.sale_seq
+		        	}));
+		        	
+		        	
 		        	$('.subject'+items.report_seq).click(function(){
 						location.href = '/jaju/manager/managerReportView?report_seq='+items.report_seq+'&pg='+$('#pg').val();
 					});

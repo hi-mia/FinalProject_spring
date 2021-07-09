@@ -23,7 +23,7 @@ public interface ReportDAO {
 
 	public void reportModify(ReportDTO reportDTO);
 
-	public void reportDelete(String report_seq);
+	public void reportDelete(Map<String, String> map);
 
 
 	public List<CommentDTO> getCommentList(String report_seq);

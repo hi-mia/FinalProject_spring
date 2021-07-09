@@ -82,11 +82,9 @@ public class ManagerReportServiceImpl implements ManagerReportService {
 	}
 
 	@Override
-	public void managerReportDelete(String[] check) {
-		Map<String, String[]> map = new HashMap<String, String[]>();
-		map.put("array", check);
+	public void managerReportDelete(int[] check, int[] sale_check) {
 		
-		managerReportDAO.managerReportDelete(map);
+		managerReportDAO.managerReportDelete(check, sale_check);
 		
 	}
 	

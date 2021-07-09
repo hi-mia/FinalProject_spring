@@ -10,7 +10,6 @@
 <form id="managerReportList" name="managerReportList">
 <div id="content" class="cont_post post_spam">
 <input type="hidden" id="searchHidden" name="searchHidden">
-<input type="hidden" id="sale_seq" name="sale_seq">
 <input type="hidden" id="pg" name="pg" value="${pg}">	
 <%-- <input type="hidden" id="report_seq" name="report_seq" value="${report_seq}"> --%>
 	<div class="wrap_tit">

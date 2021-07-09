@@ -32,12 +32,6 @@
 	 	</insert>
  	
  	<!-- 목록 --><!-- 페이징 처리 -->
-<!--  	<select id="getReportList" parameterType="java.util.Map" resultType="report">
- 		select * from
- 		(select rownum rn, tt.* from
- 		(select * from memberreport order by report_seq desc)tt
- 		)where rn &gt;= #{startNum} and rn &lt;= #{endNum}
- 	</select> -->
  	<select id="getReportList" parameterType="java.util.Map" resultType="report">
 	 	<if test='report_id == "jajuadmin"'>
 	 		select * from
@@ -86,9 +80,9 @@
  	</select>
  	
 	 <!-- 글삭제 -->
-	  <delete id="reportDelete" parameterType="int">
+	  <delete id="reportDelete" parameterType="java.util.Map">
 	  	begin
-	 		delete from memberreport where report_seq=#{report_seq};
+	 		delete from memberreport where report_seq=${report_seq};
 	 		
 	 		update sale_board set sale_hide = 'on' where sale_seq = ${sale_seq};
 	 	end;

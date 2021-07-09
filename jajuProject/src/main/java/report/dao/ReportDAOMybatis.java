@@ -59,8 +59,9 @@ public class ReportDAOMybatis implements ReportDAO {
 	}
 
 	@Override
-	public void reportDelete(String report_seq) {
-		sqlSession.delete("memberreportSQL.reportDelete", Integer.parseInt(report_seq));
+	public void reportDelete(Map<String, String> map) {
+		
+		sqlSession.delete("memberreportSQL.reportDelete", map);
 		
 	}
 

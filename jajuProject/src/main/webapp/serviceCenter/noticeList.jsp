@@ -10,7 +10,7 @@
 <jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 <input type="hidden" id="searchHidden" name="searchHidden">
 <input type="hidden" id="notice_seq" name="notice_seq" value="${notice_seq}">
-<input type="hidden" id="pg" value="${pg}">no_data
+<input type="hidden" id="pg" value="${pg}">
 
 <div id="formTotal" style="min-height: 550px;">
 <div class="head_aticle" padding-left="10px">
@@ -28,7 +28,7 @@
 		</thead>
 		
 		<tr class="no_data">
-			<td colspan="19" class="no_article" style="margin-bottom: 57px;">공지 글이 없습니다.</td>
+			<td colspan="19" class="no_article" style="margin-bottom: 57px;">공지 글이 존재하지 않습니다.</td>
 			
 		</tr>
 </table>
