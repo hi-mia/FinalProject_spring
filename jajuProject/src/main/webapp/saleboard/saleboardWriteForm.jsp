@@ -20,7 +20,7 @@
 	<input type="hidden" name="itemcd">
 	<input type="hidden" name="sno" value="0">
 	<input type="hidden" id="member_id" name= "member_id" value="${sessionScope.memId }"/>
-<table class="saleboardWriteTable" id="saleboardWriteTable" style="width:100%; margin-left: 100px;">
+<table class="saleboardWriteTable" id="saleboardWriteTable" style="width:820px; margin-left: 250px;">
 <colgroup><col width="14%" align="right"></colgroup>
 <tbody>
 
@@ -118,7 +118,7 @@
 <th class="saleboardWriteTd">내용</th>
 <td class="saleText" name="sale_content" placeholder="내용을 입력해주세요." style="position: relative; width:100%;">
 
-<textarea name="sale_content" id="sale_content" style="width:70%; height:474px; resize: none;" class="editing_area" label="내용"></textarea>
+<textarea name="sale_content" id="sale_content" style="width:90%; height:474px; resize: none;" class="editing_area" label="내용"></textarea>
 <div id="sale_contentDiv"></div>
 </td>
 </tr>
@@ -126,7 +126,7 @@
 <tr>
 <th class="input_txt">이미지</th>
 <td>
-<table width="70%" id="table" cellpadding="0" cellspacing="0" border="0" style="border:solid 1px #f4f4f4; border-collapse:collapse;">
+<table width="90%" id="table" cellpadding="0" cellspacing="0" border="0" style="border:solid 1px #f4f4f4; border-collapse:collapse;">
    <tbody>
    <tr id="tr_0">
       <td width="20" nowrap="" align="center">1</td>
@@ -211,7 +211,7 @@ function add(){
     oTd1      = oTr.insertCell(0);
     oTd1.style.textAlign = "center";
     oTd2      = oTr.insertCell(1);
-    tmpHTML = "<input type=file name='file' style='width:50%' class=file> <a href=\"javascript:del('"+"tr_"+(tr_num)+"')\"><img src='/jaju/jajuImage/upadd2.jpg' style='width:90px; height:25px;' align=absmiddle></a>";
+    tmpHTML = "<input type=file name='file' style='width:50%; display:inline-block;' class=file> <a href=\"javascript:del('"+"tr_"+(tr_num)+"')\"><img src='/jaju/jajuImage/upadd2.jpg' style='width:90px; height:25px;' align=absmiddle></a>";
     oTd2.innerHTML = tmpHTML;
     calcul();
 }

@@ -137,6 +137,7 @@ li {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     word-wrap: break-word;
+    margin: 10px;
 }
 #goodsList .list_goods .cost .price {
     font-weight: 800;

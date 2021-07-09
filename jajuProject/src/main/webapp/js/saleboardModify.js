@@ -48,6 +48,8 @@ $(function(){
 			$('#sale_content').val(data.saleboardDTO.sale_content);
 			
 			
+			$('#sale_hide').val(data.saleboardDTO.sale_hide);
+			
 			let map = new Map();
 			
 			map.set("image1", data.saleboardDTO.sale_image1);

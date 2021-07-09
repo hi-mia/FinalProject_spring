@@ -88,7 +88,8 @@ $(function(){
 						url: '/jaju/saleboard/getSaleboardListLoginCategory',
 						data: {'pg': $('#pg').val(), 'sortinSelect': $('#sortinSelect').val(),
 							   'location1': location1, 'location2': location2, 'location3': location3,
-							   'sale_category': $('#sale_category').val()},
+							   'sale_category': $('#sale_category').val(),
+							   'member_id': $('#memId').val()},
 						dataType: 'json',
 						success: function(data){
 							//alert(JSON.stringify(data));
@@ -250,7 +251,8 @@ $('#searchBtn').click(function(event,str){
 							url: '/jaju/saleboard/getSearchSaleboardListLoginCategory',
 							data: {'pg': $('#searchPg').val(), 'sale_category': $('#sale_category').val(),
 								   'searchText' : $('#searchText').val(), 'sortinSelect': $('#sortinSelect').val(),
-								   'location1': location1, 'location2': location2, 'location3': location3},
+								   'location1': location1, 'location2': location2, 'location3': location3,
+								   'member_id': $('#memId').val()},
 							dataType: 'json',
 							success: function(data){
 								$('.inner_listgoods .list li').remove();
@@ -422,7 +424,8 @@ $('#sortinSelect').change(function(){
 							data: {'pg': '1', 'sortinSelect': $('#sortinSelect').val(),
 								'location1': location1, 'location2': location2, 'location3': location3,
 								'keyword1':keyword1, 'keywordSw': keywordSw,'keyword2':keyword2,'keyword3':keyword3,
-								   'keyword4':keyword4,'keyword5':keyword5},
+								   'keyword4':keyword4,'keyword5':keyword5,
+								   'member_id': $('#memId').val()},
 								dataType: 'json',
 								success: function(data){
 									//alert(JSON.stringify(data));
