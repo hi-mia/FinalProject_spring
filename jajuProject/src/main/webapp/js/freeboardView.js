@@ -215,8 +215,8 @@ $('#commentInputBtn').click(function(){
 $(document).on('click', '#commentModifyBtn', function(){
 	$('#reCommentModifyTr').remove();
 	$('#reCommentTr').remove();
-	var comment_seq = $(this).parent().prev().prev().prev().text();
-	//alert(comment_seq);
+	var comment_seq = $(this).parent().prev().prev().prev().prev().text();
+	alert(comment_seq);
 	
 	$.ajax({
 		type: 'post',

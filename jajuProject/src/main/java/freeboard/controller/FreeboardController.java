@@ -317,6 +317,8 @@ public class FreeboardController {
 		@ResponseBody
 		public ModelAndView getFreeboardCommentOne(@RequestParam String comment_seq) {
 
+			System.out.println(comment_seq);
+			
 			ModelAndView mav = new ModelAndView();
 			
 			FreeboardCommentDTO freeboardCommentDTO = freeboardService.getFreeboardCommentOne(comment_seq);
