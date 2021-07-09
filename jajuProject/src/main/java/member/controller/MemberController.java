@@ -116,7 +116,7 @@ public class MemberController {
 		if(memberDTO == null) {
 			try {
 				gps.setGps(Double.parseDouble(map.get("lat")), Double.parseDouble(map.get("lng")));
-
+				
 				map.put("member_sido", gps.getMember_sido());
 				map.put("member_sigungu", gps.getMember_sigungu());
 				map.put("member_detailAddr", gps.getMember_detailAddr());
