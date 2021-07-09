@@ -7,29 +7,29 @@
      font-style: normal;
 }
 *{
-	font-family: 'S-CoreDream-4Regular';
+   font-family: 'S-CoreDream-4Regular';
     -webkit-text-size-adjust: 100%;
 }
 
 .prevPaging{
-	background-image: url(/jaju/jajuImage/icon-pagination-prev.webp);
+   background-image: url(/jaju/jajuImage/icon-pagination-prev.webp);
 }
 .nextPaging{
-	background-image: url(/jaju/jajuImage/icon-pagination-next.webp);
+   background-image: url(/jaju/jajuImage/icon-pagination-next.webp);
 }
 .firstPaging{
-	background-image: url(/jaju/jajuImage/icon-pagination-first.webp);
+   background-image: url(/jaju/jajuImage/icon-pagination-first.webp);
 }
 .lastPaging{
-	background-image: url(/jaju/jajuImage/icon-pagination-last.webp);
+   background-image: url(/jaju/jajuImage/icon-pagination-last.webp);
 }
 .prevPaging, .nextPaging, .firstPaging, .lastPaging{
-	background-repeat: no-repeat;
+   background-repeat: no-repeat;
     background-position: 50% 50%;
     text-indent: -9999px;
 }
 .paging{
-	display: inline-block;
+   display: inline-block;
     width: 34px;
     height: 34px;
     border: 1px solid #ddd;
@@ -40,7 +40,7 @@
     cursor: pointer;
 }
 .paging:first-child {
-	border-left: 1px solid #ddd;
+   border-left: 1px solid #ddd;
 }
 .currentPaging, .thisPaging:hover, .currentPaging:hover{
     background-color: #f2f2f2;
@@ -56,11 +56,11 @@
 }
 
 .search{
-	margin-top:20px;
+   margin-top:20px;
 }
 
 #reviewboardSearchBtn {
-	padding-bottom: 7.5px;
+   padding-bottom: 7.5px;
 }
 
 *, *:after, *:before {
@@ -72,13 +72,13 @@ div, th, td, li, dt, dd, p {
     word-break: break-all;
 }
 th{
-	text-align: center;
+   text-align: center;
 }
 .eng2{
-	color: #939393
+   color: #939393
 }
 .xans-board-listheader{
-	font-size:14px
+   font-size:14px
 }
 .page_aticle button, .page_aticle input, .page_aticle select, .page_aticle * {
     font-weight: 400;
@@ -141,7 +141,7 @@ input {
     border-radius: 2px;
 }
 .search img {
-	 padding-top: 1em;
+    padding-top: 1em;
 }
 
 img {
@@ -154,7 +154,7 @@ img, video, canvas {
     cursor: pointer;
 }
 .reviewboard .layout-pagination{
-	margin: 0;
+   margin: 0;
 }
 .page_aticle button, .page_aticle input, .page_aticle select, .page_aticle * {
     font-weight: 400;
@@ -266,7 +266,7 @@ div {
 }
 
 .pagediv{
-	clear: both;
+   clear: both;
 }
 .xans-board-search {
     margin-top: 20px;
@@ -288,19 +288,18 @@ div {
    
 }
 #totalDiv{
-	display: inline-block;
-	float: left;
-	width: 800px;
+   display: inline-block;
+   float: left;
+   width: 800px;
 }
 #formTotal{
-	margin-top: 86px;
-	float: left;
-	display: inline-block;
-	margin-left: 85px;
-	width: 800px;
+   margin-top: 86px;
+   float: left;
+   display: inline-block;
+   width: 800px;
 }
 td a:hover{
-	font-weight: bold;
+   font-weight: bold;
 }
 
 .layout-pagination-number:hover, .layout-pagination-number.__active {
@@ -308,11 +307,11 @@ td a:hover{
     color: #47597e;
 }
 a:hover{
-	text-decoration: none;
-	color: #999;
+   text-decoration: none;
+   color: #999;
 }
 select{
-	line-height: 1;
+   line-height: 1;
     letter-spacing: -.05em;
     color: #4c4c4c;
     font-size: 14px;
@@ -346,4 +345,8 @@ select {
     background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
     cursor: pointer;
     
+}
+tbody td a {
+	font-size: 20px;
+	padding: 10px;
 }
