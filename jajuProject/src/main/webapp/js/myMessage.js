@@ -1,5 +1,7 @@
 $(document).ready(function() {
+	   opener.parent.location.reload();
 
+	
 //쪽지 list 불러오기
 	$.ajax({
 		url:'/jaju/mypage/getMyMessageList',

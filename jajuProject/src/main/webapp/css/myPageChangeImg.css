@@ -30,7 +30,7 @@ html {
 }
 #update_btn{
 	height: 30px;
-    width: 90px;
+    width: 125px;
 	background-color: #617aad;
     color: #fff;
     border:none;
@@ -116,4 +116,8 @@ html {
 	background-color: #9EB7CD;
     border:none;
     border-radius: 3px;
+}
+.deal_wrap{
+	height: 300px;
+	
 }

@@ -55,7 +55,7 @@
 				
 </div>
 <br>
-			<div class="search" align="right" style="margin-top:75px; margin-bottom:50px;">
+			<div class="search" align="right" style="margin-top:100px; margin-bottom:50px;">
 			
 				<select name="searchOption" id="searchOption" width="100px" align="absmiddle">
 					<option value="board_subject">&nbsp;&nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;</option>
