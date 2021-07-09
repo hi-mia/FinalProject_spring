@@ -80,8 +80,8 @@ public class ReportServiceImpl implements ReportService {
 	}
 
 	@Override
-	public void reportDelete(String report_seq) {
-		reportDAO.reportDelete(report_seq);
+	public void reportDelete(Map<String, String> map) {
+		reportDAO.reportDelete(map);
 		
 	}
 

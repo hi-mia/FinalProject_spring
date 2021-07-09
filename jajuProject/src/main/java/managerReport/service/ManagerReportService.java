@@ -22,7 +22,7 @@ public interface ManagerReportService {
 	
 	public ReportPaging reportPaging(Map<String, String> map);
 
-	public void managerReportDelete(String[] check);
+	public void managerReportDelete(int[] check, int[] sale_check);
 	
 	public void commentWriteShow(Map<String, String> map);
 	public void commentWriteHide(Map<String, String> map);

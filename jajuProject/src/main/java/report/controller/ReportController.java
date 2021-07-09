@@ -251,9 +251,9 @@ public class ReportController {
 	
 	@RequestMapping(value="reportDelete", method=RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView reportDelete(@RequestParam String report_seq) {
+	public ModelAndView reportDelete(@RequestParam Map<String, String> map) {
 		
-		reportService.reportDelete(report_seq);
+		reportService.reportDelete(map);
 		
 		return new ModelAndView("redirect:/serviceCenter/reportList");
 	}

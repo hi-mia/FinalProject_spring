@@ -103,9 +103,16 @@ public class ManagerReportController {
 	
 	
 	@RequestMapping(value="/managerReportDelete", method=RequestMethod.POST)
-	public ModelAndView managerReportDelete(String[] check) {
+	public ModelAndView managerReportDelete(@RequestParam int[] check) {
 		
-		managerReportService.managerReportDelete(check);
+		int[] sale_check = new int[check.length];
+		
+		for(int i=0; i<check.length; i++) {
+			ReportDTO reportDTO = managerReportService.getReport(check[i]+"");
+			sale_check[i] = reportDTO.getSale_seq();
+		}
+		
+		managerReportService.managerReportDelete(check, sale_check);
 		
 		return new ModelAndView("redirect:/manager/managerReportList");
 	}
