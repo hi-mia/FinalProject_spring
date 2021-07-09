@@ -8,7 +8,7 @@
 <input type="hidden" name="review_id" id="review_id" value="${sessionScope.memId }">
 <input type="hidden" name="sale_seq" id="sale_seq" value="${param.sale_seq }">
 
-<div id="total" style="width:1080px; margin: auto; ">
+<div id="total" style="width:800px; margin: auto; ">
 
 <div id="wrap">
 <div id="pos_scroll"></div>
@@ -20,7 +20,7 @@
 
 <div id="main">
 <div id="content">
-
+<h2>리뷰 상세 조회</h2>
 <div id="qnb" class="quick-navigation" style="top: 70px;"></div>
 <div class="layout-wrapper">
 	<div class="xans-element- xans-myshop xans-myshop-couponserial ">

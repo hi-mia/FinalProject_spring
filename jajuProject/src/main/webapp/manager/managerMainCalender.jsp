@@ -760,7 +760,6 @@ $('.cal-body').click(function (){
 				
 				$('.cal-table td.today').css('background', '#fff');
 				$('.cal-table td.today').css('color', '#000000');
-				
 
 				$('.stat_collect_dt').html(date+" 기준");
 				$('.stat_date').html(date+" 기준");
@@ -789,6 +788,22 @@ $('#testDatepicker').change(function (){
     var date = $('#testDatepicker').val();
     //alert("date???" + date);
     
+    var arr = date.split('-'); 
+	//alert("arr"+arr);
+
+	var now = new Date();	// 현재 날짜 및 시간
+	var year = arr[0];	// 연도
+	var month = arr[1];
+	var dateArr = arr[2];
+
+	$('.cal-day').html(month+"월");
+	$('.cal-date').html(dateArr);
+	$('.stat_collect_dt').html(year+"."+month+"."+dateArr+" 기준");
+	$('.stat_date').html(year+"."+month+"."+dateArr+" 기준");
+	
+	$('.cal-table td.today').css("background","#fff");
+	$('.cal-table td.today').css("color","#333");
+
     $.ajax({
     	url:'/jaju/manager/getDatePickerInfo',
     	data: {'date': date },
@@ -796,6 +811,7 @@ $('#testDatepicker').change(function (){
     	dataType:'json',
     	success:function(data){
     		$('#ui-datepicker-div').hide();
+    		
     		//console.log("datepicker 결과물  : " +JSON.stringify(data));
     		$('.stat_collect_dt').html(date+" 기준");
 			$('.stat_date').html(date+" 기준");
@@ -804,6 +820,12 @@ $('#testDatepicker').change(function (){
 			$('#report_span').html(data.reportPickerCount+'건');
 			$('#newMember_span').html(data.newMemberPickerCount+'건');
 			$('#saleBoard_span').html(data.saleReportPickerCount+'건');
+			
+		 
+			/* $.each(arr, function(index, value) { 
+			      console.log(index + ':값 = ' + value); 
+			}); */
+
 			
     	},error:function(err){
     		console.log("managerCalender 에러발생" + err)	
