@@ -87,7 +87,7 @@
 		<tr style="width:800px;">
 		<td align="right" colspan="3">
 		<a href="/jaju/freeboard/freeboardModifyForm?board_seq=${param.board_seq }"><span id="boardModify" class="bhs_button yb" style="float:none;">수정</span></a>
-		<span id="boardDelete" class="bhs_button yb" style="float:none; cursor:pointer; " id="freeboardDeleteBtn">삭제</span>
+		<span id="boardDelete" class="bhs_button yb" style="float:none; cursor:pointer;">삭제</span>
 		<a href="/jaju/freeboard/freeboardList?pg=${param.pg }"><span id="boardList" class="bhs_button yb" style="float:none;">목록</span></a>
 		</td>
 		</tr>
@@ -118,7 +118,7 @@
          bordercolor="#47597e" align="center" frame="hsides" rules="rows"
          width="800" style="margin-top:40px; border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff;" id="commentWriteTable">
          <tr>
-            <td height="80" width="80" align="left"><span id="replySpan"></span>
+            <td height="60" width="80" align="left"><span id="replySpan"></span>
                <input type="text" placeholder="댓글을 입력하세요." size="76" id="commentText" class="commentInput">
                &nbsp;&nbsp;
                <input type="button" value="댓글 입력" class="commentInput" id="commentInputBtn" size="80" >

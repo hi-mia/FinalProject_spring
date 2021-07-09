@@ -189,6 +189,10 @@
 <script src="/jaju/manager_js/managerSaleboardView.js"></script>
 <script src="/jaju/manager_js/managerSaleboardDelete.js"></script>
 <script type="text/javascript">
+$(document).ready(function(){
+	$('#managerSaleboard').addClass('on');
+});
+
 
 function saleboardCommentPaging(pg){
 	$.ajax({

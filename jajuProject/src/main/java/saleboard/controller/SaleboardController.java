@@ -203,7 +203,7 @@ public class SaleboardController {
 		@RequestMapping(value="saleboardModify", method=RequestMethod.POST)
 		@ResponseBody
 		public void saleboardModify(@ModelAttribute SaleboardDTO saleboardDTO,
-								@RequestParam("file[]") List<MultipartFile> list) {
+								@RequestParam("file") List<MultipartFile> list) {
 			
 			String filePath = "C:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 

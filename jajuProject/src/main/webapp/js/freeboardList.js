@@ -79,10 +79,11 @@ $('#boardSearchBtn').click(function(){
 	//alert($('input[name=pg]').val());
 	//alert($('#pg').val());
 	//alert('이미지클릭')
-	if($('#searchText').val() == ""){
+	if($('#keyword').val() == ""){
 		alert("검색어를 입력해 주세요");
-		$('#searchText').focus();
-	}  else{
+		$('#keyword').focus();
+	}
+	else{
 	
 	$.ajax({
 		type: 'post',
@@ -93,6 +94,12 @@ $('#boardSearchBtn').click(function(){
 			//alert(JSON.stringify(data));
 			
 			$('#freeboardListTable tr:gt(0)').remove();
+			
+			   if(data.list.length == 0){
+				   alert('검색어가 없습니다');
+				   location.href = '/jaju/freeboard/freeboardList?pg=1'
+				   
+			   }else{
 			
 			  $.each(data.list, function(index, items){
 		            $('<tr/>').append($('<td/>',{
@@ -129,7 +136,7 @@ $('#boardSearchBtn').click(function(){
 		               location.href = '/jaju/freeboard/freeboardView?board_seq='+seq;
 
 		   });
-			
+			   }
 			$('#freeboardpagingDiv').html(data.freeboardPaging.pagingHTML);		
 			
 		}, error: function(err){

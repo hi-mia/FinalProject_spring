@@ -1,4 +1,5 @@
-$('#freeboardDeleteBtn').click(function(){
+$('#boardDelete').click(function(){
+	alert('abc')
 	
 	$.ajax({
 		type: 'post',

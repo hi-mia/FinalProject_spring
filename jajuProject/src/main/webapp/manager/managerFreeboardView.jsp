@@ -88,7 +88,6 @@
 		<tbody>
 		<tr style="width:800px;">
 		<td align="right" colspan="2">
-		<a href="/jaju/freeboard/freeboardModifyForm?board_seq=${param.board_seq }"><span id="boardModify" class="bhs_button yb" style="float:none;">수정</span></a>
 		<span id="boardDelete" class="bhs_button yb" style="float:none; cursor:pointer; " id="freeboardDeleteBtn">삭제</span>
 		</td>
 		</tr>
