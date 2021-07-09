@@ -3,6 +3,7 @@
 
 <link rel="stylesheet" href="/jaju/manager_css/managerBoard.css" />
 <jsp:include page="/manager/managerHeader.jsp"/>
+<input type="hidden" name="member_id" id="member_id" >
 
 <div style="width: 1080px; margin: auto;">
 <jsp:include page="/manager/managerMenu.jsp"/>
