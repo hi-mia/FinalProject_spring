@@ -73,18 +73,20 @@ $(function(){
 	});
 });
 
-function freeboardPaging(pg){
-	location.href="managerFreeboardList?pg="+pg;
-}
+//function freeboardPaging(pg){
+//	location.href="managerFreeboardList?pg="+pg;
+//}
 
 //검색
 $('#managerBoardSearchBtn').click(function(){
 	//alert($('input[name=pg]').val());
 	//alert($('#pg').val());
 	//alert('이미지클릭')
-	if($('#searchText').val() == ""){
+	//search_managerFree
+	$('#search_managerFree').val($('#keyword').val())
+	if($('#keyword').val() == ""){
 		alert("검색어를 입력해 주세요");
-		$('#searchText').focus();
+		$('#keyword').focus();
 	}  else{
 	
 	$.ajax({
@@ -96,6 +98,12 @@ $('#managerBoardSearchBtn').click(function(){
 			//alert(JSON.stringify(data));
 			
 			$('#managerFreeboardTable tr:gt(0)').remove();
+			
+			   if(data.list.length == 0){
+				   alert('검색어가 없습니다');
+				   location.href = '/jaju/manager/managerFreeboardList?pg=1'
+				   
+			   }else{
 			
 			  $.each(data.list, function(index, items){
 				  $('<tr/>').append($('<td/>', {
@@ -140,7 +148,7 @@ $('#managerBoardSearchBtn').click(function(){
 
 	         });
 
-			
+			   }
 				$('#pagingArea').html(data.freeboardPaging.pagingHTML);		   
 			
 		}, error: function(err){

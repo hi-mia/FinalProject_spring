@@ -3,6 +3,7 @@
 
 <link rel="stylesheet" href="/jaju/manager_css/managerBoard.css" />
 <jsp:include page="/manager/managerHeader.jsp"/>
+<input type="hidden" name="member_id" id="member_id" >
 
 <div style="width: 1080px; margin: auto;">
 <jsp:include page="/manager/managerMenu.jsp"/>
@@ -29,7 +30,8 @@
 			</div>
 		</div>
          <input type="hidden" name="pg" id="pg" value="${param.pg }">
-         <input type="hidden" name="searchPg" id="searchPg" value="1">   
+         <input type="hidden" name="searchPg" id="searchPg" value="1">
+         <input type="hidden" name="search_managerReview" id="search_managerReview">
          </form>
       </div>
       <div class="option_list article_option_list">
@@ -105,12 +107,14 @@ $(document).ready(function(){
 function reviewboardPaging(pg){
 	var boardSearchText = document.getElementById('keyword').value;
 	
-	if(boardSearchText == ''){
+	if($('#search_managerReview').val() == ''){
 		//location.href = '/jaju/reviewboard/reviewboardList?pg='+pg;
-		location.href="managerReviewboardList?pg="+pg;
+		location.href='/jaju/manager/managerReviewboardList?pg='+pg;
 	} else{
+		//alert('abc');
 		$('#searchPg').val(pg);
-		$('#managerBoardSearchBtn').trigger('click');
+		$('#keyword').val($('#search_managerReview').val());
+		$('#managerReviewSearchBtn').trigger('click','research');
 		//location.href = 'boardSearch?pg='+pg+'&select='+$('#select option:selected').val() +'&keyword='+$('#keyword').val();
 		//encodeURIComponent('${keyword}');
 		$('#searchPg').val(1);

@@ -7,6 +7,7 @@
 <input type="hidden" id="pg" value="${param.pg }"/>
 <input type="hidden" name="review_id" id="review_id" value="${sessionScope.memId }">
 <input type="hidden" name="sale_seq" id="sale_seq" value="${param.sale_seq }">
+<input type="hidden" name="member_id" id="member_id" >
 
 <div id="total" style="width:800px; margin: auto; ">
 

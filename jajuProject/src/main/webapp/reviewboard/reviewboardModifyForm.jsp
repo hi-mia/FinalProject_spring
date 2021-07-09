@@ -78,7 +78,7 @@
       <td width="50%">
          <input type="file" name="file[]" style="width:50%" class="linebg">
          <a href="javascript:add()">
-            <img src="../image/upadd.jpg" style="width:90px; height:25px;">
+            <img src="/jaju/jajuImage/upadd.jpg" style="width:90px; height:25px;">
          </a>
            <div id="review_imageDiv"></div>
        </td>

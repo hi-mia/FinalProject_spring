@@ -24,4 +24,8 @@ public interface ManagerReviewboardService {
 
 	public void managerReviewboardListDelete(String[] check);
 
+	public List<ReviewboardDTO> getReviewListMember(String member_id);
+
+	public void updateManner(double d);
+
 }

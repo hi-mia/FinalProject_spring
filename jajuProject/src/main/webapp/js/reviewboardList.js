@@ -83,9 +83,9 @@ $(function(){
 
 //페이징
 
-function reviewboardPaging(pg){
-	location.href="reviewboardList?pg="+pg;
-}
+//function reviewboardPaging(pg){
+//	location.href="reviewboardList?pg="+pg;
+//}
 
 
 //검색
@@ -94,6 +94,7 @@ function reviewboardPaging(pg){
 	//alert($('input[name=pg]').val());
 	//alert($('#pg').val());
 	//alert('이미지클릭')
+	 $('#search_review').val($('#keyword').val());
 	if($('#keyword').val() == ""){
 		alert("검색어를 입력해 주세요");
 		$('#keyword').focus();
@@ -160,7 +161,7 @@ function reviewboardPaging(pg){
 		   });
 			   }
 			   
-			$('#reviewboardpagingDiv').html(data.reviewboardpaging.pagingHTML);		
+			$('#reviewboardpagingDiv').html(data.reviewboardPaging.pagingHTML);		
 			
 		}, error: function(err){
 			console.log(err);

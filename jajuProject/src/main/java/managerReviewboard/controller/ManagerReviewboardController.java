@@ -146,15 +146,51 @@ public class ManagerReviewboardController {
 			
 			return new ModelAndView("redirect:/manager/managerReviewboardList");
 		}
+
+		/*
+		//삭제 - 리스트
+	      @RequestMapping(value="managerReviewboardListDelete", method=RequestMethod.POST)
+	      public ModelAndView managerReviewboardListDelete(String[] check) {
+	         
+	         
+	         //삭제되는 리뷰의 member_id가져오기
+	         String[] member_id = new String[check.length];
+	         
+	         for(int i = 0; i<check.length; i++) {
+	            ReviewboardDTO reviewboardDTO = managerReviewboardService.getPage_review(Integer.parseInt(check[i]));
+	            member_id[i] = reviewboardDTO.getMember_id();
+	            
+	         }
+	         
+	         //System.out.println(check);
+	         managerReviewboardService.managerReviewboardListDelete(check);
+	         
+	         //리뷰가 삭제된 후 매너온도 바꾸기
+	         //1.각각의 아이디의 리스트를 다 가져오기
+	         //2.그 리스트에서 매너온도를 다 더해주기 !기본값은 36.5
+	         //3.더한 횟수 카운트 하기
+	         //4.매너온도 더한 값을 카운트로 나누고 그 값으로 매너온도 바꾸기
+	         //5.위 1~4까지를 반복하기
+	         
+	         for(int i = 0; i<check.length; i++) {
+	            //그 아이디 값의 리뷰 가져오기
+	            List<ReviewboardDTO> list = managerReviewboardService.getReviewListMember(member_id[i]);
+	                        
+	            //리뷰의 매너온도와 횟수 계산
+	            double member_manner = 36.5;
+	            int count = 1;
+	            for(ReviewboardDTO dto : list) {
+	               member_manner += Double.parseDouble(dto.getReview_manner());
+	               count++;
+	            }
+	            
+	            //계산된 매너온도로  회원의 매너온도 변환
+	            managerReviewboardService.updateManner(member_manner/count);
+	            
+	         }
+         
+	         return new ModelAndView("redirect:/manager/managerReviewboardList?pg=1");
+	      }
+*/
 		
-	//삭제 - 리스트
-		@RequestMapping(value="managerReviewboardListDelete", method=RequestMethod.POST)
-		public ModelAndView managerReviewboardListDelete(String[] check) {
-
-			//System.out.println(check);
-			managerReviewboardService.managerReviewboardListDelete(check);
-			
-			return new ModelAndView("redirect:/manager/managerReviewboardList?pg=1");
-		}
-
 }

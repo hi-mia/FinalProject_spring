@@ -74,6 +74,7 @@ public class ManagerFreeboardDAOMybatis implements ManagerFreeboardDAO {
 	@Override
 	public void managerFreeboardListDelete(Map<String, String[]> map) {
 		sqlSession.delete("managerfreeboardSQL.managerFreeboardListDelete", map);
+		sqlSession.delete("managerfreeboardSQL.managerFreeboardListCommentDelete", map);
 		
 	}
 

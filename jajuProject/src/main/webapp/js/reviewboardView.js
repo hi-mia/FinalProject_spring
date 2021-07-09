@@ -9,6 +9,7 @@ $(function(){
 		dataType:'json',
 		success:function(data){
 //			alert(JSON.stringify(data))
+			$('#member_id').val(data.reviewboardDTO.member_id);
 			
 			$('#subjectSpan').text(data.reviewboardDTO.review_subject);
 			$('#idSpan').text(data.reviewboardDTO.review_id);

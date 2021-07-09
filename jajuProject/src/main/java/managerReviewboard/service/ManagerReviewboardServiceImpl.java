@@ -94,4 +94,14 @@ public class ManagerReviewboardServiceImpl implements ManagerReviewboardService 
 		
 	}
 
+	@Override
+	public List<ReviewboardDTO> getReviewListMember(String member_id) {
+		return managerReviewboardDAO.getReviewListMember(member_id);
+	}
+
+	@Override
+	public void updateManner(double d) {
+		managerReviewboardDAO.updateManner(d);
+	}
+
 }

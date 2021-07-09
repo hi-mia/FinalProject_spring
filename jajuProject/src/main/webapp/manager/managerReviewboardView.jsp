@@ -9,6 +9,7 @@
 <input type="hidden" id="review_seq" value="${param.review_seq }">
 <input type="hidden" id="pg" value="${param.pg }"/>
 <input type="hidden" name="sale_seq" id="sale_seq" value="${param.sale_seq }">
+<input type="hidden" name="member_id" id="member_id" >
 
 <div id="wrap">
 <div id="pos_scroll"></div>
