@@ -73,9 +73,9 @@ $(function(){
 	});
 });
 
-function freeboardPaging(pg){
-	location.href="managerFreeboardList?pg="+pg;
-}
+//function freeboardPaging(pg){
+//	location.href="managerFreeboardList?pg="+pg;
+//}
 
 //검색
 $('#managerBoardSearchBtn').click(function(){

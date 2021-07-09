@@ -103,7 +103,6 @@ $(document).ready(function(){
 	$('#managerFreeboard').addClass('on');
 });
 
-
 function freeboardPaging(pg){
 	var boardSearchText = document.getElementById('keyword').value;
 	

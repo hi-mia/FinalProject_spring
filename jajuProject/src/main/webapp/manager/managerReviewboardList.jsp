@@ -111,9 +111,10 @@ function reviewboardPaging(pg){
 		//location.href = '/jaju/reviewboard/reviewboardList?pg='+pg;
 		location.href='/jaju/manager/managerReviewboardList?pg='+pg;
 	} else{
+		//alert('abc');
 		$('#searchPg').val(pg);
 		$('#keyword').val($('#search_managerReview').val());
-		$('#managerBoardSearchBtn').trigger('click','research');
+		$('#managerReviewSearchBtn').trigger('click','research');
 		//location.href = 'boardSearch?pg='+pg+'&select='+$('#select option:selected').val() +'&keyword='+$('#keyword').val();
 		//encodeURIComponent('${keyword}');
 		$('#searchPg').val(1);
