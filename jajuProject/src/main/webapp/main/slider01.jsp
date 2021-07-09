@@ -253,129 +253,152 @@ p {
 
 
 			<div id="slider-div">
-
-				<div class="item-wrap">
-					<div class="item_image_div">
-						<img id="s_img0" src="">
-					</div>
-					<div class="item_detail">
-						<div class="item_subject" id="s_subject0"></div>
-						<div class="item_price_div">
-							<div class="item_price" id="s_price0"></div>
+				<a id="s_a0" class="s_a">
+					<div class="item-wrap">
+						<div class="item_image_div">
+							<img id="s_img0" src="">
+						</div>
+						<div class="item_detail">
+							<div class="item_subject" id="s_subject0"></div>
+							<div class="item_price_div">
+								<div class="item_price" id="s_price0"></div>
+							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="item-wrap">
-					<div class="item_image_div">
-						<img id="s_img1" src="">
-					</div>
-					<div class="item_detail">
-						<div class="item_subject" id="s_subject1"></div>
-						<div class="item_price_div">
-							<div class="item_price" id="s_price1"></div>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-wrap">
-					<div class="item_image_div">
-						<img id="s_img2" src="">
-					</div>
-					<div class="item_detail">
-						<div class="item_subject" id="s_subject2"></div>
-						<div class="item_price_div">
-							<div class="item_price" id="s_price2"></div>
-						</div>
-					</div>
-				</div>
+				</a>
 				
-				<div class="item-wrap">
-					<div class="item_image_div">
-						<img id="s_img3" src="">
-					</div>
-					<div class="item_detail">
-						<div class="item_subject" id="s_subject3"></div>
-						<div class="item_price_div">
-							<div class="item_price" id="s_price3"></div>
+				<a id="s_a1" class="s_a">
+					<div class="item-wrap">
+						<div class="item_image_div">
+							<img id="s_img1" src="">
+						</div>
+						<div class="item_detail">
+							<div class="item_subject" id="s_subject1"></div>
+							<div class="item_price_div">
+								<div class="item_price" id="s_price1"></div>
+							</div>
 						</div>
 					</div>
-				</div>
-						
-				<div class="item-wrap">
-					<div class="item_image_div">
-						<img id="s_img4" src="">
-					</div>
-					<div class="item_detail">
-						<div class="item_subject" id="s_subject4"></div>
-						<div class="item_price_div">
-							<div class="item_price" id="s_price4"></div>
+				</a>
+				
+				<a id="s_a2" class="s_a">
+					<div class="item-wrap">
+						<div class="item_image_div">
+							<img id="s_img2" src="">
+						</div>
+						<div class="item_detail">
+							<div class="item_subject" id="s_subject2"></div>
+							<div class="item_price_div">
+								<div class="item_price" id="s_price2"></div>
+							</div>
 						</div>
 					</div>
-				</div>
-							
-				<div class="item-wrap">
-					<div class="item_image_div">
-						<img id="s_img5" src="">
-					</div>
-					<div class="item_detail">
-						<div class="item_subject" id="s_subject5"></div>
-						<div class="item_price_div">
-							<div class="item_price" id="s_price5"></div>
+				</a>
+				
+				<a id="s_a3" class="s_a">
+					<div class="item-wrap">
+						<div class="item_image_div">
+							<img id="s_img3" src="">
+						</div>
+						<div class="item_detail">
+							<div class="item_subject" id="s_subject3"></div>
+							<div class="item_price_div">
+								<div class="item_price" id="s_price3"></div>
+							</div>
 						</div>
 					</div>
-				</div>	
-						
-				<div class="item-wrap">
-					<div class="item_image_div">
-						<img id="s_img6" src="">
-					</div>
-					<div class="item_detail">
-						<div class="item_subject" id="s_subject6"></div>
-						<div class="item_price_div">
-							<div class="item_price" id="s_price6">가격</div>
+				</a>
+				
+				<a id="s_a4" class="s_a">		
+					<div class="item-wrap">
+						<div class="item_image_div">
+							<img id="s_img4" src="">
+						</div>
+						<div class="item_detail">
+							<div class="item_subject" id="s_subject4"></div>
+							<div class="item_price_div">
+								<div class="item_price" id="s_price4"></div>
+							</div>
 						</div>
 					</div>
-				</div>
-						
-				<div class="item-wrap">
-					<div class="item_image_div">
-						<img id="s_img7" src="">
-					</div>
-					<div class="item_detail">
-						<div class="item_subject" id="s_subject7"></div>
-						<div class="item_price_div">
-							<div class="item_price" id="s_price7"></div>
+				</a>
+				
+				<a id="s_a5" class="s_a">		
+					<div class="item-wrap">
+						<div class="item_image_div">
+							<img id="s_img5" src="">
+						</div>
+						<div class="item_detail">
+							<div class="item_subject" id="s_subject5"></div>
+							<div class="item_price_div">
+								<div class="item_price" id="s_price5"></div>
+							</div>
+						</div>
+					</div>	
+				</a>
+				
+				<a id="s_a6" class="s_a">
+					<div class="item-wrap">
+						<div class="item_image_div">
+							<img id="s_img6" src="">
+						</div>
+						<div class="item_detail">
+							<div class="item_subject" id="s_subject6"></div>
+							<div class="item_price_div">
+								<div class="item_price" id="s_price6">가격</div>
+							</div>
 						</div>
 					</div>
-				</div>
-						
-				<div class="item-wrap">
-					<div class="item_image_div">
-						<img id="s_img8" src="">
-					</div>
-					<div class="item_detail">
-						<div class="item_subject" id="s_subject8"></div>
-						<div class="item_price_div">
-							<div class="item_price" id="s_price8"></div>
+				</a>
+				
+				<a id="s_a7" class="s_a">		
+					<div class="item-wrap">
+						<div class="item_image_div">
+							<img id="s_img7" src="">
+						</div>
+						<div class="item_detail">
+							<div class="item_subject" id="s_subject7"></div>
+							<div class="item_price_div">
+								<div class="item_price" id="s_price7"></div>
+							</div>
 						</div>
 					</div>
-				</div>
-						
-				<div class="item-wrap">
-					<div class="item_image_div">
-						<img id="s_img9" src="">
-					</div>
-					<div class="item_detail">
-						<div class="item_subject" id="s_subject9"></div>
-						<div class="item_price_div">
-							<div class="item_price" id="s_price9"></div>
+				</a>
+				
+				<a id="s_a8" class="s_a">	
+					<div class="item-wrap">
+						<div class="item_image_div">
+							<img id="s_img8" src="">
+						</div>
+						<div class="item_detail">
+							<div class="item_subject" id="s_subject8"></div>
+							<div class="item_price_div">
+								<div class="item_price" id="s_price8"></div>
+							</div>
 						</div>
 					</div>
-				</div>
-
+				</a>
+				
+				<a id="s_a9" class="s_a">
+					<div class="item-wrap">
+						<div class="item_image_div">
+							<img id="s_img9" src="">
+						</div>
+						<div class="item_detail">
+							<div class="item_subject" id="s_subject9"></div>
+							<div class="item_price_div">
+								<div class="item_price" id="s_price9"></div>
+							</div>
+						</div>
+					</div>
+				</a>
 
 			</div>
+			
+			<div class="s_no_data" style="padding: 150px 0 148px; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6; font-size: 14px; color: #4c4c4c; text-align: center; margin-bottom: 50px;">
+				등록된 상품이 없습니다.
+			</div>
+			
 		</div>
 	</div>
 

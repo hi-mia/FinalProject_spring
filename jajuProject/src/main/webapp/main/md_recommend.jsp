@@ -272,59 +272,63 @@ a:active, a:hover {
 			<div class="bx-wrapper" style="max-width: 1050px; margin: 0px auto;">
 				<div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 462px;">
 					
-					<ul data-title="MD의 추천" data-section="md_choice" class="list" 	style="width: 815%; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+					<ul data-title="MD의 추천" data-section="md_choice" class="list" id="r_ul"	style="width: 815%; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
 						
 						<li data-index="1" class="" data-name="md_choice"
 							style="float: left; list-style: none; position: relative; width: 249px; margin-right: 18px;"><a
-							class="thumb_goods"> <!----> 
+							class="thumb_goods" id="r_a0"> <!----> 
 							<img id="r_img0" src=""	alt="상품이미지" class="thumb"
 								style="background-image: url();">
 							</a>
 							<div class="info_goods">
 								<span class="name">
-								<a id="r_subject0" class="txt"><br></a></span> 
+								<span id="r_subject0" class="txt"></span><br></span> 
 								<span id="r_price0" class="price"></span> 
 							</div>
+							
 						</li>
 							
 						<li data-index="2" class="" data-name="md_choice"
 							style="float: left; list-style: none; position: relative; width: 249px; margin-right: 18px;"><a
-							class="thumb_goods"> <!----> 
+							class="thumb_goods" id="r_a1"> <!----> 
 							<img id="r_img1" src=""	alt="상품이미지" class="thumb"
 								style="background-image: url();">
 							</a>
 							<div class="info_goods">
 								<span class="name">
-								<a id="r_subject1" class="txt"><br></a></span> 
+								<span id="r_subject1" class="txt"></span><br></span> 
 								<span id="r_price1" class="price"></span> 
 							</div>
+							
 						</li>
 						
 						
 						<li data-index="3" class="cut" data-name="md_choice"
 							style="float: left; list-style: none; position: relative; width: 249px; margin-right: 18px;"><a
-							class="thumb_goods"> <!----> 
+							class="thumb_goods" id="r_a2"> <!----> 
 							<img id="r_img2" src=""	alt="상품이미지" class="thumb"
 								style="background-image: url();">
 							</a>
 							<div class="info_goods">
 								<span class="name">
-								<a id="r_subject2" class="txt"><br></a></span> 
+								<span id="r_subject2" class="txt"></span><br></span> 
 								<span id="r_price2" class="price"></span> 
 							</div>
+							
 						</li>
 						
 						<li data-index="4" class="" data-name="md_choice"
 							style="float: left; list-style: none; position: relative; width: 249px; margin-right: 18px;"><a
-							class="thumb_goods"> <!----> 
+							class="thumb_goods" id="r_a3"> <!----> 
 							<img id="r_img3" src=""	alt="상품이미지" class="thumb"
 								style="background-image: url();">
 							</a>
 							<div class="info_goods">
 								<span class="name">
-								<a id="r_subject3" class="txt"><br></a></span> 
+								<span id="r_subject3" class="txt"></span><br></span> 
 								<span id="r_price3" class="price"></span> 
 							</div>
+							
 						</li>
 
 						<!---->
@@ -340,7 +344,7 @@ a:active, a:hover {
 			</div>
 		</div>
 		
-		<div class="no_data" style="padding: 150px 0 148px; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6; font-size: 14px; color: #4c4c4c; text-align: center; margin-bottom: 50px;">
+		<div class="r_no_data" style="padding: 150px 0 148px; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6; font-size: 14px; color: #4c4c4c; text-align: center; margin-bottom: 50px;">
 			등록된 상품이 없습니다.
 		</div>
 		

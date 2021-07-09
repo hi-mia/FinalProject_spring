@@ -17,6 +17,7 @@ $(function(){
 					$('<tr />', {
 						style : 'border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6;'
 					}).append($('<td />',{
+						style: 'padding: 5px 0;',
 						align : 'center',
 						text : items.board_seq
 					})).append($('<td />',{
@@ -39,9 +40,13 @@ $(function(){
 				});
 				
 				$(document).on('click', '#b_subject', function(){
-					var seq = $(this).parent().prev().text();
-					
-					location.href = '/jaju/freeboard/freeboardView?board_seq=' + seq + '&pg=1';
+					if(data.memId == null){
+						alert('먼저 로그인 하세요.')
+					}else{
+						var seq = $(this).parent().prev().text();
+						
+						location.href = '/jaju/freeboard/freeboardView?board_seq=' + seq + '&pg=1';
+					}
 				});
 			}
 		},
