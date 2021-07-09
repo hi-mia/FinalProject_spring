@@ -35,6 +35,13 @@ end;
 	    #{data}        
 	</foreach>
 </delete>
+
+  	<delete id="managerFreeboardListCommentDelete" parameterType="java.util.Map">
+  		delete freeboard_comment where board_seq in 
+		<foreach collection="array" item="data" open="(" close=")" separator=",">
+	   		#{data}        
+		</foreach>
+  	</delete>
    
 <!-- 댓글 불러오기 -->
 	<select id="getManagerFreeboardComment" parameterType="java.util.Map" resultType="freeboardComment">

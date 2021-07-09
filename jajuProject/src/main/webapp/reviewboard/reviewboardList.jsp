@@ -5,7 +5,7 @@
 <input type="hidden" name="id" value="reviewboard">
 
 <div id="total" style="width:800px; margin: auto; ">
-<div id="formTotal">
+<div id="formTotal" style="width:800px; display:inline-block; float:left; margin-left:80px; margin-top: 86px;">
 <div class="head_aticle" padding-left="10px">
    <h2 class="tit" style="color: #333;">후기 게시판 </h2>
 </div>
@@ -46,7 +46,7 @@
          <div class="search" align="right" style="margin-bottom:50px;">
          
             <select name="searchOption" id="searchOption" width="100px" align="absmiddle">
-               <option value="member_id">&nbsp;&nbsp;&nbsp;&nbsp;아이디&nbsp;&nbsp;&nbsp;&nbsp;</option>
+               <option value="review_subject">&nbsp;&nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;</option>
                <option value="review_content">&nbsp;&nbsp;&nbsp;&nbsp;내용&nbsp;&nbsp;&nbsp;&nbsp;</option>
             </select>   
             <input type="text" name="keyword" id="keyword" required="" align="absmiddle">
@@ -56,7 +56,8 @@
          </div>         
          <input type="hidden" id="id" name="id" value="${memId}">
          <input type="hidden" name="pg" id="pg" value="${param.pg }">
-         <input type="hidden" name="searchPg" id="searchPg" value="1">   
+         <input type="hidden" name="searchPg" id="searchPg" value="1">
+         <input type="hidden" name="search_review" id="search_review">
       </form>
       </td>
    </tr>
@@ -72,14 +73,17 @@
 <script src="/jaju/js/reviewboardList.js"></script>
 <script type="text/javascript">
 
- function reviewboardpaging(pg){
+ function reviewboardPaging(pg){
    var reviewboardSearchText = document.getElementById('keyword').value;
    
-   if(reviewboardSearchText == ''){
+   alert($('#search_review').val());
+   
+   if($('#search_review').val() == ''){
       location.href = '/jaju/reviewboard/reviewboardList?pg='+pg;
    } else{
       $('#searchPg').val(pg);
-      $('#reviewboardSearchBtn').trigger('click');
+	  $('#keyword').val($('#search_review').val());
+      $('#reviewboardSearchBtn').trigger('click','research');
       //location.href = 'boardSearch?pg='+pg+'&select='+$('#select option:selected').val() +'&keyword='+$('#keyword').val();
       //encodeURIComponent('${keyword}');
       $('#searchPg').val(1);
