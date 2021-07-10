@@ -38,7 +38,7 @@
 				<option value="book">도서 / 티켓 / 음반</option>
 				<option value="else">기타 중고물품</option>
 			</select> 
-			<input type="text" name="searchText" id="searchText" value="" required="">
+			<input type="text" name="searchText" id="searchText" placeholder="검색할 중고 물품을 입력하세요." value="" required="" >
 			<input type="image" src="/jaju/jajuImage/search.png" align="absmiddle" width="30" height="30" id="searchBtn">
 		</div>
 

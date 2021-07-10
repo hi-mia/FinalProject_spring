@@ -292,7 +292,7 @@ select {
 
 		<div class="board-header-container">
 			<ul class="list-description">
-				<li>나의 구매한 내역을 확인해보세요.</li>
+				<li>나의 구매완료 내역을 확인해보세요.</li>
 			</ul>
 		</div>
 

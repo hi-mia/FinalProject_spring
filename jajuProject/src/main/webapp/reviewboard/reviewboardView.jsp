@@ -8,11 +8,11 @@
 <input type="hidden" name="review_id" id="review_id" value="${sessionScope.memId }">
 <input type="hidden" name="sale_seq" id="sale_seq" value="${param.sale_seq }">
 
-<div id="total" style="width:800px; margin: auto; ">
+<div id="total" style="width:1100px; margin: auto; ">
 
 <div id="wrap">
 <div id="pos_scroll"></div>
-<div id="container" style="float:left; margin-left:80px; width:800px; margin-top:68px;">
+<div id="container" style="float:left; margin-left:80px; width:800px;">
 
 <div class="tit_page" style="width:800px; align:center;">
 	<h1 class="tit"></h1>
@@ -20,7 +20,7 @@
 
 <div id="main">
 <div id="content">
-<h2>리뷰 상세 조회</h2>
+<h2 style="color:#333;">후기게시판</h2>
 <div id="qnb" class="quick-navigation" style="top: 70px;"></div>
 <div class="layout-wrapper">
 	<div class="xans-element- xans-myshop xans-myshop-couponserial ">
@@ -33,7 +33,7 @@
 			<tbody>
 			<tr>
 			<td>
-		<table class="boardView" style="width:800px; font-size:14px;">
+		<table class="boardView" style="width:1000px; font-size:14px;">
 			<tbody>
 				<tr>
 					<th scope="row" style="border:none;">제목</th>
@@ -58,7 +58,7 @@
 				
 				<tr>
 					<th scope="row" style="border:none;">구매상품</th>
-					<td colspan="2"><img id="image1" width="150" height="150"></td>
+					<td colspan="2" ><img id="image1" width="150" height="150"></td>
 					<td colspan="5">
 					<span id="sale_subjectSpan"></span></td>
 				</tr>
@@ -123,7 +123,7 @@
 		<br><br><br>
 		
 		
-		<div class="xans-element- xans-board xans-board-movement-1002 xans-board-movement xans-board-1002 " style="width: 800px;">
+		<div class="xans-element- xans-board xans-board-movement-1002 xans-board-movement xans-board-1002 " style="width: 1000px;">
 			<ul>
 				<li class="prev">
 					<strong>이전글</strong>

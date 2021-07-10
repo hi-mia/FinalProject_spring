@@ -15,7 +15,24 @@ $(function(){
 			$('#dateSpan').text(data.reviewboardDTO.review_date);
 			$('#hitSpan').text(data.reviewboardDTO.review_hit);
 			//평점
-			$('#mannerSpan').text(data.reviewboardDTO.review_manner);
+			if(data.reviewboardDTO.review_manner<=21.5){
+				$('#mannerSpan').text('★☆☆☆☆');
+			}
+			else if(data.reviewboardDTO.review_manner<=29){
+				$('#mannerSpan').text('★★☆☆☆');
+			}
+			else if(data.reviewboardDTO.review_manner<=36.5){
+				$('#mannerSpan').text('★★★☆☆');
+			}
+			else if(data.reviewboardDTO.review_manner<=44){
+				$('#mannerSpan').text('★★★★☆');
+			}
+			else if(data.reviewboardDTO.review_manner<=51.5){
+				$('#mannerSpan').text('★★★★★');
+			}
+			//$('#mannerSpan').text(data.reviewboardDTO.review_manner);
+			
+				
 			//구매상품 사진 + 글제목
 			$('#sale_subjectSpan').text(data.reviewboardDTO.sale_subject);
 			$('#image1').attr('src', '/jaju/storage/'+data.reviewboardDTO.sale_image1);

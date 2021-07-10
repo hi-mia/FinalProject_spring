@@ -6,7 +6,7 @@ $(function(){
 		data: {'sale_seq': $('#sale_seq').val()},
 		dataType: 'json',
 		success: function(data){
-			//alert(JSON.stringify(data));
+			// alert(JSON.stringify(data));
 			
 			$('.goods_name .name').html(data.saleboardDTO.sale_subject);
 			$('.dc .dc_price').html(data.saleboardDTO.sale_price.toLocaleString()+"원");
@@ -16,21 +16,21 @@ $(function(){
 			
 			var member_id = $('#memId').val(); 
 			
-//			$.ajax({
-//				type: 'post',
-//				url: '/jaju/member/getMember',
-//				data: {'member_id': data.saleboardDTO.member_id},
-//				dataType: 'json',
-//				success: function(data){
-//					//alert(JSON.stringify(data));
+// $.ajax({
+// type: 'post',
+// url: '/jaju/member/getMember',
+// data: {'member_id': data.saleboardDTO.member_id},
+// dataType: 'json',
+// success: function(data){
+// //alert(JSON.stringify(data));
 //					
-//				},error: function(err){
-//					alert("회원 데이터 불러오기 에러");
-//					console.log(err);
-//				}
-//			});
+// },error: function(err){
+// alert("회원 데이터 불러오기 에러");
+// console.log(err);
+// }
+// });
 			
-			//ajax 써서 거래 가능 지역 가져오기
+			// ajax 써서 거래 가능 지역 가져오기
 			if(member_id == data.saleboardDTO.member_id){
 				$('#memberreportA').hide();
 			}else{
@@ -45,13 +45,13 @@ $(function(){
 				data: {'member_id': member_id, 'sale_seq': $('#sale_seq').val()},
 				dataType: 'text',
 				success: function(data){
-					//alert(data)
+					// alert(data)
 					if(data == 'hart.png'){
-						$('#scrapBtn').text("찜♥");
+						$('#scrapBtn').text("찜 ♥");
 						$('#btn_type_scrap').attr('class', 'change_scrap');
 						$("#scrapBtn").css("color","white");
 					} else{
-						$('#scrapBtn').text("찜♡");
+						$('#scrapBtn').text("찜 ♡");
 						$('#btn_type_scrap').attr('class', 'default_scrap');
 						$("#scrapBtn").css("color","#47597e");
 
@@ -72,7 +72,7 @@ $(function(){
 	            },
 	            dataType: 'text',
 	            success: function(data){
-	               //alert("data???????"+data)
+	               // alert("data???????"+data)
 	               if(data=='exist'){
 	                  $('.txt_type_follow').text("팔로잉 중");
 	                  $('#txt_type_follow').attr('class', 'change_follow');
@@ -81,9 +81,7 @@ $(function(){
 		                $('.txt_type_follow').text("팔로우");
 						$('#txt_type_follow').attr('class', 'default_follow');
 						$("#followBtn").css("color","#47597e");
-
 					}
-	               
 	            },error: function(err){
 	               alert("팔로잉 불러오기 에러");
 	               console.log(err);
@@ -133,7 +131,8 @@ $(function(){
 						height:"80",
 						class:"miniImg",
 						src: '/jaju/storage/'+map.get('image'+i),
-						id: map.get('image'+i)
+						id: map.get('image'+i),
+						style:"margin-left: 5px;"
 					}));
 				}
 			}
@@ -150,33 +149,37 @@ $(function(){
 				width: '50px',
 				height: '50px',
 				id : "profilImg",
-				style: /*'cursor: pointer;*/ 'width : 50px; height: 50px;'
+				style: /* 'cursor: pointer; */ 'width : 50px; height: 50px;'
 			}));
-			$('#member_id .desc').html('&nbsp;'+data.saleboardDTO.member_manner+'°C');
+			// $('#member_id
+			// .desc').html('&nbsp;'+data.saleboardDTO.member_manner+'°C');
 			if(data.saleboardDTO.member_manner < 30){
-				$('#member_id .desc').css('font-size', '20pt');
+				$('#member_id .desc').css('font-size', '17pt');
 				$('#member_id .desc').css('color', '#00d0ff');
-				$('#member_id .desc').prepend($('<img/>',{
-					src : '/jaju/jajuImage/매너낮음.png',
-					width: '200px',
-					height: '50px'
-				}));
+				$('#member_id .desc').prepend($('<div/>',{
+					class:"graph1",
+					style:"visibility:visible "
+				}).append($('<span/>',{
+					text:data.saleboardDTO.member_manner+'°C'
+				})));
 			} else if(data.saleboardDTO.member_manner > 30 && data.saleboardDTO.member_manner < 40){
-				$('#member_id .desc').css('font-size', '20pt');
+				$('#member_id .desc').css('font-size', '17pt');
 				$('#member_id .desc').css('color', '#fedb35');
-				$('#member_id .desc').prepend($('<img/>',{
-					src : '/jaju/jajuImage/매너보통.png',
-					width: '200px',
-					height: '50px'
-				}));
+				$('#member_id .desc').prepend($('<div/>',{
+					class:"graph2",
+					style:"visibility:visible "
+				}).append($('<span/>',{
+					text:data.saleboardDTO.member_manner+'°C'
+				})));
 			} else{
-				$('#member_id .desc').css('font-size', '20pt');
+				$('#member_id .desc').css('font-size', '17pt');
 				$('#member_id .desc').css('color', '#ff0056');
-				$('#member_id .desc').prepend($('<img/>',{
-					src : '/jaju/jajuImage/매너높음.png',
-					width: '200px',
-					height: '50px'
-				}));
+				$('#member_id .desc').prepend($('<div/>',{
+					class:"graph3",
+					style:"visibility:visible "
+				}).append($('<span/>',{
+					text:data.saleboardDTO.member_manner+'°C'
+				})));
 			}
 			
 		},error: function(err){
@@ -186,14 +189,14 @@ $(function(){
 	});
 	
 	
-	//댓글 불러오기
+	// 댓글 불러오기
 	$.ajax({
 		type: 'post',
 		url: '/jaju/saleboard/getSaleboardComment',
 		data: {'sale_seq': $('#sale_seq').val(), 'pg': $('#pg').val()},
 		dataType: 'json',
 		success: function(data){
-			//alert(JSON.stringify(data));
+			// alert(JSON.stringify(data));
 			
 			 if(JSON.stringify(data.list)=='[]'){
 				 $('#commentTable tr').remove();
@@ -251,7 +254,7 @@ $(function(){
 						height: '20px'
 					})));
 				}
-			}); //each
+			}); // each
 			
 			
 			$('#pagingDiv').html(data.saleboardCommentPaging.pagingHTML);
@@ -282,7 +285,7 @@ $(function(){
 					
 			});
 			
-			 }//else		
+			 }// else
 			
 		},error: function(err){
 			alert("댓글 불러오기 에러");
@@ -291,11 +294,11 @@ $(function(){
 	});
 });
 
-// 댓글 달기 
+// 댓글 달기
 $(document).on('click', '#reCommentBtn', function(){
-	var reCommentText = $('#reCommentText').val(); //댓글 내용
+	var reCommentText = $('#reCommentText').val(); // 댓글 내용
 	
-	var comment_pseq = $(this).parent().parent().prev().find('td:first').text(); //원글번호
+	var comment_pseq = $(this).parent().parent().prev().find('td:first').text(); // 원글번호
 	
 	var loginId = $('#memId').val(); 
 	
@@ -326,25 +329,22 @@ $(document).on('click', '#reCommentBtn', function(){
 
 
 $('#scrapBtn').click(function(){
-	var member_id = $('#memId').val(); //나중에 세션에서 아이디 주기
-//	$('#sale_seq').val(); // 판매글의 seq값
-//	$('#sale_state .desc').text(); // 판매글의 판매 상태
-//	$('.goods_name .name').text(); //판매글의 제목
-//	$('#imageDiv img:first').attr('id'); //이미지 파일 이름
-//	alert("제목 =" + $('.goods_name .name').text());
-//	alert("이미지 이름 =" + $('#imageDiv img:first').attr('id'));
-	
-	
-	//if($('#scrapBtn img').attr('src') == '/jaju/jajuImage/blackhart.png' ){
-	
+	var member_id = $('#memId').val(); // 나중에 세션에서 아이디 주기
+// $('#sale_seq').val(); // 판매글의 seq값
+// $('#sale_state .desc').text(); // 판매글의 판매 상태
+// $('.goods_name .name').text(); //판매글의 제목
+// $('#imageDiv img:first').attr('id'); //이미지 파일 이름
+// alert("제목 =" + $('.goods_name .name').text());
+// alert("이미지 이름 =" + $('#imageDiv img:first').attr('id'));
+// if($('#scrapBtn img').attr('src') == '/jaju/jajuImage/blackhart.png' ){
 	
 	   if($('#member_id .tit').text()==member_id){
 	         alert("본인의 판매글입니다.");
 	         return false;
-	      }else{   
-	   
-	         if($('#scrapBtn').text() == '찜 ♡'){   
-
+	   }else{   
+		   // 현재 찜 등록이 안되어있따면?
+		   if($('#scrapBtn').text() == '찜 ♡'){   
+			   
 	            $.ajax({
 	               type: 'post',
 	               url: '/jaju/mypage/writeMyScrap',
@@ -353,33 +353,27 @@ $('#scrapBtn').click(function(){
 	                     'sale_image1': $('#imageDiv img:first').attr('id')
 	                     },
 	               success: function(date){
-	                  //$('#scrapBtn img').attr('src', '/jaju/jajuImage/hart.png')
-	                  $('#scrapBtn').text("찜 ♥");
 	                  $("#btn_type_scrap").attr('class', 'change_scrap');
-	                  //$("#scrapBtn").css("background","#617aad");
 	                  $("#scrapBtn").css("color","white");
-	                  //$('#scrapBtn').css('font-size', '17pt');
+	                  $('#scrapBtn').text("찜 ♥");
 	               },error: function(err){
 	                  alert("찜 하기 에러");
 	                  console.log(err);
 	               }
 	            });
-	         } else{
+	         } 
+		   else{
 	            $.ajax({
 	               type: 'post',
 	               url: '/jaju/mypage/deleteMyScrapView',
 	               data: {'member_id': member_id, 'sale_seq': $('#sale_seq').val()},
 	               success: function(date){
-	                  //$('#scrapBtn img').attr('src', '/jaju/jajuImage/blackhart.png')
-	                  $('#scrapBtn').text("찜 ♡");
 	                  $("#btn_type_scrap").attr('class', 'default_scrap');
-	                  //$("#scrapBtn").css("background","white");
-	                    $("#scrapBtn").css("color","#47597e");
-	                  //$('#scrapBtn').css('font-size', '17pt');
+	                  $("#scrapBtn").css("color","#47597e");
+	                  $('#scrapBtn').text("찜 ♡");
 	               },error: function(err){
 	                  alert("찜 삭제 에러");
 	                  console.log(err);
-
 					}
 					
 				});
@@ -388,16 +382,16 @@ $('#scrapBtn').click(function(){
 	   }
 		
 });
-//팔로우 클릭 (1.뷰 불러올 때 팔로우 상태 확인 후 팔로잉 으로 체크 )
+// 팔로우 클릭 (1.뷰 불러올 때 팔로우 상태 확인 후 팔로잉 으로 체크 )
 $('.txt_type_follow').click(function(){
 	
-	var member_id = $('#memId').val(); //나중에 세션에서 아이디 주기
+	var member_id = $('#memId').val(); // 나중에 세션에서 아이디 주기
 	
 	if($('#member_id .tit').text()==member_id){
 		alert("본인의 판매글입니다.");
 		return false;
 	}else{
-			//팔로우라면, 팔로잉 으로 변경 ==write
+			// 팔로우라면, 팔로잉 으로 변경 ==write
 			if($('.txt_type_follow').text()=='팔로우'){
 				
 				$.ajax({
@@ -415,7 +409,7 @@ $('.txt_type_follow').click(function(){
 						alert("팔로잉에 실패했습니다.");
 						console.log(err);
 					}
-				});//if ajax
+				});// if ajax
 				
 			}else {
 				
@@ -427,7 +421,7 @@ $('.txt_type_follow').click(function(){
 						'follow_id':$('#member_id .tit').text(),
 					},
 					success: function(date){
-						//alert("민지야 deleteMyFollow 성공해따아");
+						// alert("민지야 deleteMyFollow 성공해따아");
 						$('.txt_type_follow').text("팔로우");
 						$("#txt_type_follow").attr('class', 'default_follow');
 						$("#followBtn").css("color","#47597e");
@@ -435,21 +429,21 @@ $('.txt_type_follow').click(function(){
 						alert("팔로잉에 실패했습니다.");
 						console.log(err);
 					}
-				});//ajax
+				});// ajax
 				
 			}
-	}//if     <-이거 추가
+	}// if <-이거 추가
 });
 
 $('.txt_type').click(function(){
 	
-	//판매자 id 세션 id 판매 글번호
-//	$('#sale_seq').val(); // 판매글의 seq값
-//	$('#member_id .tit').text(); // 판매글의 id
+	// 판매자 id 세션 id 판매 글번호
+// $('#sale_seq').val(); // 판매글의 seq값
+// $('#member_id .tit').text(); // 판매글의 id
 	var message_writer = $('#memId').val();
 	
 	 var popupWidth=500;
-	 var popupHeight=500;
+	 var popupHeight=510;
 
 	 var popupX = (window.screen.width/2)-(popupWidth/2);
 	 // 만들 팝업창 width 크기의 1/2 만큼 보정값으로 빼주었음
@@ -469,7 +463,7 @@ $('.txt_type').click(function(){
 
 $('#commentInputBtn').click(function(){
 	
-	//$('#sale_seq').val();
+	// $('#sale_seq').val();
 	var member_id = $('#memId').val();
 	var comment_content = $('#commentText').val()
 	
@@ -490,12 +484,12 @@ $('#commentInputBtn').click(function(){
 	});
 	
 });
-//댓글 수정
+// 댓글 수정
 $(document).on('click', '#commentModifyBtn', function(){
 	$('#reCommentModifyTr').remove();
 	$('#reCommentTr').remove();
 	var comment_seq = $(this).parent().prev().prev().prev().prev().text();
-	//alert(comment_seq);
+	// alert(comment_seq);
 	
 	$.ajax({
 		type: 'post',
@@ -504,7 +498,7 @@ $(document).on('click', '#commentModifyBtn', function(){
 		data: {'comment_seq': comment_seq},
 		dataType: 'json',
 		success: function(data){
-			//alert(JSON.stringify(data));
+			// alert(JSON.stringify(data));
 			
 			$(this).parent().parent().after($('<tr/>',{
 				id: 'reCommentModifyTr'
@@ -533,11 +527,11 @@ $(document).on('click', '#commentModifyBtn', function(){
 	});
 	
 });
-//댓글 수정
+// 댓글 수정
 $(document).on('click', '#reCommentModifyWriteBtn', function(){
 	var comment_content = $('#reCommentModifyText').val();
 	var comment_seq = $(this).parent().parent().prev().find('td:first').text();
-	//alert(comment_seq);
+	// alert(comment_seq);
 	
 	if(comment_content == ''){
 		alert('수정할 내용을 입력해 주세요');
@@ -561,10 +555,10 @@ $(document).on('click', '#reCommentModifyWriteBtn', function(){
 	}
 });
 
-//댓글 삭제 
+// 댓글 삭제
 $(document).on('click', '#commentDeleteBtn', function(){
 	var comment_seq = $(this).parent().parent().find('td:first').text();
-	//alert(comment_seq);
+	// alert(comment_seq);
 	
 	if(confirm('정말 삭제하시겠습니까?')){
 		$.ajax({
@@ -593,26 +587,25 @@ $('#memberreportA').click(function(){
 
 
 
-/*$(document).on('click','#profilImg',function(){
-//$('#profilImg').click(function(){
-
-	var popupWidth=500;
-	var popupHeight=620;
-
-	 var popupX = (window.screen.width/2)-(popupWidth/2);
-	 // 만들 팝업창 width 크기의 1/2 만큼 보정값으로 빼주었음
-
-	 var popupY= (window.screen.height/2)-(popupHeight/2);
-	 // 만들 팝업창 height 크기의 1/2 만큼 보정값으로 빼주었음
-
- 	 window.open("/jaju/mypage/myMessage", 
-			 "my_Message", 
-			 "width=500 height=500 left=500 top=700 scrollbars=yes");  
-	
-	window.open("/jaju/mypage/MypageChangeImg?id="+$('#member_id .tit').text(), 
-			 "mypageChangeImg", 
-			 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY); 	
-});*/
+/*
+ * $(document).on('click','#profilImg',function(){
+ * //$('#profilImg').click(function(){
+ * 
+ * var popupWidth=500; var popupHeight=620;
+ * 
+ * var popupX = (window.screen.width/2)-(popupWidth/2); // 만들 팝업창 width 크기의 1/2
+ * 만큼 보정값으로 빼주었음
+ * 
+ * var popupY= (window.screen.height/2)-(popupHeight/2); // 만들 팝업창 height 크기의
+ * 1/2 만큼 보정값으로 빼주었음
+ * 
+ * window.open("/jaju/mypage/myMessage", "my_Message", "width=500 height=500
+ * left=500 top=700 scrollbars=yes");
+ * 
+ * window.open("/jaju/mypage/MypageChangeImg?id="+$('#member_id .tit').text(),
+ * "mypageChangeImg", 'status=no, height=' + popupHeight + ', width=' +
+ * popupWidth + ', left='+ popupX + ', top='+ popupY); });
+ */
 
 
 

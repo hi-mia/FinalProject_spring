@@ -27,21 +27,21 @@
 			
 		<tr>
 			<td align="center" colspan="3" class="title">
-			<input type="text" id="message_subject" name="message_subject" placeholder="제목 입력" style="width:450px; height:20px;">
+			<input type="text" id="message_subject" name="message_subject" placeholder="제목을 입력하세요." style="width:450px; height:20px; background-color: #f2f2f2; border:0; outline:0;">
 			<div id="message_subject_div_check"></div></td>
 		</tr>
 		
 		<tr>
 			<th align="left" >받는이 : <span id="message_reader_span"></span></th> 
-			<th align="left" >작성자 : <span id="message_writer_Span"></span></th>
+			<th align="right" >작성자 : <span id="message_writer_Span"></span></th>
 			
 		</tr>
 		
 		<tr>	
 			<td class="content" colspan="3" valign="top">
 				<div class="content_div" align="left">
-					<pre><textarea name="message_content_Span" id="message_content_Span" placeholder="내용 입력" style="width:450px; height:260px; 
-							border:0; resize:none;"></textarea></pre>
+					<pre><textarea name="message_content_Span" id="message_content_Span" placeholder="내용을 입력하세요." style=" background-color: #f2f2f2; width:450px; height:240px; 
+							border:0; resize:none;" ></textarea></pre>
 				</div>
 				<div id="content_div_check"></div>
 			</td>
