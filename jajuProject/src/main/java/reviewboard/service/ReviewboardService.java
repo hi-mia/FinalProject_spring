@@ -37,5 +37,7 @@ public interface ReviewboardService {
 
 	public ReviewboardDTO getPage(int review_seq);
 
+	public ReviewboardPaging reviewboardPagingList(Map<String, String> map);
+
 
 }

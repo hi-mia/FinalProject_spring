@@ -206,6 +206,21 @@ public class ReviewboardServiceImpl implements ReviewboardService {
 		return reviewboardDAO.getPage(review_seq);
 	}
 
+	@Override
+	public ReviewboardPaging reviewboardPagingList(Map<String, String> map) {
+		System.out.println(map.get("id"));
+		int pg = Integer.parseInt(map.get("pg"));
+		reviewboardPaging.setCurrentPage(pg);
+		reviewboardPaging.setPageBlock(3);
+		reviewboardPaging.setPageSize(10);
+		int totalA = reviewboardDAO.getTotalAPagingList(map.get("id"));
+		reviewboardPaging.setTotalA(totalA);		
+		
+		reviewboardPaging.makePagingHTML();
+		
+		return reviewboardPaging;
+	}
+
 
 
 }

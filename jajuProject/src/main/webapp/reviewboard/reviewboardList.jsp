@@ -78,7 +78,7 @@
  function reviewboardPaging(pg){
    var reviewboardSearchText = document.getElementById('keyword').value;
    
-   alert($('#search_review').val());
+   //alert($('#search_review').val());
    
    if($('#search_review').val() == ''){
       location.href = '/jaju/reviewboard/reviewboardList?pg='+pg;

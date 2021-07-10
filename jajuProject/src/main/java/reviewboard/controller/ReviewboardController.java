@@ -246,7 +246,7 @@ public class ReviewboardController {
 		//String memId = (String) session.getAttribute("memId");
 		
 		//페이징 처리
-		ReviewboardPaging reviewboardPaging = reviewboardService.reviewboardPaging(pg);
+		ReviewboardPaging reviewboardPaging = reviewboardService.reviewboardPagingList(map);
 		
 		//mav.addObject("pg", pg);
 		mav.addObject("reviewboardPaging", reviewboardPaging);

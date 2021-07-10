@@ -61,7 +61,7 @@ public class ReviewboardDAOMybatis implements ReviewboardDAO {
 	@Override
 	public int getSearchTotal(Map<String, String> map) {
 		int a = sqlSession.selectOne("reviewboardSQL.getSearchTotal", map);
-		System.out.println(a);
+		//System.out.println(a);
 		return a;
 	}
 	@Override
@@ -85,6 +85,10 @@ public class ReviewboardDAOMybatis implements ReviewboardDAO {
 	@Override
 	public ReviewboardDTO getPage(int review_seq) {
 		return sqlSession.selectOne("reviewboardSQL.getPage", review_seq);
+	}
+	@Override
+	public int getTotalAPagingList(String string) {
+		return sqlSession.selectOne("reviewboardSQL.getTotalAPagingList", string);
 	}
 	
 }

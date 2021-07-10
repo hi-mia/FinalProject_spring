@@ -36,5 +36,7 @@ public interface ReviewboardDAO {
 
 	public ReviewboardDTO getPage(int review_seq);
 
+	public int getTotalAPagingList(String string);
+
 
 }
