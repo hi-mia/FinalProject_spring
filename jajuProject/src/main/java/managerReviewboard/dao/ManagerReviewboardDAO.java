@@ -25,7 +25,7 @@ public interface ManagerReviewboardDAO {
 
 	public List<ReviewboardDTO> getReviewListMember(String member_id);
 
-	public Object updateManner(double d);
+	public void updateManner(double d, String check);
 
 
 }

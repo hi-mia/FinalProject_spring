@@ -156,9 +156,8 @@ public class ManagerReviewboardController {
 	         String[] member_id = new String[check.length];
 	         
 	         for(int i = 0; i<check.length; i++) {
-	            ReviewboardDTO reviewboardDTO = managerReviewboardService.getPage_review(Integer.parseInt(check[i]));
+	            ReviewboardDTO reviewboardDTO = managerReviewboardService.getManagerReviewboardView(Integer.parseInt(check[i]));
 	            member_id[i] = reviewboardDTO.getMember_id();
-	            
 	         }
 	         
 	         //System.out.println(check);
@@ -184,7 +183,7 @@ public class ManagerReviewboardController {
 	            }
 	            
 	            //계산된 매너온도로  회원의 매너온도 변환
-	            managerReviewboardService.updateManner(member_manner/count);
+	            managerReviewboardService.updateManner(member_manner/count, member_id[i]);
 	            
 	         }
          

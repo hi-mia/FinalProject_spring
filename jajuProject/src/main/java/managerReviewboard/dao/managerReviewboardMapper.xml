@@ -21,19 +21,19 @@
 	select * from reviewboard where review_seq = #{review_seq}
 </select>
 
-<!-- 매너온도 가져오기
+<!-- 매너온도 가져오기 -->
 <select id="getReviewListMember" parameterType="String" resultType="reviewboard">
 	select * from reviewboard where member_id = #{member_id}
 </select>
- -->
 
 
-<!-- 매너온도 업데이트
-<update id="updateManner" parameterType="reviewboard">
-	update jajumember set review_manner=#{review_manner} where member_id = #{member_id}
+
+<!-- 매너온도 업데이트 -->
+<update id="updateManner" parameterType="java.util.Map">
+	update jajumember set member_manner=${review_manner} where member_id = #{member_id}
 </update>
 
- -->
+
 
 
 <!-- 이전글 다음글 -->
