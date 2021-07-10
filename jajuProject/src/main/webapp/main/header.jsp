@@ -115,14 +115,14 @@
 				</li>
 
 				<li class="new-product-category">
-					<a	href="/jaju/saleboard/saleboardList?pg=1&sortinSelect=sale_date">판매게시글</a></li>
+					<a	href="/jaju/saleboard/saleboardList?pg=1&sortinSelect=sale_date" style="text-decoration:none;">판매게시글</a></li>
 				<li class="new-product-category">
-					<a	href="/jaju/saleboard/saleboardListFavorite?pg=1&sortinSelect=sale_date">관심게시판</a></li>
+					<a	href="/jaju/saleboard/saleboardListFavorite?pg=1&sortinSelect=sale_date" style="text-decoration:none;">관심게시판</a></li>
 				<li class="cheap-product-category  header_a_li">
-					<a href="/jaju/freeboard/freeboardList?pg=1"	class="button">자유게시판</a></li>
+					<a href="/jaju/freeboard/freeboardList?pg=1"	class="button" style="text-decoration:none;">자유게시판</a></li>
 				<c:if test="${memId != null }">
 					<li class="cheap-product-category  header_a_li">
-						<a href="/jaju/reviewboard/reviewboardList?pg=1"	class="button">후기게시판</a></li>
+						<a href="/jaju/reviewboard/reviewboardList?pg=1"	class="button" style="text-decoration:none;">후기게시판</a></li>
 				</c:if>
 			</ul>
 			<%--mainnav --%>
@@ -134,12 +134,8 @@
 				<input type="text" placeholder="&emsp;&emsp;검색할 중고 물품을 입력하세요."
 					class="search-box" />
 				<button type="button" class="button_search"></button>
-				<button type="button" class="button-point">
-					<i class="fas fa-map-marker-alt"></i>
-				</button>
-				<button type="button" class="button-cart">
-					<i class="fas fa-archive"></i>
-				</button>
+
+
 
 				<c:if test="${memId != null}">
 					<button type="button" class="button-user" id="button-user"

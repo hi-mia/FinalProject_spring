@@ -111,7 +111,7 @@ $(function(){
 			$('#reviewboardListTable tr:gt(0)').remove();
 			
 			   if(data.list.length == 0){
-				   alert('검색어가 없습니다');
+				   alert('해당 키워드로 검색한 내용이 없습니다.');
 				   location.href = '/jaju/reviewboard/reviewboardList?pg=1'
 				   
 			   }else{

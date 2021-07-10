@@ -275,7 +275,7 @@ div {
     font-size: 14px;
     clear: both;
     border-top: 1px solid #47597e;
-    width: 100%;
+    width:1000px;
 }
 .xans-board-search input[type=text] {
     height: 34px;
@@ -290,7 +290,7 @@ div {
 #totalDiv{
    display: inline-block;
    float: left;
-   width: 800px;
+   width: 1000px;
 }
 #formTotal{
    margin-top: 86px;
@@ -347,6 +347,6 @@ select {
     
 }
 tbody td a {
-	font-size: 20px;
+	font-size: 15px;
 	padding: 10px;
 }

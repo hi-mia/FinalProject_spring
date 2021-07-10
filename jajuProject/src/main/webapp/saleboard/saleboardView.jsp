@@ -166,15 +166,21 @@
          bordercolor="#47597e" align="center" frame="hsides" rules="rows"
          width="1050" id="commentWriteTable" style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff;">
          <tr>
-            <td height="80" width="150" align="left">댓글: &nbsp; <span id="replySpan"></span>
+            <td height="80" width="140" align="left">댓글: &nbsp; <span id="replySpan"></span>
                <input type="text" placeholder="댓글을 입력하세요." size="110" id="commentText" class="commentInput">
                &nbsp;&nbsp;
-               <input type="button" value="댓글 입력" class="commentInput" id="commentInputBtn" size="200">
+               <input type="button" value="댓글 입력" class="commentInput" id="commentInputBtn" size="200" 
+               style="height: 30px; width: 80px; background-color: #617aad; color: #fff; border: none; border-radius: 3px; margin-top: 5px;">
             </td>
          </tr>
       </table>
       
 	</div>
+	
+	<div class="graph1"><span></span></div>
+	<div class="graph2"><span></span></div>
+	<div class="graph3"><span></span></div>
+	
 
 	<input type="hidden" id="sale_seq" value="${param.sale_seq }"/>
 	<input type="hidden" id="pg" value="${param.pg }"/>

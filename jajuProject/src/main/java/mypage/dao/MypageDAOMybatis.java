@@ -372,5 +372,11 @@ public class MypageDAOMybatis implements MypageDAO {
 		return sqlSession.selectOne("mypageSQL.getMyProfileReviewListPagetotalA",id);
 	}
 
+	@Override
+	public List<ReviewboardDTO> reviewListCheck(Map<String, String> map) {
+		List<ReviewboardDTO> list=sqlSession.selectList("mypageSQL.reviewListCheck",map);
+		return list;
+	}
+
 	
 }
