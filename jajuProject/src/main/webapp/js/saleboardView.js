@@ -160,7 +160,7 @@ $(function(){
 					class:"graph1",
 					style:"visibility:visible "
 				}).append($('<span/>',{
-					text:data.saleboardDTO.member_manner+'°C'
+					text:data.saleboardDTO.member_manner.toFixed(1)+'°C'
 				})));
 			} else if(data.saleboardDTO.member_manner > 30 && data.saleboardDTO.member_manner < 40){
 				$('#member_id .desc').css('font-size', '17pt');
@@ -169,7 +169,7 @@ $(function(){
 					class:"graph2",
 					style:"visibility:visible "
 				}).append($('<span/>',{
-					text:data.saleboardDTO.member_manner+'°C'
+					text:data.saleboardDTO.member_manner.toFixed(1)+'°C'
 				})));
 			} else{
 				$('#member_id .desc').css('font-size', '17pt');
@@ -178,7 +178,7 @@ $(function(){
 					class:"graph3",
 					style:"visibility:visible "
 				}).append($('<span/>',{
-					text:data.saleboardDTO.member_manner+'°C'
+					text:data.saleboardDTO.member_manner.toFixed(1)+'°C'
 				})));
 			}
 			

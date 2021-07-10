@@ -54,7 +54,7 @@ $(document).ready(function(){
                     align:'center',
                     // style:'cursor:pointer;',
                     id:'member_manner',
-                    text:items.member_manner+'℃'
+                    text:items.member_manner.toFixed(1)+'℃'
                  })).appendTo($('#followListTable'));
               
               // 프로필을 누르면 해당 사람의 정보 띄워주기(이미지 or 아이디)

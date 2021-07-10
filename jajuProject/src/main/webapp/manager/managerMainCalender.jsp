@@ -15,6 +15,9 @@
 <script type="text/javascript">
 //script구문 내부에 해당 메소드를 입력합니다.
 $(function() {
+	
+	$('#managerMainCalender').addClass('on');
+
     $( "#testDatepicker" ).datepicker({
     	dateFormat: 'yy-mm-dd' //Input Display Format 변경
             ,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
