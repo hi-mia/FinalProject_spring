@@ -333,7 +333,7 @@ select {
 
 	</div>
 	<input type="hidden" id="searchPg" value="1">
-
+<span class="tab" align="left" id="tab"></span>
 	<script type="text/javascript"
 		src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="/jaju/js/myBuyRecode.js"></script>

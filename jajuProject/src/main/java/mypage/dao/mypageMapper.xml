@@ -511,4 +511,10 @@ select count(*) as count from message where message_reader=#{id} and message_cha
 	select count(*) as count from reviewboard where member_id=#{id}
 </select>
 
+	<!--나에게 등록된 리뷰 판매 글 번호  -->
+	<select id="reviewListCheck" parameterType="java.util.Map" resultType="reviewboard">	
+	select * from reviewboard rb
+	inner join sale_board sb
+	on rb.sale_seq = sb.sale_seq where rb.review_id=#{id}
+	</select>
 </mapper>

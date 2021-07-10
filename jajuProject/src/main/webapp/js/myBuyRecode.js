@@ -1,4 +1,5 @@
 $(function(){
+	
 	$.ajax({
 		type: 'post',
 		url : '/jaju/mypage/myBuyRecodeList',
@@ -9,7 +10,9 @@ $(function(){
 			'id':$('#id').val()
 		},  // --->hidden의 값을 쓸때
 		dataType: 'json',
+		async:false,
 		success: function(data){
+			
 			//console.log(JSON.stringify(data));
 			
 			if(JSON.stringify(data.list)=='[]' && data.myBuyPaging != null){
@@ -25,6 +28,8 @@ $(function(){
 			else{
 			
 			$.each(data.list, function(index, items){
+				//console.log(items.review_seq);
+				
 				
 				$('<ul/>',{
 					class:'list_order'
@@ -34,7 +39,7 @@ $(function(){
 						})).append($('<div/>',{
 								class:'order_goods'
 							}).append($('<div/>',{
-								class:'deal_name',
+								class:'deal_name'
 							}).append($('<a/>',{
 								href:'#',text:items.sale_subject,
 								class:'subject_'+items.sale_seq //글제목 부분
@@ -61,7 +66,7 @@ $(function(){
 									text:items.sale_date
 								}))).append($('<dl/>')
 								.append($('<dt/>',{
-									text:'주문상태'
+									text:'주문상태',
 								})).append($('<dd/>',{
 									text:items.sale_state,
 									class:'status end'})).
@@ -92,7 +97,34 @@ $(function(){
 			console.log('buyList에러발생'+err);
 		}
 	});
+
+	
+	$.ajax({
+		type: 'post',
+		url: '/jaju/mypage/reviewListCheck',
+		data: 	{
+			'id':$('#id').val()
+		}, 
+		async:false,
+		dataType: 'json',
+		success: function(data) { 
+			//console.log("id에대한 리뷰리스트"+JSON.stringify(data))
+
+			$.each(data.list, function(index, items){
+					
+			console.log("보자"+'.state_'+items.sale_seq);
+			$('.state_'+items.sale_seq).remove();
+			
+		});
+			
+		}, 
+		error:function(err){
+		console.log(err);
+		}
+	});
+	
 });
+
 
 /*==검색==*/
 $('#search-text_Btn').click(function(){
@@ -176,6 +208,7 @@ $('#search-text_Btn').click(function(){
 				location.href="/jaju/saleboard/saleboardView?sale_seq="+items.sale_seq+"&pg=1";
 				});
 			});//each
+			
 			//페이징처리
 			$('#myBuyRecodePagingDiv').html(data.myBuySearchPaging.pagingHTML);
 			

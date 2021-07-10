@@ -135,6 +135,8 @@ public interface MypageDAO {
 
 	public int getMyProfileReviewListPagetotalA(String id);
 
+	public List<ReviewboardDTO> reviewListCheck(Map<String, String> map);
+
 
 
 

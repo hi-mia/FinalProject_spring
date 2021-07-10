@@ -87,7 +87,7 @@ public class MypageController {
 	public String myBuyRecode(@RequestParam(required = false, defaultValue = "1") String pg, Model model,
 			HttpSession session) {
 		String memId = (String) session.getAttribute("memId");
-
+		
 		model.addAttribute("memId", memId);
 		model.addAttribute("pg", pg); // pg값 받기
 		model.addAttribute("display", "/mypage/myBuyRecode.jsp");
@@ -941,4 +941,22 @@ public class MypageController {
 		mav.setViewName("jsonView");
 		return mav;
 	}
+	
+	//리뷰 작성된 구매완료글에 대한 구분 처리
+	@RequestMapping(value = "reviewListCheck", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView reviewListCheck(@RequestParam String id, @RequestParam Map<String, String> map) {
+
+		map.put("id", id);
+
+		List<ReviewboardDTO> list = mypageService.reviewListCheck(map);
+
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", list);
+		mav.setViewName("jsonView");
+
+		return mav;
+
+	}
+
 }
