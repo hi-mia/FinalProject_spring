@@ -394,7 +394,7 @@ div.menuDiv.fix {
 	border: 1px solid #ddd;
 	background-color: #fff;
 	position: absolute;
-	top: 55px;
+	top: 50px;
 	display: none; /*이거 hover 시 보이도록*/
 }
 

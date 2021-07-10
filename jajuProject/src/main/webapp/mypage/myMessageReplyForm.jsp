@@ -40,7 +40,7 @@
 			<td class="content" colspan="3" valign="top">
 				<div class="content_div" align="left">
 					<pre><textarea name="message_content_Span" id="message_content_Span" placeholder="내용을 입력하세요." style="width:450px; height:240px; 
-							border:0; resize:none;" style="background-color:#f2f2f2;"></textarea></pre>
+							border:0; resize:none; background-color: #f4f4f4;"></textarea></pre>
 				</div>
 				<div id="content_div_check"></div>
 			</td>

@@ -481,7 +481,8 @@ pre {
 	width: 1050px;
 	margin: 0 auto;
 	padding-top: 20px;
-	border-top: 1px solid #47597e;
+	/* border-top: 1px solid #47597e;*/
+	border-top: 1px solid #f2f2f2;	
 	padding-bottom: 20px;
 	font-size: 12pt;
 	margin-top: 60px;

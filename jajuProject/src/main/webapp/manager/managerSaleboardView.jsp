@@ -123,7 +123,7 @@
 		
 		
 <!-- 댓글 -->
-	<div id="commentDiv">
+	<div id="commentDiv" >
 		<table id="commentTable" >
 			<tr style="border-bottom: 1px solid #f5f5f5;">
 				<th width="160" style="padding-bottom: 10px;">번호</th>
@@ -210,17 +210,19 @@ function saleboardCommentPaging(pg){
 				$('<tr/>').append($('<td/>',{
 					text : items.comment_seq
 				})).append($('<td/>',{
-					style : 'text-align: left;'
-					
+					style : 'text-align: center;'
 					}).append($('<a/>',{
 						text : items.comment_content,
 						id: 'subjectA',
+						style:'text-align:center;',
 						class: 'content_'+ items.comment_seq
 					}))
 				).append($('<td/>',{
-					text : items.member_id
+					text : items.member_id,
+					style:'text-align:center;'
 				})).append($('<td/>',{
 					class: 'trLast'+items.comment_seq,
+					style:'text-align:center;',
 					text : items.logtime
 				})).appendTo($('#commentTable'));
 				

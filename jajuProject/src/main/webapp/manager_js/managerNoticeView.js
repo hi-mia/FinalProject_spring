@@ -1,3 +1,11 @@
+//자주 하는 질문 view에서 수정 클릭 시
+function mode(num){
+	if(num == 1){
+		document.managerQuestionView.method="post";
+		document.managerQuestionView.action="/jaju/manager/";
+		document.managerQuestionView.submit();
+	}
+}
 //veiw에 한사람 글 불러오기
 $(function(){
 	

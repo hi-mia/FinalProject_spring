@@ -65,3 +65,20 @@
 .moveToListTd{
 	height: 28px;
 }
+#sendBtn, #backBtn{
+		width: 80px;
+    height: 30px;
+    padding-top: 4px;
+    border: 1px solid #f4f4f3;
+    border-radius: 15px;
+    background-color: #f4f4f4;
+    font-size: 15px;
+    color: #333;
+    line-height: 18px;
+    padding-bottom: 10px;
+    cursor: pointer;
+	
+}
+a{
+	text-decoration: none;
+}

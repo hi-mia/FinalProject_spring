@@ -32,7 +32,7 @@ $(function(){
 		               }).append($('<img/>',{
 		            	   src:'/jaju/storage/'+items.sale_image1,
 		            	   alt:'img',
-		            	   style:'text_align:left;',
+		            	   style:'text_align:left; width:150px; height:100px;',
 			               id: 'item',
 		                  
 		               })) 

@@ -200,10 +200,10 @@ $(function(){
 			
 			 if(JSON.stringify(data.list)=='[]'){
 				 $('#commentTable tr').remove();
-				 
 					$('<tr/>').append($('<div/>',{
 						align:'center',
-						style:'height:30px; width:800px;'
+						text:'댓글을 입력하세요.',
+						style:'text-align: center;  font-size: 20px;  font-weight: 700;  border-bottom: 1px solid #f2f2f2; height:30px; width:1050px;'
 					})).appendTo($('#commentTable'));
 				}
 			 else {	

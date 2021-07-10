@@ -67,20 +67,25 @@ $(function(){
 					$.each(data.list, function(index,items){
 						
 						$('<tr/>').append($('<td/>',{
-							text : items.comment_seq
+							text : items.comment_seq,
+							style:'text-align:center;'
 						})).append($('<td/>',{
-							style : 'text-align: left;'
+							style : 'text-align: center;'
 							
 							}).append($('<a/>',{
 								text : items.comment_content,
 								id: 'subjectA',
+								style:'text-align:center;',
 								class: 'content_'+ items.comment_seq
 							}))
 						).append($('<td/>',{
-							text : items.member_id
+							text : items.member_id,
+							style:'text-align:center;'
+
 						})).append($('<td/>',{
 							class: 'trLast'+items.comment_seq,
-							text : items.logtime
+							text : items.logtime,
+							style:'text-align:center;'
 						})).appendTo($('#commentTable'));
 						
 						for(var i=1; i<items.comment_lev; i++){

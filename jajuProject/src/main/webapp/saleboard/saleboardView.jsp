@@ -126,7 +126,7 @@
 			
 	</div>
 	<div id="contentDiv" >
-		<pre class="viewPre" style="min-height: 300px;"><span id="contentSpan" >
+		<pre class="viewPre" style=" min-height: 300px; background: #f2f2f2; user-select: auto; border: 1px solid #ddd;"><span id="contentSpan" >
 
 </span></pre>
 	</div>
@@ -150,7 +150,7 @@
 	
 	<!-- 댓글 -->
 	<div id="commentDiv">
-		<table id="commentTable" >
+		<table id="commentTable" style="margin-top: -10px;">
 			<tr style="border-bottom: 1px solid #f5f5f5;">
 				<th width="200" style="padding-bottom: 10px;">번호</th>
 				<th width="400" style="padding-bottom: 10px;">내용</th>
