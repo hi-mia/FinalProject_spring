@@ -151,9 +151,12 @@ $(function(){
 	});
 
 });
+var timer = null;
+var isRunning = false;
 
 function startTimer(count, display) {
-    
+	display.html('');
+	
 	var minutes, seconds;
     timer = setInterval(function () {
 	    minutes = parseInt(count / 60, 10);
@@ -178,8 +181,12 @@ function startTimer(count, display) {
 }
 
 $('#chk_emailBtn').click(function(){
-	var timer = null;
-	var isRunning = false;
+	$('#auth_code').val('');	
+	
+	
+//	var timer = null;
+//	var isRunning = false;
+
 	
 	if($('#member_email').val() == '' || !emailC){
 		$('#member_emailDiv').css({'color': '#b3130b', 'font-size': '8pt', 'font-weight': 'bold'});
@@ -196,7 +203,8 @@ $('#chk_emailBtn').click(function(){
 				$('#codeNum').show();
 				
 				var display = $('#countdown');
-		    	var leftSec = 180;
+
+				var leftSec = 180;
 		    	// 남은 시간
 		    	// 이미 타이머가 작동중이면 중지
 		    	if (isRunning){

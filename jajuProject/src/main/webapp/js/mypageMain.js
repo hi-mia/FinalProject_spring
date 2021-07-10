@@ -49,12 +49,15 @@ $(function(){
 			var text = data;
 			text= Number(data);
 			
-			//alert(typeof text);   
+			
+			var mathData = text.toFixed(1);
+			//alert("mathData???"+mathData);   
+			
 						
-			if(data==""){
+			if(mathData==""){
 				text = "no_info"; 
 			}else{
-				text=' '+data;
+				text=' '+mathData;
 			}
 			//alert("형 변환 한 data" + text)
 			//console.log("getMemberMannerTemp"+text);

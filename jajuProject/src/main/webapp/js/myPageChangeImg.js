@@ -22,7 +22,7 @@ $(function(){
          }
          
          $('#member_name_span').text(data.memberDTO.member_name);
-         $('#member_manner_span').text(data.memberDTO.member_manner.toLocaleString()+' ℃');
+         $('#member_manner_span').text(data.memberDTO.member_manner.toFixed(1)+' ℃');
          $('#member_location_span').text(data.memberDTO.member_sido+' '+data.memberDTO.member_sigungu);
          
       },error:function(err){

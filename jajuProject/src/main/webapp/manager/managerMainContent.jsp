@@ -5,6 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>상단 수 표시</title>
+<style type="text/css">
+.py-4-5{
+cursor:pointer;
+}
+</style>
 <!-- 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -243,6 +248,10 @@ $('#next_btn').click(function(){
 $('.calendar').click(function(){
 	$('#search_date').show();
 	$( "#datepicker1" ).datepicker();
+});
+
+$('.py-4-5').click(function(){
+	location.href="/jaju/manager/managerMainCalender.jsp";
 });
 </script>
 

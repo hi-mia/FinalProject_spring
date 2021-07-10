@@ -3,6 +3,7 @@ package mypage.controller;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +44,9 @@ public class MypageController {
 
 	@Autowired
 	private MypageService mypageService;
-
+	
+	DecimalFormat form = new DecimalFormat("#.#");
+	
 	// 마이페이지 메인
 	@RequestMapping(value = "mypageMain", method = RequestMethod.GET)
 	public String mypageMain(Model model, HttpSession session) {

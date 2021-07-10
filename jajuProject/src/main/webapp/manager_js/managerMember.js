@@ -52,7 +52,7 @@ $(function(){
 					style:'text-align:center;'	
 				})).append($('<td/>',{
 					class:'member_manner_span',
-					text:items.member_manner+'℃',
+					text:items.member_manner.toFixed(1)+'℃',
 					style:'text-align:center;'					
 				})).append($('<td/>',{
 					class:'member_warning_span',

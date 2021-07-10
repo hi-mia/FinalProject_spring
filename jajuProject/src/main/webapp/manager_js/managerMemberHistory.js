@@ -30,7 +30,7 @@ $(function(){
 			$('#name').append($('<p/>',{
 				class: 'info',
 				text: text+'님',
-				style:'font-weight:bold; font-weight: 700; font-size: 20px;color: #47597e; height: 20px; flex-grow: 3; margin-top: 5px;  position: relative;'
+				style:'font-weight:bold; font-weight: 700; font-size: 20px;color: #47597e; height: 20px; flex-grow: 3; margin-top: 30px;  position: relative;'
 			}).append($('<span/>',{
 				class: 'expire'
 			})));
@@ -59,20 +59,20 @@ $(function(){
 				var deal_text;
 				
 				if(items.saleCount=="0"){
-					sale_text = '판매완료 '+items.saleCount+'건';//"판매를 시작해보세요!"; 
+					sale_text = '판매완료 '+"\u00a0"+items.saleCount+'건';//판매를 시작해보세요!; 
 				}else if(items.saleCount!=""){
-					sale_text='판매완료 '+items.saleCount+'건';
+					sale_text='판매완료 '+"\u00a0"+items.saleCount+'건';
 				}
 				
 				if(items.buyCountAll=="0"){
-					buy_text = '구매완료 '+items.buyCountAll+'건';//"구매를 시작해보세요!"
+					buy_text = '구매완료 '+"\u00a0"+items.buyCountAll+'건';//구매를 시작해보세요!
 				}else if(items.buyCount!=""){
-					buy_text ='구매완료 '+items.buyCountAll+'건';
+					buy_text ='구매완료 '+"\u00a0"+items.buyCountAll+'건';
 				}
 				if(items.buyCount=="0"){
-					deal_text = '판 매 중 '+items.dealCount+'건';//"판매중
+					deal_text = '판매중'+"\u00a0\u00a0\u00a0\u00a0\u00a0"+items.dealCount+'건';//"판매중
 				}else if(items.buyCount!=""){
-					deal_text ='판 매 중  '+items.dealCount+'건';
+					deal_text ='판매중'+"\u00a0\u00a0\u00a0\u00a0\u00a0"+items.dealCount+'건';
 				}
 				if(items.reviewCount=="0"){
 					review_text = items.reviewCount+'건';//"후기내역

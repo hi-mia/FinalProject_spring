@@ -75,7 +75,7 @@ public class FreeboardController {
 			fileName = list.get(i).getOriginalFilename();
 			file = new File(filePath, fileName);
 			
-			System.out.println(fileName);
+			//System.out.println(fileName);
 			
 			//파일 복사
 			try {
@@ -317,7 +317,7 @@ public class FreeboardController {
 		@ResponseBody
 		public ModelAndView getFreeboardCommentOne(@RequestParam String comment_seq) {
 
-			System.out.println(comment_seq);
+			//System.out.println(comment_seq);
 			
 			ModelAndView mav = new ModelAndView();
 			

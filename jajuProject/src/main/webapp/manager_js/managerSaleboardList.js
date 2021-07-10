@@ -68,6 +68,7 @@ $('#categoryOption').change(function(){
 	//alert($('#categoryOption').val())
 	
 	if($('#keyword').val() == ''){
+		
 		$.ajax({
 			
 			type: 'post',
@@ -210,8 +211,15 @@ $('#managerBoardSearchBtn').click(function(){
 			data: {'pg': $('#searchPg').val(), 'sale_category' : $('#categoryOption').val(), 'searchOption': $('#searchOption').val(), 'keyword': $('#keyword').val()},
 			dataType: 'json',
 			success: function(data){
+				
 				//alert(JSON.stringify(data));
 				$('#managerSaleboardTable tr:gt(0)').remove();
+				
+				 if(data.list.length == 0){
+	                  alert('해당 검색어로 검색 된 내용이 없습니다.');
+	                  location.href = "/jaju/managerSaleboard/managerSaleboardList?pg=1&sale_category=*";
+	              }
+				 else{
 				  $.each(data.list, function(index, items){					  
 					  
 			            $('<tr/>').append($('<td/>', {
@@ -247,7 +255,7 @@ $('#managerBoardSearchBtn').click(function(){
 			            })).appendTo($('#managerSaleboardTable'));
 		
 				}); //each
-				  
+	            }
 				  $(document).on('click', '#item', function(){
 
 			               var seq = $(this).parent().prev().text();

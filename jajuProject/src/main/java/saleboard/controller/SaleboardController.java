@@ -214,7 +214,7 @@ public class SaleboardController {
 				fileName = list.get(i).getOriginalFilename();
 				file = new File(filePath, fileName);
 				
-				System.out.println(fileName);
+				//System.out.println(fileName);
 				
 				//���� ����
 				try {
@@ -467,7 +467,7 @@ public class SaleboardController {
 		@RequestMapping(value="saleStateModify", method=RequestMethod.POST)
 		@ResponseBody
 		public ModelAndView saleStateModify(@RequestParam Map<String,String> map) {
-			System.out.println("saleStateModifyn의 map의 값은? 판매상태, seq 확인 == "+map);
+			//System.out.println("saleStateModifyn의 map의 값은? 판매상태, seq 확인 == "+map);
 			ModelAndView mav = new ModelAndView();
 			saleboardService.saleStateModify(map);
 			mav.setViewName("jsonView");
@@ -493,7 +493,7 @@ public class SaleboardController {
 			map.put("sale_seq", sale_seq+"");
 			map.put("memId", memId);
 			
-			System.out.println("컨트롤러 글번호+session 받는가999"+map);
+			//System.out.println("컨트롤러 글번호+session 받는가999"+map);
 			// db에 저장하기
 			ModelAndView mav = new ModelAndView();
 			
@@ -529,7 +529,7 @@ public class SaleboardController {
 			
 			map.put("sale_seq", sale_seq+"");
 			map.put("sale_buyer",sale_buyer);
-			System.out.println("컨트롤러 updateMap값"+map);
+			//System.out.println("컨트롤러 updateMap값"+map);
 			saleboardService.salebuyerConfirmation(map);
 		}
 		
