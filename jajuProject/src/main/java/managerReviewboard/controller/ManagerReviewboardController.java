@@ -147,7 +147,6 @@ public class ManagerReviewboardController {
 			return new ModelAndView("redirect:/manager/managerReviewboardList");
 		}
 
-		/*
 		//삭제 - 리스트
 	      @RequestMapping(value="managerReviewboardListDelete", method=RequestMethod.POST)
 	      public ModelAndView managerReviewboardListDelete(String[] check) {
@@ -191,6 +190,6 @@ public class ManagerReviewboardController {
          
 	         return new ModelAndView("redirect:/manager/managerReviewboardList?pg=1");
 	      }
-*/
+
 		
 }
