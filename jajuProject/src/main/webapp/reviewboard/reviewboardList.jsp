@@ -3,9 +3,11 @@
 
 <link rel="stylesheet" href="/jaju/css/reviewboardList.css" />
 <input type="hidden" name="id" value="reviewboard">
-
+<!--  
 <div id="total" style="width:800px; margin: auto; ">
-<div id="formTotal" style="width:800px; display:inline-block; float:left; margin-left:80px; margin-top: 86px;">
+<div id="formTotal" style="width:800px; display:inline-block; float:left; margin-left:80px; margin-top: 86px;">-->
+<div id="total" style="width:1000px; margin: auto; ">
+<div id="formTotal">
 <div class="head_aticle" padding-left="10px">
    <h2 class="tit" style="color: #333;">후기 게시판 </h2>
 </div>

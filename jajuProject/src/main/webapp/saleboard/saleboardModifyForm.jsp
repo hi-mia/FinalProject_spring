@@ -8,17 +8,20 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<div id="total" style="width:1100px; margin:0 auto; ">
+
 <div id="saleboardDiv">
 <div class="head_aticle">
 </div>
 
 <div class="xans-board-modify">
-<form class="saleboardModifyForm" id="saleboardModifyForm" name="saleboardModifyForm" style="height: 100%; width:100%;">
+<form class="saleboardModifyForm" id="saleboardModifyForm" name="saleboardModifyForm">
 	<input type="hidden" name="sale_seq" id="sale_seq" value="${param.sale_seq }">
 	<input type="hidden" name="mode" value="add_qna">
 	<input type="hidden" name="itemcd">
 	<input type="hidden" name="sno" value="0">
-<table class="saleboardModifyTable" id="saleboardModifyTable" style="width:820px; margin-left: 250px;">
+<table class="saleboardModifyTable" id="saleboardModifyTable" style="width:1000px; ">
 <colgroup><col width="14%" align="right"></colgroup>
 <tbody>
 
@@ -187,7 +190,7 @@
 <input type="hidden" name="sale_hide" id="sale_hide" />
 </form>
 </div>
-
+</div>
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/js/saleboardModify.js"></script>

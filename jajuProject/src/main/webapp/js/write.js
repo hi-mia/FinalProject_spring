@@ -20,6 +20,7 @@ var telC = false;
 $("#member_id").blur(function() {
 	if (idJ.test($(this).val())) {
 			$("#member_idDiv").empty();
+			$('#checkDiv').empty();
 			idC = true;
 	} else {
 		$('#member_idDiv').css({'color': '#b3130b', 'font-size': '8pt', 'font-weight': 'bold'});
@@ -167,6 +168,7 @@ function startTimer(count, display) {
 	    if (--count < 0) {
 	     clearInterval(timer);
 	     display.html("시간초과");
+
 	     $('.btn_chk').attr("disabled","disabled");
 	     isRunning = false;
 	    }
@@ -213,6 +215,9 @@ $('#chk_emailBtn').click(function(){
 });
 
 $('#btn_cert_confirm').click(function(){
+	$('#member_emailDiv').empty();
+    $('#auth_code').empty();
+    
 	$.ajax({
 		url: '/jaju/member/checkCode',
 		type: 'post',
@@ -226,7 +231,7 @@ $('#btn_cert_confirm').click(function(){
 				$('#codeNum').hide();
 			}else{
 				$('#member_emailDiv').css({'color': '#b3130b', 'font-size': '8pt', 'font-weight': 'bold'});
-				$('#member_emailDiv').html('인증번호를 다시 확인 하세요.')
+				$('#member_emailDiv').html('인증번호를 다시 확인 하세요.');
 				$('#chk_email').val('');
 			}
 		},
@@ -265,6 +270,7 @@ $('#chk_idBtn').click(function(){
 					$('#chk_idDiv').css({'color': '#064acb', 'font-size': '8pt', 'font-weight': 'bold'});
 					$('#chk_idDiv').html('사용 가능한 아이디입니다.');
 					$('#chk_id').val($('#member_id').val());
+					
 				}
 			},
 			error: function(err){
@@ -276,13 +282,15 @@ $('#chk_idBtn').click(function(){
 
 $('#writeBtn').click(function(){
 	$('#member_idDiv').empty();
+	$('#chk_idDiv').empty();
+
+	$('#checkDiv').empty();
 	$('#member_pwdDiv').empty();
 	$('#member_repwdDiv').empty();
 	$('#member_nameDiv').empty();
 	$('#member_emailDiv').empty();
 	$('#member_telephoneDiv').empty();
 	$('#member_addrDiv').empty();
-	$('#checkDiv').empty();
 	
 	if($('#member_id').val() == ''){	
 		$('#member_idDiv').css({'color': '#b3130b', 'font-size': '8pt', 'font-weight': 'bold'});
@@ -294,6 +302,7 @@ $('#writeBtn').click(function(){
 		$('#member_id').focus();
 	}else if($('#member_id').val() != $('#chk_id').val()){
 		$('#member_idDiv').css({'color': '#b3130b', 'font-size': '8pt', 'font-weight': 'bold'});
+		$('#member_idDiv').empty();
 		$('#member_idDiv').html('아이디 중복 체크하세요.');
 		$('#member_id').focus();
 	}else if($('#member_pwd').val() == ''){

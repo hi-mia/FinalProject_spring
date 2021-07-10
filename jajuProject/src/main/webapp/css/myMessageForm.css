@@ -124,3 +124,16 @@
     text-indent: -9999px;
     border: 1px solid #ddd;
 }
+.sendBtn, .backBtn, #resetBtn{
+	width: 80px;
+    height: 30px;
+    padding-top: 4px;
+    border: 1px solid #f4f4f3;
+    border-radius: 15px;
+    background-color: #f4f4f4;
+    font-size: 15px;
+    color: #333;
+    line-height: 18px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}

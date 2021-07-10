@@ -278,7 +278,7 @@ a:active, a:hover {
 							style="float: left; list-style: none; position: relative; width: 249px; margin-right: 18px;"><a
 							class="thumb_goods" id="r_a0"> <!----> 
 							<img id="r_img0" src=""	alt="상품이미지" class="thumb"
-								style="background-image: url();">
+								style="background-image: url(); width:100%; height:100%">
 							</a>
 							<div class="info_goods">
 								<span class="name">
@@ -292,7 +292,7 @@ a:active, a:hover {
 							style="float: left; list-style: none; position: relative; width: 249px; margin-right: 18px;"><a
 							class="thumb_goods" id="r_a1"> <!----> 
 							<img id="r_img1" src=""	alt="상품이미지" class="thumb"
-								style="background-image: url();">
+								style="background-image: url(); width:100%; height:100%">
 							</a>
 							<div class="info_goods">
 								<span class="name">
@@ -307,7 +307,7 @@ a:active, a:hover {
 							style="float: left; list-style: none; position: relative; width: 249px; margin-right: 18px;"><a
 							class="thumb_goods" id="r_a2"> <!----> 
 							<img id="r_img2" src=""	alt="상품이미지" class="thumb"
-								style="background-image: url();">
+								style="background-image: url(); width:100%; height:100%">
 							</a>
 							<div class="info_goods">
 								<span class="name">
@@ -321,7 +321,7 @@ a:active, a:hover {
 							style="float: left; list-style: none; position: relative; width: 249px; margin-right: 18px;"><a
 							class="thumb_goods" id="r_a3"> <!----> 
 							<img id="r_img3" src=""	alt="상품이미지" class="thumb"
-								style="background-image: url();">
+								style="background-image: url(); width:100%; height:100%">
 							</a>
 							<div class="info_goods">
 								<span class="name">

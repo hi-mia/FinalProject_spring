@@ -184,6 +184,11 @@ $('#saleBuyer').click(function(){
 	$('#sale_category').show();
 	$('#saleBuyerBtn').show();
 });
+
+$('.sale_state').click(function(){
+	$('.click_to_change_inform').hide();
+});
+
 $('#change_state').click(function(){
 	$.ajax({
 		url:'/jaju/saleboard/saleStateModify',

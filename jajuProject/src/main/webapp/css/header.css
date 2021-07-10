@@ -25,6 +25,10 @@ a {
 	text-decoration: none;
 	color: black;
 }
+a:hover {
+	text-decoration: none;
+	
+}
 
 ul {
 	list-style: none;
@@ -172,7 +176,7 @@ button {
 
 /* header */
 .header {
-	width: 100%;
+	/*width: 100%;*/
 	padding-top: 8px;
 	margin: 10px 10px;
 	text-align: center;
@@ -204,7 +208,7 @@ button {
 div.menuDiv.fix {
 	position: fixed;
 	top: 0;
-	background: white;
+	background: #f2f2f2;
 }
 
 .carrot_image {
@@ -347,9 +351,9 @@ div.menuDiv.fix {
 }
 
 .menu li>a {
-	border-bottom: 1px solid transparent;
+	/*border-bottom: 1px solid transparent;*/
 	padding: 0 20px;
-	font-size: 15px;
+	font-size: 16px;
 	/*ㅇㅕ기 추가 했음*/
 	display: block;
 	transition: all 0.3s;
@@ -358,7 +362,7 @@ div.menuDiv.fix {
 
 .menu>li>a:hover {
 	color: #064acb;
-	border-bottom-color: #064acb;
+	/*border-bottom-color: #064acb;*/
 	text-decoration: none;
 }
 
@@ -390,7 +394,7 @@ div.menuDiv.fix {
 	border: 1px solid #ddd;
 	background-color: #fff;
 	position: absolute;
-	top: 50px;
+	top: 55px;
 	display: none; /*이거 hover 시 보이도록*/
 }
 
@@ -656,7 +660,7 @@ div.menuDiv.fix {
 	justify-content: space-around;
 	align-items: center;
 	font-size: 18px;
-	margin-right: 20px;
+	/*margin-right: 20px;*/
 }
 
 .sub_menu {

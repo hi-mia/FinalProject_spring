@@ -7,7 +7,7 @@
 <input type="hidden" id="board_seq" value="${board_seq }">
 <input type="hidden" id="pg" value="${param.pg }"/>
 <input type="hidden" id="board_id" value="${sessionScope.memId }"/>
-<div id="wrap"  style="width:800px; display:inline-block; float:left; margin-left:40px; margin-top: 118px;">
+<div id="wrap"  style="width:800px; display:inline-block; float:left; margin-left:40px; margin-top: 50px;">
 <div id="pos_scroll"></div>
 <div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
 
@@ -21,16 +21,17 @@
 <div id="qnb" class="quick-navigation" style="top: 70px;"></div>
 <div class="layout-wrapper">
 	<div class="xans-element- xans-myshop xans-myshop-couponserial ">
+	<h2 style="color:#333;">자유게시판</h2>
 	
-		<table class="xans-board-listheader" style="width:800px; align:center;" cellpadding="0" cellspacing="0">
+		<table class="xans-board-listheader" style="width:1000px; align:center;" cellpadding="0" cellspacing="0">
 			<tbody>
 			<tr>
 			<td>
-			<table style="width:800px;">
+			<table style="width:1000px;">
 			<tbody>
 			<tr>
 			<td>
-		<table class="boardView" style="width:800px; font-size:14px;">
+		<table class="boardView" style="width:1000px; font-size:14px;">
 			<tbody>
 				<tr>
 					<th scope="row" style="border:none;">제목</th>
@@ -116,10 +117,10 @@
 		
 		<table border="2" id="" cellspacing="0" cellpadding="10"
          bordercolor="#47597e" align="center" frame="hsides" rules="rows"
-         width="800" style="margin-top:40px; border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff;" id="commentWriteTable">
+         width="1000" style="margin-top:40px; border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff;" id="commentWriteTable">
          <tr>
             <td height="60" width="80" align="left"><span id="replySpan"></span>
-               <input type="text" placeholder="댓글을 입력하세요." size="76" id="commentText" class="commentInput">
+               <input type="text" placeholder="댓글을 입력하세요." size="76" id="commentText" class="commentInput" style="width:900px;">
                &nbsp;&nbsp;
                <input type="button" value="댓글 입력" class="commentInput" id="commentInputBtn" size="80" >
             </td>
@@ -127,7 +128,7 @@
       </table>
 	</div>
 		<br>
-		<div class="xans-element- xans-board xans-board-movement-1002 xans-board-movement xans-board-1002 " style="width: 800px;">
+		<div class="xans-element- xans-board xans-board-movement-1002 xans-board-movement xans-board-1002 " style="width: 1000px;">
 			<ul>
 				<li class="prev">
 					<strong>이전글</strong>

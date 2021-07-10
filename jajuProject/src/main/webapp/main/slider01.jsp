@@ -94,7 +94,7 @@ p {
 
 /*슬라이드 체크*/
 .item-wrap{
-	border: 1px solid #ededed;
+	/*border: 1px solid #ededed;*/
 	width:210px;
 }
 .item_image_div {

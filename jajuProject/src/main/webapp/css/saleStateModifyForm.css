@@ -221,7 +221,7 @@ button, select {
     color: #fff;
 }
 button, html input[type=button], input[type=reset], input[type=submit] {
-    -webkit-appearance: button;
+    -webkit-appearance: media-slider;
     cursor: pointer;
 }
 .bhs_button {
@@ -360,11 +360,18 @@ input[type="submit" i] {
 
 
 /**/
-
+#close_btn{
+	    height: 30px;
+    width: 90px;
+    background-color: #617aad;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+}
 
 
 .saleboardModifyForm .sale_state, .saleboardModifyForm .sale_category ,  .saleboardModifyForm .fileInfo {
-    border: 1px solid #47597e;
+    /*border: 1px solid #47597e;*/
     background-color: #fff;
     color: #47597e;
     font-family: 'S-CoreDream-4Regular';

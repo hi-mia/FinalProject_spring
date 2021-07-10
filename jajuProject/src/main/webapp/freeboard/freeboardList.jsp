@@ -6,7 +6,7 @@
 <input type="hidden" name="id" value="freeboard">
 
 <div id="total" style="width:1100px; margin:0 auto; ">
-<div id="formTotal" style="width:800px; display:inline-block; float:left; margin-left:80px; margin-top: 86px;">
+<div id="formTotal" style="width:1000px; display:inline-block; float:left; margin-left:80px; margin-top: 86px;">
 <div class="head_aticle" padding-left="10px">
 	<h2 class="tit" style="color: #333;">자유게시판 </h2>
 </div>

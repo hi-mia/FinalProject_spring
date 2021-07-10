@@ -304,12 +304,12 @@ select {
 	<div class="section_review">
 
 		<div class="head_aticle">
-			<h2 class="tit">&emsp;판매중인 내역</h2>
+			<h2 class="tit">&emsp;판매중인 매물</h2>
 		</div>
 
 		<div class="board-header-container">
 			<ul class="list-description">
-				<li>판매중안 내역을 확인해보세요.</li>
+				<li>나의 판매중인 매물을 확인해보세요.</li>
 			</ul>
 		</div>
 	
