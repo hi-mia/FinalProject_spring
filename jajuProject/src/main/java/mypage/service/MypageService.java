@@ -147,8 +147,12 @@ public interface MypageService {
 	public void deleteMyFollow(Map<String, String> map);
 
 	//프로필 후기 내역
-		public List<ReviewboardDTO> getMyProfileReviewList(Map<String, String> map);
-		public MyRecodePaging getMyProfileReviewListPage(Map<String, String> map);
+	public List<ReviewboardDTO> getMyProfileReviewList(Map<String, String> map);
+	
+	public MyRecodePaging getMyProfileReviewListPage(Map<String, String> map);
+	
+	//리뷰 작성된 구매완료글에 대한 구분 처리
+	public List<ReviewboardDTO> reviewListCheck(Map<String, String> map);
 	
 	
 

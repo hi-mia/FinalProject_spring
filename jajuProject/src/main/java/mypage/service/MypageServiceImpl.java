@@ -628,5 +628,10 @@ public class MypageServiceImpl implements MypageService {
 			return myRecodePaging;
 		}
 
+		@Override
+		public List<ReviewboardDTO> reviewListCheck(Map<String, String> map) {
+			return mypageDAO.reviewListCheck(map);
+		}
+
 		
 }
