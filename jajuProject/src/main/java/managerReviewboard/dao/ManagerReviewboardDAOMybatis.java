@@ -1,5 +1,6 @@
 package managerReviewboard.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -59,11 +60,16 @@ public class ManagerReviewboardDAOMybatis implements ManagerReviewboardDAO {
 
 	@Override
 	public List<ReviewboardDTO> getReviewListMember(String member_id) {
+		
 		return sqlSession.selectList("managerReviewboardSQL.getReviewListMember", member_id);
 	}
 
 	@Override
-	public Object updateManner(double d) {
-		return sqlSession.update("managerReviewboardSQL.updateManner", d);
+	public void updateManner(double d, String check) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("review_manner", d+"");
+		map.put("member_id", check);
+		
+		sqlSession.update("managerReviewboardSQL.updateManner", map);
 	}
 }

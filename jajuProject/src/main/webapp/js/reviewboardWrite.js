@@ -23,7 +23,7 @@ $(function(){
 });
 
 $('#reviewboardWriteBtn').click(function(){
-	alert('abc');
+	
 	
    var formData = new FormData($('#reviewboardWriteForm')[0]); //form 안에 있는 모든 것 다 넘김
    

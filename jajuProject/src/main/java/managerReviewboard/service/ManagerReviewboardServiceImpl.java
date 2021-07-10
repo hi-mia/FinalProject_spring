@@ -100,8 +100,8 @@ public class ManagerReviewboardServiceImpl implements ManagerReviewboardService 
 	}
 
 	@Override
-	public void updateManner(double d) {
-		managerReviewboardDAO.updateManner(d);
+	public void updateManner(double d, String check) {
+		managerReviewboardDAO.updateManner(d,check);
 	}
 
 }
