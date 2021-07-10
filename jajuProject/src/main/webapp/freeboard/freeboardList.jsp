@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" href="/jaju/css/freeboardList.css" />
 
@@ -42,9 +43,13 @@
 				
 			<div style="position:relative">
 		<div style="position:absolute;right:0;top:60px;">
-			<a href="/jaju/freeboard/freeboardWriteForm">
-				<span class="bhs_buttonsm yb" style="float:none; margin-top:10px;">글쓰기</span>
-			</a>
+		
+			<c:if test="${memId != null}">
+				<a href="/jaju/freeboard/freeboardWriteForm" id="freeboard_write_a">
+					<span class="bhs_buttonsm yb" style="float:none; margin-top:10px;">글쓰기</span>
+				</a>
+			</c:if>
+			
 		</div>
 	</div>				
 				

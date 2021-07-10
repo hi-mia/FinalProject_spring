@@ -7,6 +7,7 @@
 <input type="hidden" id="board_seq" value="${board_seq }">
 <input type="hidden" id="pg" value="${param.pg }"/>
 <input type="hidden" id="board_id" value="${sessionScope.memId }"/>
+
 <div id="wrap"  style="width:800px; display:inline-block; float:left; margin-left:40px; margin-top: 50px;">
 <div id="pos_scroll"></div>
 <div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">

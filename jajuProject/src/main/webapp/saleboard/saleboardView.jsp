@@ -10,6 +10,8 @@
 </head>
 <body>
 
+<div id="total" style="width:1080px; margin: auto; ">
+
 	<div class="section_view">
 
 							<div id="shareLayer">
@@ -176,7 +178,7 @@
       </table>
       
 	</div>
-	
+</div>	
 	<div class="graph1"><span></span></div>
 	<div class="graph2"><span></span></div>
 	<div class="graph3"><span></span></div>

@@ -44,7 +44,7 @@ $(function(){
 							.append($('<dt/>',{
 								text:'매너온도'
 								})).append($('<dd/>',{
-									text:items.member_manner+'℃'
+									text:items.member_manner.toFixed(1)+'℃'
 								}))).append($('<dl/>')
 								.append($('<dt/>',{
 									text:'주요지역'
@@ -134,7 +134,7 @@ $(function(){
 							.append($('<dt/>',{
 								text:'가격'
 								})).append($('<dd/>',{
-									text:items.sale_price.toLocaleString()
+									text:items.sale_price.toLocaleString()+'원'
 								}))).append($('<dl/>')
 								.append($('<dt/>',{
 									text:'날짜'

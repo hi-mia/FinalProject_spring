@@ -70,7 +70,9 @@
 	<tbody>
 		<tr style="width:800px;">
 			<td align="right" style="padding-top:30px; padding-bottom:40px; border:none;" id="avoidDbl">
+			
 				<input type="button" id="freeboardWriteBtn" class="bhs_button yb" value="글등록" style="float:none;">
+				
 			</td>
 		</tr>
 	</tbody>

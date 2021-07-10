@@ -9,18 +9,19 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div id="total" style="width:1080px; margin: auto; ">
 
 <div id="saleboardDiv">
 <div class="head_aticle">
 </div>
 	
 <div class="xans-board-write">
-<form class="saleboardWriteForm" id="saleboardWriteForm" style="height: 100%; width:100%;">
+<form class="saleboardWriteForm" id="saleboardWriteForm" >
 	<input type="hidden" name="mode" value="add_qna">
 	<input type="hidden" name="itemcd">
 	<input type="hidden" name="sno" value="0">
 	<input type="hidden" id="member_id" name= "member_id" value="${sessionScope.memId }"/>
-<table class="saleboardWriteTable" id="saleboardWriteTable" style="width:820px; margin-left: 250px;">
+<table class="saleboardWriteTable" id="saleboardWriteTable" style="width:1000px;">
 <colgroup><col width="14%" align="right"></colgroup>
 <tbody>
 
@@ -175,6 +176,7 @@
 </form>
 </div>
 
+</div>
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/js/saleboardWrite.js"></script>
