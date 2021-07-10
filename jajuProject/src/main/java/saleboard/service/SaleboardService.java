@@ -83,5 +83,7 @@ public interface SaleboardService {
 
 	public SaleboardPaging searchSaleboardPagingFavorite(Map<String, String> map);
 
+	public String getblackList(String member_id);
+
 	
 }

@@ -581,4 +581,16 @@ public class SaleboardController {
 		
 		
 		
+		@RequestMapping(value = "getblackList", method = RequestMethod.POST)
+		@ResponseBody
+		public String getblackList(@RequestParam String member_id) {
+			
+			String check = saleboardService.getblackList(member_id);
+			return check;
+		}
+		
+		
+		
+		
+		
 }

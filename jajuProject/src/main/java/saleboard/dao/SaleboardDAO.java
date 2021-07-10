@@ -81,6 +81,8 @@ public interface SaleboardDAO {
 
 	public int getSearchTotalFavorite(Map<String, String> map);
 
+	public String getblackList(String member_id);
+
 	
 	
 }

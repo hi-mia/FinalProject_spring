@@ -1,6 +1,25 @@
 $(function(){
 	$("#sortinSelect").val($('#sortinSelected').val()).prop("selected", true);
 	//alert($('#sale_category').val())
+	
+	$.ajax({
+		type: 'post',
+		url: '/jaju/saleboard/getblackList',
+		data: {'member_id': $('#memId').val()},
+		dataType: 'text',
+		success: function(data){
+			//alert(data)
+			//값이 있으면 true
+			
+			if(data == 'true'){
+				$('#writeA').hide();
+			}
+			
+		},error: function(data){
+			
+		}
+	});
+	
 	if($('#memId').val() == ''){
 		$('#writeA').hide();
 		$.ajax({

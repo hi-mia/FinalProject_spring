@@ -557,6 +557,11 @@ public class SaleboardServiceImpl implements SaleboardService {
 		return saleboardPaging;
 	}
 
+	@Override
+	public String getblackList(String member_id) {
+		return saleboardDAO.getblackList(member_id);
+	}
+
 	
 	
 }

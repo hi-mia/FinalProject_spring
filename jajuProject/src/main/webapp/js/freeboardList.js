@@ -1,5 +1,25 @@
 //리스트
 $(function(){
+	
+	$.ajax({
+		type: 'post',
+		url: '/jaju/saleboard/getblackList',
+		data: {'member_id': $('#board_id').val()},
+		dataType: 'text',
+		success: function(data){
+			//alert(data)
+			//값이 있으면 true
+			
+			if(data == 'true'){
+				$('#freeboard_write_a').hide();
+			}
+			
+		},error: function(data){
+			
+		}
+	});
+	
+	
 	$.ajax({
 		type: 'post',
 		url: '/jaju/freeboard/getFreeboardList',

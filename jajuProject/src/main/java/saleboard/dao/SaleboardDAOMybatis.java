@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import member.bean.MemberDTO;
 import mypage.bean.MessageDTO;
 import saleboard.bean.SaleboardCommentDTO;
 import saleboard.bean.SaleboardDTO;
@@ -285,6 +286,21 @@ public class SaleboardDAOMybatis implements SaleboardDAO {
 		}
 		
 		return a+b+c;
+	}
+
+	@Override
+	public String getblackList(String member_id) {
+		String check = null;
+		
+		MemberDTO memberDTO =  sqlSession.selectOne("saleboardSQL.getblackList", member_id);
+		
+		if(memberDTO == null) {
+			check = "false";
+		} else {
+			check = "true";
+		}
+		
+		return check;
 	}
 
 	

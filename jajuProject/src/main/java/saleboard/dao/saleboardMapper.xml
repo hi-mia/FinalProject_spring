@@ -655,4 +655,27 @@
 		
 	</select>
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<select id="getblackList" resultType="member" parameterType="String">
+		
+		select * from jajumember where member_id = #{member_id} and member_state != 0
+		
+	</select>
+	
+	
+	
 	</mapper>
