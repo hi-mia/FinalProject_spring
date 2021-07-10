@@ -35,13 +35,13 @@ $(function(){
 			
 			var howTrade;
 			if(data.saleboardDTO.sale_direct == 'on') {
-				$("#sale_direct").attr("checked", true); 
+				$("#sale_direct").prop("checked", true); 
 			}
 			if(data.saleboardDTO.sale_delivery == 'on') {
-				$("#sale_delivery").attr("checked", true); 
+				$("#sale_delivery").prop("checked", true); 
 			}
 			if(data.saleboardDTO.sale_onlineTran == 'on') {
-				$("#sale_onlineTran").attr("checked", true); 
+				$("#sale_onlineTran").prop("checked", true); 
 			}
 			$('#howTrade .desc').val(howTrade);
 			
@@ -103,19 +103,22 @@ $('#saleboardModifyBtn').click(function(){
 	var num = 0;
 	
 	//배송방법
-	for(var i = 0; i<howdelivery.length; i++) {
+	/*for(var i = 0; i<howdelivery.length; i++) {
 		if(howdelivery[i].checked) {
 			num++;
 		}
-	}
-	if(!num) {
+	}*/
+	
+	//alert(!$('#sale_direct').prop('checked'))
+	//false !==true &&  t,t,t 나오는 경우 걸리게 코드짜기   
+	if(!$('#sale_direct').prop('checked')&&!$('#sale_delivery').prop('checked')&&!$('#sale_onlineTran').prop('checked')) {
+		//alert('배송')
 		$('#sale_directDiv').text('배송 방법을 선택해주세요');
 		$('#sale_directDiv').css('color', 'red');
 		$('#sale_directDiv').css('font-size', '10pt');
 		$('#sale_directDiv').css('font-weight', 'bold');
 	}
-	
-	if($('#sale_subject').val() == ''){
+	else if($('#sale_subject').val() == ''){
         $('#sale_subjectDiv').text('제목을 입력하세요');
         $('#sale_subjectDiv').css('color', 'red');
         $('#sale_subjectDiv').css('font-size', '10pt');

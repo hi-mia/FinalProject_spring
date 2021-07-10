@@ -15,7 +15,7 @@
  <select id="getFreeboardList" resultType="freeboard">
  			select * from (
 	 		select rownum rn ,tt.*from(
-	 		select * from freeboard order by logtime desc)tt)
+	 		select * from freeboard order by board_seq desc)tt)
 	 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
  </select>
 
