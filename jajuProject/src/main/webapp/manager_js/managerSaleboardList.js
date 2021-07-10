@@ -67,6 +67,7 @@ $('#categoryOption').change(function(){
 	
 	//alert($('#categoryOption').val())
 	
+	$('#keyword').val($('#searchTextHidden').val());
 	if($('#keyword').val() == ''){
 		$.ajax({
 			

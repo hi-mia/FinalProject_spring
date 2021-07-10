@@ -244,7 +244,7 @@ $('#search-text_Btn').click(function(){
 		$('#search-text').focus();
 	}
 	else{
-		alert("$('#sortinSelect').val()"+$('#sortinSelect').val());
+		
 		$.ajax({
 			type: 'post',
 			url: '/jaju/manager/getSearchMemberInfo',

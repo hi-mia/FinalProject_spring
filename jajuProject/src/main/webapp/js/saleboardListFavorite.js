@@ -311,6 +311,7 @@ $('#searchBtn').click(function(event,str){
 $('#sortinSelect').change(function(){
 
 	$('.inner_listgoods .list li').remove();
+	$('#searchText').val($('#searchHidden').val());
 	if($('#searchText').val() != ""){
 		$('#searchBtn').trigger('click');
 	} else{

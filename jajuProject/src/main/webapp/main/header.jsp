@@ -116,8 +116,10 @@
 
 				<li class="new-product-category">
 					<a	href="/jaju/saleboard/saleboardList?pg=1&sortinSelect=sale_date" style="text-decoration:none;">판매게시글</a></li>
-				<li class="new-product-category">
-					<a	href="/jaju/saleboard/saleboardListFavorite?pg=1&sortinSelect=sale_date" style="text-decoration:none;">관심게시판</a></li>
+				<c:if test="${memId != null }">
+					<li class="new-product-category">
+						<a	href="/jaju/saleboard/saleboardListFavorite?pg=1&sortinSelect=sale_date" style="text-decoration:none;">관심게시판</a></li>
+				</c:if>
 				<li class="cheap-product-category  header_a_li">
 					<a href="/jaju/freeboard/freeboardList?pg=1"	class="button" style="text-decoration:none;">자유게시판</a></li>
 				<c:if test="${memId != null }">
