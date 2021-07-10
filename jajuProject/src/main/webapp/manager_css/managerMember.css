@@ -842,6 +842,7 @@ input[type="checkbox" i] {
     padding-right: 0;
 }
 .tbl_admin td .table_data {
+	text-align: center;
     display: block;
     overflow: hidden;
     padding: 0 10px;

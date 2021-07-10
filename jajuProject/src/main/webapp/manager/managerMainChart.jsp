@@ -191,7 +191,6 @@
 						responsive: false,
 						legend: {
 							labels: {
-								
 								fontColor: "#333",
 								fontSize: 15,
 							}

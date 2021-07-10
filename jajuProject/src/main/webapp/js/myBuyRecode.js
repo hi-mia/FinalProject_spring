@@ -58,7 +58,7 @@ $(function(){
 							.append($('<dt/>',{
 								text:'가격'
 								})).append($('<dd/>',{
-									text:items.sale_price.toLocaleString()
+									text:items.sale_price.toLocaleString()+'원'
 								}))).append($('<dl/>')
 								.append($('<dt/>',{
 									text:'날짜'

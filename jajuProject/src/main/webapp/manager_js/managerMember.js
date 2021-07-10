@@ -168,6 +168,7 @@ $('#sortinSelect').change(function(){
 					name:"check",
 					id:"check_id"+items.member_seq,
 					value:items.member_id,
+					style:'text-align:center;'	,
 					class:"checkradio_styled"
 				}))).append($('<td/>').append($('<div/>',{
 					class:'table_data'
@@ -280,6 +281,7 @@ $('#search-text_Btn').click(function(){
 						name:"check",
 						id:"check_id"+items.member_seq,
 						value:items.member_id,
+						style:'text-align:center;',
 						class:"checkradio_styled"
 					}))).append($('<td/>').append($('<div/>',{
 						class:'table_data'

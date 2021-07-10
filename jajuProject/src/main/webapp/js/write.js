@@ -151,11 +151,11 @@ $(function(){
 	});
 
 });
+
 var timer = null;
 var isRunning = false;
 
 function startTimer(count, display) {
-	display.html('');
 	
 	var minutes, seconds;
     timer = setInterval(function () {
