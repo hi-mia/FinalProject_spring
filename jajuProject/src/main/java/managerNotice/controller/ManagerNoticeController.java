@@ -251,4 +251,133 @@ public class ManagerNoticeController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/managerNoticeModify", method=RequestMethod.GET)
+	public ModelAndView managerNoticeModify() {
+
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("/manager/managerNoticeModify");
+		return mav;
+	}
+	
+	@RequestMapping(value="/setNoticeModify", method=RequestMethod.POST)
+	@ResponseBody
+	public void setNoticeModify(@ModelAttribute NoticeDTO noticeDTO,
+							 @RequestParam ("img[]") List<MultipartFile> list) { //img[] 배열이라고 알려준다, 파일이 여러개가 가능) {
+
+
+		String filePath = "D:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
+		String fileName;
+		File file;
+
+		//파일 복사
+		int i=0;
+		for(MultipartFile img : list) {
+			fileName = img.getOriginalFilename();
+			file = new File(filePath, fileName);
+			
+			try {
+				FileCopyUtils.copy(img.getInputStream(), new FileOutputStream(file));
+			} catch (IOException e) {
+				//e.printStackTrace();
+			}
+			
+			if(i==0) {
+				noticeDTO.setImage0(fileName);
+			}else if(i==1){
+				noticeDTO.setImage1(fileName);
+			}else if(i==2){
+				noticeDTO.setImage2(fileName);
+			}else if(i==3){
+				noticeDTO.setImage3(fileName);
+			}else if(i==4){
+				noticeDTO.setImage4(fileName);
+			}else if(i==5){
+				noticeDTO.setImage5(fileName);
+			}else if(i==6){
+				noticeDTO.setImage6(fileName);
+			}else if(i==7){
+				noticeDTO.setImage7(fileName);
+			}else if(i==8){
+				noticeDTO.setImage8(fileName);
+			}else if(i==9){
+				noticeDTO.setImage9(fileName);
+			}
+			
+			i++;
+		
+		}//for
+		
+		if(i==0) {
+			noticeDTO.setImage0("");
+			noticeDTO.setImage1("");
+			noticeDTO.setImage2("");
+			noticeDTO.setImage3("");
+			noticeDTO.setImage4("");
+			noticeDTO.setImage5("");
+			noticeDTO.setImage6("");
+			noticeDTO.setImage7("");
+			noticeDTO.setImage8("");
+			noticeDTO.setImage9("");
+		}else if(i==1){
+			noticeDTO.setImage1("");
+			noticeDTO.setImage2("");
+			noticeDTO.setImage3("");
+			noticeDTO.setImage4("");
+			noticeDTO.setImage5("");
+			noticeDTO.setImage6("");
+			noticeDTO.setImage7("");
+			noticeDTO.setImage8("");
+			noticeDTO.setImage9("");
+		}else if(i==2){
+			noticeDTO.setImage2("");
+			noticeDTO.setImage3("");
+			noticeDTO.setImage4("");
+			noticeDTO.setImage5("");
+			noticeDTO.setImage6("");
+			noticeDTO.setImage7("");
+			noticeDTO.setImage8("");
+			noticeDTO.setImage9("");
+		}else if(i==3){
+			noticeDTO.setImage3("");
+			noticeDTO.setImage4("");
+			noticeDTO.setImage5("");
+			noticeDTO.setImage6("");
+			noticeDTO.setImage7("");
+			noticeDTO.setImage8("");
+			noticeDTO.setImage9("");
+		}else if(i==4){
+			noticeDTO.setImage4("");
+			noticeDTO.setImage5("");
+			noticeDTO.setImage6("");
+			noticeDTO.setImage7("");
+			noticeDTO.setImage8("");
+			noticeDTO.setImage9("");
+		}else if(i==5){
+			noticeDTO.setImage5("");
+			noticeDTO.setImage6("");
+			noticeDTO.setImage7("");
+			noticeDTO.setImage8("");
+			noticeDTO.setImage9("");
+		}else if(i==6){
+			noticeDTO.setImage6("");
+			noticeDTO.setImage7("");
+			noticeDTO.setImage8("");
+			noticeDTO.setImage9("");
+		}else if(i==7){
+			noticeDTO.setImage7("");
+			noticeDTO.setImage8("");
+			noticeDTO.setImage9("");
+		}else if(i==8){
+			noticeDTO.setImage8("");
+			noticeDTO.setImage9("");
+		}else if(i==9){
+			noticeDTO.setImage9("");
+		}
+		
+		
+		//DB
+		managerNoticeService.managerNoticeModify(noticeDTO);
+	}
+	
 }

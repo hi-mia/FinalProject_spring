@@ -98,9 +98,10 @@
 				<tr>
 					<td align="right">
 						
-						<a href="javascript:void(0)" onclick ="mode(1)" >
+						<input type="button" id="noticeModifyBtn" value="수정">
+						<!-- <a href="javascript:void(0)" onclick ="mode(1)" >
 							<span class="noticeBtn modify" style="float:none;">수정</span>
-						</a>
+						</a> -->
 					
 						<a href="/jaju/manager/managerNoticeList">
 							<span class="noticeBtn list" style="float:none;">목록</span>

@@ -23,5 +23,7 @@ public interface ManagerNoticeService {
 	public List<NoticeDTO> getNoticeSearchList(Map<String, String> map);
 
 	public NoticePaging noticePaging(Map<String, String> map);
+
+	public void managerNoticeModify(NoticeDTO noticeDTO);
 	
 }

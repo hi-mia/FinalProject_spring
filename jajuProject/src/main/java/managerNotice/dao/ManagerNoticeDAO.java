@@ -23,4 +23,6 @@ public interface ManagerNoticeDAO {
 
 	public int getTotalSearchA(Map<String, String> map);
 
+	public void managerNoticeModify(NoticeDTO noticeDTO);
+
 }

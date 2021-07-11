@@ -58,5 +58,11 @@ public class ManagerNoticeMybatisDAO implements ManagerNoticeDAO {
 	public int getTotalSearchA(Map<String, String> map) {
 		return sqlSession.selectOne("managerNoticeSQL.getTotalSearchA", map);
 	}
+
+	@Override
+	public void managerNoticeModify(NoticeDTO noticeDTO) {
+		sqlSession.update("managerNoticeSQL.managerNoticeModify", noticeDTO);
+		
+	}
 	
 }

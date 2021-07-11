@@ -95,5 +95,11 @@ public class ManagerNoticeServiceImpl implements ManagerNoticeService {
 		return noticePaging;
 	}
 
+	@Override
+	public void managerNoticeModify(NoticeDTO noticeDTO) {
+		managerNoticeDAO.managerNoticeModify(noticeDTO);
+		
+	}
+
 	
 }
