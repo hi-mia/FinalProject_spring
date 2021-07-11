@@ -18,7 +18,7 @@
 	<br> 통신판매업 : 제 2018-서울강남-01646 호 <span class="bar">I</span>
 	개인정보보호책임자 : 이원준 <br> 주소 : 서울특별시 강남구 테헤란로 133, 18층(역삼동) <span
 		class="bar">I</span> 대표이사 : 김슬아 <br> 이메일 : <a
-		href="mailto:help@kurlycorp.com" class="link">help@kurlycorp.com</a> <br>
+		href="mailto:help@kurlycorp.com" class="link">help@jajumarket.com</a> <br>
 	<br> <em class="copy">© KURLY CORP. ALL RIGHTS RESERVED</em> <br>
 	<ul class="list_sns_ul">
 		<li><a href="https://instagram.com/marketkurly" class="link_sns"
