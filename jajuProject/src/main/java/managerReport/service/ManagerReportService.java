@@ -35,4 +35,6 @@ public interface ManagerReportService {
 
 	public void commentDelete(Map<String, String> map);
 
+	public ReportDTO getReportOne(String string);
+
 }

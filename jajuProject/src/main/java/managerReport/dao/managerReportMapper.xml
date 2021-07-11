@@ -53,6 +53,10 @@
 		
 	</update>
 	
+	<select id="getReportOne" parameterType="String" resultType="report">
+		select * from memberreport where report_seq=${report_seq}
+	</select>
+	
 
 	<!-- 댓글 -->
 	
