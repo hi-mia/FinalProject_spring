@@ -479,5 +479,4 @@ p {
 
 
 </body>
-<script type="text/javascript" src="/jaju/js/slider01.js"></script>
 </html>
