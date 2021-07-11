@@ -73,10 +73,7 @@ $(function(){
 	    			 //페이징처리
 	    			 $('#getMyProfileReviewListPagingDiv').html(data.getMyProfileReviewListPage.pagingHTML); 
 	    		  });//each
-	    		  
-	    		
-	  			
-	    	  }//else
+	     	  }//else
 	      },error:function(err){
 	         console.log("getMyProfileReviewList.js error 발생"+err);
 	      }

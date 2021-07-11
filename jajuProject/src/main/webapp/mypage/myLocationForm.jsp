@@ -79,7 +79,7 @@
 			<select name="gugun1" id="gugun1" style="width: 150px; height: 30px; display: inline-block;"></select>
 			<!-- <select name="dong1" id="dong1"></select> -->
 			<!-- 일단은 동부분 생략  -->
-			<a style="cursor: pointer;"><span id="lobtn2" class="lobtn2"><strong style="font-size: 18px;vertical-align: unset; ">&emsp;&emsp;지역추가&emsp;&emsp;</strong></span></a>
+			<a href="#" style="cursor: pointer;"><span id="lobtn2" class="lobtn2"><strong style="font-size: 18px;vertical-align: unset; ">&emsp;&emsp;지역추가&emsp;&emsp;</strong></span></a>
 		</div>
 	</div>
 

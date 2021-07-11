@@ -45,7 +45,7 @@ $(function(){
 			}else{
 				$("#sale_nego").html("/ 가격제안 허용불가"); 
 			}
-			
+			//여기다가 상민씨 카테고리 복붙..
 			$('#sale_category').html(data.saleboardDTO.sale_category);
 
 			$('#sale_condition').html(data.saleboardDTO.sale_condition);

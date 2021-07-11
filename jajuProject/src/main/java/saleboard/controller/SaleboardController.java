@@ -238,37 +238,61 @@ public class SaleboardController {
 				}
 
 			} //for
-
+			
+			
 			if(saleboardDTO.getSale_image1().equals("")) {
+				if(tempDTO.getSale_image1()==null) {
+					tempDTO.setSale_image1("");
+				}
 				saleboardDTO.setSale_image1(tempDTO.getSale_image1());
 			}
 			if(saleboardDTO.getSale_image2().equals("")) {
+				if(tempDTO.getSale_image2()==null) {
+					tempDTO.setSale_image2("");
+				}
 				saleboardDTO.setSale_image2(tempDTO.getSale_image2());
 			}
-//			if(saleboardDTO.getSale_image3().equals("")) {
-//				saleboardDTO.setSale_image3(tempDTO.getSale_image3());
-//			}
-//			if(saleboardDTO.getSale_image4().equals("")) {
-//				saleboardDTO.setSale_image4(tempDTO.getSale_image4());
-//			}
-//			if(saleboardDTO.getSale_image5().equals("")) {
-//				saleboardDTO.setSale_image5(tempDTO.getSale_image5());
-//			}
-//			if(saleboardDTO.getSale_image6().equals("")) {
-//				saleboardDTO.setSale_image6(tempDTO.getSale_image6());
-//			}
-//			if(saleboardDTO.getSale_image7().equals("")) {
-//				saleboardDTO.setSale_image7(tempDTO.getSale_image7());
-//			}
-//			if(saleboardDTO.getSale_image8().equals("")) {
-//				saleboardDTO.setSale_image8(tempDTO.getSale_image8());
-//			}
-//			if(saleboardDTO.getSale_image9().equals("")) {
-//				saleboardDTO.setSale_image9(tempDTO.getSale_image9());
-//			}
-//			if(saleboardDTO.getSale_image10().equals("")) {
-//				saleboardDTO.setSale_image10(tempDTO.getSale_image10());
-//			}
+			
+			if(saleboardDTO.getSale_image3()!=null) {
+				if(saleboardDTO.getSale_image3().equals("")) {
+					saleboardDTO.setSale_image3(tempDTO.getSale_image3());
+				}
+			}
+			if(saleboardDTO.getSale_image4()!=null) {
+				if(saleboardDTO.getSale_image4().equals("")) {
+					saleboardDTO.setSale_image4(tempDTO.getSale_image4());
+				}
+			}
+			if(saleboardDTO.getSale_image5()!=null) {
+				if(saleboardDTO.getSale_image5().equals("")) {
+					saleboardDTO.setSale_image5(tempDTO.getSale_image5());
+				}
+			}
+			if(saleboardDTO.getSale_image6()!=null) {
+				if(saleboardDTO.getSale_image6().equals("")) {
+					saleboardDTO.setSale_image6(tempDTO.getSale_image6());
+				}
+			}
+			if(saleboardDTO.getSale_image7()!=null) {
+				if(saleboardDTO.getSale_image7().equals("")) {
+					saleboardDTO.setSale_image7(tempDTO.getSale_image7());
+				}
+			}
+			if(saleboardDTO.getSale_image8()!=null) {
+				if(saleboardDTO.getSale_image8().equals("")) {
+					saleboardDTO.setSale_image8(tempDTO.getSale_image8());
+				}
+			}
+			if(saleboardDTO.getSale_image9()!=null) {
+				if(saleboardDTO.getSale_image9().equals("")) {
+					saleboardDTO.setSale_image9(tempDTO.getSale_image9());
+				}
+			}
+			if(saleboardDTO.getSale_image10()!=null) {
+				if(saleboardDTO.getSale_image10().equals("")) {
+					saleboardDTO.setSale_image10(tempDTO.getSale_image10());
+				}
+			}
 			
 			//���� ������ �̹��� ����x ������ �����ϰ� �ϱ�
 			saleboardService.saleboardModify(saleboardDTO);

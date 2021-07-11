@@ -238,6 +238,7 @@ $(function(){
 								text:items.location2_addr2,
 								style:'text-align: center;'
 							})).append($('<a/>',{
+								href:"#",
 								class:"cancelBtn2A",
 								style:"cursor:pointer;"
 								}).append($('<span/>',{
@@ -264,6 +265,7 @@ $(function(){
 								text:items.location3_addr2,
 								style:'text-align: center;'
 							})).append($('<a/>',{
+								href:"#",
 								class:"cancelBtn3A",
 								style:"cursor:pointer;"
 								}).append($('<span/>',{
