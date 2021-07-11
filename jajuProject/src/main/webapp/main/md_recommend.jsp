@@ -114,7 +114,7 @@ body {
 }
 
 .category_type .list_goods {
-	height: 462px;
+	height: 400px;
 }
 
 .category_type .list_goods li {
@@ -270,7 +270,7 @@ a:active, a:hover {
 		</div>
 		<div class="list_goods">
 			<div class="bx-wrapper" style="max-width: 1050px; margin: 0px auto;">
-				<div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 462px;">
+				<div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 400px;">
 					
 					<ul data-title="MD의 추천" data-section="md_choice" class="list" id="r_ul"	style="width: 815%; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
 						
@@ -344,7 +344,8 @@ a:active, a:hover {
 			</div>
 		</div>
 		
-		<div class="r_no_data" style="padding: 150px 0 148px; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6; font-size: 14px; color: #4c4c4c; text-align: center; margin-bottom: 50px;">
+		<div class="r_no_data" style="padding: 150px 0 148px; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6; font-size: 14px; color: #4c4c4c; text-align: center;    width: 1110px;
+    margin: 0 auto; margin-bottom: 50px;">
 			등록된 상품이 없습니다.
 		</div>
 		

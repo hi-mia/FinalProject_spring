@@ -8,6 +8,7 @@
 <div style="width: 1080px; margin: auto;">
 <jsp:include page="/manager/managerMenu.jsp"/>
 <div id="content" class="cont_post post_spam">
+      
       <div class="wrap_tit">
          <h3 class="cont_tit">
             <span class="tit_menu">리뷰게시판 관리</span>

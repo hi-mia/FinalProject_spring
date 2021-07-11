@@ -62,7 +62,7 @@
 			<div class="link_cate" style="width: 516px; margin: 0 auto; margin-top: 50px;">
 				<a id="b_linkBtn" class="link" style="display: block; overflow: hidden; height: 56px; padding-top: 16px;
 						border: 1px solid #e3e3e3; border-radius: 3px; font-size: 16px; line-height: 20px; text-align: center;
-						letter-spacing: -0.3px; cursor: pointer;"><span class="ico">자유게시판 더보기</span></a>
+						letter-spacing: -0.3px; cursor: pointer; color:#333;"><span class="ico">자유게시판 더보기</span></a>
 			</div>
 		</div>
 	</div>
@@ -109,10 +109,10 @@
 									data-slide="next"> <!--<i class="fa fa-chevron-right" aria-hidden="true"></i> -->
 									<span class="sr-only">Next</span>
 								</a>
+								<p>자주마켓은 동네 이웃 간의 연결을 도와 따뜻하고 활발한 교류가 있는 지역 사회를 꿈꾸고 있어요!</p>
 								<p>지역 내에서 발생하는 모든 생활정보(중고거래, 지역업체, 질문답변, 부동산, 구인구직 등)들이 모이고,
 									그 정보들이 따뜻한 문화 안에서 교류되는 세상을 꿈꾸고 있어요. 자주마켓은 중고거래에서 시작하지만 지역커뮤니티 및
-									정보 서비스를 지향합니다.</p>
-								<p>자주마켓은 동네 이웃 간의 연결을 도와 따뜻하고 활발한 교류가 있는 지역 사회를 꿈꾸고 있어요.</p>
+									정보 서비스 공유를 지향합니다.</p>
 								<!-- <a href="/jaju/main/fullpage.jsp" class="btn btn-primary" title="">자주마켓 소개 </a> -->
 							</div>
 							<!-- card-shadow reveal  -->

@@ -11,7 +11,7 @@ $(function(){
 			$('.goods_name .name').html(data.saleboardDTO.sale_subject);
 			$('.dc .dc_price').html(data.saleboardDTO.sale_price.toLocaleString()+"원");
 			if(data.saleboardDTO.sale_nego == 'on'){
-				$('#sale_nego').text('네고가능');				
+				$('#sale_nego').text('[네고가능]');				
 			}
 			
 			var member_id = $('#memId').val(); 
@@ -141,15 +141,13 @@ $(function(){
 			});
 			
 			$('#contentSpan').text(data.saleboardDTO.sale_content);
-			
-			
 			$('#member_id .tit').html('<br>'+data.saleboardDTO.member_id);
 			$('#member_id .tit').prepend($('<img/>',{
 				src : '/jaju/storage/'+ data.saleboardDTO.member_image,
-				width: '50px',
-				height: '50px',
+				width: '55px',
+				height: '55px',
 				id : "profilImg",
-				style: /* 'cursor: pointer; */ 'width : 50px; height: 50px;'
+				style: /* 'cursor: pointer; */ 'margin-top:0; width : 55px; height: 55px; border-radius: 50px;'
 			}));
 			// $('#member_id
 			// .desc').html('&nbsp;'+data.saleboardDTO.member_manner+'°C');
@@ -161,7 +159,12 @@ $(function(){
 					style:"visibility:visible "
 				}).append($('<span/>',{
 					text:data.saleboardDTO.member_manner.toFixed(1)+'°C'
-				})));
+				}).append($('<span/>',{
+					align:"left",
+					text:"매너온도는 자주 마켓 사용자로부터 받은 리뷰, 신고, 운영자 징계등을 종합해서 만든 매너 지표에요.",
+					class:"tooltip-text",
+					style:'display: none; position: absolute; max-width: 200px; border: 1px #ddd; border-radius: 5px; padding: 5px; font-size: 0.8em; color: #333; background: #f2f2f2; left: 140px;'
+				}))));
 			} else if(data.saleboardDTO.member_manner > 30 && data.saleboardDTO.member_manner < 40){
 				$('#member_id .desc').css('font-size', '17pt');
 				$('#member_id .desc').css('color', '#fedb35');

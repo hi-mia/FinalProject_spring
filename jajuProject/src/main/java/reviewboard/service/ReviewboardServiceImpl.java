@@ -208,7 +208,7 @@ public class ReviewboardServiceImpl implements ReviewboardService {
 
 	@Override
 	public ReviewboardPaging reviewboardPagingList(Map<String, String> map) {
-		
+
 		int pg = Integer.parseInt(map.get("pg"));
 		reviewboardPaging.setCurrentPage(pg);
 		reviewboardPaging.setPageBlock(3);

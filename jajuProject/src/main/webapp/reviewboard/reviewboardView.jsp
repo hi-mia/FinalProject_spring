@@ -21,7 +21,7 @@
 
 <div id="main">
 <div id="content">
-<h2 style="color:#333;">후기게시판</h2>
+<h2 style="color:#333;">리뷰게시판</h2>
 <div id="qnb" class="quick-navigation" style="top: 70px;"></div>
 <div class="layout-wrapper">
 	<div class="xans-element- xans-myshop xans-myshop-couponserial ">

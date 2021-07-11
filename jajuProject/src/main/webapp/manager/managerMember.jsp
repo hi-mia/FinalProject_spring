@@ -23,7 +23,7 @@
 		<div class="wrap_tit">
 			
 			<h3 class="cont_tit">
-				<span class="tit_menu">전체회원/운영진</span>
+				<span class="tit_menu">전체회원</span>
 			</h3>
 			
 			<form name="searchform" onsubmit="">

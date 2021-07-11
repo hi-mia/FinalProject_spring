@@ -170,7 +170,7 @@ p {
 
 dl {
 	display: block;
-	margin-block-start: 1em;
+	/*margin-block-start: 1em;*/
 	margin-block-end: 1em;
 	margin-inline-start: 0px;
 	margin-inline-end: 0px;
@@ -287,7 +287,7 @@ dl {
 
 #sectionView .goods_info .tit {
 	float: left;
-	width: 150px;
+	width: 120px;
 	font-size: 14px;
 	color: #666;
 	line-height: 20px;
@@ -515,19 +515,48 @@ pre {
 	margin-bottom: 30px; */
 }
 
-#memberreportSpan, #memberModifySpan, #saleboardDeleteBtn {
+#memberreportSpan{
 	/* 	font-size: 12pt;
 	padding: 8pt; */
 	height: 30px;
 	width: 90px;
-	background-color: #617aad;
+	/*background-color: #617aad;*/
+	background-color: #064acb;;
 	color: #fff;
 	border: none;
 	border-radius: 3px;
 	margin-top: 5px;
 }
-
-#memberreportSpan:hover, #memberModifySpan:hover, #saleboardDeleteBtn:hover
+#memberModifySpan{
+	/* 	font-size: 12pt;
+	padding: 8pt; */
+	height: 30px;
+	width: 90px;
+	background-color: #617aad;
+	/*background-color: #FFC074;*/
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	margin-top: 5px;	
+}
+#saleboardDeleteBtn{
+		/* 	font-size: 12pt;
+	padding: 8pt; */
+	height: 30px;
+	width: 90px;
+	background-color: #617aad;
+	/*background-color: #FFC074;*/
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	margin-top: 5px;
+}
+#memberreportSpan:hover{
+		cursor: pointer;
+	color: white;
+	background-color: #617AAD;
+}
+#memberModifySpan:hover, #saleboardDeleteBtn:hover
 	{
 	cursor: pointer;
 	color: white;
@@ -635,6 +664,7 @@ pre {
 }
 
 .graph1 span {
+		    margin-top: 10px;
 	display: block;
 	padding: 0 10px;
 	width: 40%;
@@ -657,6 +687,7 @@ pre {
 }
 
 .graph2 span {
+	    margin-top: 10px;
 	display: block;
 	padding: 0 10px;
 	width: 65%;
@@ -678,6 +709,7 @@ pre {
 }
 
 .graph3 span {
+		    margin-top: 10px;
 	display: block;
 	padding: 0 10px;
 	width: 80%;
@@ -705,4 +737,31 @@ pre {
 0% {width: 0; color: rgba(255, 255, 255, 0);}
 40%{color:rgba(255,255,255,1);}
 80%{width:80%;}
+}
+.tooltip-text {
+  display: none;
+  position: absolute;
+  max-width: 200px;
+  border: 1px #ddd;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 0.8em;
+  color: white;
+  background: #617AAD;
+  right:290px;
+  top:260px;
+}
+.tooltip{
+	font-size: 16px;
+	  cursor: pointer;
+	
+}
+.tooltip:hover .tooltip-text {
+  display: block;
+}
+.tooltip:hover .tooltip-text {
+  display: block;
+}
+.tooltip:hover .tooltip-text {
+  display: block;
 }

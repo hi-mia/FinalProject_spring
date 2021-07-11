@@ -52,7 +52,7 @@
 					</p>
 					<p class="goods_price">
 						<span class="position"><span class="dc">
-								<!----> <span class="dc_price">10<span class="won">원</span></span><br>
+								<!----> <span class="dc_price">10<span class="won">원</span></span>
 								<span id="sale_nego" style="font-size: 12pt;"></span>
 						</span></span>
 						
@@ -62,30 +62,31 @@
 				<div class="goods_info">
 					<!---->
 					<dl class="list" id="member_id">
-						<dt class="tit" ><img alt="프로필" src="" style="width: 50px; height: 50px;"><br></dt>
-						<dd class="desc"><br></dd>
+						<dt class="tit" ><img alt="프로필" src="" style="width: 50px; height: 50px;"></dt>
+						<dd align="right" class="tooltip">매너온도&ensp;<i class="far fa-question-circle"></i><span class="tooltip-text" align="left">매너온도는 자주 마켓 사용자로부터 받은 리뷰, 신고, 운영자 징계등을 종합해서 만든 매너 지표에요. </span></dd>
+						<dd class="desc"></dd>
 					</dl>
 					<dl class="list" id="sale_condition">
-						<dt class="tit">상품 상태</dt>
+						<dt class="tit">매물 상태</dt>
 						<dd class="desc"></dd>
 					</dl>
 					<dl class="list" id="howTrade">
-						<dt class="tit">거래방법</dt>
+						<dt class="tit">거래 방법</dt>
 						<!---->
 						<dd class="desc"></dd>
 					</dl>
 					<dl class="list" id="member_sido">
-						<dt class="tit">거래지역</dt>
+						<dt class="tit">거래 지역</dt>
 						<dd class="desc"></dd>
 					</dl>
 					
 					<dl class="list" id="sale_date">
-						<dt class="tit">올린 날자</dt>
+						<dt class="tit">올린 날짜</dt>
 						<dd class="desc"></dd>
 					</dl>
 					
 					<dl class="list" id="sale_state">
-						<dt class="tit">현재 상태</dt>
+						<dt class="tit">매물 상태</dt>
 						<dd class="desc"></dd>
 					</dl>
 					<!---->

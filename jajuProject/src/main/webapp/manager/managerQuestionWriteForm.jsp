@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="/manager/managerHeader.jsp"/>
 <link rel="stylesheet" href="/jaju/css/serviceMenu.css" /> 
 <link rel="stylesheet" href="/jaju/css/inquireWriteForm.css" />    
 
@@ -11,12 +10,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="/manager/managerMenu.jsp"/>
+
+<jsp:include page="/manager/managerHeader.jsp"/>
 <div style="width: 1050px; margin: auto;" >
+<jsp:include page="/manager/managerMenu.jsp"/>
 
 <div class="page_section section_qna">
 <div class="head_aticle">
-<h2 class="tit">자주 하는 질문 글쓰기</h2>
+<h2 class="tit" style="font-size: 31px; color: #333; margin-top:50px;">자주 하는 질문 글쓰기</h2>
 </div>
 
 <div class="xans-board-write">

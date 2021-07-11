@@ -63,12 +63,12 @@
 							<th class="saleboardModifyTd">구매자 목록</th>
 							<td class="saleboardModifyTd" id="buyer_list">
 							
-							<select class="select_buyer" name="select_buyer" id="select_buyer">
+							<select class="select_buyer" name="select_buyer" id="select_buyer" style="display: none;">
 									<option value="구매자선택" >구매자선택</option>
 							</select> 
 							
-							<input class="sale_state" type="button" value="구매자찾기" id="saleBuyer"> 
-							<input class="saleBuyerBtn" type="button" value="구매자선택완료" id="saleBuyerBtn">
+							<input class="sale_state" type="button" value="구매자찾기" id="saleBuyer" style="display: none;"> 
+							<input class="saleBuyerBtn" type="button" value="구매자선택완료" id="saleBuyerBtn" style="display: none;">
 							<div id="select_buyerDiv"></div></td>
 						</tr>
 
@@ -76,7 +76,7 @@
 							<th class="saleboardModifyTd">판매가격</th>
 							<td class="saleboardModifyTd" colspan="3">
 								<span class="sale_price" id="sale_price"></span>
-								<span class="sale_nego" id="sale_nego"></span>
+								<span class="sale_nego"saleBuyer id="sale_nego"></span>
 								<div id="sale_priceDiv"></div>
 							</td>
 						</tr>

@@ -12,6 +12,10 @@
 <div id="saleboardListDiv">
 
 		<div class="search_bt">
+		
+			<div class="head_aticle" align="center">
+				<h2 class="tit" style="color: #333;">관심게시판 <span class="tooltip-text" align="left">관심 키워드로 등록된 지역의 물품을 보여드려요. 만약 상품이 보이지 않는다면, 먼저 관심 키워드를 등록하세요!</span></h2>
+			</div>
 			
 			<select id="sortinSelect" class="selectBox" >
 				<option value="sale_date">최신순</option>
@@ -21,7 +25,7 @@
 			</select> 
 			
 			
-			<input type="text" name="searchText" id="searchText" value="" required="">
+			<input type="text" name="searchText" id="searchText" placeholder="검색할 중고 물품을 입력하세요." value="" required="">
 			<input type="image" src="/jaju/jajuImage/search.png" align="absmiddle" width="30" height="30" id="searchBtn">
 		</div>
 
