@@ -262,3 +262,16 @@ h1.tit{
 div#side{
 	margin-top: 0px;
 }
+
+#noticeModifyBtn{
+	height: 32px;
+    width: 80px;
+    background-color: #617aad;
+    /* background-color: #FFC074; */
+    color: #fff;
+    border: none;
+    margin-top: 5px;
+    font-size: 13px;
+    border: 1px solid #47597e;
+}
+

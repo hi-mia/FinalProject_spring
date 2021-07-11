@@ -99,3 +99,8 @@ $(function(){
 		}
 	});
 });
+
+$('#noticeModifyBtn').click(function(){
+	location.href = '/jaju/manager/managerNoticeModify?notice_seq='+$('#notice_seq').val();
+});
+
