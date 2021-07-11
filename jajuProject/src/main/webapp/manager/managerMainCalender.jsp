@@ -63,7 +63,7 @@ html, body {
 	display: inline-block;
 	width: 700px;
 	margin-left: 80px;
-	margin: 60px 200px;
+	margin: 60px 180px;
 	padding: 20px 20px 10px;
 	text-align: center;
 	font-weight: 800;
@@ -471,7 +471,7 @@ div.avatar.avatar-xl > img.calendar{
 		<jsp:include page="/manager/managerHeader.jsp" />
 	</div>
 
-	<div style="width: 1300px; margin: 0 auto;">
+	<div style="width: 1260px; margin: 0 auto;">
 
 		<div>
 			<jsp:include page="/manager/managerMenu.jsp" />

@@ -244,5 +244,24 @@ input[name=searchText]{
     background-color: #47597e;
     border: 1px solid #47597e;
 }
+.tooltip-text {
+     display: none;
+    position: absolute;
+    font-weight: 300;
+    max-width: 260px;
+    border: 2px #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 0.8em;
+    color: #333;
+    background: #f2f2f2;
+    top: 255px;
+    left: 824px;
+    font-size: 16px;
+}
+
+.tit:hover .tooltip-text {
+  display: block;
+}
 
 

@@ -2,9 +2,9 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="/jaju/css/freeboardWriteForm.css" />
 
-<div id="total" style="width:1100px; margin:0 auto;">
+<div id="total" style="width:1000px; margin:0 auto;">
 
-<div id="freeboardDiv" style="width:800px; display:inline-block; float:left; margin-left:80px; margin-top: 80px;">
+<div id="freeboardDiv" style="width:1000px; display:inline-block; float:left; margin-top: 80px;">
 <div class="head_aticle">
 <h2 style="color:#333;">글쓰기</h2>
 </div>
@@ -14,21 +14,21 @@
 	<input type="hidden" name="mode" value="add_qna">
 	<input type="hidden" name="itemcd">
 	<input type="hidden" name="sno" value="0">
-<table  class="freeboardWriteTable" style="width:100%;">
+<table  class="freeboardWriteTable" style="width:1000px">
 <colgroup><col width="14%" align="right"></colgroup>
 <tbody>
 
 <tr>
 	<th class="freeboardWriteTd">제목</th>
 	<td>
-		<input class="board_subject" type="text" style="width:40%;" name="board_subject" id="board_subject" placeholder="제목을 입력해주세요.">
+		<input class="board_subject" type="text" style="width:100%;" name="board_subject" id="board_subject" placeholder="제목을 입력해주세요.">
 			<div id="board_subjectDiv"></div>
 	</td>
 </tr>
 
 <tr>
 <th class="freeboardWriteTd">내용</th>
-<td class="freeText" name="board_content" placeholder="내용을 입력해주세요." style="position: relative; width:100%;">
+<td class="freeText" name="board_content" placeholder="내용을 입력해주세요." style="position: relative; width:1000px">
 
 <textarea name="board_content" id="board_content" style="width:100%; height:474px; resize: none;" class="editing_area" label="내용"></textarea>
 <div id="board_contentDiv"></div>
@@ -66,7 +66,7 @@
 </tr>
 </table>
 
-<table width="100%">
+<table width="1000px">
 	<tbody>
 		<tr style="width:800px;">
 			<td align="right" style="padding-top:30px; padding-bottom:40px; border:none;" id="avoidDbl">

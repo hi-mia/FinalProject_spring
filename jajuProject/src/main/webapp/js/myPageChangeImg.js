@@ -59,7 +59,7 @@ $(function(){
 	    		  $.each(data.list, function(index, items){
 	    			 $('<tr/>').append($('<td/>',{
 							align:'center',
-							style:'cursor: pointer; text-align-last: left;',
+							style:'width:100%; cursor: pointer; text-align-last: left;',
 							id:'subject_' 
 					}).append($('<a/>',{
 						text:' 제 목: '+items.review_subject+' ',

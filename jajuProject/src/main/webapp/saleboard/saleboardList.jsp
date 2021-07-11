@@ -12,6 +12,10 @@
 <div id="saleboardListDiv">
 
 		<div class="search_bt">
+		
+			<div class="head_aticle" align="center">
+				<h2 class="tit" style="color: #333;">판매게시판<span class="tooltip-text" align="left">자주마켓에 등록 된 모든 상품을 볼 수 있어요.</span> </h2>
+			</div>
 			
 			<select id="sortinSelect" class="selectBox" >
 				<option value="sale_date">최신순</option>

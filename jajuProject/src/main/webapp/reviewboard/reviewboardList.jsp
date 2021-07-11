@@ -6,14 +6,14 @@
 <!--  
 <div id="total" style="width:800px; margin: auto; ">
 <div id="formTotal" style="width:800px; display:inline-block; float:left; margin-left:80px; margin-top: 86px;">-->
-<div id="total" style="width:1000px; margin: auto; ">
-<div id="formTotal">
+<div id="total" style="width:1000px; margin:0 auto; ">
+<div id="formTotal" style="width:1000px; display:inline-block; float:left; margin-top: 86px;">
 <div class="head_aticle" padding-left="10px">
-   <h2 class="tit" style="color: #333;">후기 게시판 </h2>
+   <h2 class="tit" style="color: #333;">리뷰게시판 </h2>
 </div>
 <br>
 <div id="totalDiv">
-   <table id="reviewboardListTable" style="width:100%" class="xans-board-listheader jh" cellpadding="0" cellspacing="0">
+   <table id="reviewboardListTable" style="width:1000px" class="xans-board-listheader jh" cellpadding="0" cellspacing="0">
       <thead>
          <tr>
             <th width="8%">번호</th>

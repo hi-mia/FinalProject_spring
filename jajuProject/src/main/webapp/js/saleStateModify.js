@@ -23,8 +23,8 @@ $(function(){
 				$("#sale_state").attr("disabled","disabled");
 				$('#saleboardModifyTable tr:eq(1)').show();
 				$('#change_state').hide();
-				$('#select_buyer').hide();
-				$('#saleBuyerBtn').hide();
+				//$('#select_buyer').hide();
+				//$('#saleBuyerBtn').hide();
 				$('.click_to_change_inform').hide();
 				alert('구매자 찾기 버튼을 눌러주세요.');
 			}
@@ -77,8 +77,9 @@ $(function(){
 	
 	//구매자 불러오기
 	
-		$('#saleBuyer').hide(); //구매자 불러오기 버튼 숨김
+		//$('#saleBuyer').hide(); //구매자 불러오기 버튼 숨김
 		//$('#sale_tr').hide();
+		//$('.click_to_change_inform').hide();
 		$('#saleBuyer').show(); // 판매상태가  '판매완료'로 update 성공한경우에만 활성화시키기
 
 		$('#saleBuyer').click(function() {

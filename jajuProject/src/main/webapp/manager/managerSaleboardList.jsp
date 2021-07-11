@@ -10,7 +10,15 @@
 <div style="width: 1080px; margin: auto;">
 <jsp:include page="/manager/managerMenu.jsp"/>
 <div id="content" class="cont_post post_spam">
+       
+
+      
       <div class="wrap_tit">
+	      	<div id="sale_title" style="display: flex;">
+		         <h3 class="cont_tit">
+		            <span class="tit_menu">판매게시판 관리</span>
+		         </h3>
+	        </div> 
          <form name = "managerSaleboardSearchList" id="managerSaleboardSearchList" method="post">
          <input type="hidden" id="categorySelected" value="${param.sale_category }" />
 			<select name="categoryOption" id="categoryOption" style="float: left; font-size: 14px;">
@@ -31,7 +39,7 @@
 				<option value="book">도서 / 티켓 / 음반</option>
 				<option value="else">기타 중고물품</option>
 			</select>
-         
+		
 		<div class="box_search">
 			<div class="select_admin" style="font-size: 14px;">
 			
@@ -53,6 +61,7 @@
          <input type="hidden" name="searchPg" id="searchPg" value="1">   
          </form>
       </div>
+
       <div class="option_list article_option_list">
          <div class="info_option">
             <span class="txt_total">전체 게시글 <span id="totalNum" class="num_total"></span></span>

@@ -33,7 +33,7 @@ $(function(){
 					$('<tr/>').append($('<div/>',{
 						align:'center',
 						text:'등록된 게시물이 없습니다',
-						style:'height:500px; width:800px; line-height:500px;'
+						style:'height:500px; width:1000px; line-height:500px;'
 					})).appendTo($('#freeboardListTable'));
 				}
 				

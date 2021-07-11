@@ -19,7 +19,7 @@
 		<jsp:include page="/manager/managerHeader.jsp" />
 	</div>
 
-	<div style="width: 1300px; margin: 0 auto;">
+	<div style="width: 1260px; margin: 0 auto;">
 
 		<div>
 			<jsp:include page="/manager/managerMenu.jsp" />

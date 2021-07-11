@@ -106,7 +106,9 @@ body {
        	
 			<table border="0" id="historyTable" width="450px" cellpadding="5" bordercolor="#ededed" align="center" frame="hsides" rules="rows">
 				<tr class="title">
-					<th width="200px" align="center">제 목</th>
+					<th width="200px" align="center" class="tooltip">내가 받은 거래후기
+					<span class="tooltip-text" align="left">제목을 클릭하면 해당 페이지로 이동합니다. </span>
+					</th>
 				</tr>
 			</table>
 			

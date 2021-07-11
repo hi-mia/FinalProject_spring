@@ -74,7 +74,7 @@ public class ReviewboardController {
 				fileName = list.get(i).getOriginalFilename();
 				file = new File(filePath, fileName);
 				
-				System.out.println(fileName);
+				//System.out.println(fileName);
 				
 				//파일 복사
 				try {
@@ -173,7 +173,7 @@ public class ReviewboardController {
 		String memId = (String) session.getAttribute("memId");
 		model.addAttribute("memId", memId);
 		
-		System.out.println(reviewboardDTO.getReview_manner());
+		//System.out.println(reviewboardDTO.getReview_manner());
 		
 		//model.addAttribute("pg", pg); // pg값 받기
 		
@@ -186,7 +186,7 @@ public class ReviewboardController {
 			fileName = list.get(i).getOriginalFilename();
 			file = new File(filePath, fileName);
 			
-			System.out.println(fileName);
+			//System.out.println(fileName);
 			
 			//파일 복사
 			try {

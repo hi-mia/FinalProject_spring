@@ -16,7 +16,7 @@ $(function(){
 					$('<tr/>').append($('<div/>',{
 						align:'center',
 						text:'등록된 게시물이 없습니다',
-						style:'height:500px; width:800px; line-height:500px;'
+						style:'height:500px; width:1000px; line-height:500px;'
 					})).appendTo($('#reviewboardListTable'));
 				}
 			 
@@ -33,7 +33,7 @@ $(function(){
 		            	   src:'/jaju/storage/'+items.sale_image1,
 		            	   alt:'img',
 		            	   style:'text_align:left; width:150px; height:100px;',
-			               id: 'item',
+			               id: 'item_img',
 		                  
 		               })) 
 		            ).append($('<td/>',{
@@ -59,8 +59,9 @@ $(function(){
 		            })).appendTo($('#reviewboardListTable'));
 				
 			}); //each
+			
 			$(document).on('click', '#item', function(){ //a태그에 아이디 준거 subjectA 그거의 부모 찾고 그 부모의 앞에거를 찾고
-				  if($('#id').val() == ''){
+				if($('#id').val() == ''){
 						alert("먼저 로그인 하세요");
 					}else {
 	               var seq = $(this).parent().prev().prev().text();
@@ -69,6 +70,19 @@ $(function(){
 	               //location.href = '/jaju/freeboard/freeboardView?board_seq='+seq+'&pg='+$('#pg').val();
 					}
 	         });
+			
+			$(document).on('click', '#item_img', function(){ //a태그에 아이디 준거 subjectA 그거의 부모 찾고 그 부모의 앞에거를 찾고
+				if($('#id').val() == ''){
+						alert("먼저 로그인 하세요");
+					}else {
+	               var seq = $(this).parent().prev().text();
+	               //alert(seq);
+	               location.href = '/jaju/reviewboard/reviewboardView?review_seq='+seq+'&pg='+$('#pg').val();
+	               //location.href = '/jaju/freeboard/freeboardView?board_seq='+seq+'&pg='+$('#pg').val();
+					}
+	         });
+			
+			
 
 		  //페이징 처리
 		$('#reviewboardpagingDiv').html(data.reviewboardPaging.pagingHTML);		
@@ -158,7 +172,9 @@ $(function(){
 
 		               var seq = $(this).parent().prev().text();
 		               location.href = '/jaju/reviewboard/reviewboardView?review_seq='+seq;
-		   });
+			  });
+			  
+			  
 			   }
 			   
 			$('#reviewboardpagingDiv').html(data.reviewboardPaging.pagingHTML);		

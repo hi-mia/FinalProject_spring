@@ -59,7 +59,7 @@
 				
 				<tr class="etcArea">
 					<td colspan="2">
-					<ul>
+					<ul style="margin-block-start: 0;">
 					<li class="tpye">
 						<strong class="th">전화번호</strong>
 						<span class="td" id = "inquiry_telephone"></span>

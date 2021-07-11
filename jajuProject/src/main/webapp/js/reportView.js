@@ -11,7 +11,7 @@ $(function(){
 		data: {'report_seq' : $('#report_seq').val()},
 		dataType: 'json',
 		success: function(data){
-			//alert(JSON.stringify(data));
+			alert(JSON.stringify(data));
 			
 			if(data.reportDTO == null){
 				

@@ -13,6 +13,7 @@
 
 <div id="saleboardDiv">
 <div class="head_aticle">
+<h2 style="color:#333;">글쓰기</h2>
 </div>
 	
 <div class="xans-board-write">
@@ -119,7 +120,7 @@
 <th class="saleboardWriteTd">내용</th>
 <td class="saleText" name="sale_content" placeholder="내용을 입력해주세요." style="position: relative; width:100%;">
 
-<textarea name="sale_content" id="sale_content" style="width:90%; height:474px; resize: none;" class="editing_area" label="내용"></textarea>
+<textarea name="sale_content" id="sale_content" style="width:100%; height:474px; resize: none;" class="editing_area" label="내용"></textarea>
 <div id="sale_contentDiv"></div>
 </td>
 </tr>
@@ -161,12 +162,12 @@
 			   </div>
 		
 
-<table width="70%">
+<table width="100%">
 	<tbody>
 		<tr>
 			<td align="right" style="padding-top:5px; border:none;" id="avoidDbl">
-				<input type="button" id="saleboardListBtn" class="bhs_button yb" value="목록" style="float:none;">
 				<input type="button" id="saleboardWriteBtn" class="bhs_button yb" value="판매글등록" style="float:none;">
+				<input type="button" id="saleboardListBtn" class="bhs_button yb" value="목록" style="float:none;">
 			</td>
 		</tr>
 	</tbody>

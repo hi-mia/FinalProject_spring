@@ -18,18 +18,24 @@ $(function(){
 			//평점
 			if(data.reviewboardDTO.review_manner<=21.5){
 				$('#mannerSpan').text('★☆☆☆☆');
+				$('#mannerSpan').css('color','#F08A5D');
+
 			}
 			else if(data.reviewboardDTO.review_manner<=29){
 				$('#mannerSpan').text('★★☆☆☆');
+				$('#mannerSpan').css('color','#F08A5D');
 			}
 			else if(data.reviewboardDTO.review_manner<=36.5){
 				$('#mannerSpan').text('★★★☆☆');
+				$('#mannerSpan').css('color','#F08A5D');
 			}
 			else if(data.reviewboardDTO.review_manner<=44){
 				$('#mannerSpan').text('★★★★☆');
+				$('#mannerSpan').css('color','#F08A5D');
 			}
 			else if(data.reviewboardDTO.review_manner<=51.5){
 				$('#mannerSpan').text('★★★★★');
+				$('#mannerSpan').css('color','#F08A5D');
 			}
 			//$('#mannerSpan').text(data.reviewboardDTO.review_manner);
 			
