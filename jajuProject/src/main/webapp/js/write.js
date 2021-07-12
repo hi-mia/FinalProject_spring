@@ -354,6 +354,7 @@ $('#writeBtn').click(function(){
 			data: $('#form').serialize(),
 			dataType: 'text',
 			success: function(data){
+				alert("??");
 				if(data != 'blackList'){
 					alert('회원가입 성공');
 					location.href="/jaju/";

@@ -87,7 +87,7 @@ $('#saleboardModifyBtn').click(function(){
 	
 	var formData = new FormData($('#saleboardModifyForm')[0]); //form 안에 있는 모든 것 다 넘김
 	
-	//유효성 검사
+	//유효성검사
 	$('#sale_subjectDiv').empty();
 	$('#sale_priceDiv').empty();
 	$('#sale_categoryDiv').empty();
@@ -96,55 +96,50 @@ $('#saleboardModifyBtn').click(function(){
 	$('#sale_deliveryDiv').empty();
 	$('#sale_onlineTranDiv').empty();
 	$('#sale_contentDiv').empty();
+	$('#sale_imageDiv').empty();
 	
 	var whatcondition = document.getElementsByName('sale_condition'); //라디오박스
 	
-	var howdelivery = document.getElementsByName('howDelivery'); //체크박스
-	var num = 0;
-	
-	//배송방법
-	/*for(var i = 0; i<howdelivery.length; i++) {
-		if(howdelivery[i].checked) {
-			num++;
-		}
-	}*/
-	
-	//alert(!$('#sale_direct').prop('checked'))
-	//false !==true &&  t,t,t 나오는 경우 걸리게 코드짜기   
-	if(!$('#sale_direct').prop('checked')&&!$('#sale_delivery').prop('checked')&&!$('#sale_onlineTran').prop('checked')) {
-		//alert('배송')
-		$('#sale_directDiv').text('배송 방법을 선택해주세요');
-		$('#sale_directDiv').css('color', 'red');
-		$('#sale_directDiv').css('font-size', '10pt');
-		$('#sale_directDiv').css('font-weight', 'bold');
-	}
-	else if($('#sale_subject').val() == ''){
+	if($('#sale_subject').val() == ''){
         $('#sale_subjectDiv').text('제목을 입력하세요');
         $('#sale_subjectDiv').css('color', 'red');
         $('#sale_subjectDiv').css('font-size', '10pt');
         $('#sale_subjectDiv').css('font-weight', 'bold');
-	}
-	else if($('#sale_price').val() == ''){
+	}else if($('#sale_price').val() == ''){
         $('#sale_priceDiv').text('가격을 입력하세요');
         $('#sale_priceDiv').css('color', 'red');
         $('#sale_priceDiv').css('font-size', '10pt');
         $('#sale_priceDiv').css('font-weight', 'bold');
-	}
-	else if($('#sale_category').val() == '*'){
+	}else if($('#sale_category').val() == '*'){
 		$('#sale_categoryDiv').text('카테고리를 선택해주세요');
 		$('#sale_categoryDiv').css('color', 'red');
         $('#sale_categoryDiv').css('font-size', '10pt');
         $('#sale_categoryDiv').css('font-weight', 'bold');
-	}else if($('input[name=sale_condition]:radio:checked').length==0){ //선택해도 안 없어짐
+	}else if($('input[name=sale_condition]:radio:checked').length==0){
 		$('#sale_conditionDiv').text('상품 상태를 선택해주세요');
 		$('#sale_conditionDiv').css('color', 'red');
         $('#sale_conditionDiv').css('font-size', '10pt');
-        $('#sale_conditionDiv').css('font-weight', 'bold');
+        $('#sale_conditionDiv').css('font-weight', 'bold');   
+	}else if(!$("input:checked[id='sale_direct']").is(":checked") && !$("input:checked[id='sale_delivery']").is(":checked") && !$("input:checked[id='sale_onlineTran']").is(":checked")){
+    		$('#sale_directDiv').text('배송방법을 선택해주세요');
+    		$('#sale_directDiv').css('color', 'red');
+            $('#sale_directDiv').css('font-size', '10pt');
+            $('#sale_directDiv').css('font-weight', 'bold');
 	}else if($('#sale_content').val() == ''){
-		$('#sale_contentDiv').text('내용을 입력하세요');
-		$('#sale_contentDiv').css('color', 'red');
-		$('#sale_contentDiv').css('font-size', '10pt');
-		$('#sale_contentDiv').css('font-weight', 'bold');
+            $('#sale_contentDiv').text('내용을 입력하세요');
+            $('#sale_contentDiv').css('color', 'red');
+            $('#sale_contentDiv').css('font-size', '10pt');
+            $('#sale_contentDiv').css('font-weight', 'bold');
+	}else if($("input[name=file]").eq(0).val() == ''){
+		$('#sale_imageDiv').text('이미지를 삽입해주세요');
+		$('#sale_imageDiv').css('color', 'red');
+		$('#sale_imageDiv').css('font-size', '10pt');
+		$('#sale_imageDiv').css('font-weight', 'bold');
+	}else if($("input[name=file]").eq(1).val() == ''){
+		$('#sale_imageDiv').text('이미지를 2장 이상 삽입해주세요');
+		$('#sale_imageDiv').css('color', 'red');
+		$('#sale_imageDiv').css('font-size', '10pt');
+		$('#sale_imageDiv').css('font-weight', 'bold');
 	}else{
 	
 	$.ajax({

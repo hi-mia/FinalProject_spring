@@ -29,7 +29,7 @@
 	</delete>
 
 	<select id="getTotalA" resultType="int">
-		select count(*) from inquiryboard
+		select count(*) from inquiryboard where not inquiry_id in '관리자' order by inquiry_seq asc
 	</select>
 	
 	<!-- 검색 -->
