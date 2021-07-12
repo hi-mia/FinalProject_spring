@@ -14,7 +14,7 @@
 		<div class="search_bt">
 		
 			<div class="head_aticle" align="center">
-				<h2 class="tit" style="color: #333;">판매게시판<span class="tooltip-text" align="left">자주마켓에 등록 된 모든 상품을 볼 수 있어요.</span> </h2>
+				<h2 class="tit" style="color: #333;">판매게시판<span class="tooltip-text" align="left">자주마켓에 등록 된 모든 상품을 볼 수 있어요. 단 회원가입 시 등록된 주소를 기준으로 보여집니다.</span> </h2>
 			</div>
 			
 			<select id="sortinSelect" class="selectBox" >

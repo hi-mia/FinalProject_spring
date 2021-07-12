@@ -258,13 +258,13 @@ $('#search-text_Btn').click(function(){
 			success: function(data){
 				
 				if(JSON.stringify(data.list)=='[]'){ 
-		    		alert("찾는 내용이 없습니다.");
+		    		//alert("찾는 내용이 없습니다.");
 		    		$('#memberListBody tr').remove();
 
 		    		 $('<tr/>').append($('<td/>',{
 		    			 	colspan:8,
 							align:'center',
-							text:'검색 된 회원이 없습니다.',
+							text:$('#search-text').val()+'에 대한 검색결과가 없습니다.',
 							style:'bordercolor="#ededed"; width:860px; height:300px;'
 						})).appendTo($('#memberListBody'));
 		    	}

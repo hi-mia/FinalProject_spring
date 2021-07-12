@@ -29,7 +29,7 @@
 		<jsp:include page="/main/header.jsp" />
 	</div>
 	
-	<div>
+	<div style="min-height:65%">
 		<c:if test="${empty display }">
 			<jsp:include page="/main/body.jsp"></jsp:include>
 		</c:if>

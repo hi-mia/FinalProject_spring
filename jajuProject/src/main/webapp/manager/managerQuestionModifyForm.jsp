@@ -11,12 +11,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="/manager/managerMenu.jsp"/>
 <div style="width: 1050px; margin: auto;" >
+<jsp:include page="/manager/managerMenu.jsp"/>
 
 <div class="page_section section_qna">
 <div class="head_aticle">
-<h2 class="tit">자주 하는 질문 글쓰기 수정</h2>
+<h2 class="tit" style="color: #333; margin-top:50px;">자주 하는 질문 글쓰기 수정</h2>
 </div>
 
 <div class="xans-board-write">

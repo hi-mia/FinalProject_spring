@@ -9,7 +9,7 @@
 <jsp:include page="/manager/managerMenu.jsp"/>
 <div class="page_section section_qna" style="float:left;">
 <div class="head_aticle">
-<h2 class="tit" style="font-size: 31px; color: #333; margin-top:50px;">공지사항 수정</h2>
+<h2 class="tit" style="color: #333; margin-top:50px;">공지사항 수정</h2>
 </div>
 
 <div class="xans-board-write">

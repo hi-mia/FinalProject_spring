@@ -87,7 +87,7 @@
 							<input type="checkbox" id="all" name="all"/>
 						</th>
 				
-						<th class="member_writer" style="width:90px; text-align:center;">아이디</th>
+						<th class="member_writer" style="width:100px; text-align:center;">아이디</th>
 						
 						<th class="member_email" style="width: 120px; text-align:center;">이메일</th>
 						

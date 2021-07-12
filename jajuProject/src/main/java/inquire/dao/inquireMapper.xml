@@ -23,12 +23,9 @@
 	</insert>
 	
 	<select id = "getInquireList" parameterType = "java.util.Map" resultType = "inquire">
-		
  		select *from (select rownum rn, tt.* from
 		(select * from inquiryboard where inquiry_id = #{inquiry_id} or inquiry_name= #{inquiry_id} order by inquiry_ref desc, inquiry_lev asc)tt)
 		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
-		
-	
  	</select>
  	
  	<select id="getInquireView" parameterType="int" resultType="inquire">

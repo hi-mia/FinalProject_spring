@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="/jaju/css/find_id.css" />
 </head>
 <body>
-	<div id="content">
+	<div id="content" style="height: 61.5%;">
 		<div class="section_login">
 			<h3 class="tit_login">비밀번호 찾기</h3>
 			<div class="write_form find_view">

@@ -76,7 +76,7 @@
 				<!-- == main -->
 				<li class="all_category header_a_li">
 					<!-- == MAIN01 == 전체카테고리 --> <a href="#" class="button">
-						<button type="button" class="menu_button"></button> 전체 카테고리
+						<button type="button" class="menu_button"></button> 상품 카테고리
 				</a> <!-- 전체카테고리 hover시 나타남. -->
 					<ul class="all_category_item" id="all_category_item">
 						<!-- == sub -->

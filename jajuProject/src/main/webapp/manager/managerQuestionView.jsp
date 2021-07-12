@@ -21,7 +21,7 @@
 <div id="container" style="float:left; margin-left:40px; /* margin-top:-50px; */ width:800px;">
 
 <div class="tit_page" style="width:800px; align:center;">
-	<h3 class="tit" >자주 하는 질문</h3>
+	<h3 class="tit"style="font-size: 31px; color: #333; " >자주 하는 질문</h3>
 </div>
 
 <div id="main">

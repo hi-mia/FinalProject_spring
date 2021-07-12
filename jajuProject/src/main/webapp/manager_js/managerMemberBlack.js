@@ -114,14 +114,14 @@ $('#sortinSelect').change(function(){
 	$('#memberPagingBlackDiv').hide();
 	$('#memberPagingDiv').show();
 	$('#memberListBody tr').remove();
-	/*
+	
 	if($(this).val()=='delete_member'){
 		$("#again_member_id").hide();
 		$("#btnWithdraw").hide();
 	}else{
 		$("#again_member_id").show();
 		$("#btnWithdraw").show();
-	}*/
+	}
 	//console.log($(this).val()); //value값 가져오기
 	
 	

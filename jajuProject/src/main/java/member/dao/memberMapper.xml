@@ -40,10 +40,14 @@
  	</insert>
  	
  	<update id="modify" parameterType="member">
+ 		begin
  		update jajumember set member_pwd=#{member_pwd}, member_name=#{member_name},
  							  member_email=#{member_email}, member_telephone=#{member_telephone},
  							  member_sido=#{member_sido}, member_sigungu=#{member_sigungu}, member_address=#{member_address},
- 							  member_detailaddr=#{member_detailAddr}, member_gender=#{member_gender} where member_id=#{member_id}
+ 							  member_detailaddr=#{member_detailAddr}, member_gender=#{member_gender} where member_id=#{member_id};
+ 							  
+ 		update location set location_id = #{member_id}, location1_addr1 = #{member_sido}, location1_addr2 =#{member_sigungu} where location_id = #{member_id};
+ 		end;					  
  	</update>
  	
  	<select id="getId" parameterType="java.util.Map" resultType="member">

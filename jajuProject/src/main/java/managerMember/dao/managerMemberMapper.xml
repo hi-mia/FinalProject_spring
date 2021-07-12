@@ -34,7 +34,7 @@
 
 <!-- 강제탈퇴 눌렀을 경우, 상태는 2로 변경, 이메일만 놔두고 다 0 이나 null로 변경하기 (update)-->
 <update id="managerMemberForm" parameterType="java.util.Map" >
-	update jajumember set member_seq='0',member_pwd='0',member_name='0', 
+	update jajumember set member_seq='0',member_name='0', 
 	member_telephone='0',member_sido='0',member_sigungu='0',member_address='0',
 	member_detailAddr='0',member_gender='0',member_manner='0',member_warning='0',member_date=sysdate,
 	member_image='0', member_state='2' where member_id in

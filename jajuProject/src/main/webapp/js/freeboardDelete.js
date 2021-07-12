@@ -1,5 +1,5 @@
 $('#boardDelete').click(function(){
-	alert('abc')
+	//alert('abc')
 	
 	$.ajax({
 		type: 'post',

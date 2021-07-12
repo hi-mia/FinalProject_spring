@@ -71,7 +71,7 @@ $(function(){
 					$('#s_a' + index).prop('href', '/jaju/saleboard/saleboardView?sale_seq=' + items.sale_seq + '&pg=1');
 					$('#s_img' + index).prop('src', '/jaju/storage/' + items.sale_image1);
 					$('#s_subject' + index).text(items.sale_subject);
-					$('#s_price' + index).text(items.sale_price);
+					$('#s_price' + index).text(items.sale_price.toLocaleString());
 				});
 				
 				$('.list_goods').show();
