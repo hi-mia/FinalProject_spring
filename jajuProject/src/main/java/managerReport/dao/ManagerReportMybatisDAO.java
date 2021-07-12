@@ -88,4 +88,9 @@ public class ManagerReportMybatisDAO implements ManagerReportDAO {
 		sqlSession.delete("managerReportSQL.commentDelete", map);
 	}
 
+	@Override
+	public ReportDTO getReportOne(String string) {
+		return sqlSession.selectOne("managerReportSQL.getReportOne", string);
+	}
+
 }

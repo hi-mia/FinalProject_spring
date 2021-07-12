@@ -108,7 +108,7 @@ public class ManagerReportController {
 		int[] sale_check = new int[check.length];
 		
 		for(int i=0; i<check.length; i++) {
-			ReportDTO reportDTO = managerReportService.getReport(check[i]+"");
+			ReportDTO reportDTO = managerReportService.getReportOne(check[i]+"");
 			sale_check[i] = reportDTO.getSale_seq();
 		}
 		

@@ -121,4 +121,9 @@ public class ManagerReportServiceImpl implements ManagerReportService {
 		
 	}
 
+	@Override
+	public ReportDTO getReportOne(String string) {
+		return managerReportDAO.getReportOne(string);
+	}
+
 }
