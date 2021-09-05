@@ -9,7 +9,7 @@
 * HTML, CSS, javaScript, jQuery, Ajax
 * github, notion
 
-
+주요 기능
 * 로그인(카카오 로그인 가능)
 * 회원가입(이메일 인증)
 * 게시판(판매, 자유, 리뷰 게시판) - CRUD, 검색, 페이징 
